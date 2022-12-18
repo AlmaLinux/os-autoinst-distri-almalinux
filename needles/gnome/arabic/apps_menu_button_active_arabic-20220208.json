@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "xpos": 952,
+      "ypos": 6,
+      "width": 56,
+      "height": 18,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "DESKTOP-gnome",
+    "ENV-DISTRI-fedora",
+    "LANGUAGE-arabic",
+    "apps_menu_button",
+    "apps_menu_button_active"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "ypos": 8,
+      "type": "match",
+      "height": 14,
+      "xpos": 182,
+      "width": 49
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "minesweeper_runs"
+  ]
+}

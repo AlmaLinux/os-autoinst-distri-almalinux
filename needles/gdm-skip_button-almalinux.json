@@ -1,0 +1,20 @@
+{
+  "area": [
+    {
+      "click_point": {
+        "ypos": 13,
+        "xpos": 25.5
+      },
+      "xpos": 963,
+      "type": "match",
+      "height": 26,
+      "width": 51,
+      "ypos": 37
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "skip_button"
+  ]
+}

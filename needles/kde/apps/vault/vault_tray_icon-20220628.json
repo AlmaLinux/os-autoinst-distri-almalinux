@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 760,
+      "height": 18,
+      "width": 18,
+      "type": "match",
+      "ypos": 737
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "vault_tray_icon"
+  ]
+}

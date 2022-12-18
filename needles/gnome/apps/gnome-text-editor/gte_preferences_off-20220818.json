@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "xpos": 471,
+      "width": 349,
+      "click_point": {
+        "xpos": 337,
+        "ypos": 12
+      },
+      "height": 24,
+      "ypos": 61
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gte_preferences_off"
+  ]
+}

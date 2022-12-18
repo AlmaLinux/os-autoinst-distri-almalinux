@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "contacts_entry_add_name"
+  ],
+  "area": [
+    {
+      "xpos": 573,
+      "ypos": 170,
+      "width": 74,
+      "height": 22,
+      "type": "match"
+    }
+  ]
+}

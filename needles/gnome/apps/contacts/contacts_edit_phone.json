@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "contacts_edit_phone"
+  ],
+  "area": [
+    {
+      "xpos": 417,
+      "ypos": 559,
+      "width": 40,
+      "height": 24,
+      "type": "match"
+    }
+  ]
+}

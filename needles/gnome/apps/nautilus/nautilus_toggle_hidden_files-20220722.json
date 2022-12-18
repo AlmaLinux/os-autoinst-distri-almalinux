@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "height": 19,
+      "ypos": 300,
+      "type": "match",
+      "width": 124,
+      "xpos": 828
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "nautilus_toggle_hidden_files"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "area": [
+    {
+      "width": 25,
+      "xpos": 9,
+      "type": "match",
+      "height": 32,
+      "ypos": 730
+    }
+  ],
+  "properties": [
+    {
+      "name": "workaround",
+      "value": "this is a wrong icon, upstream not downstream: https://bugzilla.redhat.com/show_bug.cgi?id=2119360"
+    }
+  ],
+  "tags": [
+    "DESKTOP-kde",
+    "system_menu_button",
+    "apps_menu_button"
+  ]
+}

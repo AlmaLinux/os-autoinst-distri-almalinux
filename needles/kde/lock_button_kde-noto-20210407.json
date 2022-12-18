@@ -1,0 +1,15 @@
+{
+    "area": [
+        {
+            "height": 13,
+            "type": "match",
+            "width": 31,
+            "xpos": 584,
+            "ypos": 607
+        }
+    ],
+    "properties": [],
+    "tags": [
+        "lock_button"
+    ]
+}

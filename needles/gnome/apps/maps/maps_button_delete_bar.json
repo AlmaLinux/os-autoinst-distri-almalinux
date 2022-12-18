@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 742,
+      "ypos": 46,
+      "width": 19,
+      "height": 17,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "maps_button_delete_bar"
+  ]
+}

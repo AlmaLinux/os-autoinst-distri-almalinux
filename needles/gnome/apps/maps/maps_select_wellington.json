@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "maps_select_wellington"
+  ],
+  "area": [
+    {
+      "xpos": 263,
+      "ypos": 95,
+      "width": 111,
+      "height": 39,
+      "type": "match"
+    }
+  ]
+}

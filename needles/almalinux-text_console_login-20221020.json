@@ -1,0 +1,17 @@
+{
+  "area": [
+    {
+      "xpos": 72,
+      "ypos": 64,
+      "type": "match",
+      "width": 61,
+      "height": 15
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "login_screen",
+    "text_console_login",
+    "ENV-DISTRI-almalinux"
+  ]
+}

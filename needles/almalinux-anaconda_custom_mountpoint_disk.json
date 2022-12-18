@@ -1,0 +1,21 @@
+{
+  "area": [
+    {
+      "height": 34,
+      "type": "match",
+      "ypos": 617,
+      "width": 38,
+      "xpos": 30,
+      "click_point": {
+        "xpos": 19,
+        "ypos": 17
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "LANGUAGE-english",
+    "anaconda_custom_part_add"
+  ]
+}

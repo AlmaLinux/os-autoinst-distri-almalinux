@@ -1,0 +1,17 @@
+{
+  "area": [
+    {
+      "xpos": 512,
+      "ypos": 642,
+      "type": "match",
+      "height": 19,
+      "width": 59
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_select_install_lang_input",
+    "ENV-DISTRI-almalinux",
+    "ENV-FLAVOR-server"
+  ]
+}

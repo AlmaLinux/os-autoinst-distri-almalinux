@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 14,
+      "ypos": 6,
+      "type": "match",
+      "width": 71,
+      "height": 91
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "eog_image_background"
+  ]
+}

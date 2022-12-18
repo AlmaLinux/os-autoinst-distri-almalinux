@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "width": 67,
+      "ypos": 9,
+      "xpos": 36,
+      "height": 15,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "DESKTOP-gnome",
+    "ENV-DISTRI-almalinux",
+    "LANGUAGE-english",
+    "apps_menu_button",
+    "apps_menu_button_active"
+  ]
+}

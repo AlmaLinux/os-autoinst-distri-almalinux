@@ -1,0 +1,22 @@
+{
+  "area": [
+    {
+      "xpos": 106,
+      "ypos": 137,
+      "width": 124,
+      "height": 17,
+      "type": "match"
+    },
+    {
+      "xpos": 568,
+      "ypos": 138,
+      "width": 62,
+      "height": 15,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "eog_shortcuts_alt_shown"
+  ]
+}

@@ -1,0 +1,15 @@
+- job:
+    name: os-autoinst-tox
+    run: ci/tox.yaml
+    nodeset: fedora-latest-container
+
+- job:
+    name: os-autoinst-perl
+    run: ci/perl.yaml
+    nodeset: fedora-latest-container
+
+- project:
+    check:
+      jobs:
+        - os-autoinst-tox
+        - os-autoinst-perl

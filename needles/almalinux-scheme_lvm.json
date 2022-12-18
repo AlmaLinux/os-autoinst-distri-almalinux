@@ -1,0 +1,17 @@
+{
+  "area": [
+    {
+      "width": 33,
+      "xpos": 64,
+      "type": "match",
+      "ypos": 242,
+      "height": 18
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "ENV-FLAVOR-server",
+    "anaconda_part_scheme_lvm"
+  ]
+}

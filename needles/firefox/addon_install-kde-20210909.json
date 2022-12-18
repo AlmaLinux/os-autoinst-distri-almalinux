@@ -1,0 +1,22 @@
+{
+  "area": [
+    {
+      "xpos": 281,
+      "height": 39,
+      "type": "match",
+      "ypos": 116,
+      "width": 24
+    },
+    {
+      "ypos": 284,
+      "type": "match",
+      "width": 26,
+      "xpos": 648,
+      "height": 16
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "firefox_addon_install"
+  ]
+}

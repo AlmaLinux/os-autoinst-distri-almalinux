@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "apps_menu_logs"
+  ],
+  "area": [
+    {
+      "xpos": 489,
+      "ypos": 517,
+      "width": 44,
+      "height": 44,
+      "type": "match"
+    }
+  ]
+}

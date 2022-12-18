@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 255,
+      "ypos": 409,
+      "width": 147,
+      "height": 35,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "calc_credits_shown"
+  ]
+}

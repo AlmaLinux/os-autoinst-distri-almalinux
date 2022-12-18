@@ -1,0 +1,15 @@
+{
+    "area": [
+        {
+            "height": 15,
+            "type": "match",
+            "width": 44,
+            "xpos": 631,
+            "ypos": 656
+        }
+    ],
+    "properties": [],
+    "tags": [
+        "kde_cancel_button"
+    ]
+}

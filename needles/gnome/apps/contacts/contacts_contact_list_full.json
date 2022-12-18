@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "contacts_contact_list_full"
+  ],
+  "area": [
+    {
+      "xpos": 5,
+      "ypos": 137,
+      "width": 182,
+      "height": 398,
+      "type": "match"
+    }
+  ]
+}

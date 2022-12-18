@@ -1,0 +1,18 @@
+{
+  "area": [
+    {
+      "width": 59,
+      "xpos": 511,
+      "height": 19,
+      "type": "match",
+      "ypos": 643
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "ENV-DISTRI-fedora",
+    "ENV-FLAVOR-server",
+    "anaconda_select_install_lang_input"
+  ]
+}

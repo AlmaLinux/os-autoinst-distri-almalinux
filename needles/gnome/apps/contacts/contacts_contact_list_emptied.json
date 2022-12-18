@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "contacts_contact_list_emptied"
+  ],
+  "area": [
+    {
+      "xpos": 5,
+      "ypos": 136,
+      "width": 180,
+      "height": 145,
+      "type": "match"
+    }
+  ]
+}

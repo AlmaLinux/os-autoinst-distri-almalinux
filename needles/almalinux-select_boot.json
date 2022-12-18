@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "xpos": 62,
+      "ypos": 225,
+      "width": 45,
+      "height": 15,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "anaconda_part_select_boot"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "xpos": 487,
+      "ypos": 324,
+      "height": 35,
+      "width": 32
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_main_hub_install_destination",
+    "anaconda_main_hub_install_destination_warning",
+    "ENV-DISTRI-fedora"
+  ]
+}

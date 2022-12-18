@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "width": 209,
+      "xpos": 10,
+      "type": "match",
+      "ypos": 751,
+      "height": 15
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "boot_enter_passphrase",
+    "ENV-DISTRI-fedora"
+  ]
+}

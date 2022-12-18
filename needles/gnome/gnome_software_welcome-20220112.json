@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "height": 15,
+      "ypos": 533,
+      "width": 116,
+      "xpos": 454
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "DESKTOP-gnome",
+    "gnome_software_welcome"
+  ]
+}

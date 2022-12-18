@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "height": 13,
+      "xpos": 970,
+      "ypos": 55,
+      "type": "match",
+      "width": 16
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_help_quit"
+  ]
+}

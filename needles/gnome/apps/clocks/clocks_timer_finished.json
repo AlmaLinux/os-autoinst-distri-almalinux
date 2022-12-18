@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "xpos": 326,
+      "ypos": 49,
+      "width": 78,
+      "height": 27,
+      "type": "match",
+      "match": 92
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "clocks_timer_finished"
+  ]
+}

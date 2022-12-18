@@ -1,0 +1,24 @@
+{
+  "area": [
+    {
+      "height": 25,
+      "ypos": 11,
+      "type": "match",
+      "xpos": 164,
+      "width": 120
+    },
+    {
+      "height": 54,
+      "type": "match",
+      "ypos": 381,
+      "width": 204,
+      "xpos": 487
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "DESKTOP-gnome",
+    "ENV-DISTRI-almalinux",
+    "gdm_initial_setup_license"
+  ]
+}

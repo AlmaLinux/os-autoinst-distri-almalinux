@@ -1,0 +1,18 @@
+{
+    "area": [
+        {
+            "height": 15,
+            "type": "match",
+            "width": 61,
+            "xpos": 72,
+            "ypos": 64
+        }
+    ],
+    "properties": [],
+    "tags": [
+        "text_console_login",
+        "login_screen",
+        "ENV-DISTRI-fedora",
+        "ENV-FLAVOR-develop"
+    ]
+}

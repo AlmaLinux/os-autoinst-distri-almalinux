@@ -1,0 +1,24 @@
+{
+  "area": [
+    {
+      "height": 33,
+      "ypos": 318,
+      "xpos": 245,
+      "type": "match",
+      "width": 37
+    },
+    {
+      "ypos": 385,
+      "xpos": 246,
+      "type": "match",
+      "width": 34,
+      "height": 37
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "INSTALLER-smallhub",
+    "anaconda_main_hub"
+  ]
+}

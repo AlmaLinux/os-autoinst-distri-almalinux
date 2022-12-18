@@ -1,0 +1,23 @@
+{
+  "area": [
+    {
+      "height": 16,
+      "xpos": 588,
+      "ypos": 393,
+      "type": "match",
+      "width": 131
+    },
+    {
+      "ypos": 397,
+      "width": 39,
+      "type": "match",
+      "height": 173,
+      "xpos": 973
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "DESKTOP-kde",
+    "desktop_update_notification_only"
+  ]
+}

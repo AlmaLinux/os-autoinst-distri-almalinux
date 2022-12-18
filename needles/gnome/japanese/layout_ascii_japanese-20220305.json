@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "height": 17,
+      "ypos": 9,
+      "type": "match",
+      "width": 18,
+      "xpos": 885
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gnome_layout_ascii",
+    "LANGUAGE-japanese"
+  ]
+}

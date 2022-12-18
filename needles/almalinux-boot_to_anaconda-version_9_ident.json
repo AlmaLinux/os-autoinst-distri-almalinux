@@ -1,0 +1,23 @@
+{
+  "area": [
+    {
+      "ypos": 11,
+      "type": "match",
+      "height": 20,
+      "xpos": 778,
+      "width": 107
+    },
+    {
+      "xpos": 897,
+      "ypos": 13,
+      "width": 112,
+      "height": 18,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "version_9_ident"
+  ]
+}

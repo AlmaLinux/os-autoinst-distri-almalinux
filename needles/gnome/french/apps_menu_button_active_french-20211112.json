@@ -1,0 +1,18 @@
+{
+  "area": [
+    {
+      "height": 13,
+      "xpos": 17,
+      "width": 62,
+      "type": "match",
+      "ypos": 11
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "DESKTOP-gnome",
+    "LANGUAGE-french",
+    "apps_menu_button",
+    "apps_menu_button_active"
+  ]
+}

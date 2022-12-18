@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "ypos": 200,
+      "height": 21,
+      "width": 104,
+      "type": "match",
+      "xpos": 863
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "weather_menu_about"
+  ]
+}

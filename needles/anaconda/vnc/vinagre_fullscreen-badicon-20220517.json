@@ -1,0 +1,20 @@
+{
+  "area": [
+    {
+      "width": 26,
+      "type": "match",
+      "xpos": 371,
+      "ypos": 172,
+      "height": 25
+    }
+  ],
+  "properties": [
+    {
+      "name": "workaround",
+      "value": "icon is wrong - https://bugzilla.redhat.com/show_bug.cgi?id=2087524"
+    }
+  ],
+  "tags": [
+    "vinagre_fullscreen"
+  ]
+}

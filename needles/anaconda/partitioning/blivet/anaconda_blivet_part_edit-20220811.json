@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "height": 19,
+      "ypos": 263,
+      "xpos": 311,
+      "width": 19
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_blivet_part_edit"
+  ]
+}

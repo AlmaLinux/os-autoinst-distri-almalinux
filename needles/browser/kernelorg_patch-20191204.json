@@ -1,0 +1,17 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "match": 92,
+      "ypos": 652,
+      "width": 55,
+      "xpos": 508,
+      "height": 17,
+      "match": 90
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "browser_kernelorg_patch"
+  ]
+}

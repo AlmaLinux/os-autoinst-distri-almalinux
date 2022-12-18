@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "weather_credits_shown"
+  ],
+  "area": [
+    {
+      "xpos": 353,
+      "ypos": 403,
+      "width": 189,
+      "height": 23,
+      "type": "match"
+    }
+  ]
+}

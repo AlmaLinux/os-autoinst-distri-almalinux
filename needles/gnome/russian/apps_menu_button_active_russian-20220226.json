@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "ypos": 10,
+      "height": 15,
+      "type": "match",
+      "xpos": 18,
+      "width": 44
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "DESKTOP-gnome",
+    "ENV-DISTRI-fedora",
+    "LANGUAGE-russian",
+    "apps_menu_button",
+    "apps_menu_button_active"
+  ]
+}

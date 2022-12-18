@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 450,
+      "width": 128,
+      "height": 24,
+      "ypos": 268,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "nautilus_rename_dialogue"
+  ]
+}

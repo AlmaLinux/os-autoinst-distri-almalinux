@@ -1,0 +1,22 @@
+{
+  "area": [
+    {
+      "xpos": 318,
+      "width": 43,
+      "type": "match",
+      "ypos": 709,
+      "height": 29
+    }
+  ],
+  "properties": [
+    {
+      "name": "workaround",
+      "value": "launcher icons are too large - https://gitlab.gnome.org/GNOME/gnome-shell/-/issues/5103"
+    }
+  ],
+  "tags": [
+    "DESKTOP-gnome",
+    "browser_launcher",
+    "firefox_launcher"
+  ]
+}

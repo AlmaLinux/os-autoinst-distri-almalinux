@@ -1,0 +1,17 @@
+{
+  "area": [
+    {
+      "width": 67,
+      "ypos": 6,
+      "xpos": 30,
+      "height": 15,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "apps_menu_button",
+    "apps_menu_button_inactive"
+  ]
+}

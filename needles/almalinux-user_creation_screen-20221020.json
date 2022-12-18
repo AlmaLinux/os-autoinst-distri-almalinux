@@ -1,0 +1,32 @@
+{
+  "area": [
+    {
+      "xpos": 286,
+      "ypos": 141,
+      "type": "match",
+      "width": 69,
+      "height": 17
+    },
+    {
+      "width": 62,
+      "height": 17,
+      "ypos": 241,
+      "xpos": 295,
+      "type": "match"
+    },
+    {
+      "height": 24,
+      "width": 57,
+      "type": "match",
+      "ypos": 31,
+      "xpos": 10
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "ENV-FLAVOR-server",
+    "LANGUAGE-english",
+    "anaconda_install_user_creation_screen"
+  ]
+}

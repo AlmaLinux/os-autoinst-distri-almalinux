@@ -1,0 +1,23 @@
+{
+    "area": [
+        {
+            "height": 22,
+            "type": "match",
+            "width": 49,
+            "xpos": 488,
+            "ypos": 478,
+            "click_point": "center"
+        },
+        {
+            "height": 17,
+            "type": "match",
+            "width": 77,
+            "xpos": 450,
+            "ypos": 187
+        }
+    ],
+    "properties": [],
+    "tags": [
+        "desktop_input_source_japanese"
+    ]
+}

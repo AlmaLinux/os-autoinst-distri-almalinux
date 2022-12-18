@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "maps_select_pune"
+  ],
+  "area": [
+    {
+      "xpos": 261,
+      "ypos": 94,
+      "width": 107,
+      "height": 41,
+      "type": "match"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 332,
+      "width": 38,
+      "ypos": 7,
+      "type": "match",
+      "height": 16
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "kmail_runs"
+  ]
+}

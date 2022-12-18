@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "sysmon_credits_shown"
+  ],
+  "area": [
+    {
+      "xpos": 423,
+      "ypos": 428,
+      "width": 176,
+      "height": 23,
+      "type": "match"
+    }
+  ]
+}

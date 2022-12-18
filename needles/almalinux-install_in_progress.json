@@ -1,0 +1,24 @@
+{
+  "area": [
+    {
+      "ypos": 3,
+      "xpos": 2,
+      "type": "match",
+      "height": 765,
+      "width": 151
+    },
+    {
+      "xpos": 171,
+      "ypos": 12,
+      "width": 198,
+      "height": 22,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "ENV-FLAVOR-server",
+    "install_in_progress"
+  ]
+}

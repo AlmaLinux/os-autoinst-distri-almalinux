@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "weather_search_city"
+  ],
+  "area": [
+    {
+      "xpos": 410,
+      "ypos": 510,
+      "width": 184,
+      "height": 23,
+      "type": "match"
+    }
+  ]
+}

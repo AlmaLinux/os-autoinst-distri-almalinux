@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 110,
+      "height": 17,
+      "ypos": 5,
+      "type": "match",
+      "width": 14
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "getting_started"
+  ]
+}

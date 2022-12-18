@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "ypos": 243,
+      "height": 18,
+      "width": 89,
+      "xpos": 254
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "nautilus_rename_check"
+  ]
+}

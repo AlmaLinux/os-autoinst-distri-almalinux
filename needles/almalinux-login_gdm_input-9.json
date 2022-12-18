@@ -1,0 +1,18 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "height": 41,
+      "xpos": 402,
+      "ypos": 404,
+      "width": 56
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "DESKTOP-gnome",
+    "ENV-DISTRI-almalinux",
+    "LANGUAGE-english",
+    "graphical_login_input"
+  ]
+}

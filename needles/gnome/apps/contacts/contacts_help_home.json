@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "contacts_help_home"
+  ],
+  "area": [
+    {
+      "xpos": 149,
+      "ypos": 86,
+      "width": 76,
+      "height": 20,
+      "type": "match"
+    }
+  ]
+}

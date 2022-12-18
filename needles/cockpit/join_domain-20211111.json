@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "height": 24,
+      "xpos": 257,
+      "width": 156,
+      "type": "match",
+      "ypos": 212
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "cockpit_join_domain"
+  ]
+}

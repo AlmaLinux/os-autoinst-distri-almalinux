@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "maps_select_denali"
+  ],
+  "area": [
+    {
+      "xpos": 391,
+      "ypos": 131,
+      "width": 80,
+      "height": 21,
+      "type": "match"
+    }
+  ]
+}

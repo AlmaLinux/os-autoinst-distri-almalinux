@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "height": 20,
+      "ypos": 168,
+      "width": 15,
+      "xpos": 15
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "evince_documents"
+  ]
+}

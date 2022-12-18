@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "ypos": 136,
+      "xpos": 15,
+      "type": "match",
+      "height": 17,
+      "width": 106
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "anaconda_kdump_disabled"
+  ]
+}

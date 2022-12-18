@@ -1,0 +1,22 @@
+{
+  "area": [
+    {
+      "height": 20,
+      "width": 73,
+      "ypos": 243,
+      "xpos": 475,
+      "type": "match"
+    },
+    {
+      "width": 43,
+      "ypos": 322,
+      "height": 78,
+      "type": "match",
+      "xpos": 310
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "contacts_shortcuts_shown"
+  ]
+}

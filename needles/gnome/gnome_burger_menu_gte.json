@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "width": 26,
+      "type": "match",
+      "xpos": 947,
+      "height": 21,
+      "ypos": 44
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gnome_burger_menu"
+  ]
+}

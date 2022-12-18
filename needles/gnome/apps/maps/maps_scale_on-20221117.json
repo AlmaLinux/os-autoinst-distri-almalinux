@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "ypos": 601,
+      "type": "match",
+      "width": 151,
+      "height": 38,
+      "xpos": 5
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "maps_scale_on"
+  ]
+}

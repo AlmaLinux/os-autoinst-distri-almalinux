@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "sysmon_menu_shortcuts"
+  ],
+  "area": [
+    {
+      "xpos": 835,
+      "ypos": 341,
+      "width": 132,
+      "height": 23,
+      "type": "match"
+    }
+  ]
+}

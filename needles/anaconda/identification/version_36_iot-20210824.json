@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 780,
+      "ypos": 16,
+      "width": 115,
+      "height": 14,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "version_36_ident"
+  ]
+}

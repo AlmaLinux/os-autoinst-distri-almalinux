@@ -1,0 +1,23 @@
+{
+  "area": [
+    {
+      "xpos": 721,
+      "ypos": 198,
+      "width": 218,
+      "height": 41,
+      "type": "match"
+    },
+    {
+      "xpos": 242,
+      "ypos": 477,
+      "width": 167,
+      "height": 44,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "anaconda_pre_select_disk_and_pwd"
+  ]
+}

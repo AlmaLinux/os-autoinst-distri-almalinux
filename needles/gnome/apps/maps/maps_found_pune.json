@@ -1,0 +1,16 @@
+{
+  "properties": [],
+  "tags": [
+    "maps_found_pune"
+  ],
+  "area": [
+    {
+      "xpos": 374,
+      "ypos": 327,
+      "width": 212,
+      "height": 128,
+      "type": "match",
+      "match": "90"
+    }
+  ]
+}

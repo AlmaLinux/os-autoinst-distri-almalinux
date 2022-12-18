@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "height": 15,
+      "xpos": 586,
+      "type": "match",
+      "width": 78,
+      "ypos": 450
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "cockpit_updates_reconnect"
+  ]
+}

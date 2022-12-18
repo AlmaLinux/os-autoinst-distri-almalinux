@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "height": 22,
+      "ypos": 415,
+      "type": "match",
+      "width": 108,
+      "xpos": 829
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gte_select_highlighting"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "contacts_menu_about"
+  ],
+  "area": [
+    {
+      "xpos": 194,
+      "ypos": 341,
+      "width": 109,
+      "height": 22,
+      "type": "match"
+    }
+  ]
+}

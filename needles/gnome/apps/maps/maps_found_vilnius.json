@@ -1,0 +1,16 @@
+{
+  "properties": [],
+  "tags": [
+    "maps_found_vilnius"
+  ],
+  "area": [
+    {
+      "xpos": 540,
+      "ypos": 387,
+      "width": 192,
+      "height": 140,
+      "type": "match",
+      "match": "90"
+    }
+  ]
+}

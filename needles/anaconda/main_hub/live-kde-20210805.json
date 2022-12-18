@@ -1,0 +1,24 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "height": 33,
+      "width": 37,
+      "ypos": 322,
+      "xpos": 245
+    },
+    {
+      "ypos": 391,
+      "xpos": 246,
+      "height": 37,
+      "width": 34,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_main_hub",
+    "ENV-DISTRI-fedora",
+    "INSTALLER-smallhub"
+  ]
+}

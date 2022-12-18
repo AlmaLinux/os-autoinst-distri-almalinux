@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "maps_select_vilnius"
+  ],
+  "area": [
+    {
+      "xpos": 261,
+      "ypos": 92,
+      "width": 115,
+      "height": 44,
+      "type": "match"
+    }
+  ]
+}

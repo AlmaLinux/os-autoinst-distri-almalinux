@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 515,
+      "ypos": 365,
+      "width": 152,
+      "height": 24,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "sysmon_help_use_maps"
+  ]
+}

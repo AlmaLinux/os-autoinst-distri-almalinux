@@ -1,0 +1,36 @@
+{
+  "area": [
+    {
+      "xpos": 440,
+      "ypos": 37,
+      "width": 141,
+      "height": 37,
+      "type": "match"
+    },
+    {
+      "xpos": 6,
+      "ypos": 276,
+      "width": 70,
+      "height": 16,
+      "type": "match"
+    },
+    {
+      "xpos": 7,
+      "ypos": 582,
+      "width": 139,
+      "height": 20,
+      "type": "match"
+    },
+    {
+      "xpos": 7,
+      "ypos": 170,
+      "width": 71,
+      "height": 21,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "help_section_content_hardware"
+  ]
+}

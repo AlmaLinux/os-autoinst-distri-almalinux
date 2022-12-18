@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "infocenter_smart_status"
+  ],
+  "area": [
+    {
+      "xpos": 11,
+      "ypos": 287,
+      "width": 19,
+      "height": 18,
+      "type": "match"
+    }
+  ]
+}

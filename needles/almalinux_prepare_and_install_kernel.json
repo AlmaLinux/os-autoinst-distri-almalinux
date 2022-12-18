@@ -1,0 +1,24 @@
+{
+  "area": [
+    {
+      "xpos": 168,
+      "ypos": 12,
+      "width": 203,
+      "height": 25,
+      "type": "match"
+    },
+    {
+      "xpos": 183,
+      "ypos": 357,
+      "width": 126,
+      "height": 20,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "ENV-FLAVOR-server",
+    "almalinux_prepare_and_install_kernel"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "area": [
+    {
+      "xpos": 10,
+      "height": 33,
+      "ypos": 185,
+      "width": 32,
+      "type": "match"
+    }
+  ],
+  "properties": [
+    {
+      "name": "workaround",
+      "value": "this icon should not be a folder"
+    }
+  ],
+  "tags": [
+    "anaconda_blivet_volumes_icon"
+  ]
+}

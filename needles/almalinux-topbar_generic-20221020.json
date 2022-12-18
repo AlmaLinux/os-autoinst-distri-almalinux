@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "width": 683,
+      "height": 43,
+      "xpos": 88,
+      "ypos": 31,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "topbar_generic"
+  ]
+}

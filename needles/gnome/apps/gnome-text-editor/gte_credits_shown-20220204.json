@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 439,
+      "height": 40,
+      "ypos": 460,
+      "width": 173,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gte_credits_shown"
+  ]
+}

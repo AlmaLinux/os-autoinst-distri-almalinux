@@ -1,0 +1,22 @@
+{
+  "area": [
+    {
+      "ypos": 97,
+      "width": 127,
+      "height": 47,
+      "type": "match",
+      "xpos": 477
+    },
+    {
+      "xpos": 371,
+      "type": "match",
+      "ypos": 270,
+      "width": 76,
+      "height": 29
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "maps_info_denali"
+  ]
+}

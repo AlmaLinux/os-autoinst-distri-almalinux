@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "ypos": 133,
+      "xpos": 719,
+      "type": "match",
+      "height": 22,
+      "width": 67
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "LANGUAGE-arabic",
+    "anaconda_install_user_creation_screen"
+  ]
+}

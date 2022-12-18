@@ -1,0 +1,22 @@
+{
+  "area": [
+    {
+      "xpos": 277,
+      "ypos": 464,
+      "width": 70,
+      "height": 51,
+      "type": "match"
+    },
+    {
+      "xpos": 675,
+      "ypos": 466,
+      "width": 72,
+      "height": 46,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "nautilus_instances_check"
+  ]
+}

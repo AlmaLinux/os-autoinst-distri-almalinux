@@ -1,0 +1,17 @@
+{
+  "area": [
+    {
+      "height": 22,
+      "width": 55,
+      "xpos": 23,
+      "ypos": 38,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "LANGUAGE-english",
+    "anaconda_spoke_done"
+  ]
+}

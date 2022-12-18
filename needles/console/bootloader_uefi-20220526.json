@@ -1,0 +1,20 @@
+{
+  "area": [
+    {
+      "width": 74,
+      "height": 16,
+      "type": "match",
+      "xpos": 529,
+      "ypos": 522
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-fedora",
+    "ENV-FLAVOR-server_boot",
+    "ENV-FLAVOR-workstation_live",
+    "ENV-UEFI-1",
+    "bootloader_uefi",
+    "bootloader"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "area": [
+    {
+      "xpos": 489,
+      "width": 12,
+      "ypos": 274,
+      "type": "match",
+      "height": 29
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "ENV-DISTRI-fedora",
+    "anaconda_main_hub_select_packages"
+  ]
+}

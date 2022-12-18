@@ -1,0 +1,27 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "height": 15,
+      "ypos": 711,
+      "xpos": 57,
+      "width": 67
+    },
+    {
+      "xpos": 561,
+      "ypos": 207,
+      "width": 195,
+      "height": 175,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "DESKTOP-gnome",
+    "ENV-DISTRI-almalinux",
+    "LANGUAGE-english",
+    "apps_menu_button",
+    "live_initial_anaconda_launcher",
+    "live_start_anaconda_icon"
+  ]
+}

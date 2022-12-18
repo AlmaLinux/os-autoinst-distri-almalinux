@@ -1,0 +1,17 @@
+{
+  "area": [
+    {
+      "xpos": 352,
+      "width": 317,
+      "ypos": 355,
+      "type": "match",
+      "height": 46
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "LANGUAGE-english",
+    "anaconda_custom_mountpoint"
+  ]
+}

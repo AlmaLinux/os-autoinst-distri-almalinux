@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "weather_report_daily"
+  ],
+  "area": [
+    {
+      "xpos": 165,
+      "ypos": 300,
+      "width": 33,
+      "height": 19,
+      "type": "match"
+    }
+  ]
+}

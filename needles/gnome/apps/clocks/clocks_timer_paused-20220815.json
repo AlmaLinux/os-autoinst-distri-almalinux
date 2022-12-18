@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "clocks_timer_paused"
+  ],
+  "area": [
+    {
+      "xpos": 426,
+      "ypos": 196,
+      "width": 172,
+      "height": 54,
+      "type": "match"
+    }
+  ]
+}

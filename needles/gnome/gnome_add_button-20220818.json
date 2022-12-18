@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "ypos": 123,
+      "height": 20,
+      "xpos": 708,
+      "type": "match",
+      "width": 36
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gnome_add_button"
+  ]
+}

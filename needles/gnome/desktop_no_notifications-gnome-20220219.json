@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "width": 54,
+      "xpos": 342,
+      "type": "match",
+      "ypos": 273,
+      "height": 68
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "desktop_no_notifications",
+    "DESKTOP-gnome"
+  ]
+}

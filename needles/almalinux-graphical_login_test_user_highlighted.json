@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "width": 32,
+      "ypos": 361,
+      "xpos": 418,
+      "type": "match",
+      "height": 20
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "graphical_login_test_user_highlighted"
+  ]
+}

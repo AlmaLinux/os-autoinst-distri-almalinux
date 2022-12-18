@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "ypos": 608,
+      "width": 64,
+      "type": "match",
+      "xpos": 662,
+      "height": 15
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "vault_create"
+  ]
+}

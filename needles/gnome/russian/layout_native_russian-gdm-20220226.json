@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "xpos": 884,
+      "width": 18,
+      "ypos": 9,
+      "height": 13,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gnome_layout_native",
+    "LANGUAGE-russian"
+  ]
+}

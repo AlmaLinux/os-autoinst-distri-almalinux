@@ -1,0 +1,18 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "height": 29,
+      "ypos": 569,
+      "xpos": 251,
+      "width": 12
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "ENV-FLAVOR-server",
+    "anaconda_install_user_creation",
+    "anaconda_main_hub_user_creation"
+  ]
+}

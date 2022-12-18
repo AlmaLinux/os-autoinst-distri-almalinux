@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 601,
+      "ypos": 448,
+      "width": 48,
+      "height": 21,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "clocks_stopwatch_button_clear"
+  ]
+}

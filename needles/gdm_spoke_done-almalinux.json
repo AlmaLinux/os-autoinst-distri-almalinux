@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "width": 52,
+      "ypos": 32,
+      "xpos": 12,
+      "height": 24,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "gdm_spoke_done"
+  ]
+}

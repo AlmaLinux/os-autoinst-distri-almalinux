@@ -1,0 +1,10 @@
+*.swp
+*~
+*#
+**/*.pyc
+**/*.pyo
+.cache/
+.tox/
+.coverage
+coverage.xml
+.tidyall.d/

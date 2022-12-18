@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "nautilus_star_confirm"
+  ],
+  "area": [
+    {
+      "xpos": 989,
+      "ypos": 438,
+      "width": 25,
+      "height": 26,
+      "type": "match"
+    }
+  ]
+}

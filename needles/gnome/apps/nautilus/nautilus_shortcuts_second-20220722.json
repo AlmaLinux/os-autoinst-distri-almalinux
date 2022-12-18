@@ -1,0 +1,22 @@
+{
+  "area": [
+    {
+      "width": 39,
+      "xpos": 400,
+      "ypos": 135,
+      "height": 19,
+      "type": "match"
+    },
+    {
+      "ypos": 134,
+      "height": 19,
+      "type": "match",
+      "xpos": 60,
+      "width": 38
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "nautilus_shortcuts_second"
+  ]
+}

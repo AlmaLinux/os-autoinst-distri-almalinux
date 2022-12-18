@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 398,
+      "ypos": 139,
+      "width": 62,
+      "height": 15,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_blivet_part_fs_biosboot"
+  ]
+}

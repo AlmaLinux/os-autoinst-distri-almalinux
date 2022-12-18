@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "height": 401,
+      "ypos": 129,
+      "type": "match",
+      "xpos": 267,
+      "width": 128
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "nautilus_available_directories"
+  ]
+}

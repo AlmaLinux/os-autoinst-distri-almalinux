@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 204,
+      "width": 40,
+      "ypos": 8,
+      "type": "match",
+      "height": 15
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "kwallet_runs"
+  ]
+}

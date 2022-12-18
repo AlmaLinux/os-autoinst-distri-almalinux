@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "ypos": 218,
+      "type": "match",
+      "height": 36,
+      "xpos": 42,
+      "width": 676
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "anaconda_help_progress"
+  ]
+}

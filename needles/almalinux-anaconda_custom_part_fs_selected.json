@@ -1,0 +1,17 @@
+{
+  "area": [
+    {
+      "height": 26,
+      "type": "match",
+      "ypos": 331,
+      "width": 71,
+      "xpos": 503
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "LANGUAGE-english",
+    "anaconda_custom_part_fs_selected"
+  ]
+}

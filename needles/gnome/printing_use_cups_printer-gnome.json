@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 48,
+      "ypos": 206,
+      "width": 103,
+      "height": 23,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "printing_use_cups_printer"
+  ]
+}

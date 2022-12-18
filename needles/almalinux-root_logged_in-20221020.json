@@ -1,0 +1,25 @@
+{
+  "area": [
+    {
+      "ypos": 96,
+      "xpos": 7,
+      "type": "match",
+      "height": 16,
+      "width": 40
+    },
+    {
+      "xpos": 137,
+      "ypos": 96,
+      "type": "match",
+      "height": 14,
+      "width": 17
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "root_console",
+    "root_logged_in",
+    "ENV-DISTRI-almalinux",
+    "ENV-FLAVOR-server"
+  ]
+}

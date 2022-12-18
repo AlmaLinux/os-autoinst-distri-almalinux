@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "contacts_help_first_time"
+  ],
+  "area": [
+    {
+      "xpos": 78,
+      "ypos": 216,
+      "width": 168,
+      "height": 26,
+      "type": "match"
+    }
+  ]
+}

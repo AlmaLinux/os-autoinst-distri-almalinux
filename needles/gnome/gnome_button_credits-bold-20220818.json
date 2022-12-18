@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "height": 19,
+      "ypos": 186,
+      "type": "match",
+      "xpos": 369,
+      "width": 56
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gnome_button_credits"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "xpos": 376,
+      "ypos": 175,
+      "width": 194,
+      "height": 21
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "LANGUAGE-english",
+    "anaconda_install_user_creation_make_admin"
+  ]
+}

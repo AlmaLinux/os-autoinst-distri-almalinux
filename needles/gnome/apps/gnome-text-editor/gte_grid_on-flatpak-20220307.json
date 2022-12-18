@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 33,
+      "width": 352,
+      "type": "match",
+      "ypos": 164,
+      "height": 99
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gte_grid_on"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "ypos": 32,
+      "width": 117,
+      "type": "match",
+      "height": 36,
+      "xpos": 452
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "getting_started"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 8,
+      "ypos": 85,
+      "width": 48,
+      "height": 20,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "help_breadcrumbs_home"
+  ]
+}

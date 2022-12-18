@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "height": 29,
+      "type": "match",
+      "ypos": 202,
+      "width": 37,
+      "xpos": 245
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "anaconda_main_hub_keyboard_layout"
+  ]
+}

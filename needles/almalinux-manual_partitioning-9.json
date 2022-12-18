@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "ypos": 472,
+      "xpos": 175,
+      "type": "match",
+      "width": 71,
+      "height": 19
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "LANGUAGE-english",
+    "anaconda_manual_partitioning"
+  ]
+}

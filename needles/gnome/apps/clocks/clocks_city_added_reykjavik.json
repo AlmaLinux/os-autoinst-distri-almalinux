@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "clocks_city_added_reykjavik"
+  ],
+  "area": [
+    {
+      "xpos": 220,
+      "ypos": 115,
+      "width": 84,
+      "height": 21,
+      "type": "match"
+    }
+  ]
+}

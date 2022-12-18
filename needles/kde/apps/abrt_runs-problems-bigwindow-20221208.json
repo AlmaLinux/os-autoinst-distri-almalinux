@@ -1,0 +1,20 @@
+{
+  "area": [
+    {
+      "xpos": 364,
+      "type": "match",
+      "width": 88,
+      "height": 15,
+      "ypos": 232
+    }
+  ],
+  "properties": [
+    {
+      "value": "workaround for bug 2060540 (window is too large for screen). this needle version is for when there *is* a crash",
+      "name": "workaround"
+    }
+  ],
+  "tags": [
+    "abrt_runs"
+  ]
+}

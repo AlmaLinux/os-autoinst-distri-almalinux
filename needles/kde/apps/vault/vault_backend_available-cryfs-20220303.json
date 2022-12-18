@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 203,
+      "width": 103,
+      "type": "match",
+      "height": 20,
+      "ypos": 183
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "vault_backend_available"
+  ]
+}

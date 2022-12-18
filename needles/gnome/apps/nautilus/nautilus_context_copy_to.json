@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "nautilus_context_copy_to"
+  ],
+  "area": [
+    {
+      "xpos": 342,
+      "ypos": 461,
+      "width": 68,
+      "height": 20,
+      "type": "match"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "width": 40,
+      "ypos": 227,
+      "height": 20,
+      "xpos": 891
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gnome_button_save_blue"
+  ]
+}

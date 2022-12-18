@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "contact_edit_email"
+  ],
+  "area": [
+    {
+      "xpos": 416,
+      "ypos": 311,
+      "width": 39,
+      "height": 20,
+      "type": "match"
+    }
+  ]
+}

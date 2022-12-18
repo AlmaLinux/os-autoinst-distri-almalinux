@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "xpos": 69,
+      "width": 240,
+      "ypos": 155,
+      "type": "match",
+      "height": 17
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "ENV-FLAVOR-server",
+    "LANGUAGE-english",
+    "almalinux-disk_part_manual",
+    "anaconda_part_automatic"
+  ]
+}

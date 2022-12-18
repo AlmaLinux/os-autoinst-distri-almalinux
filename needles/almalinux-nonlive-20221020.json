@@ -1,0 +1,30 @@
+{
+  "area": [
+    {
+      "width": 33,
+      "height": 33,
+      "type": "match",
+      "xpos": 483,
+      "ypos": 200
+    },
+    {
+      "width": 41,
+      "height": 34,
+      "type": "match",
+      "ypos": 199,
+      "xpos": 242
+    },
+    {
+      "width": 34,
+      "height": 37,
+      "type": "match",
+      "xpos": 244,
+      "ypos": 337
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_main_hub",
+    "ENV-DISTRI-almalinux"
+  ]
+}

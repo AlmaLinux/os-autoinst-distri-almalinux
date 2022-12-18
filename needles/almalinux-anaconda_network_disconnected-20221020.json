@@ -1,0 +1,27 @@
+{
+  "area": [
+    {
+      "xpos": 577,
+      "ypos": 133,
+      "type": "match",
+      "height": 17,
+      "width": 83
+    },
+    {
+      "click_point": {
+        "xpos": 17.5,
+        "ypos": 7.5
+      },
+      "width": 69,
+      "height": 17,
+      "xpos": 909,
+      "ypos": 114,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "anaconda_network_connect"
+  ]
+}

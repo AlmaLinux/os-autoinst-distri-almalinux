@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "width": 86,
+      "xpos": 25,
+      "ypos": 103,
+      "height": 86
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "weather_icon_current"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "area": [
+    {
+      "xpos": 151,
+      "ypos": 6,
+      "width": 65,
+      "height": 23,
+      "type": "match"
+    },
+    {
+      "type": "match",
+      "ypos": 112,
+      "xpos": 194,
+      "width": 25,
+      "height": 20
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "apps_run_terminal",
+    "LANGUAGE-japanese"
+  ]
+}

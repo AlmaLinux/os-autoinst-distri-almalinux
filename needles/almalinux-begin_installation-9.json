@@ -1,0 +1,18 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "height": 17,
+      "ypos": 708,
+      "xpos": 887,
+      "width": 107
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "ENV-FLAVOR-server",
+    "LANGUAGE-english",
+    "anaconda_main_hub_begin_installation"
+  ]
+}

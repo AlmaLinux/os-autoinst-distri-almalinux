@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "ypos": 236,
+      "width": 67,
+      "type": "match",
+      "xpos": 682,
+      "height": 19
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "reboot_entry"
+  ]
+}

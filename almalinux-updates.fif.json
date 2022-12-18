@@ -1,0 +1,584 @@
+{
+    "Products": {
+        "Almalinux-updates-container-aarch64-*": {
+            "arch": "aarch64",
+            "distri": "almalinux",
+            "flavor": "updates-container",
+            "settings": {
+                "+HDD_1": "disk_f%VERSION%_server_3_%ARCH%.qcow2",
+                "NUMDISKS": "2",
+                "RETRY": "1"
+            },
+            "version": "*"
+        },
+        "Almalinux-updates-container-ppc64le-*": {
+            "arch": "ppc64le",
+            "distri": "almalinux",
+            "flavor": "updates-container",
+            "settings": {
+                "+HDD_1": "disk_f%VERSION%_server_3_%ARCH%.qcow2",
+                "NUMDISKS": "2",
+                "RETRY": "1"
+            },
+            "version": "*"
+        },
+        "Almalinux-updates-container-x86_64-*": {
+            "arch": "x86_64",
+            "distri": "almalinux",
+            "flavor": "updates-container",
+            "settings": {
+                "+HDD_1": "disk_f%VERSION%_server_3_%ARCH%.qcow2",
+                "NUMDISKS": "2",
+                "RETRY": "1"
+            },
+            "version": "*"
+        },
+        "Almalinux-updates-dvd-iso-x86_64-*": {
+            "arch": "x86_64",
+            "distri": "almalinux",
+            "flavor": "updates-dvd-iso",
+            "settings": {
+                "NUMDISKS": "2",
+                "RETRY": "1"
+            },
+            "version": "*"
+        },
+        "Almalinux-updates-kde-x86_64-*": {
+            "arch": "x86_64",
+            "distri": "almalinux",
+            "flavor": "updates-kde",
+            "settings": {
+                "+HDD_1": "disk_f%VERSION%_kde_4_%ARCH%.qcow2",
+                "DESKTOP": "kde",
+                "NUMDISKS": "2",
+                "RETRY": "2"
+            },
+            "version": "*"
+        },
+        "Almalinux-updates-dvd-aarch64-*": {
+            "arch": "aarch64",
+            "distri": "almalinux",
+            "flavor": "updates-dvd",
+            "settings": {
+                "+HDD_1": "disk_f%VERSION%_server_3_%ARCH%.qcow2",
+                "RETRY": "1"
+            },
+            "version": "*"
+        },
+        "Almalinux-updates-dvd-ppc64le-*": {
+            "arch": "ppc64le",
+            "distri": "almalinux",
+            "flavor": "updates-dvd",
+            "settings": {
+                "+HDD_1": "disk_f%VERSION%_server_3_%ARCH%.qcow2",
+                "RETRY": "1"
+            },
+            "version": "*"
+        },
+        "Almalinux-updates-dvd-upgrade-aarch64-*": {
+            "arch": "aarch64",
+            "distri": "almalinux",
+            "flavor": "updates-dvd-upgrade",
+            "settings": {
+                "+HDD_1": "disk_f%VERSION%_server_3_%ARCH%.qcow2",
+                "NUMDISKS": "2",
+                "RETRY": "1"
+            },
+            "version": "*"
+        },
+        "Almalinux-updates-dvd-upgrade-ppc64le-*": {
+            "arch": "ppc64le",
+            "distri": "almalinux",
+            "flavor": "updates-dvd-upgrade",
+            "settings": {
+                "NUMDISKS": "2",
+                "RETRY": "1"
+            },
+            "version": "*"
+        },
+        "Almalinux-updates-dvd-upgrade-x86_64-*": {
+            "arch": "x86_64",
+            "distri": "almalinux",
+            "flavor": "updates-dvd-upgrade",
+            "settings": {
+                "NUMDISKS": "2",
+                "RETRY": "1"
+            },
+            "version": "*"
+        },
+        "Almalinux-updates-dvd-x86_64-*": {
+            "arch": "x86_64",
+            "distri": "almalinux",
+            "flavor": "updates-dvd",
+            "settings": {
+                "+HDD_1": "disk_f%VERSION%_server_3_%ARCH%.qcow2",
+                "RETRY": "1"
+            },
+            "version": "*"
+        },
+        "Almalinux-updates-calfblue-dvd_ostree-iso-x86_64-*": {
+            "arch": "x86_64",
+            "distri": "almalinux",
+            "flavor": "updates-calfblue-dvd_ostree-iso",
+            "settings": {
+                "CANNED": "1",
+                "DESKTOP": "gnome",
+                "HDDSIZEGB": "15",
+                "NUMDISKS": "2",
+                "PACKAGE_SET": "default",
+                "RETRY": "1",
+                "SUBVARIANT": "calfblue"
+            },
+            "version": "*"
+        },
+        "Almalinux-updates-gnome-live-iso-x86_64-*": {
+            "arch": "x86_64",
+            "distri": "almalinux",
+            "flavor": "updates-gnome-live-iso",
+            "settings": {
+                "DESKTOP": "gnome",
+                "HDDSIZEGB": "15",
+                "LIVE": "1",
+                "NUMDISKS": "2",
+                "PACKAGE_SET": "default",
+                "RETRY": "1",
+                "SUBVARIANT": "Workstation"
+            },
+            "version": "*"
+        },
+        "Almalinux-updates-kde-live-iso-x86_64-*": {
+            "arch": "x86_64",
+            "distri": "almalinux",
+            "flavor": "updates-kde-live-iso",
+            "settings": {
+                "DESKTOP": "kde",
+                "HDDSIZEGB": "15",
+                "LIVE": "1",
+                "NUMDISKS": "2",
+                "PACKAGE_SET": "default",
+                "RETRY": "1",
+                "SUBVARIANT": "KDE"
+            },
+            "version": "*"
+        },
+        "Almalinux-updates-gnome-upgrade-x86_64-*": {
+            "arch": "x86_64",
+            "distri": "almalinux",
+            "flavor": "updates-gnome-upgrade",
+            "settings": {
+                "DESKTOP": "gnome",
+                "NUMDISKS": "2",
+                "RETRY": "1"
+            },
+            "version": "*"
+        },
+        "Almalinux-updates-gnome-x86_64-*": {
+            "arch": "x86_64",
+            "distri": "almalinux",
+            "flavor": "updates-gnome",
+            "settings": {
+                "DESKTOP": "gnome",
+                "+HDD_1": "disk_f%VERSION%_desktop_4_%ARCH%.qcow2",
+                "NUMDISKS": "2",
+                "RETRY": "1"
+            },
+            "version": "*"
+        }
+    },
+    "Profiles": {
+        "Almalinux-updates-container-aarch64-*-aarch64": {
+            "machine": "aarch64",
+            "product": "Almalinux-updates-container-aarch64-*"
+        },
+        "Almalinux-updates-container-ppc64le-*-ppc64le": {
+            "machine": "ppc64le",
+            "product": "Almalinux-updates-container-ppc64le-*"
+        },
+        "Almalinux-updates-container-x86_64-*-64bit": {
+            "machine": "64bit",
+            "product": "Almalinux-updates-container-x86_64-*"
+        },
+        "Almalinux-updates-dvd-iso-x86_64-*-64bit": {
+            "machine": "64bit",
+            "product": "Almalinux-updates-dvd-iso-x86_64-*"
+        },
+        "Almalinux-updates-dvd-iso-x86_64-*-uefi": {
+            "machine": "uefi",
+            "product": "Almalinux-updates-dvd-iso-x86_64-*"
+        },
+        "Almalinux-updates-kde-x86_64-*-64bit": {
+            "machine": "64bit",
+            "product": "Almalinux-updates-kde-x86_64-*"
+        },
+        "Almalinux-updates-dvd-aarch64-*-aarch64": {
+            "machine": "aarch64",
+            "product": "Almalinux-updates-dvd-aarch64-*"
+        },
+        "Almalinux-updates-dvd-ppc64le-*-ppc64le": {
+            "machine": "ppc64le",
+            "product": "Almalinux-updates-dvd-ppc64le-*"
+        },
+        "Almalinux-updates-dvd-upgrade-ppc64le-*-ppc64le": {
+            "machine": "ppc64le",
+            "product": "Almalinux-updates-dvd-upgrade-ppc64le-*"
+        },
+        "Almalinux-updates-dvd-upgrade-x86_64-*-64bit": {
+            "machine": "64bit",
+            "product": "Almalinux-updates-dvd-upgrade-x86_64-*"
+        },
+        "Almalinux-updates-dvd-x86_64-*-64bit": {
+            "machine": "64bit",
+            "product": "Almalinux-updates-dvd-x86_64-*"
+        },
+        "Almalinux-updates-kde-live-iso-x86_64-*-64bit": {
+            "machine": "64bit",
+            "product": "Almalinux-updates-kde-live-iso-x86_64-*"
+        },
+        "Almalinux-updates-kde-live-iso-x86_64-*-uefi": {
+            "machine": "uefi",
+            "product": "Almalinux-updates-kde-live-iso-x86_64-*"
+        },
+        "Almalinux-updates-calfblue-dvd_ostree-iso-x86_64-*-64bit": {
+            "machine": "64bit",
+            "product": "Almalinux-updates-calfblue-dvd_ostree-iso-x86_64-*"
+        },
+        "Almalinux-updates-calfblue-dvd_ostree-iso-x86_64-*-uefi": {
+            "machine": "uefi",
+            "product": "Almalinux-updates-calfblue-dvd_ostree-iso-x86_64-*"
+        },
+        "Almalinux-updates-gnome-live-iso-x86_64-*-64bit": {
+            "machine": "64bit",
+            "product": "Almalinux-updates-gnome-live-iso-x86_64-*"
+        },
+        "Almalinux-updates-gnome-live-iso-x86_64-*-uefi": {
+            "machine": "uefi",
+            "product": "Almalinux-updates-gnome-live-iso-x86_64-*"
+        },
+        "Almalinux-updates-gnome-upgrade-x86_64-*-64bit": {
+            "machine": "64bit",
+            "product": "Almalinux-updates-gnome-upgrade-x86_64-*"
+        },
+        "Almalinux-updates-gnome-x86_64-*-64bit": {
+            "machine": "64bit",
+            "product": "Almalinux-updates-gnome-x86_64-*"
+        }
+    },
+    "TestSuites": {
+        "advisory_boot": {
+            "profiles": {
+                "Almalinux-updates-dvd-aarch64-*-aarch64": 5,
+                "Almalinux-updates-dvd-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5
+            },
+            "settings": {
+                "ADVISORY_BOOT_TEST": "1",
+                "BOOTFROM": "c",
+                "ROOT_PASSWORD": "weakpassword",
+                "USER_LOGIN": "false"
+            }
+        },
+        "base_selinux": {
+            "profiles": {
+                "Almalinux-updates-kde-x86_64-*-64bit": 5,
+                "Almalinux-updates-dvd-aarch64-*-aarch64": 5,
+                "Almalinux-updates-dvd-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5,
+                "Almalinux-updates-gnome-x86_64-*-64bit": 5
+            }
+        },
+        "base_service_manipulation": {
+            "profiles": {
+                "Almalinux-updates-kde-x86_64-*-64bit": 5,
+                "Almalinux-updates-dvd-aarch64-*-aarch64": 5,
+                "Almalinux-updates-dvd-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5,
+                "Almalinux-updates-gnome-x86_64-*-64bit": 5
+            }
+        },
+        "base_services_start": {
+            "profiles": {
+                "Almalinux-updates-kde-x86_64-*-64bit": 5,
+                "Almalinux-updates-dvd-aarch64-*-aarch64": 5,
+                "Almalinux-updates-dvd-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5,
+                "Almalinux-updates-gnome-x86_64-*-64bit": 5
+            }
+        },
+        "base_update_cli": {
+            "profiles": {
+                "Almalinux-updates-kde-x86_64-*-64bit": 5,
+                "Almalinux-updates-dvd-aarch64-*-aarch64": 5,
+                "Almalinux-updates-dvd-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5,
+                "Almalinux-updates-gnome-x86_64-*-64bit": 5
+            }
+        },
+        "base_reboot_unmount": {
+            "profiles": {
+                "Almalinux-updates-kde-x86_64-*-64bit": 5,
+                "Almalinux-updates-dvd-aarch64-*-aarch64": 5,
+                "Almalinux-updates-dvd-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5,
+                "Almalinux-updates-gnome-x86_64-*-64bit": 5
+            }
+        },
+        "base_system_logging": {
+            "profiles": {
+                "Almalinux-updates-kde-x86_64-*-64bit": 5,
+                "Almalinux-updates-dvd-aarch64-*-aarch64": 5,
+                "Almalinux-updates-dvd-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5,
+                "Almalinux-updates-gnome-x86_64-*-64bit": 5
+            }
+        },
+        "desktop_background": {
+            "profiles": {
+                "Almalinux-updates-kde-x86_64-*-64bit": 5,
+                "Almalinux-updates-gnome-x86_64-*-64bit": 5
+            }
+        },
+        "desktop_browser": {
+            "profiles": {
+                "Almalinux-updates-kde-x86_64-*-64bit": 5,
+                "Almalinux-updates-gnome-x86_64-*-64bit": 5
+            }
+        },
+        "desktop_printing": {
+            "profiles": {
+                "Almalinux-updates-kde-x86_64-*-64bit": 5,
+                "Almalinux-updates-gnome-x86_64-*-64bit": 5
+            }
+        },
+        "desktop_terminal": {
+            "profiles": {
+                "Almalinux-updates-kde-x86_64-*-64bit": 5,
+                "Almalinux-updates-gnome-x86_64-*-64bit": 5
+            }
+        },
+        "desktop_update_graphical": {
+            "profiles": {
+                "Almalinux-updates-kde-x86_64-*-64bit": 5,
+                "Almalinux-updates-gnome-x86_64-*-64bit": 5
+            }
+        },
+        "install_default_update_live": {
+            "profiles": {
+                "Almalinux-updates-kde-live-iso-x86_64-*-64bit": 5,
+                "Almalinux-updates-kde-live-iso-x86_64-*-uefi": 5,
+                "Almalinux-updates-gnome-live-iso-x86_64-*-64bit": 5,
+                "Almalinux-updates-gnome-live-iso-x86_64-*-uefi": 5
+            },
+            "settings": {
+                "+START_AFTER_TEST": "live_build@%ARCH_BASE_MACHINE%",
+                "INSTALL": "1",
+                "ISO": "Almalinux-%SUBVARIANT%-Live-%ARCH%-%ADVISORY_OR_TASK%.iso",
+                "QEMURAM": "4096"
+            }
+        },
+        "install_default_update_netinst": {
+            "profiles": {
+                "Almalinux-updates-dvd-iso-x86_64-*-64bit": 5,
+                "Almalinux-updates-dvd-iso-x86_64-*-uefi": 5
+            },
+            "settings": {
+                "+START_AFTER_TEST": "installer_build@%ARCH_BASE_MACHINE%",
+                "ADD_REPOSITORY_VARIATION": "nfs://172.16.2.110:/mnt/update_repo",
+                "INSTALL": "1",
+                "INSTALL_UNLOCK": "support_ready",
+                "ISO": "%ADVISORY_OR_TASK%-netinst-%ARCH%.iso",
+                "NICTYPE": "tap",
+                "PACKAGE_SET": "default",
+                "PARALLEL_WITH": "support_server@%ARCH_BASE_MACHINE%",
+                "WORKER_CLASS": "tap"
+            }
+        },
+        "install_default_update_ostree": {
+            "profiles": {
+                "Almalinux-updates-calfblue-dvd_ostree-iso-x86_64-*-64bit": 5
+            },
+            "settings": {
+                "INSTALL": "1",
+                "ISO": "%ADVISORY_OR_TASK%-%SUBVARIANT%-ostree-%ARCH%.iso",
+                "PACKAGE_SET": "default",
+                "+START_AFTER_TEST": "ostree_build@%ARCH_BASE_MACHINE%"
+            }
+        },
+        "installer_build": {
+            "profiles": {
+                "Almalinux-updates-dvd-iso-x86_64-*-64bit": 5
+            },
+            "settings": {
+                "BOOTFROM": "c",
+                "HDD_1": "disk_f%VERSION%_minimal_3_%ARCH%.qcow2",
+                "NUMDISKS": "2",
+                "POSTINSTALL": "_installer_build",
+                "ROOT_PASSWORD": "weakpassword",
+                "USER_LOGIN": "false"
+            }
+        },
+        "live_build": {
+            "profiles": {
+                "Almalinux-updates-kde-live-iso-x86_64-*-64bit": 5,
+                "Almalinux-updates-gnome-live-iso-x86_64-*-64bit": 5
+            },
+            "settings": {
+                "+DESKTOP": "",
+                "+LIVE": "",
+                "BOOTFROM": "c",
+                "GRUB_POSTINSTALL": "selinux=0",
+                "HDD_1": "disk_f%VERSION%_minimal_3_%ARCH%.qcow2",
+                "HDDSIZEGB_3": "25",
+                "MAX_JOB_TIME": "10800",
+                "+NUMDISKS": "3",
+                "POSTINSTALL": "_live_build",
+                "ROOT_PASSWORD": "weakpassword",
+                "USER_LOGIN": "false"
+            }
+        },
+        "ostree_build": {
+            "profiles": {
+                "Almalinux-updates-calfblue-dvd_ostree-iso-x86_64-*-64bit": 5
+            },
+            "settings": {
+                "+DESKTOP": "",
+                "+CANNED": "",
+                "BOOTFROM": "c",
+                "HDD_1": "disk_f%VERSION%_minimal_3_%ARCH%.qcow2",
+                "HDDSIZEGB_3": "25",
+                "MAX_JOB_TIME": "10800",
+                "+NUMDISKS": "3",
+                "POSTINSTALL": "_ostree_build",
+                "ROOT_PASSWORD": "weakpassword",
+                "USER_LOGIN": "false"
+            }
+        },
+        "podman": {
+            "profiles": {
+                "Almalinux-updates-container-aarch64-*-aarch64": 5,
+                "Almalinux-updates-container-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-container-x86_64-*-64bit": 5
+            }
+        },
+        "podman_client": {
+            "profiles": {
+                "Almalinux-updates-container-aarch64-*-aarch64": 5,
+                "Almalinux-updates-container-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-container-x86_64-*-64bit": 5
+            }
+        },
+        "realmd_join_cockpit": {
+            "profiles": {
+                "Almalinux-updates-dvd-aarch64-*-aarch64": 5,
+                "Almalinux-updates-dvd-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5
+            }
+        },
+        "realmd_join_sssd": {
+            "profiles": {
+                "Almalinux-updates-dvd-aarch64-*-aarch64": 5,
+                "Almalinux-updates-dvd-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5
+            }
+        },
+        "server_cockpit_basic": {
+            "profiles": {
+                "Almalinux-updates-dvd-aarch64-*-aarch64": 5,
+                "Almalinux-updates-dvd-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5
+            }
+        },
+        "server_cockpit_default": {
+            "profiles": {
+                "Almalinux-updates-dvd-aarch64-*-aarch64": 5,
+                "Almalinux-updates-dvd-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5
+            }
+        },
+        "server_cockpit_updates": {
+            "profiles": {
+                "Almalinux-updates-dvd-aarch64-*-aarch64": 5,
+                "Almalinux-updates-dvd-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5
+            }
+        },
+        "server_database_client": {
+            "profiles": {
+                "Almalinux-updates-dvd-aarch64-*-aarch64": 5,
+                "Almalinux-updates-dvd-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5
+            }
+        },
+        "server_firewall_default": {
+            "profiles": {
+                "Almalinux-updates-dvd-aarch64-*-aarch64": 5,
+                "Almalinux-updates-dvd-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5
+            }
+        },
+        "server_freeipa_replication_client": {
+            "profiles": {
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5
+            }
+        },
+        "server_freeipa_replication_master": {
+            "profiles": {
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5
+            }
+        },
+        "server_freeipa_replication_replica": {
+            "profiles": {
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5
+            }
+        },
+        "server_remote_logging_client": {
+            "profiles": {
+                "Almalinux-updates-dvd-aarch64-*-aarch64": 5,
+                "Almalinux-updates-dvd-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5
+            }
+        },
+        "server_remote_logging_server": {
+            "profiles": {
+                "Almalinux-updates-dvd-aarch64-*-aarch64": 5,
+                "Almalinux-updates-dvd-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5
+            }
+        },
+        "server_role_deploy_database_server": {
+            "profiles": {
+                "Almalinux-updates-dvd-aarch64-*-aarch64": 5,
+                "Almalinux-updates-dvd-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5
+            }
+        },
+        "server_role_deploy_domain_controller": {
+            "profiles": {
+                "Almalinux-updates-dvd-aarch64-*-aarch64": 5,
+                "Almalinux-updates-dvd-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-x86_64-*-64bit": 5
+            }
+        },
+        "support_server": {
+            "profiles": {
+                "Almalinux-updates-dvd-iso-x86_64-*-64bit": 5
+            }
+        },
+        "upgrade_desktop_encrypted_64bit": {
+            "profiles": {
+                "Almalinux-updates-gnome-upgrade-x86_64-*-64bit": 5
+            }
+        },
+        "upgrade_realmd_client": {
+            "profiles": {
+                "Almalinux-updates-dvd-upgrade-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-upgrade-x86_64-*-64bit": 5
+            }
+        },
+        "upgrade_server_domain_controller": {
+            "profiles": {
+                "Almalinux-updates-dvd-upgrade-ppc64le-*-ppc64le": 5,
+                "Almalinux-updates-dvd-upgrade-x86_64-*-64bit": 5
+            }
+        }
+    }
+}

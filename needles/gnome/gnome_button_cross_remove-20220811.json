@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 760,
+      "height": 21,
+      "type": "match",
+      "width": 23,
+      "ypos": 123
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gnome_button_cross_remove"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+    "area": [
+        {
+            "height": 18,
+            "type": "match",
+            "width": 106,
+            "xpos": 96,
+            "ypos": 50
+        }
+    ],
+    "properties": [],
+    "tags": [
+        "LANGUAGE-arabic",
+        "prerelease_note"
+    ]
+}

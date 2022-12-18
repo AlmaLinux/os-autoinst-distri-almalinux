@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "height": 16,
+      "ypos": 7,
+      "width": 50,
+      "xpos": 330
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "kontact_runs"
+  ]
+}

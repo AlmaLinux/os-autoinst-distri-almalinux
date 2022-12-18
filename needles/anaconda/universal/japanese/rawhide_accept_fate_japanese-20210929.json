@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "xpos": 701,
+      "height": 18,
+      "ypos": 631,
+      "type": "match",
+      "width": 45
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "LANGUAGE-japanese",
+    "anaconda_rawhide_accept_fate"
+  ]
+}

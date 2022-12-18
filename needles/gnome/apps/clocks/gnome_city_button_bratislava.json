@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "gnome_city_button_bratislava"
+  ],
+  "area": [
+    {
+      "xpos": 336,
+      "ypos": 256,
+      "width": 99,
+      "height": 42,
+      "type": "match"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "area": [
+    {
+      "xpos": 429,
+      "ypos": 38,
+      "width": 161,
+      "height": 35,
+      "type": "match"
+    },
+    {
+      "xpos": 6,
+      "ypos": 252,
+      "width": 104,
+      "height": 28,
+      "type": "match"
+    },
+    {
+      "xpos": 518,
+      "ypos": 318,
+      "width": 127,
+      "height": 24,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "help_section_content_files"
+  ]
+}

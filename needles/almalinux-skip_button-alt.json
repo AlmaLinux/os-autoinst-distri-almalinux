@@ -1,0 +1,28 @@
+{
+  "area": [
+    {
+      "xpos": 467,
+      "ypos": 40,
+      "width": 92,
+      "height": 21,
+      "type": "match"
+    },
+    {
+      "xpos": 383,
+      "ypos": 556,
+      "width": 258,
+      "height": 39,
+      "type": "match",
+      "click_point": {
+        "xpos": 129,
+        "ypos": 19.5
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "LANGUAGE-english",
+    "skip_button"
+  ]
+}

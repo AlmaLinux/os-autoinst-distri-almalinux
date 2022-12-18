@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "log_out_confirm"
+  ],
+  "area": [
+    {
+      "xpos": 595,
+      "ypos": 441,
+      "width": 56,
+      "height": 22,
+      "type": "match"
+    }
+  ]
+}

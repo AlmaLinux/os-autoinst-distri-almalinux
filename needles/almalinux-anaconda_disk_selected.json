@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 721,
+      "ypos": 197,
+      "width": 218,
+      "height": 40,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux"
+  ]
+}

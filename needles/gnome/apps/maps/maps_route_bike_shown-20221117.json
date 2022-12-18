@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "width": 102,
+      "height": 318,
+      "ypos": 194,
+      "xpos": 300
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "maps_route_bike_shown"
+  ]
+}

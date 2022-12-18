@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "nautilus_directory_starred"
+  ],
+  "area": [
+    {
+      "xpos": 13,
+      "ypos": 128,
+      "width": 79,
+      "height": 25,
+      "type": "match"
+    }
+  ]
+}

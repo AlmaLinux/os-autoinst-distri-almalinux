@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "height": 15,
+      "ypos": 93,
+      "xpos": 443,
+      "width": 136
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "apps_run_diskusage"
+  ]
+}

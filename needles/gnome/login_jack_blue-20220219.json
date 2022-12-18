@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "height": 25,
+      "ypos": 271,
+      "width": 37,
+      "xpos": 420
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "login_jack"
+  ]
+}

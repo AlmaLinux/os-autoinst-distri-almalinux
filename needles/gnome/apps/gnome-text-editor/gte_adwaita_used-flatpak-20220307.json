@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 8,
+      "ypos": 133,
+      "width": 178,
+      "height": 87,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gte_adwaita_used"
+  ]
+}

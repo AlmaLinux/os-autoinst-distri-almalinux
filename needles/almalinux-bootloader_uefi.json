@@ -1,0 +1,20 @@
+{
+  "area": [
+    {
+      "ypos": 593,
+      "type": "match",
+      "height": 19,
+      "xpos": 229,
+      "width": 113
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "ENV-FLAVOR-server_boot",
+    "ENV-FLAVOR-workstation_live",
+    "ENV-UEFI-1",
+    "bootloader",
+    "bootloader_uefi"
+  ]
+}

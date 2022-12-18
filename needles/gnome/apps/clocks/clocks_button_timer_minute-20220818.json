@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "width": 41,
+      "type": "match",
+      "xpos": 371,
+      "ypos": 286,
+      "height": 20
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "clocks_button_timer_minute"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "ypos": 40,
+      "width": 37,
+      "xpos": 141,
+      "height": 17
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "LANGUAGE-arabic",
+    "anaconda_layout_ascii",
+    "anaconda_layout_us"
+  ]
+}

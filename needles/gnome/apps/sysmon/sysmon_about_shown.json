@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "sysmon_about_shown"
+  ],
+  "area": [
+    {
+      "xpos": 443,
+      "ypos": 287,
+      "width": 133,
+      "height": 132,
+      "type": "match"
+    }
+  ]
+}

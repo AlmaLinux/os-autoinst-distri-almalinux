@@ -1,0 +1,22 @@
+{
+  "area": [
+    {
+      "xpos": 430,
+      "height": 21,
+      "width": 145,
+      "ypos": 273,
+      "type": "match"
+    },
+    {
+      "xpos": 430,
+      "height": 20,
+      "ypos": 344,
+      "type": "match",
+      "width": 135
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "contacts_contact_existing_7XGzO"
+  ]
+}

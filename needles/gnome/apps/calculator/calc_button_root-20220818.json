@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 453,
+      "ypos": 418,
+      "width": 31,
+      "height": 31,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "calc_button_root"
+  ]
+}

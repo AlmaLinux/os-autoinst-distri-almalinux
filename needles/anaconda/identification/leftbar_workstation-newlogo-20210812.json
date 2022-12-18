@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "width": 139,
+      "height": 701,
+      "ypos": 42,
+      "xpos": 9
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "leftbar_workstation"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "area": [
+    {
+      "width": 133,
+      "ypos": 586,
+      "xpos": 264,
+      "type": "match",
+      "height": 28
+    }
+  ],
+  "properties": [
+    {
+      "name": "workaround",
+      "value": "workaround for https://github.com/cockpit-project/cockpit/issues/17978 - services page unexpectedly has dark background"
+    }
+  ],
+  "tags": [
+    "cockpit_services_detail"
+  ]
+}

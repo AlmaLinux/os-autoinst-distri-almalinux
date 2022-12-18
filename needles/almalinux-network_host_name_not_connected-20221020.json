@@ -1,0 +1,20 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "xpos": 749,
+      "ypos": 361,
+      "height": 18,
+      "width": 99,
+      "click_point": {
+        "xpos": 17,
+        "ypos": 1.5
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "anaconda_main_hub_network_host_name_not_connected"
+  ]
+}

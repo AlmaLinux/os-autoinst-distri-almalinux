@@ -1,0 +1,15 @@
+{
+  "properties": [],
+  "tags": [
+    "nautilus_menu_shortcuts"
+  ],
+  "area": [
+    {
+      "xpos": 847,
+      "ypos": 294,
+      "width": 130,
+      "height": 22,
+      "type": "match"
+    }
+  ]
+}

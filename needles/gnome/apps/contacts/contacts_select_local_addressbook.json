@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 267,
+      "ypos": 291,
+      "width": 138,
+      "height": 27,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "contacts_select_local_addressbook"
+  ]
+}

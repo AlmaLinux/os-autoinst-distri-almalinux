@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "width": 395,
+      "ypos": 172,
+      "height": 117,
+      "xpos": 256
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gte-b2-selected"
+  ]
+}

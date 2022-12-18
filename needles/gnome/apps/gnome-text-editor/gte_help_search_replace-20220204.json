@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 7,
+      "ypos": 125,
+      "width": 308,
+      "height": 36,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gte_help_search_replace"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "height": 26,
+      "ypos": 347,
+      "xpos": 937,
+      "width": 26
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "vault_menu_open"
+  ]
+}

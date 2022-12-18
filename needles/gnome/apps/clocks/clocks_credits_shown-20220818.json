@@ -1,0 +1,22 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "xpos": 485,
+      "width": 58,
+      "height": 19,
+      "ypos": 157
+    },
+    {
+      "ypos": 260,
+      "height": 33,
+      "width": 92,
+      "type": "match",
+      "xpos": 354
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "clocks_credits_shown"
+  ]
+}

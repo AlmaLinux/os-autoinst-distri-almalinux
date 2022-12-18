@@ -1,0 +1,11 @@
+- hosts: all
+  tasks:
+    - name: Install required packages
+      package:
+        name: ['os-autoinst', 'perl-Test-Strict', 'perl-Test-Harness', 'perl-JSON', 'perl-REST-Client', 'perl-Code-TidyAll']
+        state: present
+      become: yes
+    - name: Run perl tests
+      command: prove t/
+      args:
+        chdir: '{{ zuul.project.src_dir }}'

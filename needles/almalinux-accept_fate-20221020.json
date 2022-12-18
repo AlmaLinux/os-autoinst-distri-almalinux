@@ -1,0 +1,17 @@
+{
+  "area": [
+    {
+      "ypos": 705,
+      "xpos": 674,
+      "type": "match",
+      "width": 343,
+      "height": 19
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "LANGUAGE-english",
+    "anaconda_rawhide_accept_fate"
+  ]
+}

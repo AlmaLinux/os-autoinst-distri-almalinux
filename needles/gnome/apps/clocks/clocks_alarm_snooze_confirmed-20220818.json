@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "height": 28,
+      "ypos": 107,
+      "type": "match",
+      "xpos": 231,
+      "width": 104
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "clocks_alarm_snooze_confirmed"
+  ]
+}

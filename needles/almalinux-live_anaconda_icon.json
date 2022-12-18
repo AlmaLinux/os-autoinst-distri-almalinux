@@ -1,0 +1,20 @@
+{
+  "area": [
+    {
+      "xpos": 563,
+      "ypos": 207,
+      "width": 189,
+      "type": "match",
+      "height": 167,
+      "click_point": {
+        "xpos": 94.5,
+        "ypos": 83.5
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "live_start_anaconda_icon",
+    "DESKTOP-kde"
+  ]
+}
