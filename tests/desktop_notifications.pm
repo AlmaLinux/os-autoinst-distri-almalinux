@@ -61,7 +61,10 @@ sub run {
     type_string "systemctl isolate graphical.target\n";
     # we trust systemd to switch us to the right tty here
     if (get_var("BOOTFROM")) {
-        assert_screen 'graphical_login', 60;
+        if (check_screen "graphical_login", 45) {
+            assert_and_click "graphical_login"
+        }
+        # assert_screen 'graphical_login', 60;
         wait_still_screen 10, 30;
         # GDM 3.24.1 dumps a cursor in the middle of the screen here...
         mouse_hide;
@@ -107,7 +110,8 @@ sub run {
             # ...otherwise you have to expand the systray and click
             # "Notifications"
             assert_and_click 'desktop_expand_systray';
-            assert_and_click 'desktop_systray_notifications';
+            # TODO: may need the knotification package?
+            # assert_and_click 'desktop_systray_notifications';
         }
         # In F32+ we may get an 'akonadi did something' message
         if (check_screen 'akonadi_migration_notification', 5) {
@@ -116,13 +120,16 @@ sub run {
             # re-open it
             if (check_screen 'desktop_expand_systray', 10) {
                 click_lastmatch;
-                assert_and_click 'desktop_systray_notifications';
+            # TODO: may need the knotification package?
+            # assert_and_click 'desktop_systray_notifications';
             }
         }
     }
     if (get_var("BOOTFROM")) {
         # we should see an update notification and no others
-        assert_screen "desktop_update_notification_only";
+        if ($desktop eq 'gnome') { # KDE notification turned of in live images
+            assert_screen "desktop_update_notification_only";
+        }
     }
     else {
         # for the live case there should be *no* notifications

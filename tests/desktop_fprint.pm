@@ -19,7 +19,10 @@ sub run {
     # now we reboot and go onto step 2:
     # "Login with a reader, but no enrolled prints"
     type_string "reboot\n";
-    assert_screen "graphical_login", 180;
+    # assert_screen "graphical_login", 180;
+    if (check_screen "graphical_login", 180) {
+        assert_and_click "graphical_login"
+    }
     mouse_hide;
     send_key_until_needlematch("graphical_login_input", "ret", 3, 5);
     type_very_safely "weakpassword";
@@ -61,6 +64,9 @@ sub run {
     type_string "sleep 20; echo SCAN $user-finger-2 | socat STDIN UNIX-CONNECT:/run/fprintd-virt\n";
     send_key "ctrl-alt-f1";
     mouse_hide;
+    if (check_screen "graphical_login", 180) {
+        assert_and_click "graphical_login"
+    }
     send_key_until_needlematch("graphical_login_input", "ret", 3, 5);
     assert_screen "graphical_login_fprint";
     # unfortunately we cannot assert the 'scan failed' message as it

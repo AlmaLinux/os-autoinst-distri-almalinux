@@ -16,22 +16,6 @@
                 "WORKER_CLASS": "qemu_x86_64"
             }
         },
-        "ARM": {
-            "backend": "qemu",
-            "settings": {
-                "ARCH_BASE_MACHINE": "ARM",
-                "QEMU": "arm",
-                "QEMUCPUS": "2",
-                "QEMUMACHINE": "virt",
-                "QEMURAM": "1024",
-                "QEMU_MAX_MIGRATION_TIME": "480",
-                "QEMU_NO_KVM": "1",
-                "QEMU_VIRTIO_RNG": "1",
-                "SERIALDEV": "ttyAMA0",
-                "TIMEOUT_SCALE": "1.5",
-                "WORKER_CLASS": "qemu_aarch64"
-            }
-        },
         "aarch64": {
             "backend": "qemu",
             "settings": {
@@ -81,7 +65,7 @@
                 "QEMU_MAX_MIGRATION_TIME": "480",
                 "QEMU_VIRTIO_RNG": "1",
                 "UEFI": "1",
-                "UEFI_PFLASH_CODE": "/usr/share/edk2/ovmf/OVMF_CODE.fd",
+                "UEFI_PFLASH_CODE": "/usr/share/edk2/ovmf/OVMF_CODE.cc.fd",
                 "UEFI_PFLASH_VARS": "/usr/share/edk2/ovmf/OVMF_VARS.fd",
                 "WORKER_CLASS": "qemu_x86_64"
             }
@@ -190,22 +174,14 @@
             },
             "version": "*"
         },
-        "Almalinux-Minimal-raw_xz-raw.xz-arm-*": {
-            "arch": "arm",
-            "distri": "almalinux",
-            "flavor": "Minimal-raw_xz-raw.xz",
-            "settings": {
-                "APPEND": "rw root=LABEL=_/ rootwait console=ttyAMA0 console=tty0 consoleblank=0",
-                "DEPLOY_UPLOAD_TEST": "install_arm_image_deployment_upload",
-                "TEST_TARGET": "HDD_2"
-            },
-            "version": "*"
-        },
         "Almalinux-boot-iso-aarch64-*": {
             "arch": "aarch64",
             "distri": "almalinux",
             "flavor": "boot-iso",
             "settings": {
+                "DESKTOP": "gnome",
+                "GRUB": "ip=dhcp",
+                "HDDSIZEGB": "12",
                 "TEST_TARGET": "ISO"
             },
             "version": "*"
@@ -215,6 +191,9 @@
             "distri": "almalinux",
             "flavor": "boot-iso",
             "settings": {
+                "DESKTOP": "gnome",
+                "GRUB": "ip=dhcp",
+                "HDDSIZEGB": "12",
                 "TEST_TARGET": "ISO"
             },
             "version": "*"
@@ -225,6 +204,9 @@
             "flavor": "boot-iso",
             "settings": {
                 "+QEMURAM": 3072,
+                "DESKTOP": "gnome",
+                "GRUB": "ip=dhcp",
+                "HDDSIZEGB": "12",
                 "TEST_TARGET": "ISO"
             },
             "version": "*"
@@ -454,10 +436,6 @@
         "Almalinux-Minimal-raw_xz-raw.xz-aarch64-*-aarch64": {
             "machine": "aarch64",
             "product": "Almalinux-Minimal-raw_xz-raw.xz-aarch64-*"
-        },
-        "Almalinux-Minimal-raw_xz-raw.xz-arm-*-ARM": {
-            "machine": "ARM",
-            "product": "Almalinux-Minimal-raw_xz-raw.xz-arm-*"
         },
         "Almalinux-boot-iso-aarch64-*-aarch64": {
             "machine": "aarch64",

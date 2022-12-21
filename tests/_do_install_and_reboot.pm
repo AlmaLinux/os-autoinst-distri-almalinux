@@ -83,7 +83,7 @@ sub run {
     # we're on a debug kernel, debug kernel installs are really slow.
     my $timeout = 3000;
     my $version = lc(get_var('VERSION'));
-    if ($version eq "rawhide") {
+    if ($version eq "rawhide" || lc(get_var('DISTRI')) eq "almalinux") {
         $timeout = 4200;
     }
     # workstation especially has an unfortunate habit of kicking in
@@ -113,8 +113,9 @@ sub run {
     push(@actions, 'rootpw') if (get_var("INSTALLER_NO_ROOT"));
     # FIXME: remove plymouth from Server install_default_upload on
     # non-aarch64 to work around RHBZ #1933378
+    # TODO: check this is required
     unless (get_var("ARCH") eq "aarch64") {
-        if (get_var("FLAVOR") eq "Server-dvd-iso" && get_var("TEST") eq "install_default_upload") {
+        if (get_var("FLAVOR") eq "dvd-iso" && get_var("TEST") eq "install_default_upload") {
             push(@actions, 'noplymouth');
         }
     }
@@ -155,7 +156,7 @@ sub run {
         # messages, which screw up some needles
         assert_script_run 'sed -i -e "s,\(GRUB_CMDLINE_LINUX.*\)\",\1 console=tty0 quiet\",g" ' . $mount . '/etc/default/grub';
         # regenerate the bootloader config
-        assert_script_run "chroot $mount grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg";
+        assert_script_run "chroot $mount grub2-mkconfig -o /boot/efi/EFI/almalinux/grub.cfg";
     }
     if (grep { $_ eq 'abrt' } @actions) {
         # Chroot in the newly installed system and switch on ABRT systemwide
@@ -164,6 +165,9 @@ sub run {
     if (grep { $_ eq 'rootpw' } @actions) {
         my $root_password = get_var("ROOT_PASSWORD") || "weakpassword";
         assert_script_run "echo 'root:$root_password' | chpasswd -R $mount";
+    }
+    if (grep {$_ eq 'stagingrepos'} @actions) {
+        assert_script_run 'sed -i -e "s#https://repo.almalinux.org/almalinux/$releasever#http://$basearch-pungi-$releasever.almalinux.org/almalinux/$releasever/latest_result/compose#" -e "s|^mirrorlist|# mirrorlist|" -e "s|^# baseurl|baseurl|" ' . $mount . '/etc/yum.repos.d/almalinux*.repo';
     }
     if (grep { $_ eq 'noplymouth' } @actions) {
         assert_script_run "chroot $mount dnf -y remove plymouth";

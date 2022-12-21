@@ -31,7 +31,7 @@ sub run {
         $params .= "inst.repo=" . get_full_repo($repourl) . " ";
     }
     # Construct inst.addrepo arg for ADD_REPOSITORY_VARIATION
-    my $repourl = get_var("ADD_REPOSITORY_VARIATION");
+    $repourl = get_var("ADD_REPOSITORY_VARIATION");
     if ($repourl) {
         $params .= "inst.addrepo=addrepo,$repourl ";
     }
@@ -117,6 +117,10 @@ sub run {
                 while ($count > 0) {
                     $count -= 1;
                     sleep 60;
+                    if ((get_var("DESKTOP") eq 'gnome') && (check_screen "live_initial_gnome_tour", 45)) {
+                        assert_and_click "live_initial_gnome_tour";
+                        wait_still_screen 3;
+                    }
                     assert_screen ["live_start_anaconda_icon", "apps_menu_button_active"], 300;
                     if (match_has_tag "apps_menu_button_active") {
                         # give GNOME some time to be sure it's done starting up

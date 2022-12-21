@@ -155,7 +155,8 @@ sub load_install_tests() {
     # not want to try and use them. Setting this in the templates is
     # tricky as it gets set for post-install tests too that way, and
     # we don't want that
-    if ((get_var('LIVE') || get_var('CANNED')) && get_var('DESKTOP') eq 'gnome') {
+    # TODO: revisit to check LIVE to be added here
+    if ((get_var('CANNED')) && get_var('DESKTOP') eq 'gnome') {
         set_var('INSTALLER_NO_ROOT', '1');
         # this is effectively a forced install_no_user
         set_var('INSTALL_NO_USER', '1');
@@ -248,7 +249,7 @@ sub _load_early_postinstall_tests {
     # for minimal/server-product/virtualization-host
     # Also if no "DESKTOP" variable defined/empty
     my $package_set = get_var("PACKAGE_SET");
-    if (!get_var("DESKTOP") || get_var("DESKTOP") eq "false" ||
+    if (get_var("FLAVOR") eq "minimal-iso"  || !get_var("DESKTOP") || get_var("DESKTOP") eq "false" ||
         $package_set eq "minimal" || $package_set eq "server" ||
         $package_set eq "virtualization-host") {
         _load_instance("tests/_console_wait_login", $instance);

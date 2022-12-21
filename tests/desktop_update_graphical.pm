@@ -10,7 +10,8 @@ sub run {
     my $relnum = get_release_number;
     # use a tty console for repo config and package prep
     $self->root_console(tty => 3);
-    assert_script_run 'dnf config-manager --set-disabled updates-testing';
+    # TODO: Invalid package to disable
+    # assert_script_run 'dnf config-manager --set-disabled updates-testing';
     prepare_test_packages;
     # get back to the desktop
     desktop_vt;
@@ -109,7 +110,8 @@ sub run {
         # work, so keep clicking till it does:
         # https://bugzilla.redhat.com/show_bug.cgi?id=1943943
         for my $n (1 .. 10) {
-            sleep 2;
+            # sleep 2;
+            wait_still_screen 15;
             assert_screen ['kde_offline_update_reboot', 'desktop_package_tool_update_apply'];
             # break out if we reached the reboot button
             last if (match_has_tag 'kde_offline_update_reboot');

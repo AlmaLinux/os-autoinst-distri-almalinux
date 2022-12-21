@@ -9,10 +9,13 @@ sub run {
     # switch to tty and login as root
     $self->root_console(tty => 3);
 
-    # Install a Ruby module.
-    my $name = "mysql";
-    my $stream = "8.0";
-    my $profile = "server";
+    # Install a some module.
+    # my $name = "mysql";
+    # my $stream = "8.0";
+    # my $profile = "server";
+    my $name = "nodejs";
+    my $stream = "18";
+    my $profile = "s2i";
     assert_script_run("dnf module install -y $name:$stream/$profile");
 
     # Check that it is listed in the installed list.

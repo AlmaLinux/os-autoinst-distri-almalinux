@@ -59,18 +59,35 @@ sub run {
     if ($build =~ /^Fedora-CoreOS/) {
         $cannedtag = (split /-/, $build)[-1];
     }
-    my $name = ucfirst($id);
-    my $fullname = $name . " Linux";
+    my $name = "AlmaLinux"; ## ucfirst($id);
+    # my $fullname = $name . " Linux";
+    my $fullname = $name;
     my $rawrel = get_var("RAWREL", '');
     # Should be the version number or Rawhide.
     my $version_id = get_var("VERSION");
     # IoT has a branch that acts more or less like Rawhide, but has
     # its version as the Rawhide release number, not 'Rawhide'. This
     # handles that
-    $version_id = 'Rawhide' if ($version_id eq $rawrel);
+    # $version_id = 'Rawhide' if ($version_id eq $rawrel);
     my $varstr = spell_version_number($version_id);
-    my $target = lc($version_id);
-    $version_id = $rawrel if ($version_id eq "Rawhide");
+    my $ver_major = substr($version_id, 0, index($version_id, q/./));
+    my $ver_minor = substr($version_id, index($version_id, q/./), length($version_id));
+    my $target = lc($ver_major);
+    if ( $ver_major = '9' ) {
+        $target = lc($version_id);
+    }
+
+    my $reltag = script_output 'rpm -q almalinux-release --qf "%{RELEASE}\n"';
+    my $relver = substr($reltag, 0, rindex($reltag, q/./));
+    my $eltag = substr($reltag, rindex($reltag, q/./)+1, length($reltag));
+
+    my $code_name = get_code_name();
+    my $version = "$version_id ($code_name)";
+    my $platform_id = "platform:$eltag";
+    my $pretty = "$fullname $version_id ($code_name)";
+    # $version_id = $rawrel if ($version_id eq "Rawhide");
+    $version_id = "\"$version_id\""; # expects as String
+    $target = "\"$target\""; # expects as String
 
     # the 'generic' os-release in fedora-release has no VARIANT or
     # VARIANT_ID and the string used in values like VERSION, that in other
@@ -99,34 +116,7 @@ sub run {
 
     # If fedora-release-common release starts with a 0, we'll have
     # "Prerelease" in varstr
-    my $reltag = script_output 'rpm -q fedora-release-common --qf "%{RELEASE}\n"';
-    if (index($reltag, "0.") == 0) {
-        $varstr .= " Prerelease";
-        # ...however, we shouldn't just wave this through if we're
-        # an RC candidate or update compose, those should never be
-        # done with a 0.x fedora-release-common. so let's blow up
-        # here if so. unless it's IoT, because IoT is weird
-        my $label = get_var("LABEL");
-        if ($label =~ /^(RC|Update)-/ && $subvariant ne "IoT") {
-            die "RC candidate or update compose should not have 0.x versioned fedora-release!";
-        }
-    }
-    my $version = "$version_id ($varstr)";
-    # for canned variants, we need to form a different string here by using
-    # the above created cannedtag. See earlier comment
-    if (get_var("CANNED")) {
-        $version = "$cannedtag ($varstr)";
-    }
-    my $platform_id = "platform:f$version_id";
-    my $pretty = "$fullname $version_id ($varstr)";
-    # Same problem is when testing the PRETTY_NAME.
-    if (get_var("CANNED")) {
-        $pretty = "$fullname $cannedtag ($varstr)";
-        # ...and FCOS uses a different format, sigh
-        if ($build =~ /^Fedora-CoreOS/) {
-            $pretty = "Fedora CoreOS $cannedtag";
-        }
-    }
+    # my $reltag = script_output 'rpm -q almalinux-release --qf "%{RELEASE}\n"';
 
     #Now. we can start testing the real values from the installed system.
     my @fails = ();
@@ -152,11 +142,11 @@ sub run {
     rec_log "PRETTY_NAME should be $pretty and is $strip", $strip eq $pretty, $failref;
 
     # Test for RH Bugzilla Product
-    $strip = strip_marks($content{'REDHAT_BUGZILLA_PRODUCT'});
-    rec_log "REDHAT_BUGZILLA_PRODUCT should be $name and is $strip", $strip eq $name, $failref;
+    # $strip = strip_marks($content{'REDHAT_BUGZILLA_PRODUCT'});
+    # rec_log "REDHAT_BUGZILLA_PRODUCT should be $name and is $strip", $strip eq $name, $failref;
 
     # Test for RH Bugzilla Product Version
-    rec_log "REDHAT_BUGZILLA_PRODUCT_VERSION should be $target and is $content{'REDHAT_BUGZILLA_PRODUCT_VERSION'}", $content{'REDHAT_BUGZILLA_PRODUCT_VERSION'} eq $target, $failref;
+    # rec_log "REDHAT_BUGZILLA_PRODUCT_VERSION should be $target and is $content{'REDHAT_BUGZILLA_PRODUCT_VERSION'}", $content{'REDHAT_BUGZILLA_PRODUCT_VERSION'} eq $target, $failref;
 
     # Test for RH Support Product
     $strip = strip_marks($content{'REDHAT_SUPPORT_PRODUCT'});
@@ -165,18 +155,18 @@ sub run {
     # Test for RH Support Product Version
     rec_log "REDHAT_SUPPORT_PRODUCT_VERSION should be $target and is $content{'REDHAT_SUPPORT_PRODUCT_VERSION'}", $content{'REDHAT_SUPPORT_PRODUCT_VERSION'} eq $target, $failref;
 
-    # Test for Variant but only in case of Server or Workstation
-    if ($variant ne "generic") {
-        $strip = strip_marks($content{'VARIANT'});
-        rec_log "VARIANT should be $variant and is $strip", $strip eq $variant, $failref;
+    ## Test for Variant but only in case of Server or Workstation
+    # if ($variant ne "generic") {
+    #   $strip = strip_marks($content{'VARIANT'});
+    #    rec_log "VARIANT should be $variant and is $strip", $strip eq $variant, $failref;
 
         # Test for VARIANT_ID
-        rec_log "VARIANT_ID should be $variant_id and is $content{'VARIANT_ID'}", $content{'VARIANT_ID'} eq $variant_id, $failref;
-    }
-    else {
-        print "VARIANT was not tested because the compose is not Workstation or Server Edition.\n";
-        print "VARIANT_ID was not tested because the compose is not Workstation or Server Edition.\n";
-    }
+    #    rec_log "VARIANT_ID should be $variant_id and is $content{'VARIANT_ID'}", $content{'VARIANT_ID'} eq $variant_id, $failref;
+    #}
+    #else {
+    #    print "VARIANT was not tested because the compose is not Workstation or Server Edition.\n";
+    #    print "VARIANT_ID was not tested because the compose is not Workstation or Server Edition.\n";
+    #}
 
     # Check for fails, count them, collect their messages and die if something was found.
     my $failcount = scalar @fails;

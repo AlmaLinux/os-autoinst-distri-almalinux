@@ -3,6 +3,10 @@ use strict;
 use testapi;
 
 sub run {
+    my $self = shift;
+    # switch to tty and login as root
+    $self->root_console(tty => 3);
+
     assert_screen "root_console";
     # check that there is a root partition and that it has
     # the correct size -> 13G

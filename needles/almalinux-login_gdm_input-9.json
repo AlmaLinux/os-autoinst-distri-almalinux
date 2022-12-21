@@ -13,6 +13,7 @@
     "DESKTOP-gnome",
     "ENV-DISTRI-almalinux",
     "LANGUAGE-english",
+    "graphical_login_fprint",
     "graphical_login_input"
   ]
 }

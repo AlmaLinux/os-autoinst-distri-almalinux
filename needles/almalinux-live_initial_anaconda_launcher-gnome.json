@@ -1,0 +1,28 @@
+{
+  "area": [
+    {
+      "xpos": 430,
+      "height": 18,
+      "width": 161,
+      "ypos": 90,
+      "type": "match"
+    },
+    {
+      "ypos": 204,
+      "type": "match",
+      "width": 195,
+      "xpos": 560,
+      "height": 175,
+      "click_point": {
+        "xpos": 97.5,
+        "ypos": 87.5
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "live_initial_anaconda_launcher",
+    "live_start_anaconda_icon"
+  ]
+}

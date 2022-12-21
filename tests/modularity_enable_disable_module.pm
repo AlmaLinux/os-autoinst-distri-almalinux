@@ -11,8 +11,10 @@ sub run {
     $self->root_console(tty => 3);
 
     # Enable the module.
-    my $name = "mysql";
-    my $stream = "8.0";
+    # my $name = "mysql";
+    # my $stream = "8.0";
+    my $name = "nodejs";
+    my $stream = "18";
     assert_script_run("dnf module enable -y $name:$stream");
 
     # Check that it is listed in the enabled list.
@@ -30,8 +32,10 @@ sub run {
     }
 
     # Disable some other module.
-    my $name_alt = "nginx";
-    my $stream_alt = "mainline";
+    # my $name_alt = "nginx";
+    # my $stream_alt = "mainline";
+    my $name_alt = "ruby";
+    my $stream_alt = "3.1";    
     assert_script_run("dnf module disable -y $name_alt:$stream_alt");
 
     # Check that it is listed in the disabled list.

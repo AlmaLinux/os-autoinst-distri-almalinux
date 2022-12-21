@@ -7,7 +7,7 @@ use Exporter;
 
 use lockapi;
 use testapi;
-our @EXPORT = qw/run_with_error_check type_safely type_very_safely desktop_vt boot_to_login_screen console_login console_switch_layout desktop_switch_layout console_loadkeys_us do_bootloader boot_decrypt check_release menu_launch_type repo_setup setup_workaround_repo disable_updates_repos cleanup_workaround_repo console_initial_setup handle_welcome_screen gnome_initial_setup anaconda_create_user check_desktop download_modularity_tests quit_firefox advisory_get_installed_packages advisory_check_nonmatching_packages start_with_launcher quit_with_shortcut disable_firefox_studies select_rescue_mode copy_devcdrom_as_isofile get_release_number check_left_bar check_top_bar check_prerelease check_version spell_version_number _assert_and_click is_branched rec_log click_unwanted_notifications repos_mirrorlist register_application get_registered_applications solidify_wallpaper check_and_install_git download_testdata make_serial_writable/;
+our @EXPORT = qw/run_with_error_check type_safely type_very_safely get_version_major get_code_name desktop_vt boot_to_login_screen console_login console_switch_layout desktop_switch_layout console_loadkeys_us do_bootloader boot_decrypt check_release menu_launch_type repo_setup setup_workaround_repo disable_updates_repos cleanup_workaround_repo console_initial_setup handle_welcome_screen gnome_initial_setup anaconda_create_user check_desktop download_modularity_tests quit_firefox advisory_get_installed_packages advisory_check_nonmatching_packages start_with_launcher quit_with_shortcut disable_firefox_studies select_rescue_mode copy_devcdrom_as_isofile get_release_number check_left_bar check_top_bar check_prerelease check_version spell_version_number _assert_and_click is_branched rec_log click_unwanted_notifications repos_mirrorlist register_application get_registered_applications solidify_wallpaper check_and_install_git download_testdata make_serial_writable/;
 
 # We introduce this global variable to hold the list of applications that have
 # registered during the apps_startstop_test when they have sucessfully run.
@@ -60,6 +60,25 @@ sub get_release_number {
     my $rawrel = get_var("RAWREL", "Rawhide");
     return $rawrel if ($version eq "Rawhide");
     return $version;
+}
+
+sub get_version_major {
+    my $version = get_var("VERSION");
+    my $version_major = substr($version, 0, index($version, q/./));
+    return $version_major;
+}
+
+sub get_code_name {
+    my $version = get_var("VERSION");
+
+    if ($version eq '9.1') {  return "Lime Lynx"; }
+    if ($version eq '9.0') {  return "Emerald Puma"; }
+    if ($version eq '8.7') {  return "Stone Smilodon"; }
+    if ($version eq '8.6') {  return "Sky Tiger"; }
+    if ($version eq '8.5') {  return "Arctic Sphynx"; }
+    if ($version eq '8.4') {  return "Electric Cheetah"; }
+    if ($version eq '8.3') {  return "Purple Manul"; }
+    return "Stone Smilodon";
 }
 
 # Wait for login screen to appear. Handle the annoying GPU buffer
@@ -685,7 +704,8 @@ sub repo_setup {
     # some things (at least realmd) try to update the repodata for
     # it even though it is disabled, and fail. At present none of the
     # tests needs it, so let's just unconditionally nuke it.
-    assert_script_run "rm -f /etc/yum.repos.d/fedora-cisco-openh264.repo";
+    # TODO: following step not required
+    # assert_script_run "rm -f /etc/yum.repos.d/fedora-cisco-openh264.repo";
 }
 
 sub console_initial_setup {
@@ -751,7 +771,8 @@ sub handle_welcome_screen {
         wait_still_screen 5;
     }
     else {
-        record_soft_failure "Welcome tour missing";
+        # TODO: tour missing by default from 8.7 onwards ...
+        # record_soft_failure "Welcome tour missing";
     }
     set_var("_WELCOME_DONE", 1);
 }
@@ -947,6 +968,10 @@ sub check_desktop {
     my $activematched = 0;
     while ($count > 0) {
         $count -= 1;
+        if ((get_var("DESKTOP") eq 'gnome') && (check_screen "live_initial_gnome_tour", 7)) {
+            assert_and_click "live_initial_gnome_tour";
+            wait_still_screen 3;
+        }
         assert_screen "apps_menu_button", $args{timeout};
         if ($count == 4) {
             # GNOME 42 shows the inactive menu button briefly before
@@ -1564,7 +1589,7 @@ sub download_testdata {
     assert_script_run("mkdir temp");
     assert_script_run("cd temp");
     # Download the compressed file with the repository content.
-    assert_script_run("wget https://pagure.io/fedora-qa/openqa_testdata/blob/thetree/f/repository.tar.gz", timeout => 120);
+    assert_script_run("curl -LO https://pagure.io/fedora-qa/openqa_testdata/blob/thetree/f/repository.tar.gz", timeout => 120);
     # Untar it.
     assert_script_run("tar -zxvf repository.tar.gz");
     # Copy out the files into the VMs directory structure.

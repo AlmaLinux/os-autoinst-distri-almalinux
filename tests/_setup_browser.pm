@@ -5,15 +5,21 @@ use utils;
 
 sub run {
     my $self = shift;
+    if (not(check_screen "root_console", 0)) {
+        $self->root_console(tty => 3);
+    }
     # set up appropriate repositories
     repo_setup();
     # use --enablerepo=fedora for Modular compose testing (we need to
     # create and use a non-Modular repo to get some packages which
     # aren't in Modular Server composes)
+    # TODO: fedora repo not required, work with defaults 
     my $extraparams = '';
-    $extraparams = '--enablerepo=fedora' if (get_var("MODULAR"));
+    # $extraparams = '--enablerepo=fedora' if (get_var("MODULAR"));
     # install a desktop and firefox so we can actually try it
-    assert_script_run "dnf ${extraparams} -y groupinstall 'base-x'", 300;
+    # GUI already installed
+    assert_script_run "dnf repolist --all";
+    # assert_script_run "dnf ${extraparams} -y groupinstall 'base-x'", 300;
     # FIXME: this should probably be in base-x...X seems to fail without
     assert_script_run "dnf ${extraparams} -y install libglvnd-egl", 180;
     # try to avoid random weird font selection happening

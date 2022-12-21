@@ -3,6 +3,10 @@ use strict;
 use testapi;
 
 sub run {
+    my $self = shift;
+    # switch to tty and login as root
+    $self->root_console(tty => 3);
+        
     assert_screen "root_console";
     # check that second disk is intact
     assert_script_run 'mount /dev/vdb1 /mnt';

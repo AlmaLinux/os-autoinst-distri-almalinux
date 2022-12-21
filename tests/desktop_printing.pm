@@ -20,6 +20,8 @@ sub run {
     # If the test should be running with CUPS-PDF, we need to install it first.
     if ($usecups) {
         # Install the Cups-PDF package to use the Cups-PDF printer
+        # Needed epel-release repo for cups-pdf package
+        assert_script_run "dnf -y install epel-release", 150; 
         assert_script_run "dnf -y install cups-pdf", 180;
     }
 
@@ -38,7 +40,7 @@ sub run {
     my $desktop = get_var("DESKTOP");
     # Set up some variables to make the test compatible with different desktops.
     # Defaults are for the Gnome desktop.
-    my $editor = "gnome-text-editor";
+    my $editor = "gedit";
     my $viewer = "evince";
     my $maximize = "super-up";
     my $term = "gnome-terminal";

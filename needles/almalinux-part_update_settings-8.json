@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "width": 98,
+      "ypos": 573,
+      "type": "match",
+      "xpos": 882,
+      "height": 20
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-FLAVOR-almalinux",
+    "anaconda_part_update_settings"
+  ]
+}

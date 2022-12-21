@@ -3,6 +3,10 @@ use strict;
 use testapi;
 
 sub run {
+    my $self = shift;
+    # switch to tty and login as root
+    $self->root_console(tty => 3);
+
     assert_screen "root_console";
     # check that lvmthinpool is present:
     # http://atodorov.org/blog/2015/04/14/how-to-find-if-lvm-volume-is-thinly-provisioned/

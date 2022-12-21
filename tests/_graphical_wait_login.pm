@@ -29,14 +29,14 @@ sub run {
     # install time. if UPGRADE, we have to wait for the entire upgrade
     # unless ENCRYPT_PASSWORD is set (in which case the postinstall
     # test does the waiting)
-    my $wait_time = 300;
+    my $wait_time = 400;
     $wait_time = 1800 if (get_var("KICKSTART"));
     $wait_time = 6000 if (get_var("UPGRADE") && !get_var("ENCRYPT_PASSWORD"));
 
     # handle bootloader, if requested
     if (get_var("GRUB_POSTINSTALL")) {
         do_bootloader(postinstall => 1, params => get_var("GRUB_POSTINSTALL"), timeout => $wait_time);
-        $wait_time = 300;
+        $wait_time = 400;
     }
 
     # Handle pre-login initial setup if we're doing INSTALL_NO_USER
@@ -48,6 +48,21 @@ sub run {
             anaconda_create_user(timeout => $wait_time);
             # wait out animation
             wait_still_screen 3;
+            if (get_var('LIVE')) {
+                unless (get_var("HDD_1") && !(get_var("PARTITIONING") eq "custom_resize_lvm")) {
+                    # assert_screen "gdm_initial_setup_license", 120;
+                    assert_and_click "gdm_initial_setup_license";
+                    # Make sure the card has fully lifted until clicking on the buttons
+                    wait_still_screen 5, 30;
+                    assert_and_click "gdm_initial_setup_licence_accept";
+                    assert_and_click "gdm_spoke_done";
+                    # As well as coming back
+                    wait_still_screen 5, 30;
+                    assert_screen "gdm_initial_setup_license_accepted";
+                    assert_and_click "gdm_initial_setup_spoke_forward";
+                    wait_still_screen 3;
+                }    
+            }            
             assert_and_click "initialsetup_finish_configuration";
             set_var("_SETUP_DONE", 1);
         }
@@ -56,21 +71,23 @@ sub run {
     # Wait for the login screen, unless we're doing a GNOME no user
     # install, which transitions straight from g-i-s to logged-in
     # desktop
-    unless ($desktop eq 'gnome' && get_var("INSTALL_NO_USER")) {
-        unless (get_var("HDD_1") && !(get_var("PARTITIONING") eq "custom_resize_lvm") && (get_version_major() < 9)) {
-            # for AlmaLinuxere happens to be a license acceptance screen
-            # the initial appearance can sometimes take really long
-            assert_screen "gdm_initial_setup_license", 120;
-            assert_and_click "gdm_initial_setup_license";
-            # Make sure the card has fully lifted until clicking on the buttons
-            wait_still_screen 5, 30;
-            assert_and_click "gdm_initial_setup_licence_accept";
-            assert_and_click "gdm_spoke_done";
-            # As well as coming back
-            wait_still_screen 5, 30;
-            assert_screen "gdm_initial_setup_license_accepted";
-            assert_and_click "gdm_initial_setup_spoke_forward";
-        }    
+    unless (($desktop eq 'gnome' || $desktop eq 'kde') && get_var("INSTALL_NO_USER")) {
+        # for AlmaLinux 8 happens to be a license acceptance screen
+        # the initial appearance can sometimes take really long
+        if (get_version_major() < 9 || (get_var("LIVE") && $desktop eq 'kde')) {
+            unless (get_var("HDD_1") && !(get_var("PARTITIONING") eq "custom_resize_lvm")) {
+                assert_screen "gdm_initial_setup_license", 120;
+                assert_and_click "gdm_initial_setup_license";
+                # Make sure the card has fully lifted until clicking on the buttons
+                wait_still_screen 5, 30;
+                assert_and_click "gdm_initial_setup_licence_accept";
+                assert_and_click "gdm_spoke_done";
+                # As well as coming back
+                wait_still_screen 5, 30;
+                assert_screen "gdm_initial_setup_license_accepted";
+                assert_and_click "gdm_initial_setup_spoke_forward";
+            }    
+        }
         boot_to_login_screen(timeout => $wait_time);
         # if USER_LOGIN is set to string 'false', we're done here
         return if (get_var("USER_LOGIN") eq "false");
@@ -78,6 +95,10 @@ sub run {
         # GDM 3.24.1 dumps a cursor in the middle of the screen here...
         mouse_hide;
         if ($desktop eq 'gnome') {
+            if (get_version_major() > 8) {
+                send_key_until_needlematch("graphical_login_test_user_highlighted", "tab", 5);
+                assert_screen "graphical_login_test_user_highlighted";
+            }            
             # we have to hit enter to get the password dialog, and it
             # doesn't always work for some reason so just try it three
             # times

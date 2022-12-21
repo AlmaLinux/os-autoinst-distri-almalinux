@@ -7,7 +7,9 @@ use cockpit;
 
 sub run {
     my $self = shift;
-
+    if (not(check_screen "root_console", 0)) {
+        $self->root_console(tty => 3);
+    }
     my $cockdate = "0";
     # Remove a package, disable repositories and enable test repositories, install the package
     # from that repository to make the system outdated and verify that that package was
@@ -15,6 +17,10 @@ sub run {
     prepare_test_packages;
     verify_installed_packages;
 
+    # TODO: prepare sudoers for later use
+    assert_script_run 'mkdir -p /etc/sudoers.d';
+    assert_script_run 'echo "test ALL=(ALL)     NOPASSWD: ALL" > /etc/sudoers.d/test';
+    assert_script_run 'usermod -aG wheel test';
     # Start Cockpit
     start_cockpit(login => 1);
     # Navigate to update screen

@@ -17,7 +17,6 @@
   ],
   "properties": [],
   "tags": [
-    "DESKTOP-gnome",
     "ENV-DISTRI-almalinux",
     "gdm_initial_setup_license"
   ]

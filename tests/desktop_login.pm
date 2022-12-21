@@ -178,6 +178,7 @@ sub run {
     # replace the wallpaper with a black image, this should work for
     # all desktops. Takes effect after a logout / login cycle
     $self->root_console(tty => 3);
+    assert_script_run "dnf -y install epel-release ", 150;
     assert_script_run "dnf -y install GraphicsMagick", 300;
     assert_script_run "gm convert -size 1024x768 xc:black /usr/share/backgrounds/black.png";
     assert_script_run "gm convert -size 1024x768 xc:black /usr/share/backgrounds/black.webp";

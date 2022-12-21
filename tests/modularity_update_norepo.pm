@@ -13,15 +13,16 @@ sub run {
     assert_script_run('dnf update -y');
 
     # Enable and install the nodejs module, stream 11.
-    assert_script_run('dnf module install -y nodejs:15');
+    assert_script_run('dnf module install -y nodejs:18');
 
     # Update the system without modular repos.
-    assert_script_run('dnf update --disablerepo=\*modular -y');
+    # TODO: repo not required
+    #  assert_script_run('dnf update --disablerepo=\*modular -y');
 
     # Check that the same version is listed in the installed modules.
     my $installed = script_output('dnf module list --installed');
     my @installed_modules = parse_module_list($installed);
-    my $found = is_listed("nodejs", "15", \@installed_modules);
+    my $found = is_listed("nodejs", "18", \@installed_modules);
     unless ($found) {
         die "The expected module and version has not been found. The version might have been incorrectly changed by the upgrade command.";
     }

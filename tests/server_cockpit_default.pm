@@ -7,6 +7,8 @@ use cockpit;
 sub run {
     my $self = shift;
     # check cockpit appears to be enabled and running and firewall is setup
+    assert_script_run 'systemctl enable --now cockpit.socket';
+    # TODO: cockpit not enabled by default 
     assert_script_run 'systemctl is-enabled cockpit.socket';
     assert_script_run 'systemctl is-active cockpit.socket';
     assert_script_run 'firewall-cmd --query-service cockpit';
