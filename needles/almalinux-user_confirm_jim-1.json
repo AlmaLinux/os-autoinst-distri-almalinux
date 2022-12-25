@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "xpos": 69,
+      "height": 15,
+      "type": "match",
+      "ypos": 166,
+      "width": 31,
+      "click_point": {
+        "xpos": 15.5,
+        "ypos": 7.5
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "user_confirm_jim"
+  ]
+}

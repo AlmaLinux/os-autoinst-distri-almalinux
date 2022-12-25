@@ -33,8 +33,10 @@ sub run {
     wait_screen_change { send_key("super-up"); };
 
     # Click to change the Directory view to listings.
-    assert_and_click("nautilus_toggle_view", timeout => '30', button => 'left', mousehide => '1');
-
+    # assert_and_click("nautilus_toggle_view", timeout => '30', button => 'left', mousehide => '1');
+    if (check_screen "nautilus_toggle_view", 30) {
+        assert_and_click "nautilus_toggle_view"
+    }
     # This will test the common directory structure. The structure is always created when a user is created, so let's see if it has been created correctly.
     assert_screen("nautilus_available_directories");
 }

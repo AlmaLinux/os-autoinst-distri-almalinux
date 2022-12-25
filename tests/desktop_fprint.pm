@@ -48,6 +48,8 @@ sub run {
     type_string "sleep 20; echo SCAN $user-finger-1 | socat STDIN UNIX-CONNECT:/run/fprintd-virt\n";
     send_key "ctrl-alt-f1";
     mouse_hide;
+    send_key_until_needlematch("graphical_login_test_user_highlighted", "tab", 3, 5);
+    # assert_and_click "graphical_login_test_user_highlighted"
     send_key_until_needlematch("graphical_login_input", "ret", 3, 5);
     # now we check that we see the "or scan fingerprint" message, then
     # just wait for the scan to happen and login to succeed

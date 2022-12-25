@@ -1,0 +1,20 @@
+{
+  "area": [
+    {
+      "width": 238,
+      "type": "match",
+      "ypos": 240,
+      "height": 171,
+      "xpos": 347,
+      "click_point": {
+        "xpos": 119,
+        "ypos": 85.5
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "apps_settings_screen_black",
+    "workspace"
+  ]
+}

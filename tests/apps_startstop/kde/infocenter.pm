@@ -17,9 +17,9 @@ sub run {
     # Open the Devices menu item.
     assert_and_click "infocenter_menu_devices";
     # If the disks module is present, open it
-    assert_and_click "infocenter_smart_status";
+    # assert_and_click "infocenter_smart_status";
     # Check that a correct screen is displayed.
-    assert_screen "infocenter_smart_status_shown";
+    # assert_screen "infocenter_smart_status_shown";
     # Close the application
     quit_with_shortcut();
 }

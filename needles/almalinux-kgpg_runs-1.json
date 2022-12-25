@@ -1,0 +1,26 @@
+{
+  "area": [
+    {
+      "width": 35,
+      "type": "match",
+      "ypos": 222,
+      "xpos": 558,
+      "height": 15
+    },
+    {
+      "xpos": 830,
+      "ypos": 217,
+      "width": 19,
+      "height": 22,
+      "type": "match",
+      "click_point": {
+        "xpos": 9.5,
+        "ypos": 11
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "kgpg_runs"
+  ]
+}

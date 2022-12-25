@@ -10,7 +10,7 @@ sub run {
     $self->root_console(tty => 3);
 
     # List of applications, that we want to track for their presence.
-    my @core_applications = ("gnome-software", "firefox", "gnome-terminal", "nautilus", "gnome-text-editor", "gnome-boxes");
+    my @core_applications = ("gnome-software", "firefox", "gnome-terminal", "nautilus");
 
     # Evaluate the results, make the log files and pass or fail the entire
     # test suite.

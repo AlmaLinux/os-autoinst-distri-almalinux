@@ -8,6 +8,14 @@ use utils;
 sub run {
     my $self = shift;
 
+    # Switch to console
+    $self->root_console(tty => 3);
+    # Perform git test
+    check_and_install_software("epel-release");
+    check_and_install_software("gnome-calendar");
+    # Exit the terminal
+    desktop_vt;
+
     # Start the application
     start_with_launcher('apps_menu_calendar');
 

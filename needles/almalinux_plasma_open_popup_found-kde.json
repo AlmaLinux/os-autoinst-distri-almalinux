@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "xpos": 572,
+      "ypos": 82,
+      "width": 299,
+      "height": 20,
+      "type": "match",
+      "click_point": {
+        "xpos": 285.5,
+        "ypos": 11
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "plasma_open_popup_found"
+  ]
+}

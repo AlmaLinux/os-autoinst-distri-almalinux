@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "xpos": 318,
+      "ypos": 201,
+      "width": 387,
+      "height": 132,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "DESKTOP-kde",
+    "kde_lock_screen"
+  ]
+}

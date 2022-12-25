@@ -7,17 +7,35 @@ use utils;
 
 sub run {
     my $self = shift;
+
+    # Switch to console, Live does not have abrt package installed, 
+    # so install before testing 
+    $self->root_console(tty => 3);
+    # Perform git test
+    check_and_install_software("epel-release");
+    check_and_install_software("plasma-vault");
+    # Exit the terminal
+    # desktop_vt;
+    assert_script_run "rpm -q plasma-vault";
+}
+
+sub run2 {
     # As there are no vaults created, we need to list
     # invisible icons.
-    assert_and_click "desktop_expand_systray";
+    # assert_and_click "desktop_expand_systray";
 
     # Now we should be able to see the Vaults icon,
     # so we will click on it.
-    assert_and_click "vault_menu_open";
+    # assert_and_click "vault_menu_open";
+    
+    menu_launch_type 'plasma vault';
+    # Check that it is started
+    assert_screen 'plasma_vault_runs', timeout => 60;
 
     # This is a new installation so there, should not be
     # any existing vaults. Let's check for it.
-    assert_screen "vault_menu_not_exist";
+    
+    # assert_screen "vault_menu_not_exist";
 
     # Click on Create a New ... to start the vault creation
     assert_and_click "vault_menu_create_new";

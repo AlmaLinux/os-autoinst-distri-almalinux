@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "xpos": 9,
+      "height": 27,
+      "width": 75,
+      "type": "match",
+      "ypos": 316,
+      "click_point": {
+        "xpos": 37.5,
+        "ypos": 13.5
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "nautilus_directory_videos"
+  ]
+}

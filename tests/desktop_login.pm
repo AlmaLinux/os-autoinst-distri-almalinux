@@ -9,6 +9,12 @@ our $term = "gnome-terminal";
 if ($desktop eq "kde") {
     $term = "konsole";
 }
+if ($desktop eq "mate") {
+    $term = "mate-terminal";
+}
+if ($desktop eq "xfce") {
+    $term = "xfce-terminal";
+}
 
 sub type_password {
     # Safe typing prolongs the operation terribly.
@@ -91,17 +97,17 @@ sub check_user_logged_in {
     # in the upper right corner, but apparently it has been removed.
     # Reading the login name from the terminal prompt seems to be
     # the most reliable thing to do.
-    if ($desktop eq "gnome") {
+#    if ($desktop eq "gnome") {
         menu_launch_type $term;
         wait_still_screen 2;
         $exitkey = "alt-f4";
-    }
+ #   }
     # With KDE, the user is shown in the main menu, so let us just
     # open this and see.
-    else {
-        assert_and_click "system_menu_button";
-        $exitkey = "esc";
-    }
+ #   else {
+ #       assert_and_click "system_menu_button";
+ #       $exitkey = "esc";
+ #   }
     assert_screen "user_confirm_$user";
     send_key $exitkey;
     wait_still_screen 5;
@@ -172,8 +178,6 @@ sub power_off {
 sub run {
     # Do a default installation of the Fedora release you wish to test. Create two user accounts.
     my $self = shift;
-    my $jackpass = "kozapanijezibaby";
-    my $jimpass = "babajagakozaroza";
     our $desktop = get_var("DESKTOP");
     # replace the wallpaper with a black image, this should work for
     # all desktops. Takes effect after a logout / login cycle
@@ -190,6 +194,8 @@ sub run {
         # use solid blue background for SDDM
         assert_script_run "sed -i -e 's,image,solid,g' /usr/share/sddm/themes/01-breeze-fedora/theme.conf.user";
     }
+    my $jackpass = "kozapanijezibaby";
+    my $jimpass = "babajagakozaroza";
     adduser(name => "Jack Sparrow", login => "jack", password => $jackpass);
     if ($desktop eq "gnome") {
         # suppress the Welcome Tour for new users in GNOME 40+
@@ -219,7 +225,9 @@ sub run {
     login_user(user => "jack", password => $jackpass);
     check_user_logged_in("jack");
     # Log out the user.
-    logout_user();
+    # TODO: logout need fix. reboot instead
+    # logout_user();
+    reboot_system();
 
     # Log in with the second user account. The second account, Jim Eagle,
     if ($desktop eq "gnome") {

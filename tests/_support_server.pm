@@ -35,10 +35,10 @@ sub _pxe_setup {
         assert_script_run 'printf "[grub2152763]\nname=2152763 repo\nbaseurl=https://fedorapeople.org/groups/qa/openqa-repos/grub2152763repo/\$basearch\nenabled=1\nmetadata_expire=3600\ngpgcheck=0" > /etc/yum.repos.d/grub2152763.repo';
         # install bootloader packages
         assert_script_run "dnf -y install syslinux", 120;
-        assert_script_run "dnf -y --releasever=$ourversion --installroot=/var/tmp/fedora install shim-x64 grub2-efi-x64", 300;
+        assert_script_run "dnf -y --releasever=$ourversion --installroot=/var/tmp/almalinux install shim-x64 grub2-efi-x64", 300;
         # copy bootloader files to tftp root
         assert_script_run "cp /usr/share/syslinux/{pxelinux.0,vesamenu.c32,ldlinux.c32,libcom32.c32,libutil.c32} /var/lib/tftpboot";
-        assert_script_run "cp /var/tmp/fedora/boot/efi/EFI/fedora/{shim.efi,grubx64.efi} /var/lib/tftpboot";
+        assert_script_run "cp /var/tmp/almalinux/boot/efi/EFI/almalinux/{shim.efi,grubx64.efi} /var/lib/tftpboot";
         # wipe the workaround repo again, just in case
         assert_script_run "rm -f /etc/yum.repos.d/grub2152763.repo";
         # bootloader configs
@@ -59,7 +59,7 @@ sub _pxe_setup {
         # install a network bootloader to tftp root
         assert_script_run "grub2-mknetdir --net-directory=/var/lib/tftpboot";
         # bootloader config
-        assert_script_run "printf 'set default=0\nset timeout=5\n\nmenuentry \"Install Fedora 64-bit\"  --class fedora --class gnu-linux --class gnu --class os {\n  linux fedora/vmlinuz ip=dhcp inst.ks=file:///ks.cfg\n  initrd fedora/initrd.img\n}' >> /var/lib/tftpboot/boot/grub2/grub.cfg";
+        assert_script_run "printf 'set default=0\nset timeout=5\n\nmenuentry \"Install AlmaLinux 64-bit\"  --class fedora --class gnu-linux --class gnu --class os {\n  linux fedora/vmlinuz ip=dhcp inst.ks=file:///ks.cfg\n  initrd fedora/initrd.img\n}' >> /var/lib/tftpboot/boot/grub2/grub.cfg";
         # DEBUG DEBUG
         upload_logs "/etc/dnsmasq.conf";
         upload_logs "/var/lib/tftpboot/boot/grub2/grub.cfg";
@@ -69,7 +69,7 @@ sub _pxe_setup {
         # aarch64: use grub2 with 'linux' for UEFI
         # copy bootloader files to tftp root (we just use the system
         # bootloader, no need to install packages)
-        assert_script_run "cp /boot/efi/EFI/fedora/{shim.efi,grubaa64.efi} /var/lib/tftpboot";
+        assert_script_run "cp /boot/efi/EFI/almalinux/{shim.efi,grubaa64.efi} /var/lib/tftpboot";
         # bootloader config
         assert_script_run "printf 'function load_video {\n  insmod efi_gop\n  insmod efi_uga\n  insmod ieee1275_fb\n  insmod vbe\n  insmod vga\n  insmod video_bochs\n  insmod video_cirrus\n}\n\nload_video\nset gfxpayload=keep\ninsmod gzio\n\nmenuentry \"Install Fedora 64-bit\"  --class fedora --class gnu-linux --class gnu --class os {\n  linux fedora/vmlinuz ip=dhcp inst.ks=file:///ks.cfg\n  initrd fedora/initrd.img\n}' >> /var/lib/tftpboot/grub.cfg";
         # DEBUG DEBUG

@@ -1,0 +1,26 @@
+{
+  "area": [
+    {
+      "width": 52,
+      "ypos": 346,
+      "type": "match",
+      "height": 60,
+      "xpos": 256
+    },
+    {
+      "xpos": 786,
+      "ypos": 127,
+      "width": 23,
+      "height": 20,
+      "type": "match",
+      "click_point": {
+        "xpos": 11.5,
+        "ypos": 10
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "krfb_runs"
+  ]
+}

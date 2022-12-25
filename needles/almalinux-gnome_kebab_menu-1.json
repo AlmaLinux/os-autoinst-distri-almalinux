@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "xpos": 941,
+      "height": 25,
+      "type": "match",
+      "ypos": 43,
+      "width": 25,
+      "click_point": {
+        "xpos": 12.5,
+        "ypos": 12.5
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gnome_kebab_menu"
+  ]
+}

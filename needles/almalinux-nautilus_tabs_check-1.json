@@ -1,0 +1,22 @@
+{
+  "area": [
+    {
+      "width": 90,
+      "type": "match",
+      "ypos": 84,
+      "height": 27,
+      "xpos": 355
+    },
+    {
+      "type": "match",
+      "ypos": 86,
+      "width": 82,
+      "xpos": 772,
+      "height": 23
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "nautilus_tabs_check"
+  ]
+}

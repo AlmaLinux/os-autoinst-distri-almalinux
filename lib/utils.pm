@@ -7,7 +7,7 @@ use Exporter;
 
 use lockapi;
 use testapi;
-our @EXPORT = qw/run_with_error_check type_safely type_very_safely get_version_major get_code_name desktop_vt boot_to_login_screen console_login console_switch_layout desktop_switch_layout console_loadkeys_us do_bootloader boot_decrypt check_release menu_launch_type repo_setup setup_workaround_repo disable_updates_repos cleanup_workaround_repo console_initial_setup handle_welcome_screen gnome_initial_setup anaconda_create_user check_desktop download_modularity_tests quit_firefox advisory_get_installed_packages advisory_check_nonmatching_packages start_with_launcher quit_with_shortcut disable_firefox_studies select_rescue_mode copy_devcdrom_as_isofile get_release_number check_left_bar check_top_bar check_prerelease check_version spell_version_number _assert_and_click is_branched rec_log click_unwanted_notifications repos_mirrorlist register_application get_registered_applications solidify_wallpaper check_and_install_git download_testdata make_serial_writable/;
+our @EXPORT = qw/run_with_error_check type_safely type_very_safely get_version_major get_code_name desktop_vt boot_to_login_screen console_login console_switch_layout desktop_switch_layout console_loadkeys_us do_bootloader boot_decrypt check_release menu_launch_type repo_setup setup_workaround_repo disable_updates_repos cleanup_workaround_repo console_initial_setup handle_welcome_screen gnome_initial_setup anaconda_create_user check_desktop download_modularity_tests quit_firefox advisory_get_installed_packages advisory_check_nonmatching_packages start_with_launcher quit_with_shortcut disable_firefox_studies select_rescue_mode copy_devcdrom_as_isofile get_release_number check_left_bar check_top_bar check_prerelease check_version spell_version_number _assert_and_click is_branched rec_log click_unwanted_notifications repos_mirrorlist register_application get_registered_applications solidify_wallpaper check_and_install_git check_and_install_software download_testdata make_serial_writable/;
 
 # We introduce this global variable to hold the list of applications that have
 # registered during the apps_startstop_test when they have sucessfully run.
@@ -101,6 +101,9 @@ sub boot_to_login_screen {
         # The following is true for non-serial console.
         my $count = 5;
         while (check_screen("login_screen", 3) && $count > 0) {
+            if (get_var("DESKTOP") eq "kde" && check_screen("kde_lock_screen", 2)) {
+                send_key "ctrl-shift-del";
+            }
             sleep 5;
             $count -= 1;
         }
@@ -1113,9 +1116,37 @@ sub start_with_launcher {
 
 sub quit_with_shortcut {
     # Quit the application using the Alt-F4 keyboard shortcut
+
+    ## OLD Logic
+    # send_key 'alt-f4';
+    # wait_still_screen 5;
+    # assert_screen 'workspace';
+
+# send 'alt-f4' three times
+
+# This works
+#    if (!check_screen("workspace", 1)) {
+#        send_key_until_needlematch("workspace", 'alt-f4', 3, 3);
+#    }
+
+    if (check_screen("workspace", 1)) {
+        wait_still_screen 2;
+        return;
+    }
+
     send_key 'alt-f4';
     wait_still_screen 5;
-    assert_screen 'workspace';
+    if (check_screen("workspace", 1)) {
+        return;
+    }
+
+    send_key 'alt-f4';
+    wait_still_screen 5;
+    if (check_screen("workspace", 1)) {
+        return;
+    }
+
+    send_key_until_needlematch("workspace", 'alt-f4', 2, 2);
 
 }
 
@@ -1494,6 +1525,9 @@ sub click_unwanted_notifications {
         click_lastmatch;
         push(@closed, 'akonadi');
     }
+    if (check_screen "plasma_open_popup_found", 5) {
+        click_lastmatch;
+    }
     return @closed;
 }
 
@@ -1531,23 +1565,26 @@ sub solidify_wallpaper {
         release_key 'alt';
         # give the window a few seconds to stabilize
         wait_still_screen 3;
-        # Select type of background
-        assert_and_click "deskset_select_type";
-        wait_still_screen 2;
-        # Select plain color type
-        assert_and_click "deskset_plain_color";
-        wait_still_screen 2;
-        # Open colors selection
-        assert_and_click "deskset_select_color";
-        wait_still_screen 2;
-        # Select black
-        assert_and_click "deskset_select_black";
-        wait_still_screen 2;
-        # Confirm
-        assert_and_click "kde_ok";
-        wait_still_screen 2;
-        # Close the application
-        assert_and_click "kde_ok";
+        # TODO: 
+        if (get_version_major() < 7) {
+            # Select type of background
+            assert_and_click "deskset_select_type";
+            wait_still_screen 2;
+            # Select plain color type
+            assert_and_click "deskset_plain_color";
+            wait_still_screen 2;
+            # Open colors selection
+            assert_and_click "deskset_select_color";
+            wait_still_screen 2;
+            # Select black
+            assert_and_click "deskset_select_black";
+            wait_still_screen 2;
+            # Confirm
+            assert_and_click "kde_ok";
+            wait_still_screen 2;
+            # Close the application
+            assert_and_click "kde_ok";
+        }
     }
     elsif ($desktop eq "gnome") {
         # Start the terminal to set up backgrounds.
@@ -1570,9 +1607,16 @@ sub solidify_wallpaper {
 # This routine is used in Desktop test suites, such as Evince or Gedit.
 # It checks if git is installed and installs it, if necessary.
 sub check_and_install_git {
+    check_and_install_software("git-core");
+}
+
+# This routine is used in Desktop test suites, such as Evince or Gedit.
+# It checks if git is installed and installs it, if necessary.
+sub check_and_install_software {
+    my ($package) = @_;
     unless (get_var("CANNED")) {
-        if (script_run("rpm -q git")) {
-            assert_script_run("dnf install -y git");
+        if (script_run("rpm -q $package")) {
+            assert_script_run("dnf install -y $package");
         }
     }
 }

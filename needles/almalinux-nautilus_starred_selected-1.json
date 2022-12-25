@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "xpos": 12,
+      "height": 21,
+      "type": "match",
+      "ypos": 128,
+      "width": 77,
+      "click_point": {
+        "xpos": 38.5,
+        "ypos": 10.5
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "nautilus_starred_selected"
+  ]
+}
