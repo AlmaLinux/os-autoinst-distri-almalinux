@@ -7,7 +7,7 @@ use Exporter;
 
 use lockapi;
 use testapi;
-our @EXPORT = qw/run_with_error_check type_safely type_very_safely get_version_major get_code_name desktop_vt boot_to_login_screen console_login console_switch_layout desktop_switch_layout console_loadkeys_us do_bootloader boot_decrypt check_release menu_launch_type repo_setup setup_workaround_repo disable_updates_repos cleanup_workaround_repo console_initial_setup handle_welcome_screen gnome_initial_setup anaconda_create_user check_desktop download_modularity_tests quit_firefox advisory_get_installed_packages advisory_check_nonmatching_packages start_with_launcher quit_with_shortcut disable_firefox_studies select_rescue_mode copy_devcdrom_as_isofile get_release_number check_left_bar check_top_bar check_prerelease check_version spell_version_number _assert_and_click is_branched rec_log click_unwanted_notifications repos_mirrorlist register_application get_registered_applications solidify_wallpaper check_and_install_git check_and_install_software download_testdata make_serial_writable/;
+our @EXPORT = qw/run_with_error_check type_safely type_very_safely get_version_major get_code_name desktop_vt boot_to_login_screen console_login console_switch_layout desktop_switch_layout console_loadkeys_us do_bootloader boot_decrypt check_release menu_launch_type repo_setup setup_workaround_repo disable_updates_repos cleanup_workaround_repo console_initial_setup handle_welcome_screen gnome_initial_setup anaconda_create_user check_desktop download_modularity_tests quit_firefox advisory_get_installed_packages advisory_check_nonmatching_packages start_with_launcher quit_with_shortcut disable_firefox_studies select_rescue_mode copy_devcdrom_as_isofile get_release_number check_left_bar check_top_bar check_prerelease check_version spell_version_number _assert_and_click is_branched rec_log click_unwanted_notifications repos_mirrorlist register_application get_registered_applications solidify_wallpaper check_and_install_git check_and_install_software download_testdata make_serial_writable gdm_initial_setup/;
 
 # We introduce this global variable to hold the list of applications that have
 # registered during the apps_startstop_test when they have sucessfully run.
@@ -71,14 +71,14 @@ sub get_version_major {
 sub get_code_name {
     my $version = get_var("VERSION");
 
-    if ($version eq '9.1') {  return "Lime Lynx"; }
-    if ($version eq '9.0') {  return "Emerald Puma"; }
-    if ($version eq '8.7') {  return "Stone Smilodon"; }
-    if ($version eq '8.6') {  return "Sky Tiger"; }
-    if ($version eq '8.5') {  return "Arctic Sphynx"; }
-    if ($version eq '8.4') {  return "Electric Cheetah"; }
-    if ($version eq '8.3') {  return "Purple Manul"; }
-    return "Stone Smilodon";
+    if ($version eq '9.1') { return "Lime Lynx"; }
+    elsif ($version eq '8.7') { return "Stone Smilodon"; }
+    elsif ($version eq '9.0') { return "Emerald Puma"; }
+    elsif ($version eq '8.6') { return "Sky Tiger"; }
+    elsif ($version eq '8.5') { return "Arctic Sphynx"; }
+    elsif ($version eq '8.4') { return "Electric Cheetah"; }
+    elsif ($version eq '8.3') { return "Purple Manul"; }
+    else { return "Stone Smilodon" };
 }
 
 # Wait for login screen to appear. Handle the annoying GPU buffer
@@ -109,8 +109,11 @@ sub boot_to_login_screen {
         }
         assert_screen "login_screen", $args{timeout};
         if (match_has_tag "graphical_login") {
-            wait_still_screen 10, 30;
-            assert_screen "login_screen";
+           # click_lastmatch;
+            assert_and_click "graphical_login"; 
+            wait_still_screen 3;
+           # wait_still_screen 10, 30;
+           # assert_screen "login_screen";
         }
     }
 }
@@ -971,7 +974,9 @@ sub check_desktop {
     my $activematched = 0;
     while ($count > 0) {
         $count -= 1;
-        if ((get_var("DESKTOP") eq 'gnome') && (check_screen "live_initial_gnome_tour", 7)) {
+        # base dvd-iso or boot iso, desktop not set to gnome
+        # may be required?
+        if ((get_var("FLAVOR") eq "boot-iso" || get_var("FLAVOR") eq "dvd-iso")  && (get_var("DEPLOY_UPLOAD_TEST") eq 'install_default_upload') && (check_screen "live_initial_gnome_tour", 7)) {
             assert_and_click "live_initial_gnome_tour";
             wait_still_screen 3;
         }
@@ -1667,6 +1672,23 @@ sub make_serial_writable {
     # Exit the root account
     enter_cmd("exit");
     sleep 2;
+}
+
+sub gdm_initial_setup {
+    mouse_hide;
+    # assert_screen "gdm_initial_setup_license", 120;
+    if (check_screen ("gdm_initial_setup_license", 10)) {
+        assert_and_click "gdm_initial_setup_license";
+        # Make sure the card has fully lifted until clicking on the buttons
+        wait_still_screen 5, 30;
+        assert_and_click "gdm_initial_setup_licence_accept";
+        assert_and_click "gdm_spoke_done";
+        # As well as coming back
+        wait_still_screen 5, 30;
+        assert_screen "gdm_initial_setup_license_accepted";
+        assert_and_click "gdm_initial_setup_spoke_forward";
+        wait_still_screen 3;  
+    }
 }
 
 1;

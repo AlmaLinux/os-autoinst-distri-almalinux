@@ -288,7 +288,7 @@
         "Almalinux-XFCE-live-iso-x86_64-*": {
             "arch": "x86_64",
             "distri": "almalinux",
-            "flavor": "KDE-live-iso",
+            "flavor": "XFCE-live-iso",
             "settings": {
                 "DEPLOY_UPLOAD_TEST": "install_default_upload",
                 "DESKTOP": "xfce",
@@ -479,6 +479,15 @@
             },
             "version": "*"
         },
+        "Almalinux-universal-s390x-*": {
+            "arch": "s390x",
+            "distri": "almalinux",
+            "flavor": "universal",
+            "settings": {
+                "TEST_TARGET": "ISO"
+            },
+            "version": "*"
+        },
         "Almalinux-universal-x86_64-*": {
             "arch": "x86_64",
             "distri": "almalinux",
@@ -506,6 +515,15 @@
             },
             "version": "*"
         },
+        "Almalinux-seasonal-s390x-*": {
+            "arch": "s390x",
+            "distri": "almalinux",
+            "flavor": "seasonal",
+            "settings": {
+                "TEST_TARGET": "ISO"
+            },
+            "version": "*"
+        },
         "Almalinux-seasonal-x86_64-*": {
             "arch": "x86_64",
             "distri": "almalinux",
@@ -525,7 +543,7 @@
             "machine": "ppc64le",
             "product": "Almalinux-Cloud_Base-qcow2-qcow2-ppc64le-*"
         },
-        "Almalinux-Cloud_Base-qcow2-qcow2-s390x-*-ppc64le": {
+        "Almalinux-Cloud_Base-qcow2-qcow2-s390x-*-s390x": {
             "machine": "s390x",
             "product": "Almalinux-Cloud_Base-qcow2-qcow2-s390x-*"
         },
@@ -685,6 +703,10 @@
             "machine": "ppc64le",
             "product": "Almalinux-universal-ppc64le-*"
         },
+        "Almalinux-universal-s390x-*-s390x": {
+            "machine": "s390x",
+            "product": "Almalinux-universal-s390x-*"
+        },
         "Almalinux-universal-x86_64-*-64bit": {
             "machine": "64bit",
             "product": "Almalinux-universal-x86_64-*"
@@ -714,6 +736,8 @@
         "apps_startstop": {
             "profiles": {
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 40,
+                "Almalinux-XFCE-live-iso-x86_64-*-64bit": 42,
+                "Almalinux-MATE-live-iso-x86_64-*-64bit": 42,
                 "Almalinux-gnome-live-iso-ppc64le-*-ppc64le": 40,
                 "Almalinux-gnome-upgrade-x86_64-*-64bit": 40,
                 "Almalinux-gnome-live-iso-x86_64-*-64bit": 40
@@ -731,6 +755,10 @@
                 "Almalinux-gnome-live-iso-x86_64-*-64bit": 40,
                 "Almalinux-gnome-live-iso-ppc64le-*-ppc64le": 20,
                 "Almalinux-Calfblue-dvd_ostree-iso-x86_64-*-64bit": 50,
+                "Almalinux-dvd-iso-aarch64-*-aarch64": 40,
+                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 40,
+                "Almalinux-dvd-iso-x86_64-*-64bit": 40,
+                "Almalinux-dvd-iso-s390x-*-s390x": 40,
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 20,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
                 "Almalinux-minimal-iso-s390x-*-s390x": 70,
@@ -753,6 +781,10 @@
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 20,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 22,
                 "Almalinux-Minimal-raw_xz-raw.xz-aarch64-*-aarch64": 22,
+                "Almalinux-dvd-iso-aarch64-*-aarch64": 40,
+                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 40,
+                "Almalinux-dvd-iso-x86_64-*-64bit": 40,
+                "Almalinux-dvd-iso-s390x-*-s390x": 40,
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 20,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 20,
@@ -784,6 +816,10 @@
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 20,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 22,
                 "Almalinux-Minimal-raw_xz-raw.xz-aarch64-*-aarch64": 22,
+                "Almalinux-dvd-iso-aarch64-*-aarch64": 40,
+                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 40,
+                "Almalinux-dvd-iso-x86_64-*-64bit": 40,
+                "Almalinux-dvd-iso-s390x-*-s390x": 40,
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 20,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 20,
@@ -812,7 +848,11 @@
                 "Almalinux-Cloud_Base-qcow2-qcow2-x86_64-*-uefi": 20,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 22,
                 "Almalinux-Minimal-raw_xz-raw.xz-aarch64-*-aarch64": 22,
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 20,
+                "Almalinux-dvd-iso-aarch64-*-aarch64": 40,
+                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 40,
+                "Almalinux-dvd-iso-x86_64-*-64bit": 40,
+                "Almalinux-dvd-iso-s390x-*-s390x": 40,
+               "Almalinux-minimal-iso-aarch64-*-aarch64": 20,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 20,
                 "Almalinux-minimal-iso-s390x-*-s390x": 20,
@@ -839,6 +879,10 @@
                 "Almalinux-Cloud_Base-qcow2-qcow2-x86_64-*-uefi": 40,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 42,
                 "Almalinux-Minimal-raw_xz-raw.xz-aarch64-*-aarch64": 42,
+                "Almalinux-dvd-iso-aarch64-*-aarch64": 40,
+                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 40,
+                "Almalinux-dvd-iso-x86_64-*-64bit": 40,
+                "Almalinux-dvd-iso-s390x-*-s390x": 40,
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 40,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 40,
                 "Almalinux-minimal-iso-s390x-*-s390x": 40,
@@ -870,6 +914,10 @@
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 40,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 42,
                 "Almalinux-Minimal-raw_xz-raw.xz-aarch64-*-aarch64": 42,
+                "Almalinux-dvd-iso-aarch64-*-aarch64": 40,
+                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 40,
+                "Almalinux-dvd-iso-x86_64-*-64bit": 40,
+                "Almalinux-dvd-iso-s390x-*-s390x": 40,
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 40,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 40,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 40,
@@ -901,6 +949,10 @@
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 40,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 42,
                 "Almalinux-Minimal-raw_xz-raw.xz-aarch64-*-aarch64": 42,
+                "Almalinux-dvd-iso-aarch64-*-aarch64": 40,
+                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 40,
+                "Almalinux-dvd-iso-x86_64-*-64bit": 40,
+                "Almalinux-dvd-iso-s390x-*-s390x": 40,
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 40,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 40,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 40,
@@ -932,6 +984,10 @@
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 40,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 42,
                 "Almalinux-Minimal-raw_xz-raw.xz-aarch64-*-aarch64": 42,
+                "Almalinux-dvd-iso-aarch64-*-aarch64": 40,
+                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 40,
+                "Almalinux-dvd-iso-x86_64-*-64bit": 40,
+                "Almalinux-dvd-iso-s390x-*-s390x": 40,
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 40,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 40,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 40,
@@ -963,23 +1019,12 @@
                 "POSTINSTALL": "autocloud"
             }
         },
-        "install_blivet_resize_lvm": {
-            "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 40,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 40,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 40
-            },
-            "settings": {
-                "PARTITIONING": "custom_blivet_resize_lvm",
-                "HDD_1": "disk_%FLAVOR%_%MACHINE%.qcow2",
-                "INSTALL": "1",
-                "POSTINSTALL": "disk_custom_resize_lvm_postinstall",
-                "ROOT_PASSWORD": "weakpassword",
-                "START_AFTER_TEST": "install_lvm_ext4"
-            }
-        },
         "install_resize_lvm": {
             "profiles": {
+                "Almalinux-dvd-iso-aarch64-*-aarch64": 40,
+                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 40,
+                "Almalinux-dvd-iso-x86_64-*-64bit": 40,
+                "Almalinux-dvd-iso-s390x-*-s390x": 40,
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 40,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 40,
                 "Almalinux-minimal-iso-s390x-*-s390x": 40,
@@ -1013,6 +1058,9 @@
         "desktop_login": {
             "profiles": {
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 30,
+                "Almalinux-XFCE-live-iso-x86_64-*-64bit": 32,
+                "Almalinux-MATE-live-iso-x86_64-*-64bit": 32,
+                "Almalinux-Mini-live-iso-x86_64-*-64bit": 32,
                 "Almalinux-gnome-live-iso-x86_64-*-64bit": 30,
                 "Almalinux-gnome-upgrade-x86_64-*-64bit": 40,
                 "Almalinux-gnome-live-iso-ppc64le-*-ppc64le": 30
@@ -1260,6 +1308,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 50,
                 "Almalinux-universal-ppc64le-*-ppc64le": 50,
+                "Almalinux-universal-s390x-*-s390x": 50,
                 "Almalinux-universal-x86_64-*-64bit": 50
             },
             "settings": {
@@ -1271,6 +1320,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 20,
                 "Almalinux-universal-ppc64le-*-ppc64le": 20,
+                "Almalinux-universal-s390x-*-s390x": 20,
                 "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
@@ -1292,6 +1342,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 40,
                 "Almalinux-universal-ppc64le-*-ppc64le": 40,
+                "Almalinux-universal-s390x-*-s390x": 40,
                 "Almalinux-universal-x86_64-*-64bit": 40
             },
             "settings": {
@@ -1324,6 +1375,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 40,
                 "Almalinux-universal-ppc64le-*-ppc64le": 40,
+                "Almalinux-universal-s390x-*-s390x": 40,
                 "Almalinux-universal-x86_64-*-64bit": 40
             },
             "settings": {
@@ -1344,6 +1396,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 40,
                 "Almalinux-universal-ppc64le-*-ppc64le": 40,
+                "Almalinux-universal-s390x-*-s390x": 40,
                 "Almalinux-universal-x86_64-*-64bit": 40
             },
             "settings": {
@@ -1362,11 +1415,6 @@
         },
         "install_default": {
             "profiles": {
-                "Almalinux-boot-iso-aarch64-*-aarch64": 11,
-                "Almalinux-boot-iso-ppc64le-*-ppc64le": 11,
-                "Almalinux-boot-iso-x86_64-*-64bit": 10,
-                "Almalinux-boot-iso-x86_64-*-uefi": 11,
-                "Almalinux-boot-iso-s390x-*-s390x": 11,
                 "Almalinux-dvd-iso-aarch64-*-aarch64": 11,
                 "Almalinux-dvd-iso-ppc64le-*-ppc64le": 11,
                 "Almalinux-dvd-iso-x86_64-*-64bit": 10,
@@ -1406,6 +1454,10 @@
                 "Almalinux-dvd-iso-ppc64le-*-ppc64le": 10,
                 "Almalinux-dvd-iso-x86_64-*-64bit": 10,
                 "Almalinux-dvd-iso-s390x-*-s390x": 10,
+                "Almalinux-boot-iso-aarch64-*-aarch64": 10,
+                "Almalinux-boot-iso-ppc64le-*-ppc64le": 10,
+                "Almalinux-boot-iso-x86_64-*-64bit": 10,
+                "Almalinux-boot-iso-s390x-*-s390x": 10,
                 "Almalinux-Calfblue-dvd_ostree-iso-x86_64-*-64bit": 50,
                 "Almalinux-gnome-live-iso-ppc64le-*-ppc64le": 12,
                 "Almalinux-gnome-live-iso-x86_64-*-64bit": 12
@@ -1420,6 +1472,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 30,
                 "Almalinux-universal-ppc64le-*-ppc64le": 30,
+                "Almalinux-universal-s390x-*-s390x": 30,
                 "Almalinux-universal-x86_64-*-64bit": 30,
                 "Almalinux-universal-x86_64-*-uefi": 31
             },
@@ -1444,6 +1497,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 40,
                 "Almalinux-universal-ppc64le-*-ppc64le": 40,
+                "Almalinux-universal-s390x-*-s390x": 40,
                 "Almalinux-universal-x86_64-*-64bit": 40
             },
             "settings": {
@@ -1464,6 +1518,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 40,
                 "Almalinux-universal-ppc64le-*-ppc64le": 40,
+                "Almalinux-universal-s390x-*-s390x": 40,
                 "Almalinux-universal-x86_64-*-64bit": 40
             },
             "settings": {
@@ -1480,6 +1535,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 20,
                 "Almalinux-universal-ppc64le-*-ppc64le": 20,
+                "Almalinux-universal-s390x-*-s390x": 20,
                 "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
@@ -1494,6 +1550,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 20,
                 "Almalinux-universal-ppc64le-*-ppc64le": 20,
+                "Almalinux-universal-s390x-*-s390x": 20,
                 "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
@@ -1508,6 +1565,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 30,
                 "Almalinux-universal-ppc64le-*-ppc64le": 30,
+                "Almalinux-universal-s390x-*-s390x": 20,
                 "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
@@ -1524,6 +1582,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 30,
                 "Almalinux-universal-ppc64le-*-ppc64le": 30,
+                "Almalinux-universal-s390x-*-s390x": 30,
                 "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
@@ -1541,6 +1600,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 20,
                 "Almalinux-universal-ppc64le-*-ppc64le": 20,
+                "Almalinux-universal-s390x-*-s390x": 20,
                 "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
@@ -1555,6 +1615,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 40,
                 "Almalinux-universal-ppc64le-*-ppc64le": 40,
+                "Almalinux-universal-s390x-*-s390x": 40,
                 "Almalinux-universal-x86_64-*-64bit": 40,
                 "Almalinux-universal-x86_64-*-uefi": 41
             },
@@ -1605,6 +1666,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 20,
                 "Almalinux-universal-ppc64le-*-ppc64le": 20,
+                "Almalinux-universal-s390x-*-s390x": 20,
                 "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
@@ -1616,6 +1678,7 @@
                 "Almalinux-universal-aarch64-*-aarch64": 20,
                 "Almalinux-universal-ppc64le-*-ppc64le": 20,
                 "Almalinux-universal-x86_64-*-64bit": 20,
+                "Almalinux-universal-s390x-*-s390x": 20,
                 "Almalinux-universal-x86_64-*-uefi": 21
             },
             "settings": {
@@ -1629,6 +1692,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 30,
                 "Almalinux-universal-ppc64le-*-ppc64le": 30,
+                "Almalinux-universal-s390x-*-s390x": 30,
                 "Almalinux-universal-x86_64-*-64bit": 30,
                 "Almalinux-universal-x86_64-*-uefi": 31
             },
@@ -1643,6 +1707,7 @@
                 "Almalinux-universal-aarch64-*-aarch64": 50,
                 "Almalinux-universal-ppc64le-*-ppc64le": 50,
                 "Almalinux-universal-x86_64-*-64bit": 50,
+                "Almalinux-universal-s390x-*-s390x": 50,
                 "Almalinux-universal-x86_64-*-uefi": 51
             },
             "settings": {
@@ -1660,7 +1725,6 @@
         },
         "install_package_set_kde": {
             "profiles": {
-                "Almalinux-universal-ppc64le-*-ppc64le": 30,
                 "Almalinux-universal-x86_64-*-64bit": 50
             },
             "settings": {
@@ -1675,6 +1739,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 30,
                 "Almalinux-universal-ppc64le-*-ppc64le": 30,
+                "Almalinux-universal-s390x-*-s390x": 30,
                 "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
@@ -1686,6 +1751,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 30,
                 "Almalinux-universal-ppc64le-*-ppc64le": 30,
+                "Almalinux-universal-s390x-*-s390x": 30,
                 "Almalinux-universal-x86_64-*-64bit": 30,
                 "Almalinux-universal-x86_64-*-uefi": 31
             },
@@ -1706,6 +1772,7 @@
             "profiles": {
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 30,
+                "Almalinux-minimal-iso-s390x-*-s390x": 30,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 30
             },
             "settings": {
@@ -1719,6 +1786,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 20,
                 "Almalinux-universal-ppc64le-*-ppc64le": 20,
+                "Almalinux-universal-s390x-*-s390x": 20,
                 "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
@@ -1729,6 +1797,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 20,
                 "Almalinux-universal-ppc64le-*-ppc64le": 20,
+                "Almalinux-universal-s390x-*-s390x": 20,
                 "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
@@ -1737,9 +1806,10 @@
         },
         "install_repository_nfs_graphical": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 30,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 30
+                "Almalinux-dvd-iso-aarch64-*-aarch64": 30,
+                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 30,
+                "Almalinux-dvd-iso-s390x-*-s390x": 30,
+                "Almalinux-dvd-iso-x86_64-*-64bit": 30
             },
             "settings": {
                 "INSTALL_UNLOCK": "support_ready",
@@ -1753,6 +1823,7 @@
             "profiles": {
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 30,
+                "Almalinux-minimal-iso-s390x-*-s390x": 30,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 30
             },
             "settings": {
@@ -1767,6 +1838,7 @@
             "profiles": {
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 30,
+                "Almalinux-minimal-iso-s390x-*-s390x": 30,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 30
             },
             "settings": {
@@ -1781,6 +1853,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 31,
                 "Almalinux-universal-ppc64le-*-ppc64le": 31,
+                "Almalinux-universal-s390x-*-s390x": 30,
                 "Almalinux-universal-x86_64-*-64bit": 31,
                 "Almalinux-universal-x86_64-*-uefi": 32
             },
@@ -1856,6 +1929,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 30,
                 "Almalinux-universal-ppc64le-*-ppc64le": 30,
+                "Almalinux-universal-s390x-*-s390x": 30,
                 "Almalinux-universal-x86_64-*-64bit": 30,
                 "Almalinux-universal-x86_64-*-uefi": 31
             },
@@ -1868,6 +1942,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 30,
                 "Almalinux-universal-ppc64le-*-ppc64le": 30,
+                "Almalinux-universal-s390x-*-s390x": 30,
                 "Almalinux-universal-x86_64-*-64bit": 30,
                 "Almalinux-universal-x86_64-*-uefi": 31
             },
@@ -1906,6 +1981,7 @@
             "profiles": {
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 40,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 40,
+                "Almalinux-minimal-iso-s390x-*-s390x": 40,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 40
             },
             "settings": {
@@ -1922,6 +1998,7 @@
             "profiles": {
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 40,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 40,
+                "Almalinux-minimal-iso-s390x-*-s390x": 40,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 40
             },
             "settings": {
@@ -1940,6 +2017,7 @@
             "profiles": {
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 40,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 40,
+                "Almalinux-minimal-iso-s390x-*-s390x": 40,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 40
             },
             "settings": {
@@ -1953,6 +2031,7 @@
             "profiles": {
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 40,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 40,
+                "Almalinux-minimal-iso-s390x-*-s390x": 40,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 40
             },
             "settings": {
@@ -1970,6 +2049,7 @@
             "profiles": {
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 40,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 40,
+                "Almalinux-minimal-iso-s390x-*-s390x": 40,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 40
             },
             "settings": {
@@ -1985,6 +2065,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 40,
                 "Almalinux-universal-ppc64le-*-ppc64le": 40,
+                "Almalinux-universal-s390x-*-s390x": 40,
                 "Almalinux-universal-x86_64-*-64bit": 40,
                 "Almalinux-universal-x86_64-*-uefi": 41
             },
@@ -2057,12 +2138,12 @@
                 "WORKER_CLASS": "tap"
             }
         },
-
         "mediakit_fileconflicts": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 10,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 10,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 10
+                "Almalinux-minimal-iso-aarch64-*-aarch64": 50,
+                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 50,
+                "Almalinux-minimal-iso-s390x-*-s390x": 50,
+                "Almalinux-minimal-iso-x86_64-*-64bit": 50
             },
             "settings": {
                 "BOOTFROM": "c",
@@ -2074,9 +2155,10 @@
         },
         "mediakit_repoclosure": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 10,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 10,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 10
+                "Almalinux-minimal-iso-aarch64-*-aarch64": 50,
+                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 50,
+                "Almalinux-minimal-iso-s390x-*-s390x": 50,
+                "Almalinux-minimal-iso-x86_64-*-64bit": 50
             },
             "settings": {
                 "BOOTFROM": "c",
@@ -2101,8 +2183,13 @@
         },
         "modularity_tests": {
             "profiles": {
+                "Almalinux-dvd-iso-aarch64-*-aarch64": 30,
+                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 30,
+                "Almalinux-dvd-iso-x86_64-*-64bit": 30,
+                "Almalinux-dvd-iso-s390x-*-s390x": 30,
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 30,
+                "Almalinux-minimal-iso-s390x-*-s390x": 30,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 30
             },
             "settings": {
@@ -2156,6 +2243,7 @@
             "profiles": {
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 30,
+                "Almalinux-minimal-iso-s390x-*-s390x": 30,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 30
             },
             "settings": {
@@ -2175,6 +2263,7 @@
             "profiles": {
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 20,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
+                "Almalinux-minimal-iso-s390x-*-s390x": 20,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 20
             },
             "settings": {
@@ -2200,10 +2289,10 @@
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 14,
                 "Almalinux-XFCE-live-iso-x86_64-*-64bit": 14,
                 "Almalinux-Minimal-raw_xz-raw.xz-aarch64-*-aarch64": 24,
-                "Almalinux-boot-iso-aarch64-*-aarch64": 14,
-                "Almalinux-boot-iso-ppc64le-*-ppc64le": 14,
-                "Almalinux-boot-iso-x86_64-*-64bit": 14,
-                "Almalinux-boot-iso-s390x-*-s390x": 14,
+                "Almalinux-boot-iso-aarch64-*-aarch64": 25,
+                "Almalinux-boot-iso-ppc64le-*-ppc64le": 25,
+                "Almalinux-boot-iso-x86_64-*-64bit": 25,
+                "Almalinux-boot-iso-s390x-*-s390x": 25,
                 "Almalinux-dvd-iso-aarch64-*-aarch64": 14,
                 "Almalinux-dvd-iso-ppc64le-*-ppc64le": 14,
                 "Almalinux-dvd-iso-x86_64-*-64bit": 14,
@@ -2262,6 +2351,7 @@
             "profiles": {
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 30,
+                "Almalinux-minimal-iso-s390x-*-s390x": 20,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 30
             },
             "settings": {
@@ -2277,6 +2367,7 @@
             "profiles": {
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 20,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
+                "Almalinux-minimal-iso-s390x-*-s390x": 20,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 20
             },
             "settings": {
@@ -2521,12 +2612,17 @@
         },
         "support_server": {
             "profiles": {
+                "Almalinux-dvd-iso-aarch64-*-aarch64": 10,
+                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 10,
+                "Almalinux-dvd-iso-s390x-*-s390x": 10,
+                "Almalinux-dvd-iso-x86_64-*-64bit": 10,
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 10,
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 10,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 10,
-                "Almalinux-minimal-iso-s390x-*-s390x": 20,
+                "Almalinux-minimal-iso-s390x-*-s390x": 10,
                 "Almalinux-universal-aarch64-*-aarch64": 10,
                 "Almalinux-universal-ppc64le-*-ppc64le": 10,
+                "Almalinux-universal-s390x-*-s390x": 10,
                 "Almalinux-universal-x86_64-*-64bit": 10
             },
             "settings": {
@@ -2610,6 +2706,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 40,
                 "Almalinux-universal-ppc64le-*-ppc64le": 40,
+                "Almalinux-universal-s390x-*-s390x": 40,
                 "Almalinux-universal-x86_64-*-64bit": 40
             },
             "settings": {
@@ -2658,6 +2755,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 40,
                 "Almalinux-universal-ppc64le-*-ppc64le": 40,
+                "Almalinux-universal-s390x-*-s390x": 40,
                 "Almalinux-universal-x86_64-*-64bit": 40
             },
             "settings": {
@@ -2744,6 +2842,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 30,
                 "Almalinux-universal-ppc64le-*-ppc64le": 30,
+                "Almalinux-universal-s390x-*-s390x": 30,
                 "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
@@ -2772,6 +2871,7 @@
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 30,
                 "Almalinux-universal-ppc64le-*-ppc64le": 30,
+                "Almalinux-universal-s390x-*-s390x": 30,
                 "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {

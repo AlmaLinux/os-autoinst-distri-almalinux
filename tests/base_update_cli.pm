@@ -8,7 +8,7 @@ sub run {
     # switch to TTY3 for both, graphical and console tests
     $self->root_console(tty => 3);
     # grab the test repo definitions
-    assert_script_run "curl -o /etc/yum.repos.d/openqa-testrepo-1.repo https://build.almalinux.org/pulp/content/copr/eabdullin1-openqa-almalinux-9-x86_64-dr/config.repo";
+    assert_script_run "curl -o /etc/yum.repos.d/openqa-testrepo-1.repo https://build.almalinux.org/pulp/content/copr/eabdullin1-openqa-almalinux-9-" . get_var("ARCH") . "-dr/config.repo";
     # enable test repos and install test packages
     prepare_test_packages;
     # check rpm agrees they installed good

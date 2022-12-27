@@ -15,8 +15,12 @@ sub run {
     my $partcount = 4;
     my $partname = "vda1";
     my $machine = get_var("MACHINE");
-    if ( $machine eq "uefi") {
+    if ( $machine eq "uefi" || $machine eq "aarch64" ) {
         $partcount = 5;
+        $partname = "vda2"
+    }
+    if ( get_var("ARCH") eq "ppc64le" ) {
+        $partcount = 6;
         $partname = "vda2"
     }
     validate_script_output 'fdisk -l | grep /dev/vda | wc -l', sub { $_ =~ m/$partcount/ };

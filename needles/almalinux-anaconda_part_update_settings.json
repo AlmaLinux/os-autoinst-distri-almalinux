@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "xpos": 880,
+      "width": 100,
+      "height": 19,
+      "ypos": 574,
+      "type": "match",
+      "click_point": {
+        "xpos": 49,
+        "ypos": 9.5
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_part_update_settings"
+  ]
+}

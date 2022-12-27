@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "height": 49,
+      "ypos": 127,
+      "width": 97,
+      "type": "match",
+      "xpos": 499,
+      "click_point": {
+        "xpos": 27.5,
+        "ypos": 33.5
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_part_mountpoint_selected"
+  ]
+}

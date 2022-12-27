@@ -15,8 +15,9 @@ sub run {
         $wait_time = 240;
     }
 
-    # handle initial-setup, if we're expecting it (ARM disk image)
-    if (get_var("INSTALL_NO_USER")) {
+    if ((get_var("FLAVOR") eq "boot-iso" || get_var("FLAVOR") eq "dvd-iso")  && (get_var("DEPLOY_UPLOAD_TEST") eq "install_default_upload")) {
+        sleep $wait_time;
+        # console login requested on a graphical install, switch to console and logout 
         if (check_screen "gdm_initial_setup_license", 5) {
             # for AlmaLinuxere happens to be a license acceptance screen
             # the initial appearance can sometimes take really long
@@ -31,9 +32,23 @@ sub run {
             assert_screen "gdm_initial_setup_license_accepted";
             assert_and_click "gdm_initial_setup_spoke_forward";
         }
-        console_initial_setup;
+        # If user not installed
+        if (get_var("INSTALL_NO_USER")) {
+            console_initial_setup;
+        }
+        $self->root_console(tty => 3);
+        sleep 10;
+        type_string "logout\n";
+        # Wait a bit to let the logout properly finish.
+        sleep 10;
+        $wait_time = 90;
+    } else {
+    # OLD PATH
+    # handle initial-setup, if we're expecting it (ARM disk image)
+        if (get_var("INSTALL_NO_USER")) {
+            console_initial_setup;
+        }
     }
-
     # Wait for the text login
     boot_to_login_screen(timeout => $wait_time);
 

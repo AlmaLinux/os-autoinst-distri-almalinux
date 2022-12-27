@@ -58,9 +58,9 @@ sub run {
     wait_still_screen 5;
     # Activate root partition if not active already
     activate("root");
-    custom_blivet_resize_partition(size => '13', units => 'GiB');
+    custom_blivet_resize_partition(size => '11', units => 'GiB');
     wait_still_screen 5;
-    # Check that the partition has been correctly resized to 13G.
+    # Check that the partition has been correctly resized to 11G.
     assert_screen "device_root_resized_thirteen";
 
     # Now format the resized root partition. It seems that the focus returns to the first

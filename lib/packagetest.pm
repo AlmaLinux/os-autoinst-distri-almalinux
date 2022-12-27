@@ -17,7 +17,7 @@ sub prepare_test_packages {
     #  This module needs more work
     # script_run 'dnf -y remove tini-static', 180;
     # grab the test repo definitions
-    assert_script_run "curl -o /etc/yum.repos.d/openqa-testrepo-1.repo https://build.almalinux.org/pulp/content/copr/eabdullin1-openqa-almalinux-9-x86_64-dr/config.repo";
+    assert_script_run "curl -o /etc/yum.repos.d/openqa-testrepo-1.repo https://build.almalinux.org/pulp/content/copr/eabdullin1-openqa-almalinux-9-" . get_var("ARCH") . "-dr/config.repo";
     # install the test packages from repo1
     assert_script_run "dnf repolist"; # --disablerepo=* --enablerepo=openqa-testrepo-1
     assert_script_run 'dnf -y  install tini-static';

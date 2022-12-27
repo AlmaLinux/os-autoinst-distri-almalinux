@@ -25,9 +25,12 @@ sub run {
     else {
         my $arch = get_var("ARCH");
         if ($arch eq "ppc64le") {
+            # assert_script_run "systemctl is-actice hcn-init.service";
+            # record_soft_failure "hcn-init failed - https://bugzilla.redhat.com/show_bug.cgi?id=1894654#c7";
             # fail if it's something other than hcn-init
-            assert_script_run "systemctl is-failed hcn-init.service";
-            record_soft_failure "hcn-init failed - https://bugzilla.redhat.com/show_bug.cgi?id=1894654";
+            #  assert_script_run "systemctl is-failed hcn-init.service";
+            assert_script_run "systemctl is-failed kdump.service";
+            # record_soft_failure "hcn-init failed - https://bugzilla.redhat.com/show_bug.cgi?id=1894654";
         }
         elsif ($arch eq "aarch64") {
             # fail if it's something other than lm_sensors

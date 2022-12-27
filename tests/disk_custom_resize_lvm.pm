@@ -6,6 +6,7 @@ use utils;
 
 sub goto_mountpoint {
     send_key_until_needlematch("anaconda_part_mountpoint_selected", "tab", 20);
+    assert_and_click "anaconda_part_mountpoint_selected";
 }
 
 sub run {
@@ -56,13 +57,13 @@ sub run {
     type_very_safely "/";
     # Skip to the Size window
     send_key "tab";
-    type_very_safely "13 GiB";
+    type_very_safely "11 GiB";
     # Reformat and update the partition
     assert_and_click "anaconda_part_device_reformat";
     assert_and_click "anaconda_part_update_settings";
     # give it a second or two to update
     wait_still_screen 2;
-    # Check that the partition has been resized for 13GiB
+    # Check that the partition has been resized for 11GiB
     assert_screen "device_root_resized_thirteen";
 
     # Add new /home partition into the emptied space.

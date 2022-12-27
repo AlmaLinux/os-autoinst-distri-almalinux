@@ -1,0 +1,35 @@
+{
+  "area": [
+    {
+      "ypos": 217,
+      "type": "match",
+      "height": 39,
+      "width": 340,
+      "xpos": 40
+    },
+    {
+      "xpos": 648,
+      "type": "match",
+      "width": 280,
+      "height": 17,
+      "click_point": {
+        "ypos": 8.5,
+        "xpos": 140
+      },
+      "ypos": 303
+    },
+    {
+      "xpos": 632,
+      "ypos": 220,
+      "width": 78,
+      "height": 31,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "anaconda_help_keyboard_layout",
+    "anaconda_help_time_date"
+  ]
+}

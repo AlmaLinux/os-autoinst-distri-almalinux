@@ -118,7 +118,8 @@ sub run {
                     $count -= 1;
                     sleep 60;
                     if ((get_var("DESKTOP") eq 'gnome') && (check_screen "live_initial_gnome_tour", 45)) {
-                        assert_and_click "live_initial_gnome_tour";
+                        # assert_and_click "live_initial_gnome_tour";
+                        click_lastmatch;
                         wait_still_screen 3;
                     }
                     assert_screen ["live_start_anaconda_icon", "apps_menu_button_active"], 300;

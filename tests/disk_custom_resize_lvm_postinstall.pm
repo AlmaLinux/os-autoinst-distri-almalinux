@@ -9,8 +9,8 @@ sub run {
 
     assert_screen "root_console";
     # check that there is a root partition and that it has
-    # the correct size -> 13G
-    assert_script_run "lsblk | grep root | grep '13G'";
+    # the correct size -> 11G
+    assert_script_run "lsblk | grep root | grep '11G'";
 }
 
 sub test_flags {

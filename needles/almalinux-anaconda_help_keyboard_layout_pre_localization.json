@@ -1,0 +1,26 @@
+{
+  "area": [
+    {
+      "xpos": 40,
+      "width": 374,
+      "height": 36,
+      "ypos": 218,
+      "type": "match"
+    },
+    {
+      "width": 408,
+      "height": 22,
+      "click_point": {
+        "xpos": 204,
+        "ypos": 11
+      },
+      "ypos": 395,
+      "xpos": 47,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_help_keyboard_layout_pre_localization"
+  ]
+}

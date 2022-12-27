@@ -134,10 +134,10 @@ sub load_upgrade_tests() {
 
 sub load_install_tests() {
     # CoreOS is special, so we handle that here
-    if (get_var("SUBVARIANT") eq "CoreOS") {
-        autotest::loadtest "tests/_coreos_install.pm";
-        return;
-    }
+#    if (get_var("SUBVARIANT") eq "CoreOS") {
+#        autotest::loadtest "tests/_coreos_install.pm";
+#        return;
+#    }
     # normal installation test consists of several phases, from which some of them are
     # loaded automatically and others are loaded based on what env variables are set
 
@@ -249,16 +249,30 @@ sub _load_early_postinstall_tests {
     # for minimal/server-product/virtualization-host
     # Also if no "DESKTOP" variable defined/empty
     my $package_set = get_var("PACKAGE_SET");
-    if (get_var("FLAVOR") eq "minimal-iso"  || !get_var("DESKTOP") || get_var("DESKTOP") eq "false" ||
+    my $desktop = get_var("DESKTOP", "unset"); 
+
+    # Appropriate login method for install type
+    if (($desktop eq "unset") && 
+        (get_var("FLAVOR") eq "boot-iso" || get_var("FLAVOR") eq "dvd-iso")  && 
+        (get_var("TEST") eq "install_default" || 
+        get_var("TEST") eq "install_default_upload" ||
+        get_var("DEPLOY_UPLOAD_TEST" eq "install_default_upload"))) {
+        $desktop = "gnome";
+        # if desktop value not set, override 
+        set_var("DESKTOP", "gnome");
+    }
+    if (get_var("FLAVOR") eq "minimal-iso"  ||
+        $desktop eq "false" ||
+        $desktop eq "unset" ||
         $package_set eq "minimal" || $package_set eq "server" ||
         $package_set eq "virtualization-host") {
         _load_instance("tests/_console_wait_login", $instance);
         return;
     }
 
-    # Appropriate login method for install type
-    if (get_var("DESKTOP"  ||
-        $package_set eq "default" || $package_set eq "workstation")) {
+    if ($desktop eq "gnome" || $desktop eq "kde" || 
+        $desktop eq "xfce" || $desktop eq "mate" ||
+        $package_set eq "default" || $package_set eq "workstation") {
         _load_instance("tests/_graphical_wait_login", $instance);
 #        _load_instance("tests/_snapshot_only") if (get_var("LOGIN_SNAPSHOT"));
     }
@@ -274,10 +288,10 @@ sub _load_early_postinstall_tests {
 
     # We do not want to run this on Desktop installations or when
     # the installation is interrupted on purpose.
-    unless (get_var("DESKTOP") || get_var("CRASH_REPORT")) {
-        _load_instance("tests/_console_wait_login", $instance);
+#    unless (get_var("DESKTOP") || get_var("CRASH_REPORT")) {
+#        _load_instance("tests/_console_wait_login", $instance);
 #        _load_instance("tests/_snapshot_only") if (get_var("LOGIN_SNAPSHOT"));
-    }
+#    }
 }
 
 sub load_postinstall_tests() {

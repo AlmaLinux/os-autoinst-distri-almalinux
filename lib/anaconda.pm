@@ -306,7 +306,14 @@ sub get_full_repo {
 }
 
 sub get_mirrorlist_url {
-    return "mirrors.fedoraproject.org/mirrorlist?repo=fedora-" . lc(get_var("VERSION")) . "&arch=" . get_var('ARCH');
+    # TODO: using custom mirror needs more work
+    # Ex: fedora returns everyting: https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-37&arch=aarch64
+    # Alma only returns base os in different format, needs overrides
+    # https://mirrors.almalinux.org/mirrorlist/8/baseos
+    # https://mirrors.almalinux.org/mirrorlist/8/appstream
+    #
+#    return "mirrors.fedoraproject.org/mirrorlist?repo=fedora-" . lc(get_var("VERSION")) . "&arch=" . get_var('ARCH');
+    return "mirrors.almalinux.org/mirrorlist/" . lc(get_var("VERSION")) . "/baseos" ;
 }
 
 sub check_help_on_pane {
@@ -335,9 +342,26 @@ sub check_help_on_pane {
         # Check the Installation Summary screen.
         assert_screen "anaconda_help_summary";
         # Click on Installation Progress link
-        assert_and_click "anaconda_help_progress_link";
+        # TODO: screen not exits
+        # assert_and_click "anaconda_help_progress_link";
         # Check the Installation Progress screen
-        assert_screen "anaconda_help_installation_progress";
+        # TODO: screen not exits
+        # assert_screen "anaconda_help_installation_progress";
+    } 
+    elsif ($screen eq "keyboard_layout" || $screen eq "language_support" || $screen eq "time_date") {
+        wait_still_screen 2;
+#        if (check_screen("anaconda_help_keyboard_layout_pre_localization", 5)) {
+            assert_and_click "anaconda_help_keyboard_layout_pre_localization";
+            wait_still_screen 3;
+#        }
+#        if (check_screen("anaconda_help_keyboard_layout", 2)) {
+            assert_and_click "anaconda_help_keyboard_layout";
+            wait_still_screen 3;
+#        }
+        if ($screen eq "language_support" ) {
+            assert_and_click "anaconda_help_language_support";
+            wait_still_screen 3;
+        }
     }
     # Otherwise, only check the relevant screen.
     else {

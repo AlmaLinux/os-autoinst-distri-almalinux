@@ -1,0 +1,27 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "ypos": 11,
+      "height": 25,
+      "width": 120,
+      "xpos": 164
+    },
+    {
+      "width": 204,
+      "xpos": 487,
+      "ypos": 381,
+      "type": "match",
+      "height": 54,
+      "click_point": {
+        "xpos": 102,
+        "ypos": 27
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "gdm_initial_setup_license"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "height": 27,
+      "type": "match",
+      "ypos": 622,
+      "xpos": 36,
+      "width": 26,
+      "click_point": {
+        "xpos": 13,
+        "ypos": 13.5
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_add"
+  ]
+}

@@ -111,7 +111,6 @@
             "arch": "ppc64le",
             "distri": "almalinux",
             "flavor": "updates-minimal-upgrade",
-            "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
             "settings": {
                 "NUMDISKS": "2",
                 "RETRY": "1"
@@ -122,7 +121,6 @@
             "arch": "s390x",
             "distri": "almalinux",
             "flavor": "updates-minimal-upgrade",
-            "Almalinux-minimal-iso-s390x-*-s390x": 20,
             "settings": {
                 "NUMDISKS": "2",
                 "RETRY": "1"

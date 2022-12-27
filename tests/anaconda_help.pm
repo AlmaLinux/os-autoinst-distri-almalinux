@@ -24,18 +24,18 @@ sub run {
 
     # Create test plans
     my @testplan;
-    # For LIVE KDE:
-    if ((get_var('LIVE')) && (get_var('DESKTOP') eq "kde")) {
+    # For Live has six combos to check/help && (get_var('DESKTOP') eq "kde"))
+    if (get_var('LIVE'))  {
         @testplan = qw/keyboard_layout time_date install_destination network_host_name root_password user_creation/;
     }
     # For LIVE Workstation
-    elsif ((get_var('LIVE')) && (get_var('DESKTOP') eq "gnome")) {
-        @testplan = qw/keyboard_layout install_destination time_date/;
-    }
+ #   elsif ((get_var('LIVE')) && (get_var('DESKTOP') eq "gnome")) {
+ #       @testplan = qw/keyboard_layout install_destination time_date/;
+ #   }
     # For Silverblue
-    elsif (get_var('DESKTOP') eq "gnome") {
-        @testplan = qw/keyboard_layout language_support install_destination time_date/;
-    }
+ #   elsif (get_var('DESKTOP') eq "gnome") {
+ #       @testplan = qw/keyboard_layout language_support install_destination time_date/;
+ #   }
     # For ServerDVD
     else {
         @testplan = qw/keyboard_layout language_support time_date installation_source select_packages install_destination network_host_name root_password user_creation/;
@@ -50,7 +50,9 @@ sub run {
     # on GNOME installs (Workstation Live and Silverblue) we don't
     # need to set a root password or create a user; on other flavors
     # we must
-    unless (get_var("DESKTOP") eq "gnome") {
+
+    # TODO: Gnome install requires root password to proceed
+#    unless (get_var("DESKTOP") eq "gnome") {
         assert_and_click "anaconda_install_root_password";
         # we have to click 'enable root account' before typing the
         # password
@@ -59,7 +61,7 @@ sub run {
         send_key "tab";
         type_safely "weakadminpassword";
         assert_and_click "anaconda_spoke_done";
-    }
+ #   }
     # Begin installation after waiting out animation
     assert_screen "anaconda_main_hub_begin_installation", 90;
     wait_still_screen 5;
@@ -67,7 +69,8 @@ sub run {
 
     # Check the last Help screen but wait for some time for the test to settle down.
     sleep 10;
-    check_help_on_pane("installation_progress");
+    # No help in installation_progress screen ...!
+    # check_help_on_pane("installation_progress");
 
     # As there is no need to proceed with the installation,
     # the test ends here and the VM will be destroyed
