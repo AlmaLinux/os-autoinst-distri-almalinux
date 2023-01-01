@@ -123,7 +123,7 @@ sub run {
             if (get_var('LIVE')) {
                 # give some time to load and get ready
                 # TODO: Sleep does not seems working, need an alterntive
-                check_screen(["live_initial_gnome_tour","live_start_anaconda_icon", "apps_menu_button_active"], timeout=>240)) 
+                check_screen(["live_initial_gnome_tour","live_start_anaconda_icon", "apps_menu_button_active"], timeout=>240);
                 if (match_has_tag "live_initial_gnome_tour") {
                     click_lastmatch;
                     wait_still_screen 3;
