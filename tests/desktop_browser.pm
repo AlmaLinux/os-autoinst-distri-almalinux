@@ -35,6 +35,14 @@ sub run {
     send_key 'super';
     # wait out animations
     wait_still_screen(stilltime => 4, similarity_level => 45);
+    if ((get_var("VERSION") < 9 ) && (get_var("DESKTOP") eq "gnome" ) && check_screen("gnome_initial_setup_next", 3)) {
+        click_lastmatch;
+        wait_still_screen(stilltime => 5, similarity_level => 45);
+        if (check_screen("gnome_initial_setup_next", 3)) {
+            send_key "alt-f4";
+            wait_still_screen(stilltime => 5, similarity_level => 45);
+        }
+    }
     assert_and_click 'browser_launcher';
     assert_screen 'browser', 45;
     # firefox is quite grindy on startup, let it settle
