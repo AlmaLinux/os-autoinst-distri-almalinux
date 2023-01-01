@@ -990,8 +990,9 @@ sub check_desktop {
         $count -= 1;
         # base dvd-iso or boot iso, desktop not set to gnome
         # also tour can come when installed disk reused for other tests...!
-        if (((get_var("DESKTOP") eq "gnome") || ((get_var("FLAVOR") eq "boot-iso" || get_var("FLAVOR") eq "dvd-iso")  && (get_var("DEPLOY_UPLOAD_TEST") eq 'install_default_upload'))) && (check_screen "live_initial_gnome_tour", 7)) {
-            assert_and_click "live_initial_gnome_tour";
+        if (((get_var("DESKTOP") eq "gnome") || ((get_var("FLAVOR") eq "boot-iso" || get_var("FLAVOR") eq "dvd-iso")  && (get_var("DEPLOY_UPLOAD_TEST") eq 'install_default_upload'))) && (check_screen ["getting_started","live_initial_gnome_tour"], 7)) {
+            # assert_and_click "live_initial_gnome_tour";
+            click_lastmatch;
             wait_still_screen 3;
         }
         assert_screen "apps_menu_button", $args{timeout};
