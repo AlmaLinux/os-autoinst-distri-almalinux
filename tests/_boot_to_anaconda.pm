@@ -122,7 +122,12 @@ sub run {
             # on lives, we have to explicitly launch anaconda
             if (get_var('LIVE')) {
                 # give some time to load and get ready
-                sleep 180;
+                # TODO: Sleep does not seems working, need an alterntive
+                check_screen(["live_initial_gnome_tour","live_start_anaconda_icon", "apps_menu_button_active"], timeout=>240)) 
+                if (match_has_tag "live_initial_gnome_tour") {
+                    click_lastmatch;
+                    wait_still_screen 3;
+                }
                 my $count = 5;
                 my $relnum = get_var('VERSION');
                 while ($count > 0) {
