@@ -371,7 +371,7 @@ sub do_bootloader {
         params => "",
         mutex => "",
         first => 1,
-        timeout => 30,
+        timeout => 60,
         uefi => get_var("UEFI"),
         ofw => get_var("OFW"),
         @_
