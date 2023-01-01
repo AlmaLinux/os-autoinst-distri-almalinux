@@ -1,0 +1,29 @@
+{
+  "area": [
+    {
+      "xpos": 560,
+      "ypos": 234,
+      "width": 207,
+      "height": 209,
+      "type": "match",
+      "click_point": {
+        "xpos": 103.5,
+        "ypos": 104.5
+      }
+    },
+    {
+      "xpos": 4,
+      "ypos": 5,
+      "width": 15,
+      "height": 19,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "DESKTOP-xfce",
+    "ENV-DISTRI-almalinux",
+    "apps_menu_button_active",
+    "live_start_anaconda_icon"
+  ]
+}

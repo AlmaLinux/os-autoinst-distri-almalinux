@@ -7,7 +7,7 @@ use Exporter;
 
 use lockapi;
 use testapi;
-our @EXPORT = qw/run_with_error_check type_safely type_very_safely get_version_major get_code_name desktop_vt boot_to_login_screen console_login console_switch_layout desktop_switch_layout console_loadkeys_us do_bootloader boot_decrypt check_release menu_launch_type repo_setup setup_workaround_repo disable_updates_repos cleanup_workaround_repo console_initial_setup handle_welcome_screen gnome_initial_setup anaconda_create_user check_desktop download_modularity_tests quit_firefox advisory_get_installed_packages advisory_check_nonmatching_packages start_with_launcher quit_with_shortcut disable_firefox_studies select_rescue_mode copy_devcdrom_as_isofile get_release_number check_left_bar check_top_bar check_prerelease check_version spell_version_number _assert_and_click is_branched rec_log click_unwanted_notifications repos_mirrorlist register_application get_registered_applications solidify_wallpaper check_and_install_git check_and_install_software download_testdata make_serial_writable gdm_initial_setup/;
+our @EXPORT = qw/run_with_error_check type_safely type_very_safely get_version_major get_code_name desktop_vt boot_to_login_screen console_login console_switch_layout desktop_switch_layout console_loadkeys_us do_bootloader boot_decrypt check_release menu_launch_type repo_setup setup_workaround_repo disable_updates_repos cleanup_workaround_repo console_initial_setup handle_welcome_screen gnome_initial_setup anaconda_create_user check_desktop download_modularity_tests quit_firefox advisory_get_installed_packages advisory_check_nonmatching_packages start_with_launcher quit_with_shortcut disable_firefox_studies select_rescue_mode copy_devcdrom_as_isofile get_release_number check_left_bar check_top_bar check_prerelease check_version spell_version_number _assert_and_click is_branched rec_log click_unwanted_notifications repos_mirrorlist register_application get_registered_applications solidify_wallpaper check_and_install_git check_and_install_software download_testdata make_serial_writable gdm_initial_setup mate_move_mouse/;
 
 # We introduce this global variable to hold the list of applications that have
 # registered during the apps_startstop_test when they have sucessfully run.
@@ -100,6 +100,9 @@ sub boot_to_login_screen {
         # we match text_console_login until the console disappears).
         # The following is true for non-serial console.
         my $count = 5;
+        if (get_var("DESKTOP") eq 1 && get_var("VERSION") < 9 && check_screen  "console_accept_license", timeout=> 10){
+            type_safely "1\n";
+        }
         while (check_screen("login_screen", 3) && $count > 0) {
             if (get_var("DESKTOP") eq "kde" && check_screen("kde_lock_screen", 2)) {
                 send_key "ctrl-shift-del";
@@ -212,8 +215,19 @@ sub console_login {
         # logged-in needles for the console we switched from, and get out
         # of sync (e.g. https://openqa.stg.fedoraproject.org/tests/1664 )
         # To avoid this, we'll sleep a few seconds before starting
-        sleep 4;
-
+        sleep 10;
+        if ("login_screen", timeout=> 3) {
+            if (match_has_tag "graphical_login") {
+            # graphical login shows, expected text login swich to term 3
+                my $stay_on_console = 1;
+            # From GUI we need to switch to the console.
+                send_key("ctrl-alt-f3");
+            # Let's wait to allow for screen changes.
+                sleep 5;
+            # And do the login.
+            #  console_login();
+            }
+        }
         my $good = "";
         my $bad = "";
         if ($args{user} eq "root") {
@@ -975,8 +989,8 @@ sub check_desktop {
     while ($count > 0) {
         $count -= 1;
         # base dvd-iso or boot iso, desktop not set to gnome
-        # may be required?
-        if ((get_var("FLAVOR") eq "boot-iso" || get_var("FLAVOR") eq "dvd-iso")  && (get_var("DEPLOY_UPLOAD_TEST") eq 'install_default_upload') && (check_screen "live_initial_gnome_tour", 7)) {
+        # also tour can come when installed disk reused for other tests...!
+        if (((get_var("DESKTOP") eq "gnome") || ((get_var("FLAVOR") eq "boot-iso" || get_var("FLAVOR") eq "dvd-iso")  && (get_var("DEPLOY_UPLOAD_TEST") eq 'install_default_upload'))) && (check_screen "live_initial_gnome_tour", 7)) {
             assert_and_click "live_initial_gnome_tour";
             wait_still_screen 3;
         }
@@ -986,9 +1000,10 @@ sub check_desktop {
             # opening the overview. So we need to wait a bit on first
             # cycle in case GNOME is about to open the overview.
             wait_still_screen 5;
-            assert_screen "apps_menu_button";
+            assert_screen "apps_menu_button", 5;
         }
-        # Here's where we detect if the overview is open and close it
+        # Here's where we detect if the overview is open and close
+        # TODO: not sure this logic works ...!
         if (match_has_tag "apps_menu_button_active") {
             $activematched = 1;
             wait_still_screen 5;
@@ -1603,6 +1618,8 @@ sub solidify_wallpaper {
         type_very_safely "gsettings set org.gnome.desktop.background primary-color '#000000'";
         send_key 'ret';
         wait_still_screen(stilltime => 2, similarity_level => 38);
+        type_very_safely "exit";
+        send_key 'ret';
         quit_with_shortcut();
         # check that is has changed color
         assert_screen 'apps_settings_screen_black';
@@ -1691,4 +1708,10 @@ sub gdm_initial_setup {
     }
 }
 
+sub mate_move_mouse {
+    if ( get_var('FLAVOR') eq 'MATE-live-iso' ) {
+        mouse_set(100,100);
+        mouse_hide;
+    }
+}
 1;

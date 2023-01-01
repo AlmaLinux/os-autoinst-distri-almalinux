@@ -63,7 +63,7 @@ sub run {
         }
     }
     # inst.debug enables memory use tracking
-    $params .= "debug" if get_var("MEMCHECK");
+    $params .= "inst.debug" if get_var("MEMCHECK");
     # ternary: set $params to "" if it contains only spaces
     $params = $params =~ /^\s+$/ ? "" : $params;
 
@@ -94,18 +94,26 @@ sub run {
     }
     else {
         if (get_var("ANACONDA_TEXT")) {
+            # sleep 90;
             # select that we don't want to start VNC; we want to run in text mode
             if (get_var("SERIAL_CONSOLE")) {
                 # we direct the installer to virtio-console1, and use
                 # virtio-console as a root console
                 select_console('virtio-console1');
-                unless (wait_serial "Use text mode", timeout => 120) { die "Anaconda has not started."; }
-                type_string "2\n";
+                # TODO: No pre screen on 8.x?
+                #if (get_var("VERSION") > 8.9) {
+                    unless (wait_serial "Use text mode", timeout => 120) { die "Anaconda has not started."; }
+                    type_string "2\n";
+                #}
                 unless (wait_serial "Installation") { die "Text version of Anaconda has not started."; }
             }
             else {
-                assert_screen "anaconda_use_text_mode", 300;
-                type_string "2\n";
+                # TODO: No pre screen on 8.x
+                # assert_screen "anaconda_use_text_mode", 300;
+                #if (get_var("VERSION") > 8.9) {
+                    assert_screen "anaconda_use_text_mode", 300;
+                    type_string "2\n";
+                #}
                 # wait for text version of Anaconda main hub
                 assert_screen "anaconda_main_hub_text", 300;
             }
@@ -113,44 +121,59 @@ sub run {
         else {
             # on lives, we have to explicitly launch anaconda
             if (get_var('LIVE')) {
+                # give some time to load and get ready
+                sleep 180;
                 my $count = 5;
+                my $relnum = get_var('VERSION');
                 while ($count > 0) {
                     $count -= 1;
-                    sleep 60;
-                    if ((get_var("DESKTOP") eq 'gnome') && (check_screen "live_initial_gnome_tour", 45)) {
+                    sleep 30;
+                    if ((get_var("DESKTOP") eq 'gnome') && (check_screen "live_initial_gnome_tour", 10)) {
                         # assert_and_click "live_initial_gnome_tour";
                         click_lastmatch;
                         wait_still_screen 3;
                     }
-                    assert_screen ["live_start_anaconda_icon", "apps_menu_button_active"], 300;
-                    if (match_has_tag "apps_menu_button_active") {
+                    #assert_screen ["live_start_anaconda_icon", "apps_menu_button_active"], 60;
+                    #if (match_has_tag "live_start_anaconda_icon") {
+                    if (check_screen "live_start_anaconda_icon", 10) {
+                        # if matched, exit loop
+                        # reset the count to exit
+                        $count = 0;
                         # give GNOME some time to be sure it's done starting up
                         # and ready for input
                         wait_still_screen 5;
-                        send_key "super";
+                        click_lastmatch;
+                        # send_key "super";
                         wait_still_screen 5;
+                        #if (get_var("DESKTOP") eq "kde" && $relnum < 9) {
+                        #    wait_screen_change { click_lastmatch; };
+                        #} else {
+                        #}
                     }
                     else {
                         # this means we saw the launcher, which is what we want
                         last;
                     }
                 }
+                sleep 15;
                 # for KDE we need to double-click
-                my $relnum = get_release_number;
-                my $dclick = 0;
-                $dclick = 1 if (get_var("DESKTOP") eq "kde");
-                assert_and_click("live_start_anaconda_icon", dclick => $dclick);
-                unless (check_screen "anaconda_select_install_lang", 180) {
+                # my $dclick = 0;
+                # $dclick = 1 if (get_var("DESKTOP") eq "kde");
+                # assert_and_click("live_start_anaconda_icon", dclick => $dclick);
+                unless (check_screen "anaconda_select_install_lang", 120) {
                     # click it again - on KDE since 2019-10 or so it seems
                     # like the first attempt sometimes just doesn't work
-                    assert_and_click("live_start_anaconda_icon", dclick => $dclick, timeout => 300);
+                    assert_and_click("live_start_anaconda_icon", timeout => 150);
                 }
             }
             my $language = get_var('LANGUAGE') || 'english';
             # wait for anaconda to appear; we click to work around
             # RHBZ #1566066 if it happens
             assert_and_click("anaconda_select_install_lang", timeout => 300);
-
+            if ( get_var('FLAVOR') eq 'MATE-live-iso' ) {
+                mouse_set(100,100);
+                mouse_hide;
+            }
             # Select install language
             wait_screen_change { assert_and_click "anaconda_select_install_lang_input"; };
             type_safely $language;
@@ -164,6 +187,8 @@ sub run {
                 check_help_on_pane("language_selection");
             }
 
+            mate_move_mouse;
+
             assert_and_click "anaconda_select_install_lang_continue";
 
             # wait 180 secs for hub or Rawhide warning dialog to appear
@@ -173,7 +198,8 @@ sub run {
             # warning dialog appears, accept it.
             if (check_screen ["anaconda_rawhide_accept_fate", "anaconda_main_hub"], 180) {
                 if (match_has_tag("anaconda_rawhide_accept_fate")) {
-                    assert_and_click "anaconda_rawhide_accept_fate";
+                    # assert_and_click "anaconda_rawhide_accept_fate";
+                    click_lastmatch;
                 }
                 else {
                     # this is when the hub appeared already, we're done
@@ -194,6 +220,7 @@ sub run {
             # didn't match anything: if the Rawhide warning didn't
             # show by now it never will, so we'll just wait for the
             # hub to show up.
+            mate_move_mouse;
             assert_screen "anaconda_main_hub", 900;
         }
     }

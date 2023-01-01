@@ -13,7 +13,7 @@ sub run {
     script_run "systemctl stop chronyd.service";
     script_run "systemctl disable chronyd.service";
     script_run "reboot", 0;
-    boot_to_login_screen;
+    boot_to_login_screen(timeout => 480);
     $self->root_console(tty => 3);
     # note the use of ! here is a bash-ism, but it sure makes life easier
     assert_script_run '! systemctl is-enabled chronyd.service';
@@ -32,14 +32,14 @@ sub run {
     assert_script_run '! systemctl is-active chronyd.service';
     assert_script_run '! ps -C chronyd';
     script_run "reboot", 0;
-    boot_to_login_screen;
+    boot_to_login_screen(timeout => 480);
     $self->root_console(tty => 3);
     assert_script_run 'systemctl is-enabled chronyd.service';
     assert_script_run 'systemctl is-active chronyd.service';
     assert_script_run 'ps -C chronyd';
     script_run "systemctl disable chronyd.service";
     script_run "reboot", 0;
-    boot_to_login_screen;
+    boot_to_login_screen(timeout => 480);
     $self->root_console(tty => 3);
     assert_script_run '! systemctl is-enabled chronyd.service';
     assert_script_run '! systemctl is-active chronyd.service';

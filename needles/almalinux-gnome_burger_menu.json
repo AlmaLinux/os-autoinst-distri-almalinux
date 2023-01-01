@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "ypos": 43,
+      "height": 24,
+      "width": 27,
+      "xpos": 940,
+      "click_point": {
+        "xpos": 13.5,
+        "ypos": 12
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gnome_burger_menu"
+  ]
+}

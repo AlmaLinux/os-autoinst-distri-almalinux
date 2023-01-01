@@ -36,12 +36,13 @@ sub run {
         if (get_var("INSTALL_NO_USER")) {
             console_initial_setup;
         }
+        sleep 90;
         $self->root_console(tty => 3);
         sleep 10;
         type_string "logout\n";
         # Wait a bit to let the logout properly finish.
         sleep 10;
-        $wait_time = 90;
+        $wait_time = 45;
     } else {
     # OLD PATH
     # handle initial-setup, if we're expecting it (ARM disk image)

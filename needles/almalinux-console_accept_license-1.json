@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "xpos": 62,
+      "ypos": 258,
+      "width": 163,
+      "height": 13,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "console_accept_license"
+  ]
+}

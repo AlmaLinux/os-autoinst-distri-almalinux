@@ -30,6 +30,7 @@ sub run {
     # unless ENCRYPT_PASSWORD is set (in which case the postinstall
     # test does the waiting)
     my $wait_time = 400;
+    $wait_time = 720 if ($desktop eq 'kde');
     $wait_time = 1800 if (get_var("KICKSTART"));
     $wait_time = 6000 if (get_var("UPGRADE") && !get_var("ENCRYPT_PASSWORD"));
 
@@ -63,9 +64,18 @@ sub run {
                     assert_and_click "gdm_initial_setup_spoke_forward";
                     wait_still_screen 3;
                 }    
-            }            
-            assert_and_click "initialsetup_finish_configuration";
+            }   
+            # assert_and_click "initialsetup_finish_configuration";
+            if (check_screen "initialsetup_finish_configuration",15) {
+                click_lastmatch;
+                wait_still_screen 3;
+            }
             set_var("_SETUP_DONE", 1);
+            if (get_var('LIVE') && $desktop eq 'kde') {
+                assert_screen "graphical_login_input";
+                wait_still_screen 5;
+                _enter_password($password);
+            }
         }
         $wait_time = 300;
     }
@@ -78,7 +88,7 @@ sub run {
         if (get_version_major() < 9 || (get_var("LIVE") && $desktop eq 'kde')) {
             unless (get_var("HDD_1") && !(get_var("PARTITIONING") eq "custom_resize_lvm")) {
                 mouse_hide;
-                assert_screen "gdm_initial_setup_license", 120;
+                assert_screen "gdm_initial_setup_license", $wait_time;
                 assert_and_click "gdm_initial_setup_license";
                 # Make sure the card has fully lifted until clicking on the buttons
                 wait_still_screen 5, 30;
@@ -117,7 +127,8 @@ sub run {
         _enter_password($password);
         # it takes take time on ppc64le arch
         if (get_var("ARCH" eq "ppc64le")) {
-            sleep 90;
+            # sleep 90;
+            wait_still_screen 60;
         }
     }
 

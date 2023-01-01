@@ -357,7 +357,7 @@ sub load_postinstall_tests() {
     # desktops have specific tests for this (hence !DESKTOP). For
     # desktop upgrades we should really upload a disk image at the end
     # of upgrade and run all the desktop post-install tests on that
-    if (!get_var("DESKTOP") && !get_var("CRASH_REPORT") && (!get_var("BOOTFROM") || get_var("UPGRADE"))) {
+    if (!get_var('ANACONDA_TEXT') && !get_var("DESKTOP") && !get_var("CRASH_REPORT") && (!get_var("BOOTFROM") || get_var("UPGRADE"))) {
         autotest::loadtest "tests/_console_avc_crash.pm";
     }
 

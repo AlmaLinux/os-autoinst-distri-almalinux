@@ -19,10 +19,7 @@ sub run {
     # now we reboot and go onto step 2:
     # "Login with a reader, but no enrolled prints"
     type_string "reboot\n";
-    # assert_screen "graphical_login", 180;
-    if (check_screen "graphical_login", 180) {
-        assert_and_click "graphical_login"
-    }
+    assert_and_click "graphical_login", 600;
     mouse_hide;
     send_key_until_needlematch("graphical_login_input", "ret", 3, 5);
     type_very_safely "weakpassword";
@@ -41,7 +38,7 @@ sub run {
     # now we will reboot and do step 3:
     # "Login using fingerprint"
     type_string "reboot\n";
-    assert_screen "graphical_login", 180;
+    assert_and_click "graphical_login", 600;
     $self->root_console(tty => 6);
     # the GDM tty needs to be active when the scan happens, so we will
     # schedule the scan to happen in 20 seconds then go deal with gdm
@@ -59,7 +56,7 @@ sub run {
     # now we will reboot again and do step 4:
     # "Password login after failed fingerprint login"
     type_string "reboot\n";
-    assert_screen "graphical_login", 180;
+    assert_and_click "graphical_login", 600;
     $self->root_console(tty => 6);
     # we're doing the same as before, but scanning the 'wrong thing'
     # (note finger-2 not finger-1)

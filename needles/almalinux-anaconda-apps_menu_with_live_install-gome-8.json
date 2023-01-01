@@ -1,0 +1,29 @@
+{
+  "area": [
+    {
+      "xpos": 551,
+      "ypos": 190,
+      "width": 209,
+      "height": 207,
+      "type": "match",
+      "click_point": {
+        "xpos": 104.5,
+        "ypos": 103.5
+      }
+    },
+    {
+      "xpos": 10,
+      "ypos": 6,
+      "width": 18,
+      "height": 16,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "DESKTOP-gnome",
+    "ENV-DISTRI-almalinux",
+    "apps_menu_button_active",
+    "live_start_anaconda_icon"
+  ]
+}

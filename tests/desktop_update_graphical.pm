@@ -102,7 +102,7 @@ sub run {
             send_key 'tab';
             send_key 'ret';
         }
-        boot_to_login_screen;
+        boot_to_login_screen(timeout => 600);
     }
     elsif ($desktop eq 'kde') {
         # KDE does offline updates now, we have to trigger the reboot
@@ -112,7 +112,8 @@ sub run {
         for my $n (1 .. 10) {
             # sleep 2;
             wait_still_screen 15;
-            assert_screen ['kde_offline_update_reboot', 'desktop_package_tool_update_apply'];
+            # TODO:  Possible update in process, wait for more time
+            assert_screen(['kde_offline_update_reboot', 'desktop_package_tool_update_apply'], timeout=>300);
             # break out if we reached the reboot button
             last if (match_has_tag 'kde_offline_update_reboot');
             # otherwise, try refresh and apply or reboot
@@ -121,8 +122,13 @@ sub run {
             last if (match_has_tag 'kde_offline_update_reboot');
             click_lastmatch;
         }
-        assert_and_click 'kde_offline_update_reboot';
-        boot_to_login_screen;
+        if (match_has_tag 'kde_offline_update_reboot') {
+            click_lastmatch;
+            # TODO: updates complete, exit?
+            # return;
+        }
+        reboot_system();
+        boot_to_login_screen(timeout => 600);
     }
     else {
         assert_screen 'desktop_package_tool_update_done', 180;
@@ -130,6 +136,26 @@ sub run {
     # back to console to verify updates
     $self->root_console(tty => 3);
     verify_updated_packages;
+}
+
+sub reboot_system {
+    # Reboots the system and handles everything until the next GDM screen.
+    if (check_screen "system_menu_button") {
+        # In a logged in desktop, we access power options through system menu
+        assert_and_click "system_menu_button";
+        # In KDE the reboot entry is right here, on GNOME we need to
+        # enter some kind of power option submenu.
+        assert_screen ["power_entry", "reboot_entry"];
+        click_lastmatch;
+        assert_and_click "reboot_entry" if (match_has_tag("power_entry"));
+        assert_and_click "restart_confirm";
+    }
+    # When we are outside KDE (not logged in), the only way to reboot is to click
+    # the reboot icon.
+    else {
+        assert_and_click "reboot_icon";
+    }
+    boot_to_login_screen(timeout => 600);
 }
 
 sub test_flags {

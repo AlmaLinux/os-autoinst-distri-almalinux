@@ -1,0 +1,28 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "height": 18,
+      "width": 300,
+      "xpos": 719,
+      "ypos": 640
+    },
+    {
+      "type": "match",
+      "height": 19,
+      "width": 111,
+      "xpos": 893,
+      "ypos": 696,
+      "click_point": {
+        "xpos": 55.5,
+        "ypos": 9.5
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "LANGUAGE-english",
+    "anaconda_install_done"
+  ]
+}

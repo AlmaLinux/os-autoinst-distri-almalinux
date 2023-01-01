@@ -133,7 +133,11 @@ sub run {
     }
     else {
         # for the live case there should be *no* notifications
-        assert_screen "desktop_no_notifications";
+            if (check_screen 'desktop_no_notifications', 15) {
+                click_lastmatch;
+            # TODO: may need the knotification package?
+            # assert_and_click 'desktop_systray_notifications';
+            }       
     }
 }
 

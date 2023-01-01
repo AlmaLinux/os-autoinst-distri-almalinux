@@ -44,10 +44,12 @@ sub run {
         "source" => 3,
         "swselection" => 4,
         "destination" => 5,
-        "network" => 6,
-        "rootpwd" => 7,
-        "user" => 8
+        "kdump" => 6,
+        "network" => 7,
+        "rootpwd" => 8,
+        "user" => 9
     );
+#        "shell" => 8,
 
     # The error message that we are going to check for in the text installation
     # must be different for serial console and a VNC terminal emulator.

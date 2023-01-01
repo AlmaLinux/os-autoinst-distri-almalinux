@@ -21,6 +21,11 @@
   ],
   "properties": [],
   "tags": [
-    "initialsetup_finish_configuration"
+    "DESKTOP-kde",
+    "ENV-DISTRI-almalinux",
+    "LANGUAGE-english",
+    "graphical_login",
+    "graphical_login_input",
+    "login_screen"
   ]
 }
