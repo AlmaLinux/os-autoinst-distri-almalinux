@@ -90,7 +90,14 @@ sub run {
         # match for the installer bootloader if it hangs around for a
         # while after do_bootloader finishes (in PXE case it does)
         sleep 60;
-        assert_screen "bootloader", 1800;
+        if (checck_screen(["bootloader","login_screen"], timeout=> 1800)) {
+            if (match_has_tag "bootloader") {
+                assert_screen "bootloader";
+            } else {
+                # ALL 9 seems skip/defer on login
+                assert_screen "login_screen";
+            }
+        }
     }
     else {
         if (get_var("ANACONDA_TEXT")) {
