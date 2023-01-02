@@ -9,6 +9,9 @@ sub run {
     # switch to tty and login as root
     $self->root_console(tty => 3);
 
+    # connect network
+    script_run "dhclient";
+    
     # The test case will check that dnf has modular functions and that
     # it is possible to invoke modular commands to work with modularity.
 
