@@ -29,7 +29,7 @@ sub run {
     # Check that dnf lists the enabled modules.
     $modules = script_output('dnf module list --enabled', timeout => 270);
     @modules = parse_module_list($modules);
-    if (get_version_major() < 9 && get_var("FLAVOR") ne "minimal-iso") {
+    if ((get_version_major() < 9) && (get_var("FLAVOR") ne "minimal-iso")) {
        die "There should be enabled modules, the list should not be empty." if (scalar @modules == 0);
     } else {
        die "There seem to be enabled modules when the list should be empty." unless (scalar @modules == 0);
