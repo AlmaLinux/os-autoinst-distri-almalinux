@@ -28,7 +28,7 @@ sub start_cockpit {
     assert_screen "cockpit_login", 60;
     wait_still_screen(stilltime => 5, similarity_level => 45);
     if ($args{login}) {
-        type_safely "test";
+        type_safely "root";
         wait_screen_change { send_key "tab"; };
         type_safely get_var("USER_PASSWORD", "weakpassword");
         send_key "ret";
