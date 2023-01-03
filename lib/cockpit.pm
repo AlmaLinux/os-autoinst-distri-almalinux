@@ -62,9 +62,21 @@ sub select_cockpit_update {
     assert_screen ["cockpit_software_updates", "cockpit_search"], 120;
     click_lastmatch;
     if (match_has_tag "cockpit_search") {
+        click_lastmatch;
         send_key "up";
         wait_still_screen 2;
-        assert_and_click "cockpit_software_updates";
+        send_key "up";
+        wait_still_screen 2;
+        # assert_and_click "cockpit_software_updates";
+        if (check_screen "cockpit_software_updates", 1) {
+            click_lastmatch;
+        } else {
+            send_key "pgdn";
+            wait_still_screen 2;
+            if (check_screen "cockpit_software_updates", 1) {
+                click_lastmatch;
+            }
+        }  
     }
     # wait for the updates to download
     assert_screen 'cockpit_updates_check', 300;
