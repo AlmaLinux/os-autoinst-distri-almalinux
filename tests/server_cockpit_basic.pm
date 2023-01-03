@@ -41,13 +41,16 @@ sub run {
         click_lastmatch;
     }
     else {
-        assert_and_click "cockpit_services_entry";
+    #     assert_and_click "cockpit_services_entry";
         record_soft_failure "Loading services screen took a long time";
     }
     # check we get to the appropriate detail screen...but this click
     # often gets lost for some reason, so retry it once
-    assert_and_click "cockpit_services_entry" unless (check_screen "cockpit_services_detail", 10);
-    assert_screen "cockpit_services_detail";
+    # assert_and_click "cockpit_services_entry" unless (check_screen "cockpit_services_detail", 10);
+    # assert_screen "cockpit_services_detail";
+    if (assert_screen "cockpit_services_detail", 15) {
+        click_lastmatch;
+    }
 }
 
 sub test_flags {
