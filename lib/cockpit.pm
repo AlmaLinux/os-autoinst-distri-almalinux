@@ -34,9 +34,14 @@ sub start_cockpit {
         send_key "ret";
         if ($args{admin}) {
             assert_and_click "cockpit_admin_enable";
-            assert_screen "cockpit_admin_password";
-            type_safely get_var("USER_PASSWORD", "weakpassword");
-            send_key "ret";
+            # assert_screen "cockpit_admin_password";
+            if ((check_screen "cockpit_admin_password", 3)) {
+                type_safely get_var("USER_PASSWORD", "weakpassword");
+                send_key "ret";
+            }
+            if ((check_screen "cockpit_switch_limit_access_close", 3)) {
+                click_lastmatch;
+            }
         }
         assert_screen "cockpit_main";
         # wait for any animation or other weirdness
