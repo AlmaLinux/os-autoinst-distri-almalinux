@@ -71,7 +71,7 @@ sub run {
     my $mutex = get_var("INSTALL_UNLOCK");
 
     # we need a longer timeout for the PXE boot test
-    my $timeout = 75;
+    my $timeout = 75; 
     $timeout = 120 if (get_var("PXEBOOT"));
 
     # call do_bootloader with postinstall=0, the params, and the mutex,

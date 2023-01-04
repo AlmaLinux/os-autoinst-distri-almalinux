@@ -47,7 +47,7 @@ sub run {
     my $repos = 'config_opts[\'dnf.conf\'] += \"\"\"\n[advisory]\nname=Advisory repo\nbaseurl=file:///mnt/update_repo\nenabled=1\nmetadata_expire=3600\ngpgcheck=0\n\n[workarounds]\nname=Workarounds repo\nbaseurl=file:///mnt/workarounds_repo\nenabled=1\nmetadata_expire=3600\ngpgcheck=0\n';
     # also the buildroot repo, for Rawhide
     if ($version eq $rawrel) {
-        $repos .= '\n[koji-rawhide]\nname=Buildroot repo\nbaseurl=https://kojipkgs.fedoraproject.org/repos/rawhide/latest/\$basearch/\nenabled=1\nmetadata_expire=3600\ngpgcheck=0\n';
+        $repos .= '\n[koji-rawhide]\nname=Buildroot repo\nbaseurl=https://kojipkgs.almalinux.org/repos/rawhide/latest/\$basearch/\nenabled=1\nmetadata_expire=3600\ngpgcheck=0\n';
     }
     $repos .= '\"\"\"';
     assert_script_run 'printf "' . $repos . '" >> /etc/mock/openqa.cfg';
@@ -65,7 +65,7 @@ sub run {
     assert_script_run 'echo "repo --name=workarounds --baseurl=file:///mnt/workarounds_repo" >> ' . $repoks;
     # and the buildroot repo, for Rawhide
     if ($version eq $rawrel) {
-        assert_script_run 'echo "repo --name=koji-rawhide --baseurl=https://kojipkgs.fedoraproject.org/repos/rawhide/latest/\$basearch/" >> ' . $repoks;
+        assert_script_run 'echo "repo --name=koji-rawhide --baseurl=https://kojipkgs.almalinux.org/repos/rawhide/latest/\$basearch/" >> ' . $repoks;
     }
     # FIXME: this is a workaround for #2119518, disabling oomd so it
     # doesn't go crazy killing things

@@ -33,7 +33,7 @@ sub run {
     }
     assert_script_run "systemctl restart firewalld.service";
     # deploy the server
-    my $args = "-U --auto-forwarders --realm=TEST.OPENQA.FEDORAPROJECT.ORG --domain=test.openqa.fedoraproject.org --ds-password=monkeys123 --admin-password=monkeys123 --setup-dns --reverse-zone=2.16.172.in-addr.arpa --allow-zone-overlap";
+    my $args = "-U --auto-forwarders --realm=TEST.OPENQA.almalinux.ORG --domain=test.openqa.almalinux.org --ds-password=monkeys123 --admin-password=monkeys123 --setup-dns --reverse-zone=2.16.172.in-addr.arpa --allow-zone-overlap";
     # FIXME: For upgrades, we turn off dnssec to avoid hitting
     # #1999321
     my $relnum = get_release_number;
@@ -47,7 +47,7 @@ sub run {
     # kinit as admin
     assert_script_run 'echo "monkeys123" | kinit admin';
     # set up an OTP for client001 enrolment (it will enrol with a kickstart)
-    assert_script_run 'ipa host-add client001.test.openqa.fedoraproject.org --password=monkeys --force';
+    assert_script_run 'ipa host-add client001.test.openqa.almalinux.org --password=monkeys --force';
     # create two user accounts, test1 and test2
     assert_script_run 'echo "correcthorse" | ipa user-add test1 --first test --last one --password';
     assert_script_run 'echo "correcthorse" | ipa user-add test2 --first test --last two --password';
@@ -61,10 +61,10 @@ sub run {
     assert_script_run 'ipa pwpolicy-mod --minlife=0';
     # magic voodoo crap to allow reverse DNS client sync to work
     # https://docs.pagure.org/bind-dyndb-ldap/BIND9/SyncPTR.html
-    assert_script_run 'ipa dnszone-mod test.openqa.fedoraproject.org. --allow-sync-ptr=TRUE';
+    assert_script_run 'ipa dnszone-mod test.openqa.almalinux.org. --allow-sync-ptr=TRUE';
     # kinit as each user and set a new password
-    assert_script_run 'printf "correcthorse\nbatterystaple\nbatterystaple" | kinit test1@TEST.OPENQA.FEDORAPROJECT.ORG';
-    assert_script_run 'printf "correcthorse\nbatterystaple\nbatterystaple" | kinit test2@TEST.OPENQA.FEDORAPROJECT.ORG';
+    assert_script_run 'printf "correcthorse\nbatterystaple\nbatterystaple" | kinit test1@test.openqa.almalinux.org';
+    assert_script_run 'printf "correcthorse\nbatterystaple\nbatterystaple" | kinit test2@test.openqa.almalinux.org';
     # we're ready for children to enrol, now
     mutex_create("freeipa_ready");
     # if upgrade test, wait for children to enrol before upgrade

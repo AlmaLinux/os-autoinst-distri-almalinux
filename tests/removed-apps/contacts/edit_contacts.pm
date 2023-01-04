@@ -70,7 +70,7 @@ sub run {
 
     # Edit contact for Mary Shelley
     edit_contact("Jane Austen", "789-456-1223", 'jane.austen@sensibility.org');
-    edit_contact("Walter Scott", "111-222-3333", 'flying.scottsman@fedoraproject.org');
+    edit_contact("Walter Scott", "111-222-3333", 'flying.scottsman@almalinux.org');
     edit_contact("John Keats", "333-222-1111", 'keats@romance.co.uk');
 }
 

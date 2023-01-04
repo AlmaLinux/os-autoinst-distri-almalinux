@@ -9,7 +9,7 @@ use cockpit;
 sub run {
     my $self = shift;
     # use FreeIPA server as DNS server
-    assert_script_run "printf 'search test.openqa.fedoraproject.org\nnameserver 172.16.2.100' > /etc/resolv.conf";
+    assert_script_run "printf 'search test.openqa.almalinux.org\nnameserver 172.16.2.100' > /etc/resolv.conf";
     # this gets us the name of the first connection in the list,
     # which should be what we want
     my $connection = script_output "nmcli --fields NAME con show | head -2 | tail -1";
@@ -52,7 +52,7 @@ sub run {
     # ...but two tabs in both places on earlier versions
     $tabs = "\t\t" if ($cockpitver < 255);
     type_string($tabs, 4);
-    type_string("ipa001.test.openqa.fedoraproject.org", 4);
+    type_string("ipa001.test.openqa.almalinux.org", 4);
     type_string($tabs, 4);
     type_string("admin", 4);
     send_key "tab";

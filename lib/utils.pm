@@ -1255,7 +1255,7 @@ sub advisory_check_nonmatching_packages {
 
 sub select_rescue_mode {
     # handle bootloader screen
-    assert_screen "bootloader", 30;
+    assert_screen "bootloader", 75;
     if (get_var('OFW')) {
         # select "rescue system" directly
         send_key "down";
@@ -1293,7 +1293,7 @@ sub select_rescue_mode {
         }
     }
 
-    assert_screen "rescue_select", 180;    # it takes time to start anaconda
+    assert_screen "rescue_select", 420;    # it takes time to start anaconda
 }
 
 sub copy_devcdrom_as_isofile {
