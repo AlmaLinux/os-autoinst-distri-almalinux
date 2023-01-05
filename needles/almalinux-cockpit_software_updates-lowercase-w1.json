@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "width": 127,
+      "xpos": 340,
+      "ypos": 349,
+      "type": "match",
+      "height": 18,
+      "click_point": {
+        "xpos": 63.5,
+        "ypos": 9
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "cockpit_software_updates"
+  ]
+}

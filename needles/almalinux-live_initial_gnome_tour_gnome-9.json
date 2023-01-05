@@ -1,35 +1,36 @@
 {
   "area": [
     {
+      "width": 107,
       "xpos": 10,
       "ypos": 6,
-      "width": 107,
-      "height": 22,
-      "type": "match"
-    },
-    {
-      "xpos": 386,
-      "ypos": 210,
-      "width": 252,
-      "height": 206,
-      "type": "match"
-    },
-    {
-      "xpos": 342,
-      "ypos": 593,
-      "width": 113,
-      "height": 29,
       "type": "match",
+      "height": 22
+    },
+    {
+      "width": 252,
+      "xpos": 386,
+      "type": "match",
+      "ypos": 210,
+      "height": 206
+    },
+    {
+      "type": "match",
+      "xpos": 342,
+      "height": 29,
       "click_point": {
         "xpos": 56.5,
         "ypos": 14.5
-      }
+      },
+      "ypos": 593,
+      "width": 113
     }
   ],
   "properties": [],
   "tags": [
     "DESKTOP-gnome",
     "ENV-DISTRI-almalinux",
+    "getting_started",
     "live_initial_gnome_tour"
   ]
 }

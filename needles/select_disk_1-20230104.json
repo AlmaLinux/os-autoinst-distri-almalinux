@@ -1,0 +1,17 @@
+{
+  "area": [
+    {
+      "height": 24,
+      "type": "match",
+      "ypos": 283,
+      "xpos": 39,
+      "width": 17
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "ENV-FLAVOR-server",
+    "anaconda_install_destination_select_disk_1"
+  ]
+}
