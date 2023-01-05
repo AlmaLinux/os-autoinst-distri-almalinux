@@ -8,6 +8,8 @@ sub run {
     assert_script_run "mkdir -p /mnt/iso";
     # mount the ISO there
     assert_script_run "mount /dev/cdrom /mnt/iso";
+    # List files
+    script_run "ls -al /mnt/iso";
     # run the check
     assert_script_run "dnf repoclosure --repofrompath testdeps,/mnt/iso --repo testdeps";
 }

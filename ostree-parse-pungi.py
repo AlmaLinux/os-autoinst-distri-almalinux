@@ -7,7 +7,7 @@ import sys
 # app builds currently tagged "stable" need
 BASEVER = "37"
 # a regex to find where we replace that
-BASEPATT = re.compile(r"(runtime/org.fedoraproject.Platform/.*?/f)(\d+)")
+BASEPATT = re.compile(r"(runtime/org.almalinux.Platform/.*?/f)(\d+)")
 
 flavor = sys.argv[1]
 arch = sys.argv[2]
@@ -35,14 +35,14 @@ cmd = "--rootfs-size=" + args["rootfs_size"]
 for addtemp in args["add_template"]:
     cmd += f" --add-template=/fedora-lorax-templates/{addtemp}"
 for addtempvar in args["add_template_var"]:
-    # this changes e.g. "runtime/org.fedoraproject.Platform/x86_64/f35"
-    # to "runtime/org.fedoraproject.Platform/x86_64/f37" , if BASEVER
+    # this changes e.g. "runtime/org.almalinux.Platform/x86_64/f35"
+    # to "runtime/org.almalinux.Platform/x86_64/f37" , if BASEVER
     # is "37"
     addtempvar = BASEPATT.sub(r"\g<1>" + BASEVER, addtempvar)
     cmd += f" --add-template-var=\"{addtempvar}\""
 
 # this is where the previous step of the openQA test created the
 # ostree repo
-cmd = cmd.replace("https://kojipkgs.fedoraproject.org/compose/ostree/repo/", "file:///var/tmp/ostree/repo")
+cmd = cmd.replace("https://kojipkgs.almalinux.org/compose/ostree/repo/", "file:///var/tmp/ostree/repo")
 
 print(cmd)
