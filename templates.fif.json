@@ -1779,7 +1779,7 @@
                 "HDD_2": "disk_full_mbr.img",
                 "NUMDISKS": "2",
                 "PREINSTALL": "preinstall_iso_in_hd",
-                "REPOSITORY_VARIATION": "hd:vdb1:/fedora_image.iso"
+                "REPOSITORY_VARIATION": "hd:vdb1:/almalinux_image.iso"
             }
         },
         "install_repository_http_graphical": {
@@ -2174,6 +2174,7 @@
                 "Almalinux-dvd-iso-x86_64-*-uefi": 31
             },
             "settings": {
+                "GRUB": "ip=dhcp",
                 "HDDSIZEGB": "13",
                 "MEMCHECK": "1",
                 "PACKAGE_SET": "workstation",

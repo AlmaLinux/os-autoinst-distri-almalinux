@@ -12,7 +12,7 @@ sub run {
     assert_script_run "fdisk -l | head -n20";
     assert_script_run "mkdir -p /hd";
     assert_script_run "mount /dev/vdb1 /hd";
-    copy_devcdrom_as_isofile('/hd/fedora_image.iso');
+    copy_devcdrom_as_isofile('/hd/almalinux_image.iso');
     assert_script_run "umount /hd";
     type_string "exit\n";    # leave rescue mode.
 }
