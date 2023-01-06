@@ -631,9 +631,9 @@ sub _repo_setup_updates {
     disable_updates_repos(both => 0) if ($version > $currrel);
     # use the buildroot repo on Rawhide: see e.g.
     # https://pagure.io/fedora-ci/general/issue/376 for why
-    if (get_var("VERSION") eq get_var("RAWREL")) {
-        assert_script_run 'printf "[koji-rawhide]\nname=koji-rawhide\nbaseurl=https://kojipkgs.fedoraproject.org/repos/rawhide/latest/' . $arch . '/\ncost=2000\nenabled=1\ngpgcheck=0\n" > /etc/yum.repos.d/koji-rawhide.repo';
-    }
+#    if (get_var("VERSION") eq get_var("RAWREL")) {
+#        assert_script_run 'printf "[koji-rawhide]\nname=koji-rawhide\nbaseurl=https://kojipkgs.fedoraproject.org/repos/rawhide/latest/' . $arch . '/\ncost=2000\nenabled=1\ngpgcheck=0\n" > /etc/yum.repos.d/koji-rawhide.repo';
+#    }
     # set up the workaround repo
     setup_workaround_repo;
     if (get_var("CANNED")) {
@@ -1639,7 +1639,7 @@ sub check_and_install_software {
     my ($package) = @_;
     unless (get_var("CANNED")) {
         if (script_run("rpm -q $package")) {
-            assert_script_run("dnf install -y $package");
+            assert_script_run("dnf install -y $package", );
         }
     }
 }
