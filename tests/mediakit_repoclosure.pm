@@ -10,8 +10,9 @@ sub run {
     assert_script_run "mount /dev/cdrom /mnt/iso";
     # List files
     script_run "ls -al /mnt/iso";
+    script_run "ls -al /mnt/iso/Minimal";
     # run the check
-    assert_script_run "dnf repoclosure --repofrompath testdeps,/mnt/iso --repo testdeps";
+    assert_script_run "dnf repoclosure --repofrompath testdeps,/mnt/iso/Minimal --repo testdeps";
 }
 
 sub test_flags {

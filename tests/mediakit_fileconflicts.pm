@@ -19,7 +19,7 @@ sub run {
     # download the check script
     assert_script_run "curl -o /usr/local/bin/potential_conflict.py https://pagure.io/fedora-qa/qa-misc/raw/master/f/potential_conflict.py";
     # run the check
-    assert_script_run "/usr/libexec/platform-python /usr/local/bin/potential_conflict.py --repofrompath=media,/mnt/iso -r media";
+    assert_script_run "/usr/libexec/platform-python /usr/local/bin/potential_conflict.py --repofrompath=media,/mnt/iso/Minimal -r media";
 }
 
 sub test_flags {
