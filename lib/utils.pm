@@ -396,7 +396,8 @@ sub desktop_vt {
         }
     }
     handle_welcome_screen_8;
-    check_gnome_update_popup;
+    # TODO:  Needs to find a way to close, without open update dialog
+    # check_gnome_update_popup;
 }
 
 # load US layout (from a root console)
