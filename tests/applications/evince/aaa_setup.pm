@@ -35,10 +35,10 @@ sub run {
         assert_and_click("evince_documents", button => "left", timeout => 30);
     }
 
-    if (get_var("VERSION") >= 9) {
-        # Select the evince.pdf file.
-        assert_and_click("evince_file_select_pdf", button => "left", timeout => 30);
+    # Select the evince.pdf file.
+    assert_and_click("evince_file_select_pdf", button => "left", timeout => 30);
 
+    if (get_var("VERSION") >= 9) {
         # Click the Open button to open the file
         assert_and_click("gnome_button_open", button => "left", timeout => 30);
     }
