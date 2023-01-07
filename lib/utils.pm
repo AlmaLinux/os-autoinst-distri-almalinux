@@ -313,11 +313,32 @@ sub desktop_vt {
         $tty = $1;    # most recent match is probably best
     }
     send_key "ctrl-alt-f${tty}";
+    wait_still_screen 5;
     # work around https://gitlab.gnome.org/GNOME/gnome-software/issues/582
     # if it happens. As of 2019-05, seeing something similar on KDE too
     my $desktop = get_var('DESKTOP');
     my $sfr = 0;
     my $timeout = 10;
+    my $has_gui = 0;
+    if ($desktop eq "kde" && check_screen("workspace", 7)) {
+        $has_gui = 1;
+    }
+    if ($desktop eq "kde" && $has_gui = 0) {
+        send_key "ctrl-alt-f7";
+        wait_still_screen 3;
+        if (check_screen("workspace", 7)) {
+            $has_gui = 1;
+        }
+    }
+    if ($desktop eq "kde" && $has_gui = 0) {
+        send_key "alt-f7";
+        wait_still_screen 3;
+        if (check_screen("workspace", 7)) {
+            $has_gui = 1;
+        } else {
+            type_safely("startx\n");
+        }
+    }
     my $count = 6;
     while (check_screen("auth_required", $timeout) && $count > 0) {
         $count -= 1;
