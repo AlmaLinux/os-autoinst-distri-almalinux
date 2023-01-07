@@ -307,7 +307,7 @@ sub desktop_vt {
     # os-autoinst calls the script with 'bash -e' which causes it to
     # stop as soon as any command fails, so we use ||: to make the
     # first grep return 0 even if it matches nothing
-    eval { $xout = script_output ' loginctl | grep test ||:; ps -e | egrep "(startplasma|gnome-session|Xwayland|Xorg)" | grep -o tty[0-9] ||:' };
+    eval { $xout = script_output ' loginctl | grep test ||:; ps -e | egrep "(lightdm|plasma|plasmawayland|startplasma|gnome-session|Xwayland|Xorg)" | grep -o tty[0-9] ||:' };
     my $tty = 1;    # default
     while ($xout =~ /tty(\d)/g) {
         $tty = $1;    # most recent match is probably best
