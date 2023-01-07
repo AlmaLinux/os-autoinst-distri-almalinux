@@ -359,6 +359,7 @@ sub desktop_vt {
             # bit sloppy but in all cases where this is used, this is the
             # correct password
             type_very_safely "weakpassword\n";
+            $count=0
         }
     }
     if ($desktop eq "gnome") {
