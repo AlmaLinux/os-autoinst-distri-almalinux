@@ -10,6 +10,7 @@ sub run {
     # Let's wait until everything settles down properly
     # before we start testing.
     sleep 5;
+    check_gnome_update_popup;
     # Open the menu and click on the About item.
     assert_and_click("gnome_burger_menu");
     wait_still_screen(2);

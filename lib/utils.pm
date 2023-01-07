@@ -317,7 +317,7 @@ sub handle_welcome_screen_8  {
 #  Check for random popop up window found
 #
 sub check_gnome_update_popup {
-    if (get_var("DESKTOP") eq "gnome" and check_screen  ("gnome_update_popup_found", 5))   {
+    if ((get_var("DESKTOP") eq "gnome") && (get_var("VERSION") < 9 ) &&  check_screen ("gnome_update_popup_found", 5))   {
         click_lastmatch;
         wait_still_screen 2;
         # might need a second clilck
