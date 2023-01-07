@@ -23,6 +23,9 @@ sub run {
     # Check that is started
     assert_screen 'apps_run_dviewer';
 
+    if (get_var("VERSION") < 9) {
+        click_lastmatch;
+    }
     # Open the test file to create a starting point for the other Evince tests.
     # Click on Open button to open the File Open Dialog
     assert_and_click("evince_open_file_dialog", button => "left", timeout => 30);
