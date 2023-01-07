@@ -7,6 +7,8 @@ use utils;
 
 sub run {
     my $self = shift;
+    # check and handle welcome pupup
+    handle_welcome_screen_8;
     # Run the application
     menu_launch_type("Calculator");
     assert_screen("apps_run_calculator");

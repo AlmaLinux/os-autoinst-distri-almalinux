@@ -7,7 +7,7 @@ use Exporter;
 
 use lockapi;
 use testapi;
-our @EXPORT = qw/run_with_error_check type_safely type_very_safely get_version_major get_code_name desktop_vt boot_to_login_screen console_login console_switch_layout desktop_switch_layout console_loadkeys_us do_bootloader boot_decrypt check_release menu_launch_type repo_setup setup_workaround_repo disable_updates_repos cleanup_workaround_repo console_initial_setup handle_welcome_screen gnome_initial_setup anaconda_create_user check_desktop download_modularity_tests quit_firefox advisory_get_installed_packages advisory_check_nonmatching_packages start_with_launcher quit_with_shortcut disable_firefox_studies select_rescue_mode copy_devcdrom_as_isofile get_release_number check_left_bar check_top_bar check_prerelease check_version spell_version_number _assert_and_click is_branched rec_log click_unwanted_notifications repos_mirrorlist register_application get_registered_applications solidify_wallpaper check_and_install_git check_and_install_software download_testdata make_serial_writable gdm_initial_setup mate_move_mouse/;
+our @EXPORT = qw/run_with_error_check type_safely type_very_safely get_version_major get_code_name handle_welcome_screen_8 desktop_vt boot_to_login_screen console_login console_switch_layout desktop_switch_layout console_loadkeys_us do_bootloader boot_decrypt check_release menu_launch_type repo_setup setup_workaround_repo disable_updates_repos cleanup_workaround_repo console_initial_setup handle_welcome_screen gnome_initial_setup anaconda_create_user check_desktop download_modularity_tests quit_firefox advisory_get_installed_packages advisory_check_nonmatching_packages start_with_launcher quit_with_shortcut disable_firefox_studies select_rescue_mode copy_devcdrom_as_isofile get_release_number check_left_bar check_top_bar check_prerelease check_version spell_version_number _assert_and_click is_branched rec_log click_unwanted_notifications repos_mirrorlist register_application get_registered_applications solidify_wallpaper check_and_install_git check_and_install_software download_testdata make_serial_writable gdm_initial_setup mate_move_mouse/;
 
 # We introduce this global variable to hold the list of applications that have
 # registered during the apps_startstop_test when they have sucessfully run.
@@ -295,6 +295,24 @@ sub console_login {
     _console_login_finish();
 }
 
+#
+#
+#
+
+sub handle_welcome_screen_8  {
+    if ($desktop eq "gnome") {
+        wait_still_screen(stilltime => 4, similarity_level => 38);
+        if ((get_var("VERSION") < 9 ) && (get_var("DESKTOP") eq "gnome" ) && check_screen("gnome_initial_setup_next", 3)) {
+            assert_and_click 'gnome_initial_setup_next';
+            wait_still_screen(stilltime => 5, similarity_level => 38);
+            if (check_screen("gnome_initial_setup_next", 9)) {
+                send_key "alt-f4";
+                wait_still_screen(stilltime => 5, similarity_level => 45);
+            }
+        }
+    }
+}
+
 # Figure out what tty the desktop is on, switch to it. Assumes we're
 # at a root console
 sub desktop_vt {
@@ -362,17 +380,7 @@ sub desktop_vt {
             $count=0
         }
     }
-    if ($desktop eq "gnome") {
-        wait_still_screen(stilltime => 4, similarity_level => 38);
-        if ((get_var("VERSION") < 9 ) && (get_var("DESKTOP") eq "gnome" ) && check_screen("gnome_initial_setup_next", 3)) {
-            assert_and_click 'gnome_initial_setup_next';
-            wait_still_screen(stilltime => 5, similarity_level => 38);
-            if (check_screen("gnome_initial_setup_next", 9)) {
-                send_key "alt-f4";
-                wait_still_screen(stilltime => 5, similarity_level => 45);
-            }
-        }
-    }
+    handle_welcome_screen_8;
 }
 
 # load US layout (from a root console)
