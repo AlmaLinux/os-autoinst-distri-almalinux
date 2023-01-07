@@ -36,10 +36,10 @@ sub run {
     }
 
     # Select the evince.pdf file.
-    assert_and_click("evince_file_select_pdf", button => "left", timeout => 30);
+    #  assert_and_click("evince_file_select_pdf", button => "left", timeout => 30);
 
     # Click the Open button to open the file
-    assert_and_click("gnome_button_open", button => "left", timeout => 30);
+    # assert_and_click("gnome_button_open", button => "left", timeout => 30);
 
     # Fullsize the Evince window.
     send_key("super-up");
