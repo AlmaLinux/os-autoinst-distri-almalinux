@@ -323,14 +323,14 @@ sub desktop_vt {
     if ($desktop eq "kde" && check_screen("workspace", 7)) {
         $has_gui = 1;
     }
-    if ($desktop eq "kde" && $has_gui = 0) {
+    if ($desktop eq "kde" && $has_gui eq 0) {
         send_key "ctrl-alt-f7";
         wait_still_screen 3;
         if (check_screen("workspace", 7)) {
             $has_gui = 1;
         }
     }
-    if ($desktop eq "kde" && $has_gui = 0) {
+    if ($desktop eq "kde" && $has_gui eq 0) {
         send_key "alt-f7";
         wait_still_screen 3;
         if (check_screen("workspace", 7)) {
