@@ -1587,7 +1587,7 @@ sub solidify_wallpaper {
         # give the window a few seconds to stabilize
         wait_still_screen 3;
         # TODO: 
-        if (get_version_major() < 7) {
+        if (get_version_major() < 9) {
             # Select type of background
             assert_and_click "deskset_select_type";
             wait_still_screen 2;
