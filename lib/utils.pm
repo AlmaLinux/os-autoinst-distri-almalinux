@@ -363,8 +363,15 @@ sub desktop_vt {
         }
     }
     if ($desktop eq "gnome") {
-        wait_still_screen 2;
-        handle_welcome_screen;
+        wait_still_screen(stilltime => 4, similarity_level => 38);
+        if ((get_var("VERSION") < 9 ) && (get_var("DESKTOP") eq "gnome" ) && check_screen("gnome_initial_setup_next", 3)) {
+            assert_and_click 'gnome_initial_setup_next';
+            wait_still_screen(stilltime => 5, similarity_level => 38);
+            if (check_screen("gnome_initial_setup_next", 3)) {
+                send_key "alt-f4";
+                wait_still_screen(stilltime => 5, similarity_level => 45);
+            }
+        }
     }
 }
 
