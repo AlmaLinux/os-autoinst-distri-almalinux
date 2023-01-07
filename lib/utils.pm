@@ -343,7 +343,7 @@ sub desktop_vt {
     while (check_screen("auth_required", $timeout) && $count > 0) {
         $count -= 1;
         unless ($sfr) {
-            record_soft_failure "spurious 'auth required' - https://gitlab.gnome.org/GNOME/gnome-software/issues/582";
+            # record_soft_failure "spurious 'auth required' - https://gitlab.gnome.org/GNOME/gnome-software/issues/582";
             $sfr = 1;
             $timeout = 3;
         }
@@ -360,10 +360,10 @@ sub desktop_vt {
             # correct password
             type_very_safely "weakpassword\n";
         }
-        if ($desktop eq "gnome") {
-            wait_still_screen 2;
-            handle_welcome_screen;
-        }
+    }
+    if ($desktop eq "gnome") {
+        wait_still_screen 2;
+        handle_welcome_screen;
     }
 }
 
