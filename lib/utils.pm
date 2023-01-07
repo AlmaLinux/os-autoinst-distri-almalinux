@@ -313,6 +313,21 @@ sub handle_welcome_screen_8  {
     }
 }
 
+#
+#  Check for random popop up window found
+#
+sub check_gnome_update_popup {
+    if (get_var("DESKTOP") eq "gnome" and check_screen  ("gnome_update_popup_found", 5))   {
+        click_lastmatch;
+        wait_still_screen 2;
+        # might need a second clilck
+        if (check_screen  ("gnome_update_popup_found", 5)) {
+            click_lastmatch;
+            wait_still_screen 2;
+        }
+    }
+}
+
 # Figure out what tty the desktop is on, switch to it. Assumes we're
 # at a root console
 sub desktop_vt {
@@ -1356,19 +1371,6 @@ EOF
     assert_script_run($_) foreach (split /\n/, $cmd);
 }
 
-#
-#  Check for random popop up window found
-sub check_gnome_update_popup {
-    if (get_var("DESKTOP") eq "gnome" and check_screen  ("gnome_update_popup_found", 5))   {
-        click_lastmatch;
-        wait_still_screen 2;
-        # might need a second clilck
-        if (check_screen  ("gnome_update_popup_found", 5)) {
-            click_lastmatch;
-            wait_still_screen 2;
-        }
-    }
-}
 
 sub menu_launch_type {
     # Launch an application in a graphical environment, by opening a
