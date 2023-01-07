@@ -360,6 +360,10 @@ sub desktop_vt {
             # correct password
             type_very_safely "weakpassword\n";
         }
+        if ($desktop eq "gnome") {
+            wait_still_screen 2;
+            handle_welcome_screen;
+        }
     }
 }
 
