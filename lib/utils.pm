@@ -371,6 +371,7 @@ sub desktop_vt {
         } else {
             type_safely("startx");
             send_key  "ret";
+            wait_still_screen 15;
         }
     }
     my $count = 6;
