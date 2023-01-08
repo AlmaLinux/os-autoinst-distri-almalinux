@@ -313,8 +313,8 @@ sub get_mirrorlist_url {
     # https://mirrors.almalinux.org/mirrorlist/8/appstream
     # https://mirrors.almalinux.org/mirrorlist/8/baseos
 #    return "mirrors.fedora/mirrorlist?repo=fedora-" . lc(get_var("VERSION")) . "&arch=" . get_var('ARCH');
-#    return "https://mirrors.almalinux.org/mirrorlist/" . lc(get_var("VERSION")) . "/baseos" ;
-#}
+    return "https://mirrors.almalinux.org/mirrorlist/" . lc(get_var("VERSION")) . "/baseos" ;
+}
 
 sub check_help_on_pane {
     # This subroutine opens the selected Anaconda pane and checks
