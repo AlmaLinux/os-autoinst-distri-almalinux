@@ -369,7 +369,8 @@ sub desktop_vt {
         if (check_screen("workspace", 7)) {
             $has_gui = 1;
         } else {
-            type_safely("startx\n");
+            type_safely("startx");
+            send_key  "ret";
         }
     }
     my $count = 6;
