@@ -96,7 +96,7 @@ sub _pxe_setup {
     assert_script_run "curl -o /var/lib/tftpboot/almalinux/initrd.img $location/BaseOS/${arch}/os/${kernpath}/initrd.img";
     # get a kickstart to embed in the initramfs, for testing:
     # https://fedoraproject.org/wiki/QA:Testcase_Kickstart_File_Path_Ks_Cfg
-    assert_script_run "curl -o ks.cfg https://fedorapeople.org/groups/qa/kickstarts/root-user-crypted-net.ks";
+    assert_script_run "curl -o ks.cfg https://docs.openqa.almalinux.org/assets/kickstarts/root-user-crypted-net.ks";
     # tweak the repo config in it
     assert_script_run "sed -i -e 's,^url.*,nfs --server 172.16.2.110 --dir /repo --opts nfsvers=4,g' ks.cfg";
     # embed it
@@ -143,7 +143,7 @@ sub run {
     # create the file share
     assert_script_run "mkdir -p /export";
     # get the kickstart
-    assert_script_run "curl -o /export/root-user-crypted-net.ks https://fedorapeople.org/groups/qa/kickstarts/root-user-crypted-net.ks";
+    assert_script_run "curl -o /export/root-user-crypted-net.ks https://docs.openqa.almalinux.org/assets/kickstarts/root-user-crypted-net.ks";
     # for update tests, set up the update repository and export it
     if (get_var("ADVISORY_OR_TASK")) {
         assert_script_run "echo '/mnt/update_repo 172.16.2.0/24(ro)' >> /etc/exports";
@@ -161,7 +161,7 @@ sub run {
         assert_script_run "rsync -av /mnt/iso/ /repo", 180;
         # put the updates image in the NFS repo (for testing this update
         # image delivery method)
-        assert_script_run "curl -o /repo/images/updates.img https://fedorapeople.org/groups/qa/updates/updates-openqa.img";
+        assert_script_run "curl -o /repo/images/updates.img https://docs.openqa.almalinux.org/assets/uploads/updates-openqa.img";
         # create the iso share
         assert_script_run "mkdir -p /iso";
         # recreate an iso file

@@ -1057,11 +1057,6 @@
         },
         "desktop_login": {
             "profiles": {
-                "Almalinux-KDE-live-iso-x86_64-*-64bit": 30,
-                "Almalinux-XFCE-live-iso-x86_64-*-64bit": 32,
-                "Almalinux-MATE-live-iso-x86_64-*-64bit": 32,
-                "Almalinux-Mini-live-iso-x86_64-*-64bit": 32,
-                "Almalinux-gnome-live-iso-x86_64-*-64bit": 30,
                 "Almalinux-gnome-upgrade-x86_64-*-64bit": 40,
                 "Almalinux-gnome-live-iso-ppc64le-*-ppc64le": 30
             },
@@ -1074,7 +1069,6 @@
         },
         "desktop_fprint": {
             "profiles": {
-                "Almalinux-gnome-live-iso-x86_64-*-64bit": 50,
                 "Almalinux-gnome-upgrade-x86_64-*-64bit": 40,
                 "Almalinux-gnome-live-iso-ppc64le-*-ppc64le": 50
             },
@@ -1108,7 +1102,6 @@
         "desktop_notifications_live": {
             "profiles": {
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 32,
-                "Almalinux-gnome-live-iso-ppc64le-*-ppc64le": 30,
                 "Almalinux-gnome-live-iso-x86_64-*-64bit": 30
             },
             "settings": {
@@ -1117,10 +1110,8 @@
         },
         "desktop_notifications_postinstall": {
             "profiles": {
-                "Almalinux-KDE-live-iso-x86_64-*-64bit": 32,
-                "Almalinux-gnome-live-iso-ppc64le-*-ppc64le": 30,
                 "Almalinux-gnome-upgrade-x86_64-*-64bit": 40,
-                "Almalinux-gnome-live-iso-x86_64-*-64bit": 30
+                "Almalinux-gnome-live-iso-ppc64le-*-ppc64le": 30
             },
             "settings": {
                 "BOOTFROM": "c",
@@ -1312,7 +1303,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 50
             },
             "settings": {
-                "ADD_REPOSITORY_GRAPHICAL": "ml:https://fedorapeople.org/groups/qa/openqa-repos/openqa-testrepo-2.xml",
+                "ADD_REPOSITORY_GRAPHICAL": "ml:https://docs.openqa.almalinux.org/assets/uploads/openqa-testrepo-2.xml",
                 "POSTINSTALL": "_addrepo_metalink_post"
             }
         },
@@ -1539,7 +1530,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
-                "GRUB": "inst.ks=http://fedorapeople.org/groups/qa/kickstarts/firewall-configured-net.ks",
+                "GRUB": "inst.ks=https://docs.openqa.almalinux.org/assets/kickstarts/firewall-configured-net.ks",
                 "KICKSTART": "1",
                 "POSTINSTALL": "firewall_configured",
                 "ROOT_PASSWORD": "anaconda",
@@ -1554,7 +1545,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
-                "GRUB": "inst.ks=http://fedorapeople.org/groups/qa/kickstarts/firewall-disabled-net.ks",
+                "GRUB": "inst.ks=https://docs.openqa.almalinux.org/assets/kickstarts/firewall-disabled-net.ks",
                 "KICKSTART": "1",
                 "POSTINSTALL": "firewall_disabled",
                 "ROOT_PASSWORD": "anaconda",
@@ -1604,7 +1595,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
-                "GRUB": "inst.ks=https://fedorapeople.org/groups/qa/kickstarts/root-user-crypted-net.ks",
+                "GRUB": "inst.ks=https://docs.openqa.almalinux.org/assets/kickstarts/root-user-crypted-net.ks",
                 "KICKSTART": "1",
                 "ROOT_PASSWORD": "111111",
                 "USER_LOGIN": "test",
@@ -1882,7 +1873,7 @@
             },
             "settings": {
                 "CDMODEL": "scsi-cd",
-                "GRUB": "inst.updates=https://fedorapeople.org/groups/qa/updates/updates-openqa.img",
+                "GRUB": "inst.updates=https://docs.openqa.almalinux.org/assets/uploads/updates-openqa.img",
                 "HDDMODEL": "scsi-hd",
                 "SCSICONTROLLER": "virtio-scsi-pci",
                 "TEST_UPDATES": "1"
