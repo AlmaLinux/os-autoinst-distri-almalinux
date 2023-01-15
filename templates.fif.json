@@ -143,18 +143,6 @@
             },
             "version": "*"
         },
-        "Almalinux-CoreOS-colive-iso-x86_64-*": {
-            "arch": "x86_64",
-            "distri": "almalinux",
-            "flavor": "CoreOS-colive-iso",
-            "settings": {
-                "CANNED": "1",
-                "DEPLOY_UPLOAD_TEST": "install_default_upload",
-                "TEST_TARGET": "ISO",
-                "USER_LOGIN": "false"
-            },
-            "version": "*"
-        },
         "Almalinux-boot-iso-aarch64-*": {
             "arch": "aarch64",
             "distri": "almalinux",
@@ -555,10 +543,6 @@
             "machine": "uefi",
             "product": "Almalinux-Cloud_Base-qcow2-qcow2-x86_64-*"
         },
-        "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": {
-            "machine": "64bit",
-            "product": "Almalinux-CoreOS-colive-iso-x86_64-*"
-        },
         "Almalinux-boot-iso-aarch64-*-aarch64": {
             "machine": "aarch64",
             "product": "Almalinux-boot-iso-aarch64-*"
@@ -776,7 +760,6 @@
                 "Almalinux-Cloud_Base-qcow2-qcow2-s390x-*-s390x": 20,
                 "Almalinux-Cloud_Base-qcow2-qcow2-x86_64-*-64bit": 20,
                 "Almalinux-Cloud_Base-qcow2-qcow2-x86_64-*-uefi": 20,
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 50,
                 "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 20,
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 20,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 22,
@@ -811,7 +794,6 @@
                 "Almalinux-Cloud_Base-qcow2-qcow2-ppc64le-*-ppc64le": 20,
                 "Almalinux-Cloud_Base-qcow2-qcow2-s390x-*-s390x": 20,
                 "Almalinux-Cloud_Base-qcow2-qcow2-x86_64-*-uefi": 20,
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 50,
                 "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 20,
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 20,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 22,
@@ -909,7 +891,6 @@
                 "Almalinux-Cloud_Base-qcow2-qcow2-s390x-*-s390x": 40,
                 "Almalinux-Cloud_Base-qcow2-qcow2-x86_64-*-64bit": 40,
                 "Almalinux-Cloud_Base-qcow2-qcow2-x86_64-*-uefi": 40,
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 50,
                 "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 40,
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 40,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 42,
@@ -944,7 +925,6 @@
                 "Almalinux-Cloud_Base-qcow2-qcow2-ppc64le-*-ppc64le": 40,
                 "Almalinux-Cloud_Base-qcow2-qcow2-s390x-*-s390x": 40,
                 "Almalinux-Cloud_Base-qcow2-qcow2-x86_64-*-uefi": 40,
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 50,
                 "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 40,
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 40,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 42,
@@ -979,7 +959,6 @@
                 "Almalinux-Cloud_Base-qcow2-qcow2-ppc64le-*-ppc64le": 40,
                 "Almalinux-Cloud_Base-qcow2-qcow2-s390x-*-s390x": 40,
                 "Almalinux-Cloud_Base-qcow2-qcow2-x86_64-*-uefi": 40,
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 50,
                 "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 40,
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 40,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 42,
@@ -1430,9 +1409,8 @@
         },
         "install_default_upload": {
             "profiles": {
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 20,
-                "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 20,
-                "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 20,
+                "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 40,
+                "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 40,
                 "Almalinux-MATE-live-iso-x86_64-*-64bit": 19,
                 "Almalinux-Mini-live-iso-x86_64-*-64bit": 15,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 16,
@@ -2196,7 +2174,6 @@
         },
         "podman": {
             "profiles": {
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 20,
                 "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 20,
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 40
             },
@@ -2214,7 +2191,6 @@
         },
         "podman_client": {
             "profiles": {
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 20,
                 "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 20,
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 40
             },
@@ -2273,32 +2249,31 @@
         },
         "release_identification": {
             "profiles": {
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 14,
-                "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 14,
-                "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 14,
-                "Almalinux-Mini-live-iso-x86_64-*-64bit": 14,
-                "Almalinux-MATE-live-iso-x86_64-*-64bit": 14,
-                "Almalinux-KDE-live-iso-x86_64-*-64bit": 14,
-                "Almalinux-XFCE-live-iso-x86_64-*-64bit": 14,
+                "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 34,
+                "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 34,
+                "Almalinux-Mini-live-iso-x86_64-*-64bit": 34,
+                "Almalinux-MATE-live-iso-x86_64-*-64bit": 34,
+                "Almalinux-KDE-live-iso-x86_64-*-64bit": 34,
+                "Almalinux-XFCE-live-iso-x86_64-*-64bit": 34,
                 "Almalinux-Minimal-raw_xz-raw.xz-aarch64-*-aarch64": 24,
                 "Almalinux-boot-iso-aarch64-*-aarch64": 25,
                 "Almalinux-boot-iso-ppc64le-*-ppc64le": 25,
                 "Almalinux-boot-iso-x86_64-*-64bit": 25,
                 "Almalinux-boot-iso-s390x-*-s390x": 25,
-                "Almalinux-dvd-iso-aarch64-*-aarch64": 14,
-                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 14,
-                "Almalinux-dvd-iso-x86_64-*-64bit": 14,
-                "Almalinux-dvd-iso-s390x-*-s390x": 14,
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 14,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 14,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 14,
-                "Almalinux-minimal-iso-s390x-*-s390x": 14,
-                "Almalinux-Calfblue-dvd_ostree-iso-x86_64-*-64bit": 14,
-                "Almalinux-gnome-live-iso-ppc64le-*-ppc64le": 14,
-                "Almalinux-gnome-live-iso-x86_64-*-64bit": 14,
-                "Almalinux-gnome-upgrade-x86_64-*-64bit": 16,
-                "Almalinux-gnome-upgrade-aarch64-*-aarch64": 16,
-                "Almalinux-gnome-raw_xz-raw.xz-aarch64-*-aarch64": 24
+                "Almalinux-dvd-iso-aarch64-*-aarch64": 24,
+                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 24,
+                "Almalinux-dvd-iso-x86_64-*-64bit": 24,
+                "Almalinux-dvd-iso-s390x-*-s390x": 24,
+                "Almalinux-minimal-iso-aarch64-*-aarch64": 24,
+                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 24,
+                "Almalinux-minimal-iso-x86_64-*-64bit": 24,
+                "Almalinux-minimal-iso-s390x-*-s390x": 24,
+                "Almalinux-Calfblue-dvd_ostree-iso-x86_64-*-64bit": 54,
+                "Almalinux-gnome-live-iso-ppc64le-*-ppc64le": 24,
+                "Almalinux-gnome-live-iso-x86_64-*-64bit": 24,
+                "Almalinux-gnome-upgrade-x86_64-*-64bit": 36,
+                "Almalinux-gnome-upgrade-aarch64-*-aarch64": 36,
+                "Almalinux-gnome-raw_xz-raw.xz-aarch64-*-aarch64": 34
             },
             "settings": {
                 "BOOTFROM": "c",
