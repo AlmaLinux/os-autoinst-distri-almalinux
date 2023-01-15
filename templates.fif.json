@@ -2654,7 +2654,7 @@
             "settings": {
                 "BOOTFROM": "c",
                 "DESKTOP": "gnome",
-                "HDD_1": "disk_f%UP2REL%_desktop_4_%ARCH%.qcow2",
+                "HDD_1": "disk_al%UP2REL%_desktop_4_%ARCH%.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
                 "UPGRADE": "1",
@@ -2671,7 +2671,7 @@
                 "BOOTFROM": "c",
                 "DESKTOP": "gnome",
                 "ENCRYPT_PASSWORD": "weakpassword",
-                "HDD_1": "disk_f%UP2REL%_desktopencrypt_%ARCH%.qcow2",
+                "HDD_1": "disk_al%UP2REL%_desktopencrypt_%ARCH%.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
                 "UPGRADE": "1",
@@ -2686,7 +2686,7 @@
             "settings": {
                 "BOOTFROM": "c",
                 "DESKTOP": "kde",
-                "HDD_1": "disk_f%UP2REL%_kde_4_x86_64.qcow2",
+                "HDD_1": "disk_al%UP2REL%_kde_4_x86_64.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
                 "UPGRADE": "1",
@@ -2703,7 +2703,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%UP2REL%_minimal_3_%ARCH%.qcow2",
+                "HDD_1": "disk_al%UP2REL%_minimal_3_%ARCH%.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
                 "UPGRADE": "1",
@@ -2716,7 +2716,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%UP2REL%_minimal-uefi_3_%ARCH%.qcow2",
+                "HDD_1": "disk_al%UP2REL%_minimal-uefi_3_%ARCH%.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
                 "UPGRADE": "1",
@@ -2729,7 +2729,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
-                "+HDD_1": "disk_f%UP2REL%_server_3_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%UP2REL%_server_3_%ARCH%.qcow2",
                 "BOOTFROM": "c",
                 "NICTYPE": "tap",
                 "PARALLEL_WITH": "upgrade_2_server_domain_controller",
@@ -2752,7 +2752,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%UP2REL%_server_3_%ARCH%.qcow2",
+                "HDD_1": "disk_al%UP2REL%_server_3_%ARCH%.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
                 "UPGRADE": "1",
@@ -2766,7 +2766,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
-                "+HDD_1": "disk_f%UP2REL%_server_3_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%UP2REL%_server_3_%ARCH%.qcow2",
                 "BOOTFROM": "c",
                 "NICTYPE": "tap",
                 "PARALLEL_CANCEL_WHOLE_CLUSTER": "0",
@@ -2788,7 +2788,7 @@
             "settings": {
                 "BOOTFROM": "c",
                 "DESKTOP": "gnome",
-                "HDD_1": "disk_f%UP1REL%_desktop_4_%ARCH%.qcow2",
+                "HDD_1": "disk_al%UP1REL%_desktop_4_%ARCH%.qcow2",
                 "STORE_HDD_1": "disk_%FLAVOR%_%MACHINE%.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
@@ -2807,7 +2807,7 @@
                 "BOOTFROM": "c",
                 "DESKTOP": "gnome",
                 "ENCRYPT_PASSWORD": "weakpassword",
-                "HDD_1": "disk_f%UP1REL%_desktopencrypt_%ARCH%.qcow2",
+                "HDD_1": "disk_al%UP1REL%_desktopencrypt_%ARCH%.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
                 "UPGRADE": "1",
@@ -2820,7 +2820,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
-                "+HDD_1": "disk_f%UP1REL%_kde_4_x86_64.qcow2",
+                "+HDD_1": "disk_al%UP1REL%_kde_4_x86_64.qcow2",
                 "BOOTFROM": "c",
                 "DESKTOP": "kde",
                 "ROOT_PASSWORD": "weakpassword",
@@ -2839,7 +2839,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%UP1REL%_minimal_3_%ARCH%.qcow2",
+                "HDD_1": "disk_al%UP1REL%_minimal_3_%ARCH%.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
                 "UPGRADE": "1",
@@ -2852,7 +2852,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%UP1REL%_minimal-uefi_3_%ARCH%.qcow2",
+                "HDD_1": "disk_al%UP1REL%_minimal-uefi_3_%ARCH%.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
                 "UPGRADE": "1",
@@ -2867,7 +2867,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
-                "+HDD_1": "disk_f%UP1REL%_server_3_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%UP1REL%_server_3_%ARCH%.qcow2",
                 "BOOTFROM": "c",
                 "MAX_JOB_TIME": "10800",
                 "NICTYPE": "tap",
@@ -2889,7 +2889,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
-                "+HDD_1": "disk_f%UP1REL%_server_3_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%UP1REL%_server_3_%ARCH%.qcow2",
                 "BOOTFROM": "c",
                 "MAX_JOB_TIME": "10800",
                 "NICTYPE": "tap",
