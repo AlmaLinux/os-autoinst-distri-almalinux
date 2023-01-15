@@ -1797,10 +1797,10 @@
         },
         "install_repository_nfs_graphical": {
             "profiles": {
-                "Almalinux-dvd-iso-aarch64-*-aarch64": 30,
-                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 30,
-                "Almalinux-dvd-iso-s390x-*-s390x": 30,
-                "Almalinux-dvd-iso-x86_64-*-64bit": 30
+                "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
+                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 30,
+                "Almalinux-minimal-iso-s390x-*-s390x": 30,
+                "Almalinux-minimal-iso-x86_64-*-64bit": 30
             },
             "settings": {
                 "INSTALL_UNLOCK": "support_ready",
@@ -1995,7 +1995,7 @@
             "settings": {
                 "BOOTFROM": "c",
                 "DESKTOP": "gnome",
-                "HDD_1": "disk_f%CURRREL%_desktop_4_%ARCH%.qcow2",
+                "HDD_1": "disk_al%CURRREL%_desktop_4_%ARCH%.qcow2",
                 "INSTALL": "1",
                 "NICTYPE": "tap",
                 "PARALLEL_WITH": "install_vnc_server",
@@ -2028,7 +2028,7 @@
             "settings": {
                 "BOOTFROM": "c",
                 "DESKTOP": "gnome",
-                "HDD_1": "disk_f%CURRREL%_desktop_4_%ARCH%.qcow2",
+                "HDD_1": "disk_al%CURRREL%_desktop_4_%ARCH%.qcow2",
                 "INSTALL": "1",
                 "NICTYPE": "tap",
                 "PREINSTALL": "_vncconnect_client_setup_pre _graphical_wait_login _vncconnect_client_setup",
@@ -2117,7 +2117,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%CURRREL%_minimal-uefi_3_%ARCH%.qcow2",
+                "HDD_1": "disk_al%CURRREL%_minimal-uefi_3_%ARCH%.qcow2",
                 "NICTYPE": "tap",
                 "PARALLEL_CANCEL_WHOLE_CLUSTER": "0",
                 "POSTINSTALL": "_iot_zezere_server _setup_browser _iot_zezere_remote",
@@ -2138,7 +2138,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%CURRREL%_support_5_%ARCH%.qcow2",
+                "HDD_1": "disk_al%CURRREL%_support_5_%ARCH%.qcow2",
                 "POSTINSTALL": "mediakit_fileconflicts",
                 "ROOT_PASSWORD": "weakpassword",
                 "USER_LOGIN": "false"
@@ -2153,7 +2153,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%CURRREL%_support_5_%ARCH%.qcow2",
+                "HDD_1": "disk_al%CURRREL%_support_5_%ARCH%.qcow2",
                 "POSTINSTALL": "mediakit_repoclosure",
                 "ROOT_PASSWORD": "weakpassword",
                 "USER_LOGIN": "false"
@@ -2619,7 +2619,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%CURRREL%_support_5_%ARCH%.qcow2",
+                "HDD_1": "disk_al%CURRREL%_support_5_%ARCH%.qcow2",
                 "NICTYPE": "tap",
                 "NUMDISKS": "2",
                 "PARALLEL_CANCEL_WHOLE_CLUSTER": "0",
