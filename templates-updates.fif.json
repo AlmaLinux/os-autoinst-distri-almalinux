@@ -5,7 +5,7 @@
             "distri": "almalinux",
             "flavor": "updates-container",
             "settings": {
-                "+HDD_1": "disk_f%VERSION%_server_3_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%VERSION%_server_3_%ARCH%.qcow2",
                 "NUMDISKS": "2",
                 "RETRY": "1"
             },
@@ -16,7 +16,7 @@
             "distri": "almalinux",
             "flavor": "updates-container",
             "settings": {
-                "+HDD_1": "disk_f%VERSION%_server_3_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%VERSION%_server_3_%ARCH%.qcow2",
                 "NUMDISKS": "2",
                 "RETRY": "1"
             },
@@ -27,7 +27,7 @@
             "distri": "almalinux",
             "flavor": "updates-container",
             "settings": {
-                "+HDD_1": "disk_f%VERSION%_server_3_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%VERSION%_server_3_%ARCH%.qcow2",
                 "NUMDISKS": "2",
                 "RETRY": "1"
             },
@@ -38,7 +38,7 @@
             "distri": "almalinux",
             "flavor": "updates-container",
             "settings": {
-                "+HDD_1": "disk_f%VERSION%_server_3_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%VERSION%_server_3_%ARCH%.qcow2",
                 "NUMDISKS": "2",
                 "RETRY": "1"
             },
@@ -59,7 +59,7 @@
             "distri": "almalinux",
             "flavor": "updates-kde",
             "settings": {
-                "+HDD_1": "disk_f%VERSION%_kde_4_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%VERSION%_kde_4_%ARCH%.qcow2",
                 "DESKTOP": "kde",
                 "NUMDISKS": "2",
                 "RETRY": "2"
@@ -71,7 +71,7 @@
             "distri": "almalinux",
             "flavor": "updates-minimal",
             "settings": {
-                "+HDD_1": "disk_f%VERSION%_server_3_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%VERSION%_server_3_%ARCH%.qcow2",
                 "RETRY": "1"
             },
             "version": "*"
@@ -81,7 +81,7 @@
             "distri": "almalinux",
             "flavor": "updates-minimal",
             "settings": {
-                "+HDD_1": "disk_f%VERSION%_server_3_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%VERSION%_server_3_%ARCH%.qcow2",
                 "RETRY": "1"
             },
             "version": "*"
@@ -91,7 +91,7 @@
             "distri": "almalinux",
             "flavor": "updates-minimal",
             "settings": {
-                "+HDD_1": "disk_f%VERSION%_server_3_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%VERSION%_server_3_%ARCH%.qcow2",
                 "RETRY": "1"
             },
             "version": "*"
@@ -101,7 +101,7 @@
             "distri": "almalinux",
             "flavor": "updates-minimal-upgrade",
             "settings": {
-                "+HDD_1": "disk_f%VERSION%_server_3_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%VERSION%_server_3_%ARCH%.qcow2",
                 "NUMDISKS": "2",
                 "RETRY": "1"
             },
@@ -142,7 +142,7 @@
             "distri": "almalinux",
             "flavor": "updates-minimal",
             "settings": {
-                "+HDD_1": "disk_f%VERSION%_server_3_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%VERSION%_server_3_%ARCH%.qcow2",
                 "RETRY": "1"
             },
             "version": "*"
@@ -209,7 +209,7 @@
             "flavor": "updates-gnome",
             "settings": {
                 "DESKTOP": "gnome",
-                "+HDD_1": "disk_f%VERSION%_desktop_4_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%VERSION%_desktop_4_%ARCH%.qcow2",
                 "NUMDISKS": "2",
                 "RETRY": "1"
             },
@@ -460,7 +460,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%VERSION%_minimal_3_%ARCH%.qcow2",
+                "HDD_1": "disk_al%VERSION%_minimal_3_%ARCH%.qcow2",
                 "NUMDISKS": "2",
                 "POSTINSTALL": "_installer_build",
                 "ROOT_PASSWORD": "weakpassword",
@@ -477,7 +477,7 @@
                 "+LIVE": "",
                 "BOOTFROM": "c",
                 "GRUB_POSTINSTALL": "selinux=0",
-                "HDD_1": "disk_f%VERSION%_minimal_3_%ARCH%.qcow2",
+                "HDD_1": "disk_al%VERSION%_minimal_3_%ARCH%.qcow2",
                 "HDDSIZEGB_3": "25",
                 "MAX_JOB_TIME": "10800",
                 "+NUMDISKS": "3",
@@ -494,7 +494,7 @@
                 "+DESKTOP": "",
                 "+CANNED": "",
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%VERSION%_minimal_3_%ARCH%.qcow2",
+                "HDD_1": "disk_al%VERSION%_minimal_3_%ARCH%.qcow2",
                 "HDDSIZEGB_3": "25",
                 "MAX_JOB_TIME": "10800",
                 "+NUMDISKS": "3",

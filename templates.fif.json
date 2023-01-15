@@ -2285,7 +2285,6 @@
         },
         "rpmostree_overlay": {
             "profiles": {
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 20,
                 "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 20,
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 20,
                 "Almalinux-Calfblue-dvd_ostree-iso-x86_64-*-64bit": 50
@@ -2300,7 +2299,6 @@
         },
         "rpmostree_rebase": {
                 "profiles": {
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 20,
                 "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 20,
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 20,
                 "Almalinux-Calfblue-dvd_ostree-iso-x86_64-*-64bit": 50
