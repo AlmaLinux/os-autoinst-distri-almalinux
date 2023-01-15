@@ -1,0 +1,26 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "ypos": 98,
+      "height": 17,
+      "width": 53,
+      "xpos": 514
+    },
+    {
+      "xpos": 829,
+      "ypos": 96,
+      "width": 21,
+      "height": 20,
+      "type": "match",
+      "click_point": {
+        "xpos": 10.5,
+        "ypos": 10
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "dolphin_runs"
+  ]
+}

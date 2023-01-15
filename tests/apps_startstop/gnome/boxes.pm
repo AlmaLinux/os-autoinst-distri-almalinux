@@ -9,6 +9,7 @@ sub run {
     my $self = shift;
 
     if (get_version_major() < 9) {
+
         # Start the application
         start_with_launcher('apps_menu_boxes');
         assert_screen 'apps_boxes_tutorial';

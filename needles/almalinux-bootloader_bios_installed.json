@@ -1,0 +1,24 @@
+{
+  "area": [
+    {
+      "width": 160,
+      "xpos": 50,
+      "type": "match",
+      "ypos": 335,
+      "height": 15
+    },
+    {
+      "xpos": 53,
+      "ypos": 49,
+      "width": 98,
+      "height": 14,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "bootloader",
+    "bootloader_bios"
+  ]
+}

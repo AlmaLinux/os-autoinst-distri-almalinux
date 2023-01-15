@@ -14,12 +14,15 @@ sub run {
     # create and use a non-Modular repo to get some packages which
     # aren't in Modular Server composes)
     # TODO: fedora repo not required, work with defaults 
-    my $extraparams = '';
+    assert_script_run "dnf repolist --all";
+    my $extraparams = '--nodocs --setopt install_weak_deps=false ';
     # $extraparams = '--enablerepo=fedora' if (get_var("MODULAR"));
     # install a desktop and firefox so we can actually try it
     # GUI already installed
-    assert_script_run "dnf repolist --all";
-    # assert_script_run "dnf ${extraparams} -y groupinstall 'base-x'", 300;
+    #
+    if (get_var("FLAVOR") eq "minimal-iso") {
+      assert_script_run "dnf ${extraparams} -y groupinstall 'base-x'", 420;
+    }
     # FIXME: this should probably be in base-x...X seems to fail without
     assert_script_run "dnf ${extraparams} -y install libglvnd-egl", 180;
     # try to avoid random weird font selection happening

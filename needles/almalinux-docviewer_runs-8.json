@@ -1,0 +1,26 @@
+{
+  "area": [
+    {
+      "height": 13,
+      "ypos": 100,
+      "type": "match",
+      "xpos": 491,
+      "width": 43
+    },
+    {
+      "xpos": 827,
+      "ypos": 94,
+      "width": 25,
+      "height": 21,
+      "type": "match",
+      "click_point": {
+        "xpos": 12.5,
+        "ypos": 10.5
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "docviewer_runs"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "ypos": 246,
+      "height": 22,
+      "width": 118,
+      "xpos": 362
+    },
+    {
+      "type": "match",
+      "ypos": 41,
+      "height": 20,
+      "width": 67,
+      "xpos": 479
+    },
+    {
+      "xpos": 461,
+      "ypos": 383,
+      "width": 35,
+      "height": 15,
+      "type": "match",
+      "click_point": {
+        "xpos": 17.5,
+        "ypos": 7.5
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "DESKTOP-gnome",
+    "auth_required",
+    "auth_required_password"
+  ]
+}

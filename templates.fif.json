@@ -143,18 +143,6 @@
             },
             "version": "*"
         },
-        "Almalinux-CoreOS-colive-iso-x86_64-*": {
-            "arch": "x86_64",
-            "distri": "almalinux",
-            "flavor": "CoreOS-colive-iso",
-            "settings": {
-                "CANNED": "1",
-                "DEPLOY_UPLOAD_TEST": "install_default_upload",
-                "TEST_TARGET": "ISO",
-                "USER_LOGIN": "false"
-            },
-            "version": "*"
-        },
         "Almalinux-boot-iso-aarch64-*": {
             "arch": "aarch64",
             "distri": "almalinux",
@@ -555,10 +543,6 @@
             "machine": "uefi",
             "product": "Almalinux-Cloud_Base-qcow2-qcow2-x86_64-*"
         },
-        "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": {
-            "machine": "64bit",
-            "product": "Almalinux-CoreOS-colive-iso-x86_64-*"
-        },
         "Almalinux-boot-iso-aarch64-*-aarch64": {
             "machine": "aarch64",
             "product": "Almalinux-boot-iso-aarch64-*"
@@ -776,7 +760,6 @@
                 "Almalinux-Cloud_Base-qcow2-qcow2-s390x-*-s390x": 20,
                 "Almalinux-Cloud_Base-qcow2-qcow2-x86_64-*-64bit": 20,
                 "Almalinux-Cloud_Base-qcow2-qcow2-x86_64-*-uefi": 20,
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 50,
                 "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 20,
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 20,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 22,
@@ -811,7 +794,6 @@
                 "Almalinux-Cloud_Base-qcow2-qcow2-ppc64le-*-ppc64le": 20,
                 "Almalinux-Cloud_Base-qcow2-qcow2-s390x-*-s390x": 20,
                 "Almalinux-Cloud_Base-qcow2-qcow2-x86_64-*-uefi": 20,
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 50,
                 "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 20,
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 20,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 22,
@@ -909,7 +891,6 @@
                 "Almalinux-Cloud_Base-qcow2-qcow2-s390x-*-s390x": 40,
                 "Almalinux-Cloud_Base-qcow2-qcow2-x86_64-*-64bit": 40,
                 "Almalinux-Cloud_Base-qcow2-qcow2-x86_64-*-uefi": 40,
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 50,
                 "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 40,
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 40,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 42,
@@ -944,7 +925,6 @@
                 "Almalinux-Cloud_Base-qcow2-qcow2-ppc64le-*-ppc64le": 40,
                 "Almalinux-Cloud_Base-qcow2-qcow2-s390x-*-s390x": 40,
                 "Almalinux-Cloud_Base-qcow2-qcow2-x86_64-*-uefi": 40,
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 50,
                 "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 40,
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 40,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 42,
@@ -979,7 +959,6 @@
                 "Almalinux-Cloud_Base-qcow2-qcow2-ppc64le-*-ppc64le": 40,
                 "Almalinux-Cloud_Base-qcow2-qcow2-s390x-*-s390x": 40,
                 "Almalinux-Cloud_Base-qcow2-qcow2-x86_64-*-uefi": 40,
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 50,
                 "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 40,
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 40,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 42,
@@ -1057,11 +1036,6 @@
         },
         "desktop_login": {
             "profiles": {
-                "Almalinux-KDE-live-iso-x86_64-*-64bit": 30,
-                "Almalinux-XFCE-live-iso-x86_64-*-64bit": 32,
-                "Almalinux-MATE-live-iso-x86_64-*-64bit": 32,
-                "Almalinux-Mini-live-iso-x86_64-*-64bit": 32,
-                "Almalinux-gnome-live-iso-x86_64-*-64bit": 30,
                 "Almalinux-gnome-upgrade-x86_64-*-64bit": 40,
                 "Almalinux-gnome-live-iso-ppc64le-*-ppc64le": 30
             },
@@ -1074,7 +1048,6 @@
         },
         "desktop_fprint": {
             "profiles": {
-                "Almalinux-gnome-live-iso-x86_64-*-64bit": 50,
                 "Almalinux-gnome-upgrade-x86_64-*-64bit": 40,
                 "Almalinux-gnome-live-iso-ppc64le-*-ppc64le": 50
             },
@@ -1108,7 +1081,6 @@
         "desktop_notifications_live": {
             "profiles": {
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 32,
-                "Almalinux-gnome-live-iso-ppc64le-*-ppc64le": 30,
                 "Almalinux-gnome-live-iso-x86_64-*-64bit": 30
             },
             "settings": {
@@ -1117,10 +1089,8 @@
         },
         "desktop_notifications_postinstall": {
             "profiles": {
-                "Almalinux-KDE-live-iso-x86_64-*-64bit": 32,
-                "Almalinux-gnome-live-iso-ppc64le-*-ppc64le": 30,
                 "Almalinux-gnome-upgrade-x86_64-*-64bit": 40,
-                "Almalinux-gnome-live-iso-x86_64-*-64bit": 30
+                "Almalinux-gnome-live-iso-ppc64le-*-ppc64le": 30
             },
             "settings": {
                 "BOOTFROM": "c",
@@ -1312,7 +1282,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 50
             },
             "settings": {
-                "ADD_REPOSITORY_GRAPHICAL": "ml:https://fedorapeople.org/groups/qa/openqa-repos/openqa-testrepo-2.xml",
+                "ADD_REPOSITORY_GRAPHICAL": "ml:https://docs.openqa.almalinux.org/assets/uploads/openqa-testrepo-2.xml",
                 "POSTINSTALL": "_addrepo_metalink_post"
             }
         },
@@ -1439,9 +1409,8 @@
         },
         "install_default_upload": {
             "profiles": {
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 20,
-                "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 20,
-                "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 20,
+                "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 40,
+                "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 40,
                 "Almalinux-MATE-live-iso-x86_64-*-64bit": 19,
                 "Almalinux-Mini-live-iso-x86_64-*-64bit": 15,
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 16,
@@ -1539,7 +1508,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
-                "GRUB": "inst.ks=http://fedorapeople.org/groups/qa/kickstarts/firewall-configured-net.ks",
+                "GRUB": "inst.ks=https://docs.openqa.almalinux.org/assets/kickstarts/firewall-configured-net.ks",
                 "KICKSTART": "1",
                 "POSTINSTALL": "firewall_configured",
                 "ROOT_PASSWORD": "anaconda",
@@ -1554,7 +1523,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
-                "GRUB": "inst.ks=http://fedorapeople.org/groups/qa/kickstarts/firewall-disabled-net.ks",
+                "GRUB": "inst.ks=https://docs.openqa.almalinux.org/assets/kickstarts/firewall-disabled-net.ks",
                 "KICKSTART": "1",
                 "POSTINSTALL": "firewall_disabled",
                 "ROOT_PASSWORD": "anaconda",
@@ -1604,7 +1573,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
-                "GRUB": "inst.ks=https://fedorapeople.org/groups/qa/kickstarts/root-user-crypted-net.ks",
+                "GRUB": "inst.ks=https://docs.openqa.almalinux.org/assets/kickstarts/root-user-crypted-net.ks",
                 "KICKSTART": "1",
                 "ROOT_PASSWORD": "111111",
                 "USER_LOGIN": "test",
@@ -1779,7 +1748,7 @@
                 "HDD_2": "disk_full_mbr.img",
                 "NUMDISKS": "2",
                 "PREINSTALL": "preinstall_iso_in_hd",
-                "REPOSITORY_VARIATION": "hd:vdb1:/fedora_image.iso"
+                "REPOSITORY_VARIATION": "hd:vdb1:/almalinux_image.iso"
             }
         },
         "install_repository_http_graphical": {
@@ -1806,10 +1775,10 @@
         },
         "install_repository_nfs_graphical": {
             "profiles": {
-                "Almalinux-dvd-iso-aarch64-*-aarch64": 30,
-                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 30,
-                "Almalinux-dvd-iso-s390x-*-s390x": 30,
-                "Almalinux-dvd-iso-x86_64-*-64bit": 30
+                "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
+                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 30,
+                "Almalinux-minimal-iso-s390x-*-s390x": 30,
+                "Almalinux-minimal-iso-x86_64-*-64bit": 30
             },
             "settings": {
                 "INSTALL_UNLOCK": "support_ready",
@@ -1882,7 +1851,7 @@
             },
             "settings": {
                 "CDMODEL": "scsi-cd",
-                "GRUB": "inst.updates=https://fedorapeople.org/groups/qa/updates/updates-openqa.img",
+                "GRUB": "inst.updates=https://docs.openqa.almalinux.org/assets/uploads/updates-openqa.img",
                 "HDDMODEL": "scsi-hd",
                 "SCSICONTROLLER": "virtio-scsi-pci",
                 "TEST_UPDATES": "1"
@@ -2004,7 +1973,7 @@
             "settings": {
                 "BOOTFROM": "c",
                 "DESKTOP": "gnome",
-                "HDD_1": "disk_f%CURRREL%_desktop_4_%ARCH%.qcow2",
+                "HDD_1": "disk_al%CURRREL%_desktop_4_%ARCH%.qcow2",
                 "INSTALL": "1",
                 "NICTYPE": "tap",
                 "PARALLEL_WITH": "install_vnc_server",
@@ -2037,7 +2006,7 @@
             "settings": {
                 "BOOTFROM": "c",
                 "DESKTOP": "gnome",
-                "HDD_1": "disk_f%CURRREL%_desktop_4_%ARCH%.qcow2",
+                "HDD_1": "disk_al%CURRREL%_desktop_4_%ARCH%.qcow2",
                 "INSTALL": "1",
                 "NICTYPE": "tap",
                 "PREINSTALL": "_vncconnect_client_setup_pre _graphical_wait_login _vncconnect_client_setup",
@@ -2126,7 +2095,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%CURRREL%_minimal-uefi_3_%ARCH%.qcow2",
+                "HDD_1": "disk_al%CURRREL%_minimal-uefi_3_%ARCH%.qcow2",
                 "NICTYPE": "tap",
                 "PARALLEL_CANCEL_WHOLE_CLUSTER": "0",
                 "POSTINSTALL": "_iot_zezere_server _setup_browser _iot_zezere_remote",
@@ -2147,7 +2116,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%CURRREL%_support_5_%ARCH%.qcow2",
+                "HDD_1": "disk_al%CURRREL%_support_5_%ARCH%.qcow2",
                 "POSTINSTALL": "mediakit_fileconflicts",
                 "ROOT_PASSWORD": "weakpassword",
                 "USER_LOGIN": "false"
@@ -2162,7 +2131,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%CURRREL%_support_5_%ARCH%.qcow2",
+                "HDD_1": "disk_al%CURRREL%_support_5_%ARCH%.qcow2",
                 "POSTINSTALL": "mediakit_repoclosure",
                 "ROOT_PASSWORD": "weakpassword",
                 "USER_LOGIN": "false"
@@ -2174,6 +2143,7 @@
                 "Almalinux-dvd-iso-x86_64-*-uefi": 31
             },
             "settings": {
+                "GRUB": "ip=dhcp",
                 "HDDSIZEGB": "13",
                 "MEMCHECK": "1",
                 "PACKAGE_SET": "workstation",
@@ -2204,7 +2174,6 @@
         },
         "podman": {
             "profiles": {
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 20,
                 "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 20,
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 40
             },
@@ -2222,7 +2191,6 @@
         },
         "podman_client": {
             "profiles": {
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 20,
                 "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 20,
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 40
             },
@@ -2281,32 +2249,31 @@
         },
         "release_identification": {
             "profiles": {
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 14,
-                "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 14,
-                "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 14,
-                "Almalinux-Mini-live-iso-x86_64-*-64bit": 14,
-                "Almalinux-MATE-live-iso-x86_64-*-64bit": 14,
-                "Almalinux-KDE-live-iso-x86_64-*-64bit": 14,
-                "Almalinux-XFCE-live-iso-x86_64-*-64bit": 14,
+                "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 34,
+                "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 34,
+                "Almalinux-Mini-live-iso-x86_64-*-64bit": 34,
+                "Almalinux-MATE-live-iso-x86_64-*-64bit": 34,
+                "Almalinux-KDE-live-iso-x86_64-*-64bit": 34,
+                "Almalinux-XFCE-live-iso-x86_64-*-64bit": 34,
                 "Almalinux-Minimal-raw_xz-raw.xz-aarch64-*-aarch64": 24,
                 "Almalinux-boot-iso-aarch64-*-aarch64": 25,
                 "Almalinux-boot-iso-ppc64le-*-ppc64le": 25,
                 "Almalinux-boot-iso-x86_64-*-64bit": 25,
                 "Almalinux-boot-iso-s390x-*-s390x": 25,
-                "Almalinux-dvd-iso-aarch64-*-aarch64": 14,
-                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 14,
-                "Almalinux-dvd-iso-x86_64-*-64bit": 14,
-                "Almalinux-dvd-iso-s390x-*-s390x": 14,
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 14,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 14,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 14,
-                "Almalinux-minimal-iso-s390x-*-s390x": 14,
-                "Almalinux-Calfblue-dvd_ostree-iso-x86_64-*-64bit": 14,
-                "Almalinux-gnome-live-iso-ppc64le-*-ppc64le": 14,
-                "Almalinux-gnome-live-iso-x86_64-*-64bit": 14,
-                "Almalinux-gnome-upgrade-x86_64-*-64bit": 16,
-                "Almalinux-gnome-upgrade-aarch64-*-aarch64": 16,
-                "Almalinux-gnome-raw_xz-raw.xz-aarch64-*-aarch64": 24
+                "Almalinux-dvd-iso-aarch64-*-aarch64": 24,
+                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 24,
+                "Almalinux-dvd-iso-x86_64-*-64bit": 24,
+                "Almalinux-dvd-iso-s390x-*-s390x": 24,
+                "Almalinux-minimal-iso-aarch64-*-aarch64": 24,
+                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 24,
+                "Almalinux-minimal-iso-x86_64-*-64bit": 24,
+                "Almalinux-minimal-iso-s390x-*-s390x": 24,
+                "Almalinux-Calfblue-dvd_ostree-iso-x86_64-*-64bit": 54,
+                "Almalinux-gnome-live-iso-ppc64le-*-ppc64le": 24,
+                "Almalinux-gnome-live-iso-x86_64-*-64bit": 24,
+                "Almalinux-gnome-upgrade-x86_64-*-64bit": 36,
+                "Almalinux-gnome-upgrade-aarch64-*-aarch64": 36,
+                "Almalinux-gnome-raw_xz-raw.xz-aarch64-*-aarch64": 34
             },
             "settings": {
                 "BOOTFROM": "c",
@@ -2318,7 +2285,6 @@
         },
         "rpmostree_overlay": {
             "profiles": {
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 20,
                 "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 20,
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 20,
                 "Almalinux-Calfblue-dvd_ostree-iso-x86_64-*-64bit": 50
@@ -2333,7 +2299,6 @@
         },
         "rpmostree_rebase": {
                 "profiles": {
-                "Almalinux-CoreOS-colive-iso-x86_64-*-64bit": 20,
                 "Almalinux-IoT-dvd_ostree-iso-aarch64-*-aarch64": 20,
                 "Almalinux-IoT-dvd_ostree-iso-x86_64-*-uefi": 20,
                 "Almalinux-Calfblue-dvd_ostree-iso-x86_64-*-64bit": 50
@@ -2627,7 +2592,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%CURRREL%_support_5_%ARCH%.qcow2",
+                "HDD_1": "disk_al%CURRREL%_support_5_%ARCH%.qcow2",
                 "NICTYPE": "tap",
                 "NUMDISKS": "2",
                 "PARALLEL_CANCEL_WHOLE_CLUSTER": "0",
@@ -2662,7 +2627,7 @@
             "settings": {
                 "BOOTFROM": "c",
                 "DESKTOP": "gnome",
-                "HDD_1": "disk_f%UP2REL%_desktop_4_%ARCH%.qcow2",
+                "HDD_1": "disk_al%UP2REL%_desktop_4_%ARCH%.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
                 "UPGRADE": "1",
@@ -2679,7 +2644,7 @@
                 "BOOTFROM": "c",
                 "DESKTOP": "gnome",
                 "ENCRYPT_PASSWORD": "weakpassword",
-                "HDD_1": "disk_f%UP2REL%_desktopencrypt_%ARCH%.qcow2",
+                "HDD_1": "disk_al%UP2REL%_desktopencrypt_%ARCH%.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
                 "UPGRADE": "1",
@@ -2694,7 +2659,7 @@
             "settings": {
                 "BOOTFROM": "c",
                 "DESKTOP": "kde",
-                "HDD_1": "disk_f%UP2REL%_kde_4_x86_64.qcow2",
+                "HDD_1": "disk_al%UP2REL%_kde_4_x86_64.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
                 "UPGRADE": "1",
@@ -2711,7 +2676,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%UP2REL%_minimal_3_%ARCH%.qcow2",
+                "HDD_1": "disk_al%UP2REL%_minimal_3_%ARCH%.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
                 "UPGRADE": "1",
@@ -2724,7 +2689,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%UP2REL%_minimal-uefi_3_%ARCH%.qcow2",
+                "HDD_1": "disk_al%UP2REL%_minimal-uefi_3_%ARCH%.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
                 "UPGRADE": "1",
@@ -2737,7 +2702,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
-                "+HDD_1": "disk_f%UP2REL%_server_3_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%UP2REL%_server_3_%ARCH%.qcow2",
                 "BOOTFROM": "c",
                 "NICTYPE": "tap",
                 "PARALLEL_WITH": "upgrade_2_server_domain_controller",
@@ -2760,7 +2725,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%UP2REL%_server_3_%ARCH%.qcow2",
+                "HDD_1": "disk_al%UP2REL%_server_3_%ARCH%.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
                 "UPGRADE": "1",
@@ -2774,7 +2739,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
-                "+HDD_1": "disk_f%UP2REL%_server_3_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%UP2REL%_server_3_%ARCH%.qcow2",
                 "BOOTFROM": "c",
                 "NICTYPE": "tap",
                 "PARALLEL_CANCEL_WHOLE_CLUSTER": "0",
@@ -2796,7 +2761,7 @@
             "settings": {
                 "BOOTFROM": "c",
                 "DESKTOP": "gnome",
-                "HDD_1": "disk_f%UP1REL%_desktop_4_%ARCH%.qcow2",
+                "HDD_1": "disk_al%UP1REL%_desktop_4_%ARCH%.qcow2",
                 "STORE_HDD_1": "disk_%FLAVOR%_%MACHINE%.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
@@ -2815,7 +2780,7 @@
                 "BOOTFROM": "c",
                 "DESKTOP": "gnome",
                 "ENCRYPT_PASSWORD": "weakpassword",
-                "HDD_1": "disk_f%UP1REL%_desktopencrypt_%ARCH%.qcow2",
+                "HDD_1": "disk_al%UP1REL%_desktopencrypt_%ARCH%.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
                 "UPGRADE": "1",
@@ -2828,7 +2793,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
-                "+HDD_1": "disk_f%UP1REL%_kde_4_x86_64.qcow2",
+                "+HDD_1": "disk_al%UP1REL%_kde_4_x86_64.qcow2",
                 "BOOTFROM": "c",
                 "DESKTOP": "kde",
                 "ROOT_PASSWORD": "weakpassword",
@@ -2847,7 +2812,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%UP1REL%_minimal_3_%ARCH%.qcow2",
+                "HDD_1": "disk_al%UP1REL%_minimal_3_%ARCH%.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
                 "UPGRADE": "1",
@@ -2860,7 +2825,7 @@
             },
             "settings": {
                 "BOOTFROM": "c",
-                "HDD_1": "disk_f%UP1REL%_minimal-uefi_3_%ARCH%.qcow2",
+                "HDD_1": "disk_al%UP1REL%_minimal-uefi_3_%ARCH%.qcow2",
                 "ROOT_PASSWORD": "weakpassword",
                 "TEST_TARGET": "COMPOSE",
                 "UPGRADE": "1",
@@ -2875,7 +2840,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
-                "+HDD_1": "disk_f%UP1REL%_server_3_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%UP1REL%_server_3_%ARCH%.qcow2",
                 "BOOTFROM": "c",
                 "MAX_JOB_TIME": "10800",
                 "NICTYPE": "tap",
@@ -2897,7 +2862,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
-                "+HDD_1": "disk_f%UP1REL%_server_3_%ARCH%.qcow2",
+                "+HDD_1": "disk_al%UP1REL%_server_3_%ARCH%.qcow2",
                 "BOOTFROM": "c",
                 "MAX_JOB_TIME": "10800",
                 "NICTYPE": "tap",

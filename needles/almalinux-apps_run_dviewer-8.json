@@ -1,0 +1,26 @@
+{
+  "area": [
+    {
+      "height": 38,
+      "type": "match",
+      "ypos": 64,
+      "xpos": 262,
+      "width": 37,
+      "click_point": {
+        "xpos": 18.5,
+        "ypos": 19
+      }
+    },
+    {
+      "xpos": 136,
+      "ypos": 4,
+      "width": 125,
+      "height": 20,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "apps_run_dviewer"
+  ]
+}

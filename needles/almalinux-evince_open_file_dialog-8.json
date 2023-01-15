@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "ypos": 41,
+      "height": 20,
+      "width": 44,
+      "xpos": 961,
+      "click_point": {
+        "xpos": 22,
+        "ypos": 10
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "evince_open_file_dialog"
+  ]
+}

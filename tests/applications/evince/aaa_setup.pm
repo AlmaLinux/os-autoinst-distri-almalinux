@@ -23,6 +23,9 @@ sub run {
     # Check that is started
     assert_screen 'apps_run_dviewer';
 
+    if (get_var("VERSION") < 9) {
+        click_lastmatch;
+    }
     # Open the test file to create a starting point for the other Evince tests.
     # Click on Open button to open the File Open Dialog
     assert_and_click("evince_open_file_dialog", button => "left", timeout => 30);
@@ -35,8 +38,10 @@ sub run {
     # Select the evince.pdf file.
     assert_and_click("evince_file_select_pdf", button => "left", timeout => 30);
 
-    # Click the Open button to open the file
-    assert_and_click("gnome_button_open", button => "left", timeout => 30);
+    if (get_var("VERSION") >= 9) {
+        # Click the Open button to open the file
+        assert_and_click("gnome_button_open", button => "left", timeout => 30);
+    }
 
     # Fullsize the Evince window.
     send_key("super-up");

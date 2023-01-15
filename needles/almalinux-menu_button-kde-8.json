@@ -1,0 +1,22 @@
+{
+  "area": [
+    {
+      "width": 45,
+      "height": 40,
+      "click_point": {
+        "xpos": 18.5,
+        "ypos": 17
+      },
+      "ypos": 726,
+      "xpos": 4,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "DESKTOP-kde",
+    "ENV-DISTRI-almalinux",
+    "apps_menu_button",
+    "system_menu_button"
+  ]
+}

@@ -11,7 +11,7 @@ sub run {
     send_key "ctrl-alt-f1";
     wait_still_screen 1;
     # check domain is listed in 'realm list'
-    validate_script_output 'realm list', sub { $_ =~ m/domain-name: test\.openqa\.fedoraproject\.org.*configured: kerberos-member/s };
+    validate_script_output 'realm list', sub { $_ =~ m/domain-name: test\.openqa\.almalinux\.org.*configured: kerberos-member/s };
     # check we can see the admin user in getent
     assert_script_run 'getent passwd admin@TEST.OPENQA.FEDORAPROJECT.ORG';
     # check keytab entries

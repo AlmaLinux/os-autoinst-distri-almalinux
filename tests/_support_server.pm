@@ -12,7 +12,7 @@ sub _pxe_setup {
     # don't get hung up on slow mirrors when DNFing...
     repos_mirrorlist;
     # create necessary dirs
-    assert_script_run "mkdir -p /var/lib/tftpboot/fedora";
+    assert_script_run "mkdir -p /var/lib/tftpboot/almalinux";
     # basic tftp config
     assert_script_run "printf 'enable-tftp\ntftp-root=/var/lib/tftpboot\ntftp-secure\n' >> /etc/dnsmasq.conf";
     # pxe boot config
@@ -23,7 +23,7 @@ sub _pxe_setup {
     # install and configure bootloaders
     my $ourversion = get_var("CURRREL");
     my $testversion = get_var("RELEASE");
-    assert_script_run "mkdir -p /var/tmp/fedora";
+    assert_script_run "mkdir -p /var/tmp/almalinux";
     my $arch = get_var("ARCH");
 
     if ($arch eq 'x86_64') {
@@ -32,7 +32,8 @@ sub _pxe_setup {
         # FIXME workaround for https://bugzilla.redhat.com/show_bug.cgi?id=2152763:
         # use a side repo containing a scratch build of grub2 just before the
         # "Bundle unicode.pf2 with images" change, epoch bumped to 10
-        assert_script_run 'printf "[grub2152763]\nname=2152763 repo\nbaseurl=https://fedorapeople.org/groups/qa/openqa-repos/grub2152763repo/\$basearch\nenabled=1\nmetadata_expire=3600\ngpgcheck=0" > /etc/yum.repos.d/grub2152763.repo';
+        # TODO: revisit
+        # assert_script_run 'printf "[grub2152763]\nname=2152763 repo\nbaseurl=https://fedorapeople.org/groups/qa/openqa-repos/grub2152763repo/\$basearch\nenabled=1\nmetadata_expire=3600\ngpgcheck=0" > /etc/yum.repos.d/grub2152763.repo';
         # install bootloader packages
         assert_script_run "dnf -y install syslinux", 120;
         assert_script_run "dnf -y --releasever=$ourversion --installroot=/var/tmp/almalinux install shim-x64 grub2-efi-x64", 300;
@@ -40,12 +41,13 @@ sub _pxe_setup {
         assert_script_run "cp /usr/share/syslinux/{pxelinux.0,vesamenu.c32,ldlinux.c32,libcom32.c32,libutil.c32} /var/lib/tftpboot";
         assert_script_run "cp /var/tmp/almalinux/boot/efi/EFI/almalinux/{shim.efi,grubx64.efi} /var/lib/tftpboot";
         # wipe the workaround repo again, just in case
-        assert_script_run "rm -f /etc/yum.repos.d/grub2152763.repo";
+        # TODO: revisit
+        # assert_script_run "rm -f /etc/yum.repos.d/grub2152763.repo";
         # bootloader configs
         # BIOS
-        assert_script_run "printf 'default vesamenu.c32\nprompt 1\ntimeout 600\n\nlabel linux\n  menu label ^Install Fedora 64-bit\n  menu default\n  kernel fedora/vmlinuz\n  append initrd=fedora/initrd.img inst.ks=file:///ks.cfg ip=dhcp\nlabel local\n  menu label Boot from ^local drive\n  localboot 0xffff\n' >> /var/lib/tftpboot/pxelinux.cfg/default";
+        assert_script_run "printf 'default vesamenu.c32\nprompt 1\ntimeout 600\n\nlabel linux\n  menu label ^Install AlmaLinux 64-bit\n  menu default\n  kernel almalinux/vmlinuz\n  append initrd=almalinux/initrd.img inst.ks=file:///ks.cfg ip=dhcp\nlabel local\n  menu label Boot from ^local drive\n  localboot 0xffff\n' >> /var/lib/tftpboot/pxelinux.cfg/default";
         # UEFI
-        assert_script_run "printf 'function load_video {\n  insmod efi_gop\n  insmod efi_uga\n  insmod ieee1275_fb\n  insmod vbe\n  insmod vga\n  insmod video_bochs\n  insmod video_cirrus\n}\n\nload_video\nset gfxpayload=keep\ninsmod gzio\n\nmenuentry \"Install Fedora 64-bit\"  --class fedora --class gnu-linux --class gnu --class os {\n  linuxefi fedora/vmlinuz ip=dhcp inst.ks=file:///ks.cfg\n  initrdefi fedora/initrd.img\n}' >> /var/lib/tftpboot/grub.cfg";
+        assert_script_run "printf 'function load_video {\n  insmod efi_gop\n  insmod efi_uga\n  insmod ieee1275_fb\n  insmod vbe\n  insmod vga\n  insmod video_bochs\n  insmod video_cirrus\n}\n\nload_video\nset gfxpayload=keep\ninsmod gzio\n\nmenuentry \"Install AlmaLinux 64-bit\"  --class almalinux --class gnu-linux --class gnu --class os {\n  linuxefi almalinux/vmlinuz ip=dhcp inst.ks=file:///ks.cfg\n  initrdefi almalinux/initrd.img\n}' >> /var/lib/tftpboot/grub.cfg";
         # DEBUG DEBUG
         upload_logs "/etc/dnsmasq.conf";
         upload_logs "/var/lib/tftpboot/grub.cfg";
@@ -59,7 +61,7 @@ sub _pxe_setup {
         # install a network bootloader to tftp root
         assert_script_run "grub2-mknetdir --net-directory=/var/lib/tftpboot";
         # bootloader config
-        assert_script_run "printf 'set default=0\nset timeout=5\n\nmenuentry \"Install AlmaLinux 64-bit\"  --class fedora --class gnu-linux --class gnu --class os {\n  linux fedora/vmlinuz ip=dhcp inst.ks=file:///ks.cfg\n  initrd fedora/initrd.img\n}' >> /var/lib/tftpboot/boot/grub2/grub.cfg";
+        assert_script_run "printf 'set default=0\nset timeout=5\n\nmenuentry \"Install AlmaLinux 64-bit\"  --class almalinux --class gnu-linux --class gnu --class os {\n  linux almalinux/vmlinuz ip=dhcp inst.ks=file:///ks.cfg\n  initrd almalinux/initrd.img\n}' >> /var/lib/tftpboot/boot/grub2/grub.cfg";
         # DEBUG DEBUG
         upload_logs "/etc/dnsmasq.conf";
         upload_logs "/var/lib/tftpboot/boot/grub2/grub.cfg";
@@ -71,7 +73,7 @@ sub _pxe_setup {
         # bootloader, no need to install packages)
         assert_script_run "cp /boot/efi/EFI/almalinux/{shim.efi,grubaa64.efi} /var/lib/tftpboot";
         # bootloader config
-        assert_script_run "printf 'function load_video {\n  insmod efi_gop\n  insmod efi_uga\n  insmod ieee1275_fb\n  insmod vbe\n  insmod vga\n  insmod video_bochs\n  insmod video_cirrus\n}\n\nload_video\nset gfxpayload=keep\ninsmod gzio\n\nmenuentry \"Install Fedora 64-bit\"  --class fedora --class gnu-linux --class gnu --class os {\n  linux fedora/vmlinuz ip=dhcp inst.ks=file:///ks.cfg\n  initrd fedora/initrd.img\n}' >> /var/lib/tftpboot/grub.cfg";
+        assert_script_run "printf 'function load_video {\n  insmod efi_gop\n  insmod efi_uga\n  insmod ieee1275_fb\n  insmod vbe\n  insmod vga\n  insmod video_bochs\n  insmod video_cirrus\n}\n\nload_video\nset gfxpayload=keep\ninsmod gzio\n\nmenuentry \"Install AlmaLinux 64-bit\"  --class almalinux --class gnu-linux --class gnu --class os {\n  linux almalinux/vmlinuz ip=dhcp inst.ks=file:///ks.cfg\n  initrd almalinux/initrd.img\n}' >> /var/lib/tftpboot/grub.cfg";
         # DEBUG DEBUG
         upload_logs "/etc/dnsmasq.conf";
         upload_logs "/var/lib/tftpboot/grub.cfg";
@@ -79,18 +81,26 @@ sub _pxe_setup {
 
     # download kernel and initramfs
     my $location = get_var("LOCATION");
+    if ( !$location || $location eq "" ) {
+        if (get_var("VERSION" < 9)) {
+            $location = "https://repo.almalinux.org/almalinux/8"
+        } else {
+            $location = "https://repo.almalinux.org/almalinux/9"
+        }
+        
+    }
     my $kernpath = "images/pxeboot";
     # for some crazy reason these are in a different place for ppc64
     $kernpath = "ppc/ppc64" if ($arch eq 'ppc64le');
-    assert_script_run "curl -o /var/lib/tftpboot/fedora/vmlinuz $location/Everything/${arch}/os/${kernpath}/vmlinuz";
-    assert_script_run "curl -o /var/lib/tftpboot/fedora/initrd.img $location/Everything/${arch}/os/${kernpath}/initrd.img";
+    assert_script_run "curl -o /var/lib/tftpboot/almalinux/vmlinuz $location/BaseOS/${arch}/os/${kernpath}/vmlinuz";
+    assert_script_run "curl -o /var/lib/tftpboot/almalinux/initrd.img $location/BaseOS/${arch}/os/${kernpath}/initrd.img";
     # get a kickstart to embed in the initramfs, for testing:
     # https://fedoraproject.org/wiki/QA:Testcase_Kickstart_File_Path_Ks_Cfg
-    assert_script_run "curl -o ks.cfg https://fedorapeople.org/groups/qa/kickstarts/root-user-crypted-net.ks";
+    assert_script_run "curl -o ks.cfg https://docs.openqa.almalinux.org/assets/kickstarts/root-user-crypted-net.ks";
     # tweak the repo config in it
     assert_script_run "sed -i -e 's,^url.*,nfs --server 172.16.2.110 --dir /repo --opts nfsvers=4,g' ks.cfg";
     # embed it
-    assert_script_run "echo ks.cfg | cpio -c -o >> /var/lib/tftpboot/fedora/initrd.img";
+    assert_script_run "echo ks.cfg | cpio -c -o >> /var/lib/tftpboot/almalinux/initrd.img";
     # chown root
     assert_script_run "chown -R dnsmasq /var/lib/tftpboot";
     assert_script_run "restorecon -vr /var/lib/tftpboot";
@@ -109,7 +119,7 @@ sub run {
     }
     ## DNS / DHCP (dnsmasq)
     # create config
-    assert_script_run "printf 'domain=test.openqa.fedoraproject.org\ndhcp-range=172.16.2.150,172.16.2.199\ndhcp-option=option:router,172.16.2.2\n' > /etc/dnsmasq.conf";
+    assert_script_run "printf 'domain=test.openqa.almalinux.org\ndhcp-range=172.16.2.150,172.16.2.199\ndhcp-option=option:router,172.16.2.2\n' > /etc/dnsmasq.conf";
     # do PXE setup if this is not an update test
     _pxe_setup() unless (get_var("ADVISORY_OR_TASK"));
     # open firewall ports
@@ -133,7 +143,7 @@ sub run {
     # create the file share
     assert_script_run "mkdir -p /export";
     # get the kickstart
-    assert_script_run "curl -o /export/root-user-crypted-net.ks https://fedorapeople.org/groups/qa/kickstarts/root-user-crypted-net.ks";
+    assert_script_run "curl -o /export/root-user-crypted-net.ks https://docs.openqa.almalinux.org/assets/kickstarts/root-user-crypted-net.ks";
     # for update tests, set up the update repository and export it
     if (get_var("ADVISORY_OR_TASK")) {
         assert_script_run "echo '/mnt/update_repo 172.16.2.0/24(ro)' >> /etc/exports";
@@ -151,7 +161,7 @@ sub run {
         assert_script_run "rsync -av /mnt/iso/ /repo", 180;
         # put the updates image in the NFS repo (for testing this update
         # image delivery method)
-        assert_script_run "curl -o /repo/images/updates.img https://fedorapeople.org/groups/qa/updates/updates-openqa.img";
+        assert_script_run "curl -o /repo/images/updates.img https://docs.openqa.almalinux.org/assets/uploads/updates-openqa.img";
         # create the iso share
         assert_script_run "mkdir -p /iso";
         # recreate an iso file

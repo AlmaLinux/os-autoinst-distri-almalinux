@@ -49,7 +49,7 @@ sub run {
         my $username = get_var("USER_LOGIN") // "test";
         script_run("cd /home/$username/");
         # Download the language reference file.
-        script_run("wget https://fedorapeople.org/groups/qa/openqa-fonts/$language-reference.txt");
+        script_run("wget https://docs.openqa.almalinux.org/assets/uploads/$language-reference.txt");
         # upload the log for debugging.
         upload_logs "test.txt", failok => 1;
         # Compare the test file and the reference file.

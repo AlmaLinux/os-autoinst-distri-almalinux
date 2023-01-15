@@ -1,6 +1,6 @@
 # openQA tests for the Fedora distribution
 
-This repository contains tests and images for testing [Fedora](https://getfedora.org/) with [openQA](http://os-autoinst.github.io/openQA/). The [fedora_openqa library and CLI](https://pagure.io/fedora-qa/fedora_openqa) are used for scheduling tests, and [createhdds](https://pagure.io/fedora-qa/createhdds) is used for creating base disk images for the test. For openQA installation instructions, see [the Fedora openQA wiki page](https://fedoraproject.org/wiki/OpenQA).
+This repository contains tests and images for testing [Fedora](https://getfedora.org/) with [openQA](http://os-autoinst.github.io/openQA/). The [fedora_openqa library and CLI](https://pagure.io/fedora-qa/fedora_openqa) are used for scheduling tests, and [createhdds](https://pagure.io/fedora-qa/createhdds) is used for creating base disk images for the test. For openQA installation instructions, see [the Fedora openQA wiki page](https://almalinux.org/wiki/OpenQA).
 
 ## Issues
 
@@ -103,4 +103,4 @@ Note that tags of the form `ENV-INSTLANG-(anything)` are useless artefacts and s
 
 The contents of this repository are available under the GPL, version 3 or any later version. A copy is included as COPYING. Note that we do not include the full GPL header in every single test file as they are quite short and this would waste a lot of space.
 
-The tools and tests in this repository are maintained by the [Fedora QA team](https://fedoraproject.org/wiki/QA). We are grateful to the [openSUSE](https://opensuse.org) team for developing openQA, and for the [openSUSE tests](https://github.com/os-autoinst/os-autoinst-distri-opensuse) on which this repository was initially based (and from which occasional pieces are still borrowed).
+The tools and tests in this repository are maintained by the [Fedora QA team](https://almalinux.org/wiki/QA). We are grateful to the [openSUSE](https://opensuse.org) team for developing openQA, and for the [openSUSE tests](https://github.com/os-autoinst/os-autoinst-distri-opensuse) on which this repository was initially based (and from which occasional pieces are still borrowed).

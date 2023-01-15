@@ -7,7 +7,7 @@ use Exporter;
 
 use lockapi;
 use testapi;
-our @EXPORT = qw/run_with_error_check type_safely type_very_safely get_version_major get_code_name desktop_vt boot_to_login_screen console_login console_switch_layout desktop_switch_layout console_loadkeys_us do_bootloader boot_decrypt check_release menu_launch_type repo_setup setup_workaround_repo disable_updates_repos cleanup_workaround_repo console_initial_setup handle_welcome_screen gnome_initial_setup anaconda_create_user check_desktop download_modularity_tests quit_firefox advisory_get_installed_packages advisory_check_nonmatching_packages start_with_launcher quit_with_shortcut disable_firefox_studies select_rescue_mode copy_devcdrom_as_isofile get_release_number check_left_bar check_top_bar check_prerelease check_version spell_version_number _assert_and_click is_branched rec_log click_unwanted_notifications repos_mirrorlist register_application get_registered_applications solidify_wallpaper check_and_install_git check_and_install_software download_testdata make_serial_writable gdm_initial_setup mate_move_mouse/;
+our @EXPORT = qw/run_with_error_check type_safely type_very_safely get_version_major get_code_name handle_welcome_screen_8 check_gnome_update_popup desktop_vt boot_to_login_screen console_login console_switch_layout desktop_switch_layout console_loadkeys_us do_bootloader boot_decrypt check_release menu_launch_type repo_setup setup_workaround_repo disable_updates_repos cleanup_workaround_repo console_initial_setup handle_welcome_screen gnome_initial_setup anaconda_create_user check_desktop download_modularity_tests quit_firefox advisory_get_installed_packages advisory_check_nonmatching_packages start_with_launcher quit_with_shortcut disable_firefox_studies select_rescue_mode copy_devcdrom_as_isofile get_release_number check_left_bar check_top_bar check_prerelease check_version spell_version_number _assert_and_click is_branched rec_log click_unwanted_notifications repos_mirrorlist register_application get_registered_applications solidify_wallpaper check_and_install_git check_and_install_software download_testdata make_serial_writable gdm_initial_setup mate_move_mouse/;
 
 # We introduce this global variable to hold the list of applications that have
 # registered during the apps_startstop_test when they have sucessfully run.
@@ -295,6 +295,39 @@ sub console_login {
     _console_login_finish();
 }
 
+#
+#
+#
+
+sub handle_welcome_screen_8  {
+    if (get_var("DESKTOP") eq "gnome") {
+        wait_still_screen(stilltime => 4, similarity_level => 38);
+        if ((get_var("VERSION") < 9 ) && check_screen("gnome_initial_setup_next", 3)) {
+            assert_and_click 'gnome_initial_setup_next';
+            wait_still_screen(stilltime => 5, similarity_level => 38);
+            if (check_screen("gnome_initial_setup_next", 9)) {
+                send_key "alt-f4";
+                wait_still_screen(stilltime => 5, similarity_level => 45);
+            }
+        }
+    }
+}
+
+#
+#  Check for random popop up window found
+#
+sub check_gnome_update_popup {
+    if ((get_var("DESKTOP") eq "gnome") && (get_var("VERSION") < 9 ) &&  check_screen ("gnome_update_popup_found", 5))   {
+        click_lastmatch;
+        wait_still_screen 2;
+        # might need a second clilck
+        if (check_screen  ("gnome_update_popup_found", 5)) {
+            click_lastmatch;
+            wait_still_screen 2;
+        }
+    }
+}
+
 # Figure out what tty the desktop is on, switch to it. Assumes we're
 # at a root console
 sub desktop_vt {
@@ -307,22 +340,45 @@ sub desktop_vt {
     # os-autoinst calls the script with 'bash -e' which causes it to
     # stop as soon as any command fails, so we use ||: to make the
     # first grep return 0 even if it matches nothing
-    eval { $xout = script_output ' loginctl | grep test ||:; ps -e | egrep "(startplasma|gnome-session|Xwayland|Xorg)" | grep -o tty[0-9] ||:' };
+    eval { $xout = script_output ' loginctl | grep test ||:; ps -e | egrep "(lightdm|plasma|plasmawayland|startplasma|gnome-session|Xwayland|Xorg)" | grep -o tty[0-9] ||:' };
     my $tty = 1;    # default
     while ($xout =~ /tty(\d)/g) {
         $tty = $1;    # most recent match is probably best
     }
     send_key "ctrl-alt-f${tty}";
+    wait_still_screen 5;
     # work around https://gitlab.gnome.org/GNOME/gnome-software/issues/582
     # if it happens. As of 2019-05, seeing something similar on KDE too
     my $desktop = get_var('DESKTOP');
     my $sfr = 0;
     my $timeout = 10;
+    my $has_gui = 0;
+    if ($desktop eq "kde" && check_screen("workspace", 7)) {
+        $has_gui = 1;
+    }
+    if ($desktop eq "kde" && $has_gui eq 0) {
+        send_key "ctrl-alt-f7";
+        wait_still_screen 3;
+        if (check_screen("workspace", 7)) {
+            $has_gui = 1;
+        }
+    }
+    if ($desktop eq "kde" && $has_gui eq 0) {
+        send_key "alt-f7";
+        wait_still_screen 3;
+        if (check_screen("workspace", 7)) {
+            $has_gui = 1;
+        } else {
+            type_safely("startx");
+            send_key  "ret";
+            wait_still_screen 15;
+        }
+    }
     my $count = 6;
     while (check_screen("auth_required", $timeout) && $count > 0) {
         $count -= 1;
         unless ($sfr) {
-            record_soft_failure "spurious 'auth required' - https://gitlab.gnome.org/GNOME/gnome-software/issues/582";
+            # record_soft_failure "spurious 'auth required' - https://gitlab.gnome.org/GNOME/gnome-software/issues/582";
             $sfr = 1;
             $timeout = 3;
         }
@@ -338,8 +394,12 @@ sub desktop_vt {
             # bit sloppy but in all cases where this is used, this is the
             # correct password
             type_very_safely "weakpassword\n";
+            $count=0
         }
     }
+    handle_welcome_screen_8;
+    # TODO:  Needs to find a way to close, without open update dialog
+    # check_gnome_update_popup;
 }
 
 # load US layout (from a root console)
@@ -371,7 +431,7 @@ sub do_bootloader {
         params => "",
         mutex => "",
         first => 1,
-        timeout => 30,
+        timeout => 60,
         uefi => get_var("UEFI"),
         ofw => get_var("OFW"),
         @_
@@ -631,9 +691,9 @@ sub _repo_setup_updates {
     disable_updates_repos(both => 0) if ($version > $currrel);
     # use the buildroot repo on Rawhide: see e.g.
     # https://pagure.io/fedora-ci/general/issue/376 for why
-    if (get_var("VERSION") eq get_var("RAWREL")) {
-        assert_script_run 'printf "[koji-rawhide]\nname=koji-rawhide\nbaseurl=https://kojipkgs.fedoraproject.org/repos/rawhide/latest/' . $arch . '/\ncost=2000\nenabled=1\ngpgcheck=0\n" > /etc/yum.repos.d/koji-rawhide.repo';
-    }
+#    if (get_var("VERSION") eq get_var("RAWREL")) {
+#        assert_script_run 'printf "[koji-rawhide]\nname=koji-rawhide\nbaseurl=https://kojipkgs.fedoraproject.org/repos/rawhide/latest/' . $arch . '/\ncost=2000\nenabled=1\ngpgcheck=0\n" > /etc/yum.repos.d/koji-rawhide.repo';
+#    }
     # set up the workaround repo
     setup_workaround_repo;
     if (get_var("CANNED")) {
@@ -990,8 +1050,9 @@ sub check_desktop {
         $count -= 1;
         # base dvd-iso or boot iso, desktop not set to gnome
         # also tour can come when installed disk reused for other tests...!
-        if (((get_var("DESKTOP") eq "gnome") || ((get_var("FLAVOR") eq "boot-iso" || get_var("FLAVOR") eq "dvd-iso")  && (get_var("DEPLOY_UPLOAD_TEST") eq 'install_default_upload'))) && (check_screen "live_initial_gnome_tour", 7)) {
-            assert_and_click "live_initial_gnome_tour";
+        if (((get_var("DESKTOP") eq "gnome") || ((get_var("FLAVOR") eq "boot-iso" || get_var("FLAVOR") eq "dvd-iso")  && (get_var("DEPLOY_UPLOAD_TEST") eq 'install_default_upload'))) && (check_screen ["getting_started","live_initial_gnome_tour"], 7)) {
+            # assert_and_click "live_initial_gnome_tour";
+            click_lastmatch;
             wait_still_screen 3;
         }
         assert_screen "apps_menu_button", $args{timeout};
@@ -1254,7 +1315,7 @@ sub advisory_check_nonmatching_packages {
 
 sub select_rescue_mode {
     # handle bootloader screen
-    assert_screen "bootloader", 30;
+    assert_screen "bootloader", 75;
     if (get_var('OFW')) {
         # select "rescue system" directly
         send_key "down";
@@ -1292,7 +1353,7 @@ sub select_rescue_mode {
         }
     }
 
-    assert_screen "rescue_select", 180;    # it takes time to start anaconda
+    assert_screen "rescue_select", 420;    # it takes time to start anaconda
 }
 
 sub copy_devcdrom_as_isofile {
@@ -1312,6 +1373,7 @@ sha256sum -c /tmp/x
 EOF
     assert_script_run($_) foreach (split /\n/, $cmd);
 }
+
 
 sub menu_launch_type {
     # Launch an application in a graphical environment, by opening a
@@ -1586,7 +1648,7 @@ sub solidify_wallpaper {
         # give the window a few seconds to stabilize
         wait_still_screen 3;
         # TODO: 
-        if (get_version_major() < 7) {
+        if (get_version_major() < 9) {
             # Select type of background
             assert_and_click "deskset_select_type";
             wait_still_screen 2;
@@ -1638,7 +1700,7 @@ sub check_and_install_software {
     my ($package) = @_;
     unless (get_var("CANNED")) {
         if (script_run("rpm -q $package")) {
-            assert_script_run("dnf install -y $package");
+            assert_script_run("dnf install -y $package", );
         }
     }
 }

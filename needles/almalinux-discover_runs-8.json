@@ -1,0 +1,26 @@
+{
+  "area": [
+    {
+      "xpos": 521,
+      "width": 57,
+      "height": 17,
+      "type": "match",
+      "ypos": 84
+    },
+    {
+      "xpos": 894,
+      "ypos": 81,
+      "width": 20,
+      "height": 20,
+      "type": "match",
+      "click_point": {
+        "xpos": 10,
+        "ypos": 10
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "discover_runs"
+  ]
+}

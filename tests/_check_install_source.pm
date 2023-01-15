@@ -36,7 +36,7 @@ sub run {
         }
     }
     if ($repourl =~ /^hd:/) {
-        assert_script_run "mount |grep 'fedora_image.iso'";
+        assert_script_run "mount |grep 'almalinux_image.iso'";
     }
     elsif ($repourl =~ s/^nfs://) {
         $repourl =~ s/^nfsvers=.://;

@@ -8,7 +8,7 @@ sub run {
     my $self = shift;
     boot_to_login_screen(timeout => 300);
     $self->root_console(tty => 3);
-    setup_tap_static('172.16.2.115', 'vnc002.test.openqa.fedoraproject.org');
+    setup_tap_static('172.16.2.115', 'vnc002.test.openqa.almalinux.org');
     # test test: check if we can see the server
     assert_script_run "ping -c 2 172.16.2.114";
     # FIXME Connections is now in the default install, we should

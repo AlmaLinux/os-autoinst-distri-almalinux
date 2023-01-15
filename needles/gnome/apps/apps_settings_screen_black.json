@@ -2,14 +2,15 @@
   "properties": [],
   "tags": [
     "apps_settings_screen_black",
+    "DESKTOP-gnome",
     "workspace"
   ],
   "area": [
     {
-      "xpos": 382,
-      "ypos": 280,
-      "width": 238,
-      "height": 171,
+      "xpos": 9,
+      "ypos": 4,
+      "width": 70,
+      "height": 22,
       "type": "match"
     }
   ]

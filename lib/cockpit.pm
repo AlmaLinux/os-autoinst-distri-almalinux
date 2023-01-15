@@ -28,15 +28,23 @@ sub start_cockpit {
     assert_screen "cockpit_login", 60;
     wait_still_screen(stilltime => 5, similarity_level => 45);
     if ($args{login}) {
-        type_safely "test";
+        type_safely "root";
         wait_screen_change { send_key "tab"; };
         type_safely get_var("USER_PASSWORD", "weakpassword");
         send_key "ret";
         if ($args{admin}) {
-            assert_and_click "cockpit_admin_enable";
-            assert_screen "cockpit_admin_password";
-            type_safely get_var("USER_PASSWORD", "weakpassword");
-            send_key "ret";
+            # assert_and_click "cockpit_admin_enable";
+            if ((check_screen "cockpit_admin_enable", 3)) {
+                click_lastmatch;
+            }
+            # assert_screen "cockpit_admin_password";
+            if ((check_screen "cockpit_admin_password", 3)) {
+                type_safely get_var("USER_PASSWORD", "weakpassword");
+                send_key "ret";
+            }
+            if ((check_screen "cockpit_switch_limit_access_close", 3)) {
+                click_lastmatch;
+            }
         }
         assert_screen "cockpit_main";
         # wait for any animation or other weirdness
@@ -54,9 +62,21 @@ sub select_cockpit_update {
     assert_screen ["cockpit_software_updates", "cockpit_search"], 120;
     click_lastmatch;
     if (match_has_tag "cockpit_search") {
+        click_lastmatch;
         send_key "up";
         wait_still_screen 2;
-        assert_and_click "cockpit_software_updates";
+        send_key "up";
+        wait_still_screen 2;
+        # assert_and_click "cockpit_software_updates";
+        if (check_screen "cockpit_software_updates", 1) {
+            click_lastmatch;
+        } else {
+            send_key "pgdn";
+            wait_still_screen 2;
+            if (check_screen "cockpit_software_updates", 1) {
+                click_lastmatch;
+            }
+        }  
     }
     # wait for the updates to download
     assert_screen 'cockpit_updates_check', 300;

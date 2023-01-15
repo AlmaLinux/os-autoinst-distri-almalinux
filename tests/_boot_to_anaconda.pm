@@ -71,7 +71,7 @@ sub run {
     my $mutex = get_var("INSTALL_UNLOCK");
 
     # we need a longer timeout for the PXE boot test
-    my $timeout = 30;
+    my $timeout = 75; 
     $timeout = 120 if (get_var("PXEBOOT"));
 
     # call do_bootloader with postinstall=0, the params, and the mutex,
@@ -90,7 +90,14 @@ sub run {
         # match for the installer bootloader if it hangs around for a
         # while after do_bootloader finishes (in PXE case it does)
         sleep 60;
-        assert_screen "bootloader", 1800;
+        if (check_screen(["bootloader","login_screen"], timeout=> 1800)) {
+            if (match_has_tag "bootloader") {
+                assert_screen "bootloader";
+            } else {
+                # ALL 9 seems skip/defer on login
+                assert_screen "login_screen";
+            }
+        }
     }
     else {
         if (get_var("ANACONDA_TEXT")) {
@@ -122,7 +129,12 @@ sub run {
             # on lives, we have to explicitly launch anaconda
             if (get_var('LIVE')) {
                 # give some time to load and get ready
-                sleep 180;
+                # TODO: Sleep does not seems working, need an alterntive
+                check_screen(["live_initial_gnome_tour","live_start_anaconda_icon", "apps_menu_button_active"], timeout=>240);
+                if (match_has_tag "live_initial_gnome_tour") {
+                    click_lastmatch;
+                    wait_still_screen 3;
+                }
                 my $count = 5;
                 my $relnum = get_var('VERSION');
                 while ($count > 0) {

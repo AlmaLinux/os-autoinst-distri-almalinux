@@ -306,14 +306,14 @@ sub get_full_repo {
 }
 
 sub get_mirrorlist_url {
-    # TODO: using custom mirror needs more work
+    # TODO: using custom mirror needs more work for all repo path like appstream, crb
     # Ex: fedora returns everyting: https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-37&arch=aarch64
     # Alma only returns base os in different format, needs overrides
     # https://mirrors.almalinux.org/mirrorlist/8/baseos
     # https://mirrors.almalinux.org/mirrorlist/8/appstream
-    #
-#    return "mirrors.fedoraproject.org/mirrorlist?repo=fedora-" . lc(get_var("VERSION")) . "&arch=" . get_var('ARCH');
-    return "mirrors.almalinux.org/mirrorlist/" . lc(get_var("VERSION")) . "/baseos" ;
+    # https://mirrors.almalinux.org/mirrorlist/8/baseos
+#    return "mirrors.fedora/mirrorlist?repo=fedora-" . lc(get_var("VERSION")) . "&arch=" . get_var('ARCH');
+    return "https://mirrors.almalinux.org/mirrorlist/" . lc(get_var("VERSION")) . "/baseos" ;
 }
 
 sub check_help_on_pane {

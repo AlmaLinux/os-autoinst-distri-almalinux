@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "ypos": 81,
+      "type": "match",
+      "height": 19,
+      "width": 16,
+      "xpos": 956
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "browser_download_complete",
+    "firefox_download_complete"
+  ]
+}
