@@ -1502,6 +1502,10 @@
         },
         "install_kickstart_firewall_configured": {
             "profiles": {
+                "Almalinux-minimal-iso-aarch64-*-aarch64": 20,
+                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
+                "Almalinux-minimal-iso-s390x-*-s390x": 20,
+                "Almalinux-minimal-iso-x86_64-*-64bit": 20,
                 "Almalinux-universal-aarch64-*-aarch64": 20,
                 "Almalinux-universal-ppc64le-*-ppc64le": 20,
                 "Almalinux-universal-s390x-*-s390x": 20,
@@ -1517,6 +1521,10 @@
         },
         "install_kickstart_firewall_disabled": {
             "profiles": {
+                "Almalinux-minimal-iso-aarch64-*-aarch64": 20,
+                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
+                "Almalinux-minimal-iso-s390x-*-s390x": 20,
+                "Almalinux-minimal-iso-x86_64-*-64bit": 20,
                 "Almalinux-universal-aarch64-*-aarch64": 20,
                 "Almalinux-universal-ppc64le-*-ppc64le": 20,
                 "Almalinux-universal-s390x-*-s390x": 20,
@@ -1532,6 +1540,10 @@
         },
         "install_kickstart_hdd": {
             "profiles": {
+                "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
+                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 30,
+                "Almalinux-minimal-iso-s390x-*-s390x": 30,
+                "Almalinux-minimal-iso-x86_64-*-64bit": 30,
                 "Almalinux-universal-aarch64-*-aarch64": 30,
                 "Almalinux-universal-ppc64le-*-ppc64le": 30,
                 "Almalinux-universal-s390x-*-s390x": 20,
@@ -1567,6 +1579,10 @@
         },
         "install_kickstart_user_creation": {
             "profiles": {
+                "Almalinux-minimal-iso-aarch64-*-aarch64": 20,
+                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
+                "Almalinux-minimal-iso-s390x-*-s390x": 20,
+                "Almalinux-minimal-iso-x86_64-*-64bit": 20,
                 "Almalinux-universal-aarch64-*-aarch64": 20,
                 "Almalinux-universal-ppc64le-*-ppc64le": 20,
                 "Almalinux-universal-s390x-*-s390x": 20,
