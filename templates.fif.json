@@ -2225,10 +2225,10 @@
         },
         "realmd_join_cockpit": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 30,
-                "Almalinux-minimal-iso-s390x-*-s390x": 30,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 30
+                "Almalinux-universal-aarch64-*-aarch64": 30,
+                "Almalinux-universal-ppc64le-*-ppc64le": 30,
+                "Almalinux-universal-s390x-*-s390x": 30,
+                "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
                 "+HDD_1": "disk_%MACHINE%_cockpit.qcow2",
@@ -2245,10 +2245,10 @@
         },
         "realmd_join_sssd": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 20,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
-                "Almalinux-minimal-iso-s390x-*-s390x": 20,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 20
+                "Almalinux-universal-aarch64-*-aarch64": 20,
+                "Almalinux-universal-ppc64le-*-ppc64le": 20,
+                "Almalinux-universal-s390x-*-s390x": 20,
+                "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
                 "BOOTFROM": "c",
@@ -2377,10 +2377,10 @@
         },
         "server_database_client": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 30,
-                "Almalinux-minimal-iso-s390x-*-s390x": 30,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 30
+                "Almalinux-universal-aarch64-*-aarch64": 30,
+                "Almalinux-universal-ppc64le-*-ppc64le": 30,
+                "Almalinux-universal-s390x-*-s390x": 30,
+                "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
                 "BOOTFROM": "c",
@@ -2428,10 +2428,10 @@
         },
         "server_freeipa_replication_client": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
-                "Almalinux-minimal-iso-s390x-*-s390x": 20,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 20
+                "Almalinux-universal-aarch64-*-aarch64": 30,
+                "Almalinux-universal-ppc64le-*-ppc64le": 20,
+                "Almalinux-universal-s390x-*-s390x": 20,
+                "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
                 "BOOTFROM": "c",
@@ -2449,10 +2449,10 @@
         },
         "server_freeipa_replication_master": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
-                "Almalinux-minimal-iso-s390x-*-s390x": 20,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 20
+                "Almalinux-universal-aarch64-*-aarch64": 30,
+                "Almalinux-universal-ppc64le-*-ppc64le": 20,
+                "Almalinux-universal-s390x-*-s390x": 20,
+                "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
                 "BOOTFROM": "c",
@@ -2470,10 +2470,10 @@
         },
         "server_freeipa_replication_replica": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
-                "Almalinux-minimal-iso-s390x-*-s390x": 20,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 20
+                "Almalinux-universal-aarch64-*-aarch64": 30,
+                "Almalinux-universal-ppc64le-*-ppc64le": 20,
+                "Almalinux-universal-s390x-*-s390x": 20,
+                "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
                 "BOOTFROM": "c",
@@ -2492,10 +2492,10 @@
         },
         "server_realmd_join_kickstart": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 20,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
-                "Almalinux-minimal-iso-s390x-*-s390x": 20,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 20
+                "Almalinux-universal-aarch64-*-aarch64": 20,
+                "Almalinux-universal-ppc64le-*-ppc64le": 20,
+                "Almalinux-universal-s390x-*-s390x": 20,
+                "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
                 "GRUB": "inst.ks=hd:vdb1:/freeipaclient.ks",
@@ -2513,10 +2513,10 @@
         },
         "server_remote_logging_client": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 20,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
-                "Almalinux-minimal-iso-s390x-*-s390x": 20,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 20
+                "Almalinux-universal-aarch64-*-aarch64": 20,
+                "Almalinux-universal-ppc64le-*-ppc64le": 20,
+                "Almalinux-universal-s390x-*-s390x": 20,
+                "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
                 "BOOTFROM": "c",
@@ -2533,10 +2533,10 @@
         },
         "server_remote_logging_server": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 20,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
-                "Almalinux-minimal-iso-s390x-*-s390x": 20,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 20
+                "Almalinux-universal-aarch64-*-aarch64": 20,
+                "Almalinux-universal-ppc64le-*-ppc64le": 20,
+                "Almalinux-universal-s390x-*-s390x": 20,
+                "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
                 "BOOTFROM": "c",
@@ -2553,10 +2553,10 @@
         },
         "server_role_deploy_database_server": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 20,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
-                "Almalinux-minimal-iso-s390x-*-s390x": 20,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 20
+                "Almalinux-universal-aarch64-*-aarch64": 20,
+                "Almalinux-universal-ppc64le-*-ppc64le": 20,
+                "Almalinux-universal-s390x-*-s390x": 20,
+                "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
                 "BOOTFROM": "c",
@@ -2573,10 +2573,10 @@
         },
         "server_role_deploy_domain_controller": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 20,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
-                "Almalinux-minimal-iso-s390x-*-s390x": 20,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 20
+                "Almalinux-universal-aarch64-*-aarch64": 20,
+                "Almalinux-universal-ppc64le-*-ppc64le": 20,
+                "Almalinux-universal-s390x-*-s390x": 20,
+                "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
                 "BOOTFROM": "c",
