@@ -1775,10 +1775,10 @@
         },
         "install_repository_nfs_graphical": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 30,
-                "Almalinux-minimal-iso-s390x-*-s390x": 30,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 30
+                "Almalinux-universal-aarch64-*-aarch64": 30,
+                "Almalinux-universal-ppc64le-*-ppc64le": 30,
+                "Almalinux-universal-s390x-*-s390x": 30,
+                "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
                 "INSTALL_UNLOCK": "support_ready",
@@ -1790,10 +1790,10 @@
         },
         "install_repository_nfs_variation": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 30,
-                "Almalinux-minimal-iso-s390x-*-s390x": 30,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 30
+                "Almalinux-universal-aarch64-*-aarch64": 30,
+                "Almalinux-universal-ppc64le-*-ppc64le": 30,
+                "Almalinux-universal-s390x-*-s390x": 30,
+                "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
                 "INSTALL_UNLOCK": "support_ready",
@@ -1805,10 +1805,10 @@
         },
         "install_repository_nfsiso_variation": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 30,
-                "Almalinux-minimal-iso-s390x-*-s390x": 30,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 30
+                "Almalinux-universal-aarch64-*-aarch64": 30,
+                "Almalinux-universal-ppc64le-*-ppc64le": 30,
+                "Almalinux-universal-s390x-*-s390x": 30,
+                "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
                 "INSTALL_UNLOCK": "support_ready",
@@ -1948,10 +1948,10 @@
         },
         "install_updates_nfs": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 40,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 40,
-                "Almalinux-minimal-iso-s390x-*-s390x": 40,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 40
+                "Almalinux-universal-aarch64-*-aarch64": 40,
+                "Almalinux-universal-ppc64le-*-ppc64le": 40,
+                "Almalinux-universal-s390x-*-s390x": 40,
+                "Almalinux-universal-x86_64-*-64bit": 40
             },
             "settings": {
                 "GRUB": "inst.stage2=nfs:nfsvers=4:172.16.2.110:/repo",
@@ -1965,10 +1965,10 @@
         },
         "install_vnc_client": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 40,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 40,
-                "Almalinux-minimal-iso-s390x-*-s390x": 40,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 40
+                "Almalinux-universal-aarch64-*-aarch64": 40,
+                "Almalinux-universal-ppc64le-*-ppc64le": 40,
+                "Almalinux-universal-s390x-*-s390x": 40,
+                "Almalinux-universal-x86_64-*-64bit": 40
             },
             "settings": {
                 "BOOTFROM": "c",
@@ -2577,14 +2577,6 @@
         },
         "support_server": {
             "profiles": {
-                "Almalinux-dvd-iso-aarch64-*-aarch64": 10,
-                "Almalinux-dvd-iso-ppc64le-*-ppc64le": 10,
-                "Almalinux-dvd-iso-s390x-*-s390x": 10,
-                "Almalinux-dvd-iso-x86_64-*-64bit": 10,
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 10,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 10,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 10,
-                "Almalinux-minimal-iso-s390x-*-s390x": 10,
                 "Almalinux-universal-aarch64-*-aarch64": 10,
                 "Almalinux-universal-ppc64le-*-ppc64le": 10,
                 "Almalinux-universal-s390x-*-s390x": 10,
