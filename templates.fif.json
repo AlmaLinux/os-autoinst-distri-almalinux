@@ -55,14 +55,14 @@
             "backend": "qemu",
             "settings": {
                 "ARCH_BASE_MACHINE": "s390x",
-                "OFW": 1,
                 "PART_TABLE_TYPE": "mbr",
                 "QEMU": "s390x",
-                "QEMUCPU": "s390-ccw-virtio",
+                "QEMU_APPEND": "bios /usr/share/qemu/390-ccw.img -boot once=cd0",
+                "QEMUMACHINE": "s390-ccw-virtio",
                 "QEMURAM": 4096,
-                "QEMUVGA": "virtio-gpu-ccw",
+                "QEMU_VIDEO_DEVICE": "virtio-gpu",
                 "QEMU_MAX_MIGRATION_TIME": "480",
-                "QEMU_VIRTIO_RNG": "1",
+                "QEMU_NO_KVM": "1",
                 "WORKER_CLASS": "qemu_s390x"
             }
         },
