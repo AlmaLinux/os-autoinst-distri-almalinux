@@ -1282,7 +1282,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 50
             },
             "settings": {
-                "ADD_REPOSITORY_GRAPHICAL": "ml:https://docs.openqa.almalinux.org/assets/uploads/openqa-testrepo-2.xml",
+                "ADD_REPOSITORY_GRAPHICAL": "ml:https://openqa-docs.almalinux.org/assets/uploads/openqa-testrepo-2.xml",
                 "POSTINSTALL": "_addrepo_metalink_post"
             }
         },
@@ -1398,6 +1398,7 @@
                 "Almalinux-minimal-iso-ppc64le-*-ppc64le": 10,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 10,
                 "Almalinux-minimal-iso-x86_64-*-uefi": 11,
+                "Almalinux-boot-iso-x86_64-*-uefi": 11,
                 "Almalinux-minimal-iso-s390x-*-s390x": 10,
                 "Almalinux-Calfblue-dvd_ostree-iso-x86_64-*-uefi": 51,
                 "Almalinux-gnome-live-iso-x86_64-*-uefi": 11
@@ -1512,7 +1513,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
-                "GRUB": "inst.ks=https://docs.openqa.almalinux.org/assets/kickstarts/firewall-configured-net.ks",
+                "GRUB": "inst.ks=https://openqa-docs.almalinux.org/assets/kickstarts/firewall-configured-net.ks",
                 "KICKSTART": "1",
                 "POSTINSTALL": "firewall_configured",
                 "ROOT_PASSWORD": "anaconda",
@@ -1531,7 +1532,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
-                "GRUB": "inst.ks=https://docs.openqa.almalinux.org/assets/kickstarts/firewall-disabled-net.ks",
+                "GRUB": "inst.ks=https://openqa-docs.almalinux.org/assets/kickstarts/firewall-disabled-net.ks",
                 "KICKSTART": "1",
                 "POSTINSTALL": "firewall_disabled",
                 "ROOT_PASSWORD": "anaconda",
@@ -1589,7 +1590,7 @@
                 "Almalinux-universal-x86_64-*-64bit": 20
             },
             "settings": {
-                "GRUB": "inst.ks=https://docs.openqa.almalinux.org/assets/kickstarts/root-user-crypted-net.ks",
+                "GRUB": "inst.ks=https://openqa-docs.almalinux.org/assets/kickstarts/root-user-crypted-net.ks",
                 "KICKSTART": "1",
                 "ROOT_PASSWORD": "111111",
                 "USER_LOGIN": "test",
@@ -1867,7 +1868,7 @@
             },
             "settings": {
                 "CDMODEL": "scsi-cd",
-                "GRUB": "inst.updates=https://docs.openqa.almalinux.org/assets/uploads/updates-openqa.img",
+                "GRUB": "inst.updates=https://openqa-docs.almalinux.org/assets/uploads/updates-openqa.img",
                 "HDDMODEL": "scsi-hd",
                 "SCSICONTROLLER": "virtio-scsi-pci",
                 "TEST_UPDATES": "1"
@@ -2272,10 +2273,6 @@
                 "Almalinux-KDE-live-iso-x86_64-*-64bit": 34,
                 "Almalinux-XFCE-live-iso-x86_64-*-64bit": 34,
                 "Almalinux-Minimal-raw_xz-raw.xz-aarch64-*-aarch64": 24,
-                "Almalinux-boot-iso-aarch64-*-aarch64": 25,
-                "Almalinux-boot-iso-ppc64le-*-ppc64le": 25,
-                "Almalinux-boot-iso-x86_64-*-64bit": 25,
-                "Almalinux-boot-iso-s390x-*-s390x": 25,
                 "Almalinux-dvd-iso-aarch64-*-aarch64": 24,
                 "Almalinux-dvd-iso-ppc64le-*-ppc64le": 24,
                 "Almalinux-dvd-iso-x86_64-*-64bit": 24,
