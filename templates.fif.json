@@ -2227,8 +2227,6 @@
         "realmd_join_cockpit": {
             "profiles": {
                 "Almalinux-universal-aarch64-*-aarch64": 30,
-                "Almalinux-universal-ppc64le-*-ppc64le": 30,
-                "Almalinux-universal-s390x-*-s390x": 30,
                 "Almalinux-universal-x86_64-*-64bit": 30
             },
             "settings": {
@@ -2328,8 +2326,6 @@
         "server_cockpit_basic": {
             "profiles": {
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 30,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 30,
-                "Almalinux-minimal-iso-s390x-*-s390x": 20,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 30
             },
             "settings": {
@@ -2344,8 +2340,6 @@
         "server_cockpit_default": {
             "profiles": {
                 "Almalinux-minimal-iso-aarch64-*-aarch64": 20,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 20,
-                "Almalinux-minimal-iso-s390x-*-s390x": 20,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 20
             },
             "settings": {
@@ -2360,6 +2354,7 @@
         },
         "server_cockpit_updates": {
             "profiles": {
+                "Almalinux-minimal-iso-aarch64-*-aarch64": 20,
                 "Almalinux-minimal-iso-x86_64-*-64bit": 30
             },
             "settings": {
