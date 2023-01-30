@@ -2001,10 +2001,10 @@
         },
         "install_vnc_server": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 40,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 40,
-                "Almalinux-minimal-iso-s390x-*-s390x": 40,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 40
+                "Almalinux-universal-aarch64-*-aarch64": 40,
+                "Almalinux-universal-ppc64le-*-ppc64le": 40,
+                "Almalinux-universal-s390x-*-s390x": 40,
+                "Almalinux-universal-x86_64-*-64bit": 40
             },
             "settings": {
                 "GRUB": "inst.vnc net.ifnames=0 biosdevname=0 ip=172.16.2.114::172.16.2.2:255.255.255.0:vnc001.test.openqa.almalinux.org:eth0:off",
@@ -2015,10 +2015,10 @@
         },
         "install_vncconnect_client": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 40,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 40,
-                "Almalinux-minimal-iso-s390x-*-s390x": 40,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 40
+                "Almalinux-universal-aarch64-*-aarch64": 40,
+                "Almalinux-universal-ppc64le-*-ppc64le": 40,
+                "Almalinux-universal-s390x-*-s390x": 40,
+                "Almalinux-universal-x86_64-*-64bit": 40
             },
             "settings": {
                 "BOOTFROM": "c",
@@ -2033,10 +2033,10 @@
         },
         "install_vncconnect_server": {
             "profiles": {
-                "Almalinux-minimal-iso-aarch64-*-aarch64": 40,
-                "Almalinux-minimal-iso-ppc64le-*-ppc64le": 40,
-                "Almalinux-minimal-iso-s390x-*-s390x": 40,
-                "Almalinux-minimal-iso-x86_64-*-64bit": 40
+                "Almalinux-universal-aarch64-*-aarch64": 40,
+                "Almalinux-universal-ppc64le-*-ppc64le": 40,
+                "Almalinux-universal-s390x-*-s390x": 40,
+                "Almalinux-universal-x86_64-*-64bit": 40
             },
             "settings": {
                 "GRUB": "inst.vnc inst.vncconnect=172.16.2.117:5500 net.ifnames=0 biosdevname=0 ip=172.16.2.116::172.16.2.2:255.255.255.0:vnc003.test.openqa.almalinux.org:eth0:off",
@@ -2156,8 +2156,8 @@
         },
         "memory_check": {
             "profiles": {
-                "Almalinux-dvd-iso-x86_64-*-64bit": 30,
-                "Almalinux-dvd-iso-x86_64-*-uefi": 31
+                "Almalinux-universal-x86_64-*-64bit": 30,
+                "Almalinux-universal-x86_64-*-uefi": 31
             },
             "settings": {
                 "GRUB": "ip=dhcp",
