@@ -13,6 +13,7 @@ sub run {
     # Create the expected content of the release file
     # and compare it with its real counterpart.
     my $expected = "AlmaLinux release $expectver ($os_codename)";
+    $expected = "AlmaLinux release $expectver Beta ($os_codename)" if (get_var('BETA'));
     validate_script_output 'cat /etc/almalinux-release', sub { $_ eq $expected };
 }
 

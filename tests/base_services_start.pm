@@ -37,6 +37,10 @@ sub run {
             assert_script_run "systemctl is-failed lm_sensors.service";
             record_soft_failure "lm_sensors failed - https://bugzilla.redhat.com/show_bug.cgi?id=1899896";
         }
+        elsif ($arch eq "x86_64") {
+            # mcelog.service doesn't support AMD Platform Level >= 25 on AlmaLinux 8.8 and 9.2
+            assert_script_run('systemctl is-failed mcelog.service');
+        }
         else {
             die "Unexpected service start failure";
         }

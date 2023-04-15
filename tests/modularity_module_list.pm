@@ -8,12 +8,16 @@ sub run {
     my $self = shift;
     # switch to tty and login as root
     $self->root_console(tty => 3);
-    
+
     # The test case will check that dnf has modular functions and that
     # it is possible to invoke modular commands to work with modularity.
 
     # Check that modular repositories are installed and enabled.
     # If the repository does not exist, the output of the command is empty.
+
+    # TODO: Remove "-iso" from boot, minimal and dvd flavors.
+    # Enable networking on AlmaLinux 8 minimal and dvd ISOs
+    $self->enable_network if ((get_var('FLAVOR') =~ /(minimal|dvd)(-iso)?/) && (get_var('VERSION') =~ /8.([3-9]|[1-9][0-9])/));
 
     # Check that modularity works and dnf can list the modules.
     my $modules = script_output('dnf module list', timeout => 270);
@@ -29,12 +33,12 @@ sub run {
     # Check that dnf lists the enabled modules.
     $modules = script_output('dnf module list --enabled', timeout => 270);
     @modules = parse_module_list($modules);
-    if ((get_version_major() < 9) && (get_var("FLAVOR") ne "minimal-iso")) {
+    if ((get_version_major() < 9) && (get_var("FLAVOR") !~ /minimal[-iso]?/)) {
        die "There should be enabled modules, the list should not be empty." if (scalar @modules == 0);
     } else {
        die "There seem to be enabled modules when the list should be empty." unless (scalar @modules == 0);
     }
- 
+
     # Check that dnf lists the disabled modules.
     $modules = script_output('dnf module list --disabled', timeout => 270);
     @modules = parse_module_list($modules);

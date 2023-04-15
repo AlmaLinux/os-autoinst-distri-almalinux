@@ -250,17 +250,17 @@ sub custom_change_fs {
     # `custom_change_fs("ext4", "root");` uses
     # `anaconda_part_select_root` and `anaconda_part_fs_ext4` needles
     # to set ext4 file system for root partition.
-    my ($fs, $part) = @_;
+    my ($fs, $part, $timeout) = @_;
     $part ||= "root";
-    assert_and_click "anaconda_part_select_$part";
+    assert_and_click("anaconda_part_select_$part", timeout => $timeout);
     wait_still_screen 5;
     # if fs is already set correctly, do nothing
     return if (check_screen "anaconda_part_fs_${fs}_selected", 5);
-    assert_and_click "anaconda_part_fs";
+    assert_and_click("anaconda_part_fs", timeout => $timeout);
     # Move the mouse away from the menu
     mouse_set(10, 10);
-    assert_and_click "anaconda_part_fs_$fs";
-    assert_and_click "anaconda_part_update_settings";
+    assert_and_click("anaconda_part_fs_$fs", timeout => $timeout);
+    assert_and_click("anaconda_part_update_settings", timeout => $timeout);
     wait_still_screen 5;
 }
 
@@ -347,25 +347,34 @@ sub check_help_on_pane {
         # Check the Installation Progress screen
         # TODO: screen not exits
         # assert_screen "anaconda_help_installation_progress";
-    } 
+    }
     elsif ($screen eq "keyboard_layout" || $screen eq "language_support" || $screen eq "time_date") {
         wait_still_screen 2;
-#        if (check_screen("anaconda_help_keyboard_layout_pre_localization", 5)) {
-            assert_and_click "anaconda_help_keyboard_layout_pre_localization";
-            wait_still_screen 3;
-#        }
-#        if (check_screen("anaconda_help_keyboard_layout", 2)) {
-            assert_and_click "anaconda_help_keyboard_layout";
-            wait_still_screen 3;
-#        }
-        if ($screen eq "language_support" ) {
-            assert_and_click "anaconda_help_language_support";
-            wait_still_screen 3;
+        my @major_version = split(/\./, get_var('VERSION'));
+        my @minor_version = split(/\./, get_var('VERSION'));
+        if ((($major_version[0] == 8) && ($minor_version[1] >= 8)) || (($major_version[0] == 9) && ($minor_version[1] >= 2))) {
+            assert_screen('anaconda_help_localization_options')
+        }
+        else {
+#            if (check_screen("anaconda_help_keyboard_layout_pre_localization", 5)) {
+                assert_and_click "anaconda_help_keyboard_layout_pre_localization";
+                wait_still_screen 3;
+#            }
+#            if (check_screen("anaconda_help_keyboard_layout", 2)) {
+                assert_and_click "anaconda_help_keyboard_layout";
+                wait_still_screen 3;
+#            }
+            if ($screen eq "language_support" ) {
+                assert_and_click "anaconda_help_language_support";
+                wait_still_screen 3;
+            }
         }
     }
     # Otherwise, only check the relevant screen.
     else {
-        assert_screen "anaconda_help_$screen";
+        my $timeout = 30;
+        $timeout = 1200 if (get_var('ARCH') eq 's390x');
+        assert_screen("anaconda_help_$screen", $timeout);
     }
     # Close Help window
     assert_and_click "anaconda_help_quit";

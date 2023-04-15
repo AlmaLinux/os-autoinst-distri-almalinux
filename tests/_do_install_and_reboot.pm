@@ -86,6 +86,9 @@ sub run {
     if ($version eq "rawhide" || lc(get_var('DISTRI')) eq "almalinux") {
         $timeout = 4200;
     }
+    if (get_var('ARCH') eq 's390x') {
+        $timeout = 20000;
+    }
     # workstation especially has an unfortunate habit of kicking in
     # the screensaver during install...
     my $interval = 60;
@@ -122,6 +125,7 @@ sub run {
     # memcheck test doesn't need to reboot at all. Rebooting from GUI
     # for lives is unreliable. And if we're already doing something
     # else at a console, we may as well reboot from there too
+    push(@actions, 's390x') if ((get_var('ARCH') eq 's390x') && (get_var('FLAVOR') =~ /(boot|dvd)[-iso]?/));
     push(@actions, 'reboot') if (!get_var("MEMCHECK") && (get_var("LIVE") || @actions));
     # our approach for taking all these actions doesn't work on VNC
     # installs, fortunately we don't need any of them in that case
@@ -171,6 +175,10 @@ sub run {
     }
     if (grep { $_ eq 'noplymouth' } @actions) {
         assert_script_run "chroot $mount dnf -y remove plymouth";
+    }
+    if (grep { $_ eq 's390x' } @actions) {
+        assert_script_run('printf \'TimeoutStartSec=1200\n\' >> /mnt/sysimage/usr/lib/systemd/user/org.gnome.Shell@wayland.service');
+        assert_script_run('printf \'TimeoutStartSec=1200\n\' >> /mnt/sysimage/usr/lib/systemd/user/org.gnome.Shell@x11.service');
     }
     type_string "reboot\n" if (grep { $_ eq 'reboot' } @actions);
 }

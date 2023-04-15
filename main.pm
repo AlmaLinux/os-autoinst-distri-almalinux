@@ -245,23 +245,24 @@ sub _load_early_postinstall_tests {
     #    return;
     #}
 
-    # Check PACKAGE_SET variable and Activate console login 
+    # Check PACKAGE_SET variable and Activate console login
     # for minimal/server-product/virtualization-host
     # Also if no "DESKTOP" variable defined/empty
     my $package_set = get_var("PACKAGE_SET");
-    my $desktop = get_var("DESKTOP", "unset"); 
+    my $desktop = get_var("DESKTOP", "unset");
 
+    # TODO: Remove "-iso" from boot, minimal and dvd flavors.
     # Appropriate login method for install type
-    if (($desktop eq "unset") && 
-        (get_var("FLAVOR") eq "boot-iso" || get_var("FLAVOR") eq "dvd-iso")  && 
-        (get_var("TEST") eq "install_default" || 
+    if (($desktop eq "unset") &&
+        (get_var("FLAVOR") =~ /boot[-iso]?/ || get_var("FLAVOR") =~ /dvd[-iso]?/)  &&
+        (get_var("TEST") eq "install_default" ||
         get_var("TEST") eq "install_default_upload" ||
         get_var("DEPLOY_UPLOAD_TEST" eq "install_default_upload"))) {
         $desktop = "gnome";
-        # if desktop value not set, override 
+        # if desktop value not set, override
         set_var("DESKTOP", "gnome");
     }
-    if (get_var("FLAVOR") eq "minimal-iso"  ||
+    if (get_var("FLAVOR") =~ /minimal[-iso]?/  ||
         $desktop eq "false" ||
         $desktop eq "unset" ||
         $package_set eq "minimal" || $package_set eq "server" ||
@@ -270,7 +271,7 @@ sub _load_early_postinstall_tests {
         return;
     }
 
-    if ($desktop eq "gnome" || $desktop eq "kde" || 
+    if ($desktop eq "gnome" || $desktop eq "kde" ||
         $desktop eq "xfce" || $desktop eq "mate" ||
         $package_set eq "default" || $package_set eq "workstation") {
         _load_instance("tests/_graphical_wait_login", $instance);

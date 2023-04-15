@@ -14,10 +14,10 @@ sub run {
         do_bootloader(postinstall => 1, params => get_var("GRUB_POSTINSTALL"), timeout => $wait_time);
         $wait_time = 240;
     }
-
-    if ((get_var("FLAVOR") eq "boot-iso" || get_var("FLAVOR") eq "dvd-iso")  && (get_var("DEPLOY_UPLOAD_TEST") eq "install_default_upload")) {
+    # TODO: Remove "-iso" from boot, minimal and dvd flavors.
+    if ((get_var("FLAVOR") =~ /boot[-iso]?/ || get_var("FLAVOR") =~ /dvd[-iso]?/)  && (get_var("DEPLOY_UPLOAD_TEST") eq "install_default_upload")) {
         sleep $wait_time;
-        # console login requested on a graphical install, switch to console and logout 
+        # console login requested on a graphical install, switch to console and logout
         if (check_screen "gdm_initial_setup_license", 5) {
             # for AlmaLinuxere happens to be a license acceptance screen
             # the initial appearance can sometimes take really long

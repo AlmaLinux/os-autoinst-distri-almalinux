@@ -5,6 +5,10 @@ use testapi;
 sub run {
     my $self = shift;
     $self->root_console(tty => 4);
+
+    # Enable networking on AlmaLinux 8 minimal and dvd ISOs
+    $self->enable_network if ((get_var('FLAVOR') =~ /(minimal|dvd)(-iso)?/) && (get_var('VERSION') =~ /8.([3-9]|[1-9][0-9])/));
+
     assert_script_run 'top -i -n20 -b > /var/tmp/top.log', 120;
     upload_logs '/var/tmp/top.log';
     unless (get_var("CANNED")) {

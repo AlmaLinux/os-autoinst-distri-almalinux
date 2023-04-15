@@ -8,6 +8,9 @@ sub run {
     # switch to TTY3 for both, graphical and console tests
     $self->root_console(tty => 3);
 
+    # Enable networking on AlmaLinux 8 minimal and dvd ISOs
+    $self->enable_network if ((get_var('FLAVOR') =~ /(minimal|dvd)(-iso)?/) && (get_var('VERSION') =~ /8.([3-9]|[1-9][0-9])/));
+
     # This test case tests that packages can be correctly installed and removed.
     # We will test by installing two packages - ftp and mc.
     #

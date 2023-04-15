@@ -10,6 +10,10 @@ sub run {
     # switch to tty and login as root
     $self->root_console(tty => 3);
 
+    # TODO: Remove "-iso" from boot, minimal and dvd flavors.
+    # Enable networking on AlmaLinux 8 minimal and dvd ISOs
+    $self->enable_network if ((get_var('FLAVOR') =~ /(minimal|dvd)(-iso)?/) && (get_var('VERSION') =~ /8.([3-9]|[1-9][0-9])/));
+
     # Enable the module.
     # my $name = "mysql";
     # my $stream = "8.0";
@@ -35,7 +39,7 @@ sub run {
     # my $name_alt = "nginx";
     # my $stream_alt = "mainline";
     my $name_alt = "ruby";
-    my $stream_alt = "3.1";    
+    my $stream_alt = "3.1";
     assert_script_run("dnf module disable -y $name_alt:$stream_alt");
 
     # Check that it is listed in the disabled list.

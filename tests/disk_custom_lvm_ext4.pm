@@ -5,6 +5,8 @@ use anaconda;
 
 sub run {
     my $self = shift;
+    my $timeout = 30;
+    $timeout = 1200 if (get_var('ARCH') eq 's390x');
     # Go to INSTALLATION DESTINATION and ensure the disk is selected.
     # Because PARTITIONING starts with 'custom_', this will select custom.
     select_disks();
@@ -16,8 +18,8 @@ sub run {
     # Do 'automatic' partition creation
     assert_and_click "anaconda_part_automatic";
     # Change file system to ext4 on root and boot partitions.
-    custom_change_fs("ext4", "boot");
-    custom_change_fs("ext4", "root");
+    custom_change_fs("ext4", "boot", $timeout);
+    custom_change_fs("ext4", "root", $timeout);
     # Confirm changes
     assert_and_click "anaconda_spoke_done";
     assert_and_click "anaconda_part_accept_changes";

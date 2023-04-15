@@ -85,9 +85,16 @@ sub run {
     my $version = "$version_id ($code_name)";
     my $platform_id = "platform:$eltag";
     my $pretty = "$fullname $version_id ($code_name)";
+    $pretty = "$fullname $version_id Beta ($code_name)" if (get_var('BETA'));
     # $version_id = $rawrel if ($version_id eq "Rawhide");
     $version_id = "\"$version_id\""; # expects as String
-    $target = "\"$target\""; # expects as String
+
+    if (get_var('BETA')) {
+        $target = "\"$target Beta\"";
+    }
+    else {
+        $target = "\"$target\""; # expects as String
+    }
 
     # the 'generic' os-release in fedora-release has no VARIANT or
     # VARIANT_ID and the string used in values like VERSION, that in other

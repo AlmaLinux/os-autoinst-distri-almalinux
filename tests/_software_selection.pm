@@ -7,6 +7,7 @@ sub run {
     # Anaconda hub
     assert_screen "anaconda_main_hub", 300;
 
+    # TODO: Remove "-iso" from boot, minimal and dvd flavors.
     # Select package set. Minimal is the default, if 'default' is specified, skip selection,
     # but verify correct default in some cases
     my $packageset = get_var('PACKAGE_SET', 'default');
@@ -16,7 +17,7 @@ sub run {
         $self->root_console;
         # my $env = 'custom-environment';
         my $env = 'graphical-server-environment';
-        if (get_var('FLAVOR') eq 'minimal-iso')  {
+        if (get_var('FLAVOR') =~ /minimal[-iso]?/)  {
             $env = 'minimal-environment';
         }
         # find line looks like:

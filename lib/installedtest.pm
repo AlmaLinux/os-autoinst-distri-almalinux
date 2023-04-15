@@ -32,6 +32,10 @@ sub root_console {
     console_login(timeout => $args{timeout});    # Do the login.
 }
 
+sub enable_network {
+    assert_script_run('nmcli device up $(nmcli -f DEVICE device status | grep -E \'^e(n|t).*\')');
+}
+
 sub post_fail_hook {
     my $self = shift;
 
@@ -169,6 +173,7 @@ sub post_fail_hook {
     }
 
 }
+
 
 1;
 

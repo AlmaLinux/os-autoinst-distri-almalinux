@@ -71,8 +71,9 @@ sub run {
     my $mutex = get_var("INSTALL_UNLOCK");
 
     # we need a longer timeout for the PXE boot test
-    my $timeout = 75; 
+    my $timeout = 75;
     $timeout = 120 if (get_var("PXEBOOT"));
+    $timeout = 600 if (get_var('ARCH') eq 's390x');
 
     # call do_bootloader with postinstall=0, the params, and the mutex,
     # unless we're a VNC install client (no bootloader there)
@@ -90,14 +91,8 @@ sub run {
         # match for the installer bootloader if it hangs around for a
         # while after do_bootloader finishes (in PXE case it does)
         sleep 60;
-        if (check_screen(["bootloader","login_screen"], timeout=> 1800)) {
-            if (match_has_tag "bootloader") {
-                assert_screen "bootloader";
-            } else {
-                # ALL 9 seems skip/defer on login
-                assert_screen "login_screen";
-            }
-        }
+        # assert_screen "bootloader", 1800;
+        assert_screen(['bootloader', 'login_screen'], timeout => 1800);
     }
     else {
         if (get_var("ANACONDA_TEXT")) {
@@ -181,7 +176,12 @@ sub run {
             my $language = get_var('LANGUAGE') || 'english';
             # wait for anaconda to appear; we click to work around
             # RHBZ #1566066 if it happens
-            assert_and_click("anaconda_select_install_lang", timeout => 300);
+            if (get_var('ARCH') eq 's390x') {
+                assert_and_click("anaconda_select_install_lang", timeout => 1200);
+            }
+            else {
+                assert_and_click("anaconda_select_install_lang", timeout => 300);
+            }
             if ( get_var('FLAVOR') eq 'MATE-live-iso' ) {
                 mouse_set(100,100);
                 mouse_hide;
@@ -208,8 +208,8 @@ sub run {
             # the nag screen can take a LONG time to appear sometimes).
             # If the hub appears, return - we're done now. If Rawhide
             # warning dialog appears, accept it.
-            if (check_screen ["anaconda_rawhide_accept_fate", "anaconda_main_hub"], 180) {
-                if (match_has_tag("anaconda_rawhide_accept_fate")) {
+            if (check_screen ["anaconda_prerelease_warning", "anaconda_main_hub"], 180) {
+                if (match_has_tag("anaconda_prerelease_warning")) {
                     # assert_and_click "anaconda_rawhide_accept_fate";
                     click_lastmatch;
                 }
@@ -218,6 +218,8 @@ sub run {
                     return;
                 }
             }
+
+            # assert_and_click('anaconda_prerelease_warning') if (get_var('BETA'));
 
             # If we want to test self identification, in the test suite
             # we set "identification" to "true".

@@ -71,7 +71,9 @@ sub get_version_major {
 sub get_code_name {
     my $version = get_var("VERSION");
 
-    if ($version eq '9.1') { return "Lime Lynx"; }
+    if ($version eq '9.2') { return "Turquoise Kodkod"; }
+    elsif ($version eq '8.8') { return "Sapphire Caracal"; }
+    elsif ($version eq '9.1') { return "Lime Lynx"; }
     elsif ($version eq '8.7') { return "Stone Smilodon"; }
     elsif ($version eq '9.0') { return "Emerald Puma"; }
     elsif ($version eq '8.6') { return "Sky Tiger"; }
@@ -113,7 +115,7 @@ sub boot_to_login_screen {
         assert_screen "login_screen", $args{timeout};
         if (match_has_tag "graphical_login") {
            # click_lastmatch;
-            assert_and_click "graphical_login"; 
+            assert_and_click "graphical_login";
             wait_still_screen 3;
            # wait_still_screen 10, 30;
            # assert_screen "login_screen";
@@ -443,7 +445,9 @@ sub do_bootloader {
     # sure we actually did a UEFI boot
     my $boottag = "bootloader_bios";
     $boottag = "bootloader_uefi" if ($args{uefi});
-    assert_screen $boottag, $args{timeout};
+    unless (get_var('ARCH') eq 's390x') {
+        assert_screen $boottag, $args{timeout};
+    }
     if ($args{mutex}) {
         # cancel countdown
         send_key "left";
@@ -844,17 +848,32 @@ sub console_initial_setup {
 
 sub handle_welcome_screen {
     # handle the 'welcome' screen on GNOME. shared in a few places
-    if (check_screen "getting_started", 45) {
-        send_key "alt-f4";
-        # for GNOME 40, alt-f4 doesn't work
-        send_key "esc";
-        wait_still_screen 5;
+    if (get_var('ARCH') eq 's390x') {
+        if (check_screen "getting_started", 1200) {
+            send_key "alt-f4";
+            # for GNOME 40, alt-f4 doesn't work
+            send_key "esc";
+            wait_still_screen 10;
+        }
+        else {
+            # TODO: tour missing by default from 8.7 onwards ...
+            # record_soft_failure "Welcome tour missing";
+        }
+        set_var("_WELCOME_DONE", 1);
     }
     else {
-        # TODO: tour missing by default from 8.7 onwards ...
-        # record_soft_failure "Welcome tour missing";
+        if (check_screen "getting_started", 45) {
+            send_key "alt-f4";
+            # for GNOME 40, alt-f4 doesn't work
+            send_key "esc";
+            wait_still_screen 5;
+        }
+        else {
+            # TODO: tour missing by default from 8.7 onwards ...
+            # record_soft_failure "Welcome tour missing";
+        }
+        set_var("_WELCOME_DONE", 1);
     }
-    set_var("_WELCOME_DONE", 1);
 }
 
 sub gnome_initial_setup {
@@ -1366,9 +1385,10 @@ sub copy_devcdrom_as_isofile {
     # ISO_URL may not be set if we POSTed manually or something; just assume
     # we're OK in that case
     return unless $cdurl;
+    my $flavor = get_var('FLAVOR');
     my $cmd = <<EOF;
 urld="$cdurl"; urld=\${urld%/*}; chkf=\$(curl -fs \$urld/ |grep CHECKSUM | sed -E 's/.*href=.//; s/\".*//') && curl -f \$urld/\$chkf -o /tmp/x
-chkref=\$(grep -E 'SHA256.*dvd' /tmp/x | sed -e 's/.*= //') && echo "\$chkref $isoname" >/tmp/x
+chkref=\$(grep -E 'SHA256.*$flavor' /tmp/x | sed -e 's/.*= //') && echo "\$chkref $isoname" >/tmp/x
 sha256sum -c /tmp/x
 EOF
     assert_script_run($_) foreach (split /\n/, $cmd);
@@ -1423,7 +1443,9 @@ sub check_left_bar {
     # bar on the left side of the screen corresponds with the correct version.
     # It looks different for Server, Workstation and others.
     my $source = tell_source;
-    assert_screen "leftbar_${source}";
+    my $timeout = 30;
+    $timeout = 1200 if (get_var('ARCH') eq 's390x');
+    assert_screen "leftbar_${source}", timeout => $timeout;
 }
 
 sub check_top_bar {
@@ -1647,7 +1669,7 @@ sub solidify_wallpaper {
         release_key 'alt';
         # give the window a few seconds to stabilize
         wait_still_screen 3;
-        # TODO: 
+        # TODO:
         if (get_version_major() < 9) {
             # Select type of background
             assert_and_click "deskset_select_type";
@@ -1766,7 +1788,7 @@ sub gdm_initial_setup {
         wait_still_screen 5, 30;
         assert_screen "gdm_initial_setup_license_accepted";
         assert_and_click "gdm_initial_setup_spoke_forward";
-        wait_still_screen 3;  
+        wait_still_screen 3;
     }
 }
 

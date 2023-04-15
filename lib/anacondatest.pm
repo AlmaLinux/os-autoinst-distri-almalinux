@@ -146,6 +146,10 @@ sub root_console {
     console_login(user => "root", timeout => $args{timeout});
 }
 
+sub enable_network {
+    assert_script_run('nmcli device up $(nmcli -f DEVICE device status | grep -E \'^e(n|t).*\')');
+}
+
 1;
 
 # vim: set sw=4 et:

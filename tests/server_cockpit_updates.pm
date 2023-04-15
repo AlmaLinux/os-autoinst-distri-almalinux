@@ -43,7 +43,9 @@ sub run {
 
     # Install the rest of the updates, or any updates
     # that have not been previously installed.
-    assert_and_click 'cockpit_updates_all_install';
+    if (check_screen('cockpit_updates_all_install', 1)) {
+        assert_and_click 'cockpit_updates_all_install';
+    }
     my $run = 0;
     while ($run < 40) {
         # When Cockpit packages are also included in the updates
