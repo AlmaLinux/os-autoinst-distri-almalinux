@@ -1042,6 +1042,7 @@ sub anaconda_create_user {
         wait_still_screen 2;
         _type_user_password();
     }
+    assert_and_click('anaconda_make_user_admin');
     assert_and_click "anaconda_spoke_done";
     # since 20170105, we will get a warning here when the password
     # contains non-ASCII characters. Assume only switched layouts
