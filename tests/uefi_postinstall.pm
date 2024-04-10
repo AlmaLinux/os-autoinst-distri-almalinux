@@ -13,6 +13,8 @@ sub run {
     console_loadkeys_us;
     # this test shows if the system is booted with efi
     assert_script_run '[ -d /sys/firmware/efi/ ]';
+    # check if Secure Boot is working
+    validate_script_output('mokutil --sb-state', qr/SecureBoot enabled/, title => 'Secure Boot check', fail_message => 'Secure Boot is not working.');
 }
 
 sub test_flags {
