@@ -12,7 +12,6 @@ sub run {
     # Enable networking on AlmaLinux 8 minimal and dvd ISOs
     $self->enable_network if ((get_var('FLAVOR') =~ /(minimal|dvd)(-iso)?/) && (get_var('VERSION') =~ /8.([3-9]|[1-9][0-9])/));
     # grab the test repo definitions
-    assert_script_run "curl -o /etc/yum.repos.d/openqa-testrepo-1.repo https://build.almalinux.org/pulp/content/copr/eabdullin1-openqa-almalinux-9-" . get_var("ARCH") . "-dr/config.repo";
     # enable test repos and install test packages
     prepare_test_packages;
     # check rpm agrees they installed good
