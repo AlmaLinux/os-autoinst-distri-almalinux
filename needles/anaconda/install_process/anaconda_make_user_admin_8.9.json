@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 375,
+      "type": "match",
+      "width": 196,
+      "ypos": 185,
+      "height": 25
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_make_user_admin"
+  ]
+}
