@@ -71,7 +71,9 @@ sub get_version_major {
 sub get_code_name {
     my $version = get_var("VERSION");
 
-    if ($version eq '9.3') { return "Shamrock Pampas Cat"; }
+    if ($version eq '9.4') { return "Seafoam Ocelot"; }
+    elsif ($version eq '8.10') { return "Cerulean Leopard"; }
+    elsif ($version eq '9.3') { return "Shamrock Pampas Cat"; }
     elsif ($version eq '8.9') { return "Midnight Oncillla"; }
     elsif ($version eq '9.2') { return "Turquoise Kodkod"; }
     elsif ($version eq '8.8') { return "Sapphire Caracal"; }
