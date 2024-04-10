@@ -1,0 +1,40 @@
+{
+  "area": [
+    {
+      "height": 16,
+      "width": 158,
+      "ypos": 33,
+      "xpos": 780,
+      "type": "match"
+    },
+    {
+      "xpos": 224,
+      "ypos": 155,
+      "type": "match",
+      "height": 51,
+      "width": 340
+    },
+    {
+      "width": 85,
+      "height": 15,
+      "type": "match",
+      "xpos": 513,
+      "ypos": 579
+    },
+    {
+      "click_point": {
+        "ypos": 7.5,
+        "xpos": 56
+      },
+      "xpos": 651,
+      "ypos": 579,
+      "width": 112,
+      "height": 15,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_prerelease_warning"
+  ]
+}
