@@ -1384,7 +1384,7 @@ sub copy_devcdrom_as_isofile {
     # copy /dev/cdrom as iso file and verify checksum is same
     # as cdrom previously retrieved from ISO_URL
     my $isoname = shift;
-    assert_script_run "dd if=/dev/cdrom of=$isoname", 360;
+    assert_script_run "dd if=/dev/cdrom of=$isoname", 600;
     # verify iso checksum
     my $cdurl = get_var('ISO_URL');
     # ISO_URL may not be set if we POSTed manually or something; just assume
