@@ -7,25 +7,22 @@ sub run {
     my $self = shift;
     # switch to TTY3 for both, graphical and console tests
     $self->root_console(tty => 3);
-    my $timeout = 600;
-    $timeout = 1200 if (get_var('ARCH') eq 's390x');
-    # Enable networking on AlmaLinux 8 minimal and dvd ISOs
-    $self->enable_network if ((get_var('FLAVOR') =~ /(minimal|dvd)(-iso)?/) && (get_var('VERSION') =~ /8.([3-9]|[1-9][0-9])/));
-    # grab the test repo definitions
     # enable test repos and install test packages
     prepare_test_packages;
     # check rpm agrees they installed good
     verify_installed_packages;
-    # update the fake tini-static (should come from the real repo)
+    # we should disable the test repos now
+    my $disable = '--disablerepo=openqa-testrepo*';
+    # update the fake acpica-tools (should come from the real repo)
     # this can take a long time if we get unlucky with the metadata refresh
-    assert_script_run('dnf -y update tini-static', timeout => $timeout);
+    assert_script_run "dnf -y $disable update acpica-tools", 600;
     # check we got the updated version
     verify_updated_packages;
-    # now remove tini-static, and see if we can do a straight
+    # now remove acpica-tools, and see if we can do a straight
     # install from the default repos
-    assert_script_run 'dnf -y remove tini-static';
-    assert_script_run('dnf -y install tini-static', timeout => $timeout);
-    assert_script_run 'rpm -V tini-static';
+    assert_script_run 'dnf -y remove acpica-tools';
+    assert_script_run "dnf -y $disable install acpica-tools", 120;
+    assert_script_run 'rpm -V acpica-tools';
 }
 
 sub test_flags {
