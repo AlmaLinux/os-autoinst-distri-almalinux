@@ -7,6 +7,8 @@ sub run {
     my $self = shift;
     # switch to TTY3 for both, graphical and console tests
     $self->root_console(tty => 3);
+    # enable networking on AlmaLinux OS 8 minimal and dvd ISOs
+    $self->enable_network if get_var('VERSION') =~ /8.([3-9]|[1-9][0-9])/ && get_var('FLAVOR') =~ /(minimal|dvd)/;
     # enable test repos and install test packages
     prepare_test_packages;
     # check rpm agrees they installed good
