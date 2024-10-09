@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "ypos": 219,
+      "xpos": 42,
+      "width": 243,
+      "height": 35
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_help_user_creation"
+  ]
+}

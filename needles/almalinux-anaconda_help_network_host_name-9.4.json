@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "xpos": 9,
+      "height": 34,
+      "width": 700,
+      "type": "match",
+      "ypos": 124
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "anaconda_help_network_host_name"
+  ]
+}

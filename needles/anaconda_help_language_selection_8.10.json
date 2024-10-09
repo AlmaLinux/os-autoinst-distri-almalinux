@@ -1,0 +1,36 @@
+{
+  "area": [
+    {
+      "width": 681,
+      "height": 38,
+      "xpos": 40,
+      "type": "match",
+      "ypos": 218
+    },
+    {
+      "type": "match",
+      "ypos": 428,
+      "width": 170,
+      "height": 14,
+      "xpos": 273
+    },
+    {
+      "xpos": 273,
+      "height": 15,
+      "width": 171,
+      "type": "match",
+      "ypos": 428
+    },
+    {
+      "height": 19,
+      "width": 235,
+      "xpos": 202,
+      "ypos": 638,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_help_language_selection"
+  ]
+}
