@@ -71,7 +71,18 @@ sub get_version_major {
 sub get_code_name {
     my $version = get_var("VERSION");
 
-    if ($version eq '9.5') { return "Teal Serval"; }
+    if ($version eq '10.5') { return "Periwinkle Lion"; }
+    elsif ($version eq '10.4') { return "Violet Lion"; }
+    elsif ($version eq '10.3') { return "Mauve Lion"; }
+    elsif ($version eq '10.2') { return "Lavendar Lion"; }
+    elsif ($version eq '10.1') { return "Heliotrope lion"; }
+    elsif ($version eq '10.0') { return "Purple Lion"; }
+    elsif ($version eq '9.10') { return "Fern Panther"; }
+    elsif ($version eq '9.9') { return "Chartreuse Bobcat"; }
+    elsif ($version eq '9.8') { return "Olive Jaguar"; }
+    elsif ($version eq '9.7') { return "Moss Jungle Cat"; }
+    elsif ($version eq '9.6') { return "Sage Margay"; }
+    elsif ($version eq '9.5') { return "Teal Serval"; }
     elsif ($version eq '9.4') { return "Seafoam Ocelot"; }
     elsif ($version eq '8.10') { return "Cerulean Leopard"; }
     elsif ($version eq '9.3') { return "Shamrock Pampas Cat"; }
