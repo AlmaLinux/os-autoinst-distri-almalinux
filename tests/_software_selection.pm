@@ -20,10 +20,12 @@ sub run {
         if (get_var('FLAVOR') =~ /minimal[-iso]?/)  {
             $env = 'minimal-environment';
         }
-        # find line looks like:
-        # 04:10:57,216 INF modules.payloads.payload.dnf.utils: selected environment: graphical-server-environment
-        # assert_script_run "echo $env && cat /tmp/anaconda.log";
-        assert_script_run "egrep 'selected environment:' /tmp/anaconda.log /tmp/packaging.log | tail -1 | grep $env";
+        # For the $selection_pattern, See:
+        # AlmaLinux OS 9 pyanaconda/modules/payloads/payload/dnf/utils.py
+        # AlmaLinux OS 10 - pyanaconda/ui/lib/software.py
+        (my $major_version = get_var('VERSION')) =~ s/\..*//;
+        my $selection_pattern = $major_version >= 10 ? 'Selecting the.*environment' : 'selected environment:';
+        assert_script_run("grep -E '$selection_pattern' /tmp/anaconda.log /tmp/packaging.log | tail -1 | grep $env");
         send_key "ctrl-alt-f6";
         assert_screen "anaconda_main_hub", 30;
         return;
