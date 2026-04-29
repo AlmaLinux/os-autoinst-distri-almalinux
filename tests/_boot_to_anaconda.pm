@@ -235,7 +235,7 @@ sub run {
             # show by now it never will, so we'll just wait for the
             # hub to show up.
             mate_move_mouse;
-            assert_screen "anaconda_main_hub", 900;
+            assert_screen "anaconda_main_hub", 120;
         }
     }
 }

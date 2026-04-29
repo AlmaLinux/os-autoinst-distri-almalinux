@@ -74,7 +74,7 @@ sub get_code_name {
     if ($version eq '10.5') { return "Periwinkle Lion"; }
     elsif ($version eq '10.4') { return "Violet Lion"; }
     elsif ($version eq '10.3') { return "Mauve Lion"; }
-    elsif ($version eq '10.2') { return "Lavendar Lion"; }
+    elsif ($version eq "10.2") { return "Lavender Lion"; }
     elsif ($version eq '10.1') { return "Heliotrope lion"; }
     elsif ($version eq '10.0') { return "Purple Lion"; }
     elsif ($version eq '9.10') { return "Fern Panther"; }
@@ -456,7 +456,8 @@ sub do_bootloader {
     );
     # if not postinstall, not UEFI, not ofw, and not F37+, syslinux
     my $relnum = get_release_number;
-    $args{bootloader} //= ($args{uefi} || $args{postinstall} || $args{ofw}) || $relnum > 36 ? "grub" : "syslinux";
+    # AlmaLinux 10+ minimal/dvd ISOs use grub for BIOS boot; 9.x still uses isolinux/syslinux.
+    $args{bootloader} //= ($args{uefi} || $args{postinstall} || $args{ofw} || $relnum > 36 || $relnum >= 10) ? "grub" : "syslinux";
     # we use the firmware-type specific tags because we want to be
     # sure we actually did a UEFI boot
     my $boottag = "bootloader_bios";
@@ -1056,7 +1057,13 @@ sub anaconda_create_user {
         wait_still_screen 2;
         _type_user_password();
     }
-    assert_and_click('anaconda_make_user_admin');
+    # AlmaLinux 10+ anaconda checks the admin/wheel checkbox by default.
+    # Clicking it would toggle it OFF, so detect that state and skip the click.
+    if (check_screen 'anaconda_make_user_admin_already_checked', 5) {
+        # already checked, leave it alone
+    } else {
+        assert_and_click('anaconda_make_user_admin');
+    }
     assert_and_click "anaconda_spoke_done";
     # since 20170105, we will get a warning here when the password
     # contains non-ASCII characters. Assume only switched layouts
@@ -1154,7 +1161,12 @@ sub quit_firefox {
     # https://bugzilla.redhat.com/show_bug.cgi?id=2094137 . soft fail
     # and reboot. this won't work if we need to decrypt or handle boot
     # args, but I don't think anything that calls this needs it
-    record_soft_failure "No console on exit from Firefox, probably RHBZ #2094137";
+    # On EL10 the gnome-kiosk + firefox path always trips this on Ctrl-Q
+    # (firefox 140 / Wayland kiosk doesn't exit cleanly), so the recovery
+    # below is the expected path -- skip the soft-fail noise on EL10.
+    my @maj_ver = split(/\\./, get_var('VERSION'));
+    record_soft_failure "No console on exit from Firefox, probably RHBZ #2094137"
+        if ($maj_ver[0] < 10);
     power "reset";
     boot_to_login_screen;
     console_login(user => "root", password => get_var("ROOT_PASSWORD"));
@@ -1361,6 +1373,7 @@ sub select_rescue_mode {
     else {
         # select troubleshooting
         send_key "down";
+	send_key "down";
         send_key "ret";
         # select "rescue system"
         if (get_var('UEFI')) {

@@ -1,0 +1,29 @@
+{
+  "area": [
+    {
+      "xpos": 205,
+      "ypos": 198,
+      "width": 41,
+      "height": 33,
+      "type": "match"
+    },
+    {
+      "xpos": 469,
+      "ypos": 194,
+      "width": 38,
+      "height": 39,
+      "type": "match"
+    },
+    {
+      "xpos": 207,
+      "ypos": 335,
+      "width": 39,
+      "height": 39,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_main_hub"
+  ]
+}

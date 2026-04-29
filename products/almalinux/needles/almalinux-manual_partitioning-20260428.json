@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "xpos": 217,
+      "ypos": 545,
+      "width": 110,
+      "height": 22,
+      "match": 92,
+      "click_point": { "xpos": 12, "ypos": 11 }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "LANGUAGE-english",
+    "anaconda_manual_partitioning"
+  ]
+}

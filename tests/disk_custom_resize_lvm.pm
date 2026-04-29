@@ -77,7 +77,10 @@ sub run {
     send_key "tab";
     assert_and_click "anaconda_part_add_mountpoint";
 
-    # Close the spoke.
+    # Close the spoke
+    assert_and_click "anaconda_spoke_done";
+
+    # Close the spoke again to bypass warning
     assert_and_click "anaconda_spoke_done";
 
     # Confirm changes

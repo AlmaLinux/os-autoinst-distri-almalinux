@@ -1,0 +1,10 @@
+{
+  "area": [
+    { "xpos": 4, "ypos": 696, "width": 175, "height": 24, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [
+    "root_console",
+    "ENV-ARCH-aarch64"
+  ]
+}

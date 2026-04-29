@@ -10,24 +10,20 @@ sub run {
     assert_screen "root_console";
     # check number of partitions
     script_run 'fdisk -l | grep /dev/vda';    # debug
-    # number or partitions  + disk summary line
-    # TODO: need better handle of partion number 
-    my $partcount = 4;
-    my $partname = "vda1";
-    my $machine = get_var("MACHINE");
-    if ( $machine eq "uefi" || $machine eq "aarch64" ) {
-        $partcount = 5;
-        $partname = "vda2"
-    }
+    # AlmaLinux 10.x adds a BIOS Boot partition for BIOS+GPT installs,
+    # so partcount is one more than Fedora (which uses MBR for BIOS x86_64).
+    my $partcount = 5;
     if ( get_var("ARCH") eq "ppc64le" ) {
         $partcount = 6;
-        $partname = "vda2"
     }
     validate_script_output 'fdisk -l | grep /dev/vda | wc -l', sub { $_ =~ m/$partcount/ };
     # check mounted partitions are ext4 fs
-    script_run 'mount | grep /dev/vda';    # debug, /dev/vda3 is swap partition
-    validate_script_output "mount | grep /boot", sub { $_ =~ m/on \/boot type ext4/ };
-    validate_script_output "mount | grep /dev/$partname", sub { $_ =~ m/on \/ type ext4/ };
+    # In AlmaLinux 10.x standard auto-partition layout: vda1=BIOS Boot,
+    # vda2=/, vda3=/boot, vda4=swap (matches Fedora vda2/vda3 mapping
+    # offset by the BIOS Boot partition).
+    script_run 'mount | grep /dev/vda';    # debug
+    validate_script_output "mount | grep /dev/vda3", sub { $_ =~ m/on \/boot type ext4/ };
+    validate_script_output "mount | grep /dev/vda2", sub { $_ =~ m/on \/ type ext4/ };
 }
 
 sub test_flags {

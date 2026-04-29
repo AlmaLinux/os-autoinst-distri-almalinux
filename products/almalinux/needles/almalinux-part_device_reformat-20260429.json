@@ -1,0 +1,18 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "xpos": 595,
+      "ypos": 384,
+      "width": 110,
+      "height": 30,
+      "match": 92,
+      "click_point": { "xpos": 30, "ypos": 10 }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "anaconda_part_device_reformat"
+  ]
+}

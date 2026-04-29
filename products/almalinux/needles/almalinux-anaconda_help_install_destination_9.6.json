@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "xpos": 41,
+      "ypos": 179,
+      "height": 34,
+      "width": 446,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "anaconda_help_install_destination"
+  ]
+}

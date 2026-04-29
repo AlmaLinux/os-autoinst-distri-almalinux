@@ -1,0 +1,18 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "xpos": 75,
+      "ypos": 235,
+      "width": 90,
+      "height": 100,
+      "match": 92,
+      "click_point": { "xpos": 45, "ypos": 50 }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "anaconda_install_destination_select_disk_1"
+  ]
+}

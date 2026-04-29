@@ -1,0 +1,20 @@
+{
+  "area": [
+    {
+      "xpos": 290,
+      "ypos": 274,
+      "width": 68,
+      "height": 20,
+      "type": "match",
+      "match": 92,
+      "click_point": {
+        "xpos": 332,
+        "ypos": 45
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "cockpit_logs_priority_text"
+  ]
+}

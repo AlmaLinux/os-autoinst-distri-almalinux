@@ -1,0 +1,7 @@
+{
+  "area": [
+    { "xpos": 390, "ypos": 511, "width": 94, "height": 34, "type": "match", "match": 90 }
+  ],
+  "properties": [],
+  "tags": ["cockpit_save_changes"]
+}

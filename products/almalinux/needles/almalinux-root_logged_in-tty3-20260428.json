@@ -1,0 +1,27 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "xpos": 0,
+      "ypos": 4,
+      "width": 100,
+      "height": 18,
+      "match": 92
+    },
+    {
+      "type": "match",
+      "xpos": 100,
+      "ypos": 4,
+      "width": 40,
+      "height": 18,
+      "match": 92
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "root_console",
+    "root_logged_in",
+    "text_console_login"
+  ]
+}

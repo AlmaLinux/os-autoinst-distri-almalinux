@@ -12,13 +12,15 @@ sub run {
     assert_and_click "cockpit_logs";
     # the date dropdown changes and messes with the button locations, so wait
     wait_still_screen 2;
+    # Cockpit 9.x+ hides filters behind a toggle; expand them
+    assert_and_click "cockpit_logs_toggle_filters";
+    wait_still_screen 2;
     # set priority to info and above in case there are no errors
     assert_and_click "cockpit_logs_priority_text";
-    send_key "backspace";
-    send_key "backspace";
-    send_key "backspace";
-    send_key "backspace";
-    type_string "info\n";
+    # Click lands in the Filters search input; replace its contents
+    wait_still_screen 1;
+    send_key "ctrl-a";
+    type_string "priority:info\n";
     wait_still_screen 5;
     # now click an entry
     if (check_screen "cockpit_logs_entry", 60) {

@@ -1,0 +1,18 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "xpos": 540,
+      "ypos": 373,
+      "width": 130,
+      "height": 30,
+      "match": 92,
+      "click_point": { "xpos": 65, "ypos": 15 }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "anaconda_part_add_mountpoint"
+  ]
+}
