@@ -13,8 +13,13 @@ sub run {
     # AlmaLinux 10.x adds a BIOS Boot partition for BIOS+GPT installs,
     # so partcount is one more than Fedora (which uses MBR for BIOS x86_64).
     my $partcount = 5;
-    if ( get_var("ARCH") eq "ppc64le" ) {
-        $partcount = 6;
+    if (get_var("ARCH") eq "ppc64le") {
+        # AL9 ppc64le uses MBR with an extended partition holding /boot,
+        # which gives 5 logical partitions = 6 fdisk lines.
+        # AL10+ ppc64le uses GPT like x86_64, with 4 primary partitions
+        # (PReP boot + / + /boot + swap) = 5 fdisk lines, the default.
+        my @maj_ver = split(/\./, get_var("VERSION", ""));
+        $partcount = 6 if (($maj_ver[0] // 0) < 10);
     }
     validate_script_output 'fdisk -l | grep /dev/vda | wc -l', sub { $_ =~ m/$partcount/ };
     # check mounted partitions are ext4 fs
