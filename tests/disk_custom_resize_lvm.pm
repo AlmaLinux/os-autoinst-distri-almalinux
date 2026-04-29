@@ -39,12 +39,21 @@ sub run {
     wait_still_screen 5;
 
     # For UEFI based images, we need to reassign the efi boot
-    # mountpoint as well
+    # mountpoint as well.
+    #
+    # Note: anaconda 40.22 on AlmaLinux 10.2 / Kitten 10 disables the
+    # Reformat checkbox (and Device Type / File System / Encrypt) when an
+    # existing EFI System Partition is selected. The existing ESP is a
+    # valid vfat partition and is fine to reuse without reformatting, so
+    # check_screen for the Reformat checkbox and only click it when it is
+    # actually present and interactive.
     if (get_var("UEFI") == 1) {
         assert_and_click "anaconda_part_select_efiboot";
         goto_mountpoint();
         type_very_safely "/boot/efi";
-        assert_and_click "anaconda_part_device_reformat";
+        if (check_screen "anaconda_part_device_reformat", 3) {
+            click_lastmatch;
+        }
         assert_and_click "anaconda_part_update_settings";
         # give it a second or two to update
         wait_still_screen 5;
@@ -57,14 +66,14 @@ sub run {
     type_very_safely "/";
     # Skip to the Size window
     send_key "tab";
-    type_very_safely "11 GiB";
+    type_very_safely "9 GiB";
     # Reformat and update the partition
     assert_and_click "anaconda_part_device_reformat";
     assert_and_click "anaconda_part_update_settings";
     # give it a second or two to update
     wait_still_screen 2;
     # Check that the partition has been resized for 11GiB
-    assert_screen "device_root_resized_thirteen";
+    assert_screen "device_root_resized_nine";
 
     # Add new /home partition into the emptied space.
     assert_and_click "anaconda_add";
