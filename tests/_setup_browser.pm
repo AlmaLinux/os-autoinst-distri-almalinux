@@ -10,25 +10,30 @@ sub run {
     }
     # set up appropriate repositories
     repo_setup();
-    # use --enablerepo=fedora for Modular compose testing (we need to
-    # create and use a non-Modular repo to get some packages which
-    # aren't in Modular Server composes)
-    # TODO: fedora repo not required, work with defaults
     assert_script_run "dnf repolist --all";
     my $extraparams = '--nodocs --setopt install_weak_deps=false ';
-    # $extraparams = '--enablerepo=fedora' if (get_var("MODULAR"));
-    # install a desktop and firefox so we can actually try it
-    # GUI already installed
-    #
+
+    my @major_version = split(/\./, get_var('VERSION'));
+
     if (get_var("FLAVOR") =~ /minimal[-iso]?/) {
-      assert_script_run "dnf ${extraparams} -y groupinstall 'base-x'", 420;
+        if ($major_version[0] >= 10) {
+            # AlmaLinux 10 dropped Xorg server entirely (no base-x group,
+            # no xorg-x11-server-Xorg, no startx). Use gnome-kiosk: a minimal
+            # Wayland compositor that runs a single app fullscreen and
+            # renders to TTY via KMS/DRM, which the openQA VGA capture sees.
+            assert_script_run "dnf ${extraparams} -y install gnome-kiosk dbus-daemon", 600;
+        } else {
+            assert_script_run "dnf ${extraparams} -y groupinstall 'base-x'", 420;
+        }
     }
-    # FIXME: this should probably be in base-x...X seems to fail without
+    # libglvnd-egl present on EL10 too (in AppStream)
     assert_script_run "dnf ${extraparams} -y install libglvnd-egl", 180;
     # try to avoid random weird font selection happening
     assert_script_run "dnf ${extraparams} -y install dejavu-sans-fonts dejavu-sans-mono-fonts dejavu-serif-fonts", 180;
-    # since firefox-85.0-2, firefox doesn't seem to run without this
-    assert_script_run "dnf ${extraparams} -y install dbus-glib", 180;
+    # dbus-glib was dropped in EL10. Firefox 140 no longer needs it.
+    if ($major_version[0] < 10) {
+        assert_script_run "dnf ${extraparams} -y install dbus-glib", 180;
+    }
     assert_script_run "dnf ${extraparams} -y install firefox", 180;
 }
 

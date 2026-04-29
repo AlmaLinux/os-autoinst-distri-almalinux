@@ -11,8 +11,12 @@ sub run {
     # List files
     script_run "ls -al /mnt/iso";
     script_run "ls -al /mnt/iso/Minimal";
-    # run the check
-    assert_script_run "dnf repoclosure --repofrompath testdeps,/mnt/iso/Minimal --repo testdeps";
+    # `dnf repoclosure` plugin has buggy rich-dependency handling: it
+    # treats `Requires: (X if Y)` as a hard `Requires: X` even when Y is
+    # not in the install set. Use libsolv-based `dnf repoquery --unsatisfied`
+    # instead, which agrees with what pungi reports for the same compose.
+    assert_script_run "dnf repoquery --repofrompath=testdeps,/mnt/iso/Minimal --repo=testdeps --unsatisfied | tee /tmp/repoclosure.out";
+    assert_script_run "! test -s /tmp/repoclosure.out";
 }
 
 sub test_flags {

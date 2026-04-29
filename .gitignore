@@ -8,3 +8,6 @@
 .coverage
 coverage.xml
 .tidyall.d/
+
+# Local backups created by edit-with-rollback workflows
+*.bak.*

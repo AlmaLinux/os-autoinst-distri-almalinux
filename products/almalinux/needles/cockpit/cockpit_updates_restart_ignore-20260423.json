@@ -1,0 +1,7 @@
+{
+  "area": [
+    { "xpos": 678, "ypos": 392, "width": 55, "height": 20, "type": "match", "match": 90 }
+  ],
+  "properties": [],
+  "tags": ["cockpit_updates_restart_ignore"]
+}

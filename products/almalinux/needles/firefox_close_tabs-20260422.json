@@ -1,0 +1,16 @@
+{
+  "area": [
+    {
+      "ypos": 175,
+      "type": "match",
+      "xpos": 595,
+      "width": 90,
+      "height": 13
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "apps_run_firefox_stop",
+    "firefox_close_tabs"
+  ]
+}

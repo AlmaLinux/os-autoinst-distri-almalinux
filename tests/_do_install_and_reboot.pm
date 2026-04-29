@@ -81,10 +81,10 @@ sub run {
 
     # Wait for install to end. Give Rawhide a bit longer, in case
     # we're on a debug kernel, debug kernel installs are really slow.
-    my $timeout = 3000;
+    my $timeout = 1800;
     my $version = lc(get_var('VERSION'));
     if ($version eq "rawhide" || lc(get_var('DISTRI')) eq "almalinux") {
-        $timeout = 4200;
+        $timeout = 1800;
     }
     if (get_var('ARCH') eq 's390x') {
         $timeout = 20000;

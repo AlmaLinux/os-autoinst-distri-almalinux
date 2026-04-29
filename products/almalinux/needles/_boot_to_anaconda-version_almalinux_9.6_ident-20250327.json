@@ -1,0 +1,15 @@
+{
+  "area": [
+    {
+      "xpos": 776,
+      "ypos": 11,
+      "width": 122,
+      "height": 20,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "version_almalinux_9.6_ident"
+  ]
+}

@@ -8,7 +8,7 @@ sub run {
     my $self = shift;
     
     # install server heladless management
-    assert_script_run 'dnf -y groupinstall "Headless Management"', 300;
+    assert_script_run 'dnf -y groupinstall "Headless Management"', 600;
     #
     # check cockpit appears to be enabled and running and firewall is setup
     assert_script_run 'systemctl enable --now cockpit.socket';

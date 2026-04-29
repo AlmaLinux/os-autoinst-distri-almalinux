@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "xpos": 380,
+      "ypos": 158,
+      "width": 80,
+      "height": 25,
+      "match": 92
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "anaconda_part_device_resized_eleven",
+    "device_root_resized_eleven",
+    "device_root_resized_thirteen"
+  ]
+}

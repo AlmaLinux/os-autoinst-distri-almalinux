@@ -20,11 +20,22 @@ sub start_cockpit {
     $args{login} //= 0;
     $args{admin} //= 1;
     my $login = shift || 0;
-    # https://bugzilla.redhat.com/show_bug.cgi?id=1439429
-    assert_script_run "sed -i -e 's,enable_xauth=1,enable_xauth=0,g' /usr/bin/startx";
     disable_firefox_studies;
-    # run firefox directly in X as root. never do this, kids!
-    type_string "startx /usr/bin/firefox -width 1024 -height 768 http://localhost:9090\n";
+    my @major_version = split(/\./, get_var('VERSION'));
+    if ($major_version[0] >= 10) {
+        # AlmaLinux 10 dropped Xorg server (no startx). Use gnome-kiosk:
+        # a minimal Wayland compositor that runs a single app fullscreen
+        # and renders to TTY via KMS/DRM, visible to openQA's VGA capture.
+        # gnome-kiosk needs a real session env: $XDG_RUNTIME_DIR, dbus
+        # session, XDG_SESSION_TYPE=wayland.
+        assert_script_run "mkdir -p /run/user/0 && chmod 700 /run/user/0 && chown root:root /run/user/0";
+        type_string "XDG_RUNTIME_DIR=/run/user/0 XDG_SESSION_TYPE=wayland XDG_SESSION_CLASS=user dbus-run-session -- gnome-kiosk -- /usr/bin/firefox -width 1024 -height 768 http://localhost:9090\n";
+    } else {
+        # https://bugzilla.redhat.com/show_bug.cgi?id=1439429
+        assert_script_run "sed -i -e 's,enable_xauth=1,enable_xauth=0,g' /usr/bin/startx";
+        # run firefox directly in X as root. never do this, kids!
+        type_string "startx /usr/bin/firefox -width 1024 -height 768 http://localhost:9090\n";
+    }
     assert_screen "cockpit_login", 60;
     wait_still_screen(stilltime => 5, similarity_level => 45);
     if ($args{login}) {
