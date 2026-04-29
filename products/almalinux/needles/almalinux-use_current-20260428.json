@@ -2,12 +2,12 @@
   "area": [
     {
       "type": "match",
-      "xpos": 50,
+      "xpos": 48,
       "ypos": 408,
-      "width": 200,
+      "width": 105,
       "height": 22,
       "match": 92,
-      "click_point": { "xpos": 100, "ypos": 11 }
+      "click_point": { "xpos": 102, "ypos": 11 }
     }
   ],
   "properties": [],

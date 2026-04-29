@@ -25,6 +25,18 @@ sub run {
     my $params = "";
     $params .= get_var("GRUB", "") . " ";
     $params .= get_var("GRUBADD", "") . " ";
+    # AL10/Kitten 10 on ppc64le: anaconda's updateNVRAMBootList writes a stale
+    # device path to spapr-NVRAM (upstream regression), leaving SLOF with no
+    # bootable device on the post-install reboot. inst.leavebootorder skips
+    # the bootlist(8) call, so SLOF falls back to the default device order
+    # (HDD first) and boots the freshly installed system. AL8/AL9 ppc64le
+    # don't need this.
+    if (get_var("ARCH") eq "ppc64le") {
+        my @maj_ver = split(/\./, get_var("VERSION", ""));
+        if (($maj_ver[0] // 0) >= 10 || get_var("DISTRI") eq "almalinux-kitten") {
+            $params .= "inst.leavebootorder ";
+        }
+    }
     # Construct inst.repo arg for REPOSITORY_VARIATION
     my $repourl = get_var("REPOSITORY_VARIATION");
     if ($repourl) {
