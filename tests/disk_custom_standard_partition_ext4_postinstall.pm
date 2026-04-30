@@ -21,14 +21,25 @@ sub run {
         my @maj_ver = split(/\./, get_var("VERSION", ""));
         $partcount = 6 if (($maj_ver[0] // 0) < 10);
     }
+    elsif (get_var("ARCH") eq "s390x") {
+        # s390x uses Discoverable Partitions Spec layout: vda1=/, vda2=/boot,
+        # vda3=swap. No BIOS Boot or PReP partition.
+        $partcount = 4;
+    }
     validate_script_output 'fdisk -l | grep /dev/vda | wc -l', sub { $_ =~ m/$partcount/ };
     # check mounted partitions are ext4 fs
     # In AlmaLinux 10.x standard auto-partition layout: vda1=BIOS Boot,
     # vda2=/, vda3=/boot, vda4=swap (matches Fedora vda2/vda3 mapping
-    # offset by the BIOS Boot partition).
+    # offset by the BIOS Boot partition). On s390x: vda1=/, vda2=/boot.
     script_run 'mount | grep /dev/vda';    # debug
-    validate_script_output "mount | grep /dev/vda3", sub { $_ =~ m/on \/boot type ext4/ };
-    validate_script_output "mount | grep /dev/vda2", sub { $_ =~ m/on \/ type ext4/ };
+    if (get_var("ARCH") eq "s390x") {
+        validate_script_output "mount | grep /dev/vda2", sub { $_ =~ m/on \/boot type ext4/ };
+        validate_script_output "mount | grep /dev/vda1", sub { $_ =~ m/on \/ type ext4/ };
+    }
+    else {
+        validate_script_output "mount | grep /dev/vda3", sub { $_ =~ m/on \/boot type ext4/ };
+        validate_script_output "mount | grep /dev/vda2", sub { $_ =~ m/on \/ type ext4/ };
+    }
 }
 
 sub test_flags {
