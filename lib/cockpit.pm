@@ -29,7 +29,7 @@ sub start_cockpit {
         # gnome-kiosk needs a real session env: $XDG_RUNTIME_DIR, dbus
         # session, XDG_SESSION_TYPE=wayland.
         assert_script_run "mkdir -p /run/user/0 && chmod 700 /run/user/0 && chown root:root /run/user/0";
-        type_string "XDG_RUNTIME_DIR=/run/user/0 XDG_SESSION_TYPE=wayland XDG_SESSION_CLASS=user dbus-run-session -- gnome-kiosk -- /usr/bin/firefox -width 1024 -height 768 http://localhost:9090\n";
+        type_string "XDG_RUNTIME_DIR=/run/user/0 XDG_SESSION_TYPE=wayland XDG_SESSION_CLASS=user dbus-run-session -- gnome-kiosk -- /usr/bin/firefox --kiosk -width 1024 -height 768 http://localhost:9090\n";
     } else {
         # https://bugzilla.redhat.com/show_bug.cgi?id=1439429
         assert_script_run "sed -i -e 's,enable_xauth=1,enable_xauth=0,g' /usr/bin/startx";
@@ -44,6 +44,10 @@ sub start_cockpit {
         type_safely get_var("USER_PASSWORD", "weakpassword");
         send_key "ret";
         if ($args{admin}) {
+            # wait for cockpit Overview to settle: under gnome-kiosk,
+            # Firefox can transition to fullscreen mid-click, moving the
+            # button out from under the cursor before the click registers
+            wait_still_screen(stilltime => 5, similarity_level => 45);
             assert_and_click "cockpit_admin_enable";
             assert_screen "cockpit_admin_password";
             type_safely get_var("USER_PASSWORD", "weakpassword");
