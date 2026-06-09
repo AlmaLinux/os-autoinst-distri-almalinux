@@ -64,7 +64,9 @@ sub get_release_number {
 
 sub get_version_major {
     my $version = get_var("VERSION");
-    my $version_major = substr($version, 0, index($version, q/./));
+    # split on "." so dotless versions like "10" (AlmaLinux Kitten) work;
+    # the old substr/index returned "1" for "10" and "" for "9"
+    my ($version_major) = split /\./, $version;
     return $version_major;
 }
 

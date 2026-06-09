@@ -1,0 +1,20 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "xpos": 336,
+      "ypos": 298,
+      "width": 350,
+      "height": 70,
+      "match": 90,
+      "click_point": { "xpos": 176, "ypos": 34 }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "DESKTOP-gnome",
+    "graphical_login",
+    "login_screen"
+  ]
+}
