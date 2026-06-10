@@ -73,7 +73,8 @@ sub get_version_major {
 sub get_code_name {
     my $version = get_var("VERSION");
 
-    if ($version eq '10.5') { return "Periwinkle Lion"; }
+    if ($version eq '10') { return "Lion Cub"; }    # AlmaLinux Kitten (rolling, dotless version)
+    elsif ($version eq '10.5') { return "Periwinkle Lion"; }
     elsif ($version eq '10.4') { return "Violet Lion"; }
     elsif ($version eq '10.3') { return "Mauve Lion"; }
     elsif ($version eq "10.2") { return "Lavender Lion"; }

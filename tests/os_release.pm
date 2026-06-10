@@ -62,6 +62,9 @@ sub run {
     my $name = "AlmaLinux"; ## ucfirst($id);
     # my $fullname = $name . " Linux";
     my $fullname = $name;
+    # AlmaLinux Kitten uses "AlmaLinux Kitten" in NAME/PRETTY_NAME (but keeps
+    # "AlmaLinux" in REDHAT_SUPPORT_PRODUCT, so leave $name alone)
+    $fullname = "AlmaLinux Kitten" if (get_var('DISTRI') eq 'almalinux-kitten');
     my $rawrel = get_var("RAWREL", '');
     # Should be the version number or Rawhide.
     my $version_id = get_var("VERSION");
@@ -77,7 +80,7 @@ sub run {
         $target = lc($version_id);
     }
 
-    my $reltag = script_output 'rpm -q almalinux-release --qf "%{RELEASE}\n"';
+    my $reltag = script_output 'rpm -qf /etc/almalinux-release --qf "%{RELEASE}\n"';
     my $relver = substr($reltag, 0, rindex($reltag, q/./));
     my $eltag = substr($reltag, rindex($reltag, q/./)+1, length($reltag));
 

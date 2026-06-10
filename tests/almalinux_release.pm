@@ -12,8 +12,10 @@ sub run {
     my $rawrel = get_var('RAWREL', '');
     # Create the expected content of the release file
     # and compare it with its real counterpart.
-    my $expected = "AlmaLinux release $expectver ($os_codename)";
-    $expected = "AlmaLinux release $expectver Beta ($os_codename)" if (get_var('BETA'));
+    my $name = "AlmaLinux";
+    $name = "AlmaLinux Kitten" if (get_var('DISTRI') eq 'almalinux-kitten');
+    my $expected = "$name release $expectver ($os_codename)";
+    $expected = "$name release $expectver Beta ($os_codename)" if (get_var('BETA'));
     validate_script_output 'cat /etc/almalinux-release', sub { $_ eq $expected };
 }
 
