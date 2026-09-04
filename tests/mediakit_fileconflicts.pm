@@ -17,7 +17,7 @@ sub run {
     script_run "ls -alR /mnt/iso/Minimal";
     script_run "cat /mnt/iso/.treeinfo";
     # download the check script
-    assert_script_run "curl -o /usr/local/bin/potential_conflict.py https://pagure.io/fedora-qa/qa-misc/raw/master/f/potential_conflict.py";
+    assert_script_run "curl -fL -o /usr/local/bin/potential_conflict.py https://forge.fedoraproject.org/quality/misc-scripts/raw/branch/master/potential_conflict.py";
     # run the check
     assert_script_run "/usr/libexec/platform-python /usr/local/bin/potential_conflict.py --repofrompath=media,/mnt/iso/Minimal -r media";
 }
