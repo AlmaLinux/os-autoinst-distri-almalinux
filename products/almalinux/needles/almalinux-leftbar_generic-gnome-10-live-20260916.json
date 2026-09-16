@@ -1,0 +1,7 @@
+{
+  "area": [
+    { "xpos": 5, "ypos": 40, "width": 142, "height": 100, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "leftbar_generic", "DESKTOP-gnome" ]
+}
