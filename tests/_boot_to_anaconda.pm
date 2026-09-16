@@ -135,8 +135,13 @@ sub run {
         else {
             # on lives, we have to explicitly launch anaconda
             if (get_var('LIVE')) {
+                # os-autoinst scales every assert_screen/check_screen timeout by
+                # TIMEOUT_SCALE, but not bare sleeps, so the fixed sleeps below
+                # would dominate a scaled-down run. Scale them by hand so a
+                # needle-development job (TIMEOUT_SCALE=0.25) really is quicker.
+                my $tscale = get_var('TIMEOUT_SCALE', 1);
+                my $live_sleep = sub { my $s = int($_[0] * $tscale); sleep($s > 1 ? $s : 1); };
                 # give some time to load and get ready
-                # TODO: Sleep does not seems working, need an alterntive
                 check_screen(["live_initial_gnome_tour","live_start_anaconda_icon", "apps_menu_button_active"], timeout=>240);
                 if (match_has_tag "live_initial_gnome_tour") {
                     click_lastmatch;
@@ -146,7 +151,7 @@ sub run {
                 my $relnum = get_var('VERSION');
                 while ($count > 0) {
                     $count -= 1;
-                    sleep 30;
+                    $live_sleep->(30);
                     if ((get_var("DESKTOP") eq 'gnome') && (check_screen "live_initial_gnome_tour", 10)) {
                         # assert_and_click "live_initial_gnome_tour";
                         click_lastmatch;
@@ -174,7 +179,7 @@ sub run {
                         last;
                     }
                 }
-                sleep 15;
+                $live_sleep->(15);
                 # for KDE we need to double-click
                 # my $dclick = 0;
                 # $dclick = 1 if (get_var("DESKTOP") eq "kde");
