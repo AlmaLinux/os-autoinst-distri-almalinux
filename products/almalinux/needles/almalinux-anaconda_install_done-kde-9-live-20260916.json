@@ -1,0 +1,8 @@
+{
+  "area": [
+    { "xpos": 636, "ypos": 598, "width": 382, "height": 35, "type": "match", "match": 92 },
+    { "xpos": 890, "ypos": 650, "width": 126, "height": 26, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "LANGUAGE-english", "anaconda_install_done", "DESKTOP-kde" ]
+}
