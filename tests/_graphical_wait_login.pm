@@ -141,10 +141,22 @@ sub run {
         if ($desktop eq 'kde' && !check_screen("graphical_login_input", 10)) {
             # SDDM's Plasma greeter parks behind a clock overlay once it has
             # been idle and only reveals the password form on input, so the
-            # assert below would otherwise time out against a bare wallpaper.
-            # A lone modifier wakes it without being able to type into or
-            # submit the field.
-            send_key_until_needlematch("graphical_login_input", "shift", 6, 5);
+            # assert below would otherwise time out against what looks like a
+            # bare wallpaper. Drive it with the pointer rather than the
+            # keyboard: a lone modifier is filtered out and does not count as
+            # activity, while any printable key would land in the password
+            # field the moment it appears and corrupt the password we are
+            # about to type.
+            for (1 .. 6) {
+                mouse_set(512, 300);
+                mouse_set(520, 320);
+                last if check_screen("graphical_login_input", 5);
+                # some versions want a real click before revealing the form;
+                # the middle of the screen is clear of the session buttons
+                mouse_click;
+                last if check_screen("graphical_login_input", 5);
+            }
+            mouse_hide;
         }
         assert_screen "graphical_login_input";
         # seems like we often double-type on aarch64 if we start right
