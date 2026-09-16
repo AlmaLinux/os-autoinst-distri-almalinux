@@ -1,0 +1,7 @@
+{
+  "area": [
+    { "xpos": 892, "ypos": 676, "width": 122, "height": 29, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "LANGUAGE-english", "anaconda_main_hub_begin_installation", "DESKTOP-mate" ]
+}

@@ -131,6 +131,21 @@ sub boot_to_login_screen {
             sleep 5;
             $count -= 1;
         }
+        # The Plasma greeter sometimes never paints its UI and leaves the
+        # bare wallpaper on screen, so login_screen has nothing to match.
+        # A pointer nudge, escalating to a click, wakes it. Only done when
+        # the greeter has not already shown up, so this is a no-op for every
+        # suite that is working today.
+        if (get_var("DESKTOP", "") eq "kde" && !check_screen("login_screen", 15)) {
+            for (1 .. 6) {
+                mouse_set(512, 300);
+                mouse_set(520, 320);
+                last if check_screen("login_screen", 5);
+                mouse_click;
+                last if check_screen("login_screen", 5);
+            }
+            mouse_hide;
+        }
         assert_screen "login_screen", $args{timeout};
         if (match_has_tag "graphical_login") {
            # click_lastmatch;
