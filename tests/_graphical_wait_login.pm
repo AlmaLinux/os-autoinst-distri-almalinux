@@ -138,6 +138,14 @@ sub run {
                 send_key_until_needlematch("graphical_login_input", "ret", 3, 5);
             }
         }
+        if ($desktop eq 'kde' && !check_screen("graphical_login_input", 10)) {
+            # SDDM's Plasma greeter parks behind a clock overlay once it has
+            # been idle and only reveals the password form on input, so the
+            # assert below would otherwise time out against a bare wallpaper.
+            # A lone modifier wakes it without being able to type into or
+            # submit the field.
+            send_key_until_needlematch("graphical_login_input", "shift", 6, 5);
+        }
         assert_screen "graphical_login_input";
         # seems like we often double-type on aarch64 if we start right
         # away
