@@ -185,9 +185,15 @@ sub run {
                 # $dclick = 1 if (get_var("DESKTOP") eq "kde");
                 # assert_and_click("live_start_anaconda_icon", dclick => $dclick);
                 unless (check_screen "anaconda_select_install_lang", 120) {
-                    # click it again - on KDE since 2019-10 or so it seems
-                    # like the first attempt sometimes just doesn't work
-                    assert_and_click("live_start_anaconda_icon", timeout => 150);
+                    # Click it again - on KDE since 2019-10 or so it seems
+                    # like the first attempt sometimes just doesn't work.
+                    # On the KDE lives the launcher can be a *desktop icon*
+                    # (AlmaLinux 9) where a single click only selects it, so
+                    # retry with a double click there. AlmaLinux 10 KDE puts a
+                    # Welcome Center button in front, which the single click
+                    # above already handles, so we never reach this.
+                    assert_and_click("live_start_anaconda_icon", timeout => 150,
+                        dclick => (get_var("DESKTOP") eq 'kde') ? 1 : 0);
                 }
             }
             my $language = get_var('LANGUAGE') || 'english';

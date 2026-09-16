@@ -1,0 +1,7 @@
+{
+  "area": [
+    { "xpos": 450, "ypos": 355, "width": 125, "height": 125, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "live_start_anaconda_icon", "DESKTOP-kde" ]
+}
