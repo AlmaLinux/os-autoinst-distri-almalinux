@@ -1,0 +1,7 @@
+{
+  "area": [
+    { "xpos": 340, "ypos": 175, "width": 324, "height": 19, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "anaconda_make_user_admin_already_checked", "DESKTOP-kde" ]
+}
