@@ -3,5 +3,5 @@
     { "xpos": 511, "ypos": 308, "width": 198, "height": 20, "type": "match", "match": 92 }
   ],
   "properties": [],
-  "tags": [ "ENV-DISTRI-almalinux", "install_destination", "DESKTOP-mate" ]
+  "tags": [ "ENV-DISTRI-almalinux", "anaconda_main_hub_install_destination", "DESKTOP-mate" ]
 }
