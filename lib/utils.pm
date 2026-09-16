@@ -1826,7 +1826,10 @@ sub gdm_initial_setup {
 }
 
 sub mate_move_mouse {
-    if ( get_var('FLAVOR') eq 'MATE-live-iso' ) {
+    # Keyed on the desktop rather than a specific flavor name: the live
+    # media flavors are lower case (mate-live-iso), so the old FLAVOR
+    # comparison never matched anything and this was dead code.
+    if ( get_var('DESKTOP', '') eq 'mate' ) {
         mouse_set(100,100);
         mouse_hide;
     }
