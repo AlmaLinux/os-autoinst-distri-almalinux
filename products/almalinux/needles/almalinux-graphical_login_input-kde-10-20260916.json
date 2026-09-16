@@ -1,0 +1,15 @@
+{
+  "area": [
+    { "xpos": 452, "ypos": 250, "width": 120, "height": 165, "type": "match", "match": 92 },
+    { "xpos": 370, "ypos": 447, "width": 250, "height": 26, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [
+    "DESKTOP-kde",
+    "ENV-DISTRI-almalinux",
+    "LANGUAGE-english",
+    "graphical_login",
+    "graphical_login_input",
+    "login_screen"
+  ]
+}
