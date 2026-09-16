@@ -1,0 +1,7 @@
+{
+  "area": [
+    { "xpos": 511, "ypos": 308, "width": 198, "height": 20, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "install_destination", "DESKTOP-mate" ]
+}
