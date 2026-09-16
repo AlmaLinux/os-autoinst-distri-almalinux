@@ -99,6 +99,13 @@ sub run {
         # isn't enough to defeat blanking
         mouse_click if (get_var("VNC_CLIENT"));
         mouse_hide;
+        # The XFCE live session blanks the display part way through the
+        # install and the pointer moves above do not reset its idle timer,
+        # so every check below then runs against a dead display and the
+        # install is never seen to finish. A bare modifier does reset it and
+        # cannot reach anaconda. Confined to live media; the installer-only
+        # media have never needed it.
+        send_key "shift" if (get_var("LIVE"));
         last if (check_screen "anaconda_install_done", $interval);
         $timeout -= $interval;
     }
