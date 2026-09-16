@@ -1,0 +1,7 @@
+{
+  "area": [
+    { "xpos": 18, "ypos": 15, "width": 232, "height": 18, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "topbar_generic", "DESKTOP-kde" ]
+}
