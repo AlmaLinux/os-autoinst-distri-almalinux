@@ -1,0 +1,15 @@
+{
+  "area": [
+    { "xpos": 461, "ypos": 328, "width": 200, "height": 32, "type": "match", "match": 92 },
+    { "xpos": 461, "ypos": 374, "width": 200, "height": 32, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [
+    "DESKTOP-xfce",
+    "ENV-DISTRI-almalinux",
+    "LANGUAGE-english",
+    "graphical_login",
+    "graphical_login_input",
+    "login_screen"
+  ]
+}
