@@ -166,7 +166,15 @@ sub run {
                         # give GNOME some time to be sure it's done starting up
                         # and ready for input
                         wait_still_screen 5;
-                        click_lastmatch;
+                        # On the MATE and XFCE lives the launcher is a desktop
+                        # icon needing a double click - a single one only
+                        # selects it, and the screen blanks during the wait
+                        # that follows, so the retry further down finds nothing
+                        # to match. Double click here rather than relying on it.
+                        # KDE is deliberately left alone: both its flavors pass
+                        # as they are, and AlmaLinux 10 KDE clicks a real button
+                        # here, which should not be pressed twice.
+                        click_lastmatch(dclick => (get_var("DESKTOP", "") =~ /^(mate|xfce)$/) ? 1 : 0);
                         # send_key "super";
                         wait_still_screen 5;
                         #if (get_var("DESKTOP") eq "kde" && $relnum < 9) {
