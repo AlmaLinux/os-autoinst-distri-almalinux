@@ -1,0 +1,8 @@
+{
+  "area": [
+    { "xpos": 624, "ypos": 635, "width": 394, "height": 36, "type": "match", "match": 92 },
+    { "xpos": 870, "ypos": 691, "width": 148, "height": 28, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "LANGUAGE-english", "anaconda_install_done", "DESKTOP-gnome" ]
+}
