@@ -84,8 +84,13 @@ sub run {
     # desktop
     unless (($desktop eq 'gnome' || $desktop eq 'kde') && get_var("INSTALL_NO_USER")) {
         # for AlmaLinux 8 happens to be a license acceptance screen
-        # the initial appearance can sometimes take really long
-        if (get_version_major() < 9 || (get_var("LIVE") && $desktop eq 'kde')) {
+        # the initial appearance can sometimes take really long.
+        # The KDE lives showed that same initial-setup license spoke up to
+        # AlmaLinux 9. AlmaLinux 10 KDE live boots straight to SDDM instead,
+        # so waiting for it there only burns the timeout while the greeter
+        # goes idle to a bare wallpaper, and then fails.
+        if (get_version_major() < 9
+            || (get_var("LIVE") && $desktop eq 'kde' && get_version_major() < 10)) {
             unless (get_var("HDD_1") && !(get_var("PARTITIONING") eq "custom_resize_lvm")) {
                 mouse_hide;
                 assert_screen "gdm_initial_setup_license", $wait_time;
