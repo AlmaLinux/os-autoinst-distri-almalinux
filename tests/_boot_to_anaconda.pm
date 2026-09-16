@@ -214,8 +214,8 @@ sub run {
                 assert_and_click("anaconda_select_install_lang", timeout => 300);
             }
             if ( get_var('DESKTOP', '') eq 'mate' ) {
+                # no mouse_hide - see mate_move_mouse in utils.pm
                 mouse_set(100,100);
-                mouse_hide;
             }
             # Select install language
             wait_screen_change { assert_and_click "anaconda_select_install_lang_input"; };

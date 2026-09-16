@@ -1830,8 +1830,13 @@ sub mate_move_mouse {
     # media flavors are lower case (mate-live-iso), so the old FLAVOR
     # comparison never matched anything and this was dead code.
     if ( get_var('DESKTOP', '') eq 'mate' ) {
+        # Deliberately no mouse_hide here. It parks the pointer in the screen
+        # corner, which on MATE is the panel's workspace switcher, and the
+        # "Click to switch to Workspace 4" tooltip that pops up there sits
+        # right on top of anaconda's Quit and Continue buttons - so hiding
+        # undoes the move we just made and hides the button we are about to
+        # click.
         mouse_set(100,100);
-        mouse_hide;
     }
 }
 1;
