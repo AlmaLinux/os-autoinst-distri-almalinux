@@ -1,0 +1,8 @@
+{
+  "area": [
+    { "xpos": 2, "ypos": 2, "width": 96, "height": 20, "type": "match", "match": 92,
+      "click_point": { "xpos": 48, "ypos": 10 } }
+  ],
+  "properties": [],
+  "tags": [ "DESKTOP-xfce", "ENV-DISTRI-almalinux", "apps_menu_button", "system_menu_button" ]
+}
