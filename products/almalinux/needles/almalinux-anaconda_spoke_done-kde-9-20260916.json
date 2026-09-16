@@ -1,0 +1,7 @@
+{
+  "area": [
+    { "xpos": 22, "ypos": 37, "width": 42, "height": 22, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "anaconda_spoke_done", "DESKTOP-kde" ]
+}
