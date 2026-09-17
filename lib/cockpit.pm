@@ -48,10 +48,16 @@ sub start_cockpit {
             # Firefox can transition to fullscreen mid-click, moving the
             # button out from under the cursor before the click registers
             wait_still_screen(stilltime => 5, similarity_level => 45);
-            assert_and_click "cockpit_admin_enable";
-            assert_screen "cockpit_admin_password";
-            type_safely get_var("USER_PASSWORD", "weakpassword");
-            send_key "ret";
+            # AlmaLinux 10+ Cockpit grants admin automatically for wheel
+            # users on login, so the "Limited access" banner / button is
+            # absent. Only enter the password flow if the enable control
+            # is actually present.
+            if (check_screen "cockpit_admin_enable", 10) {
+                click_lastmatch;
+                assert_screen "cockpit_admin_password";
+                type_safely get_var("USER_PASSWORD", "weakpassword");
+                send_key "ret";
+            }
         }
         assert_screen "cockpit_main";
         # wait for any animation or other weirdness

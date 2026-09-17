@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "type": "match",
+      "xpos": 43,
+      "ypos": 718,
+      "width": 130,
+      "height": 22,
+      "match": 88,
+      "click_point": { "xpos": 50, "ypos": 11 }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "ENV-ARCH-s390x",
+    "cockpit_software_updates"
+  ]
+}
