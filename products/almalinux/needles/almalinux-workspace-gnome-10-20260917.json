@@ -1,0 +1,8 @@
+{
+  "area": [
+    { "xpos": 6, "ypos": 3, "width": 108, "height": 28, "type": "match", "match": 92 },
+    { "xpos": 412, "ypos": 300, "width": 200, "height": 150, "type": "match", "match": 96 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "workspace", "apps_settings_screen_black", "DESKTOP-gnome" ]
+}
