@@ -1232,11 +1232,18 @@ sub start_with_launcher {
 
         # Find the application launcher in the current menu page.
         # If it cannot be found there, hit PageDown to go to another page.
+        #
+        # AlmaLinux lays the app grid out flat where Fedora groups some
+        # applications into a folder, so a submenu the caller asks for may
+        # not exist at all and the launcher sits at the top level instead.
+        # Look for either, and open the folder only if the folder is what
+        # turned up. That keeps working where the folder does exist, and
+        # where it exists on a later page.
+        my @wanted = $submenu ? ($submenu, $launcher) : ($launcher);
+        send_key_until_needlematch(\@wanted, 'pgdn', 5, 3);
 
-        send_key_until_needlematch($item_to_check, 'pgdn', 5, 3);
-
-        # If there was a submenu, click on that first.
-        if ($submenu) {
+        # If there was a submenu and we landed on it, click on that first.
+        if ($submenu && match_has_tag($submenu)) {
             assert_and_click $submenu;
             wait_still_screen 5;
         }
