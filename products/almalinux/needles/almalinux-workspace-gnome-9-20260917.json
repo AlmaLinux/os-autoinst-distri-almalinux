@@ -4,5 +4,5 @@
     { "xpos": 412, "ypos": 300, "width": 200, "height": 150, "type": "match", "match": 96 }
   ],
   "properties": [],
-  "tags": [ "ENV-DISTRI-almalinux", "workspace", "DESKTOP-gnome" ]
+  "tags": [ "ENV-DISTRI-almalinux", "workspace", "apps_settings_screen_black", "DESKTOP-gnome" ]
 }
