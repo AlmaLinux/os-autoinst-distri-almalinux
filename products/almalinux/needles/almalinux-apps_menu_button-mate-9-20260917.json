@@ -1,0 +1,7 @@
+{
+  "area": [
+    { "xpos": 3, "ypos": 2, "width": 114, "height": 22, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "LANGUAGE-english", "apps_menu_button", "DESKTOP-mate" ]
+}
