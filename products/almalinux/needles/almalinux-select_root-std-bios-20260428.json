@@ -4,8 +4,8 @@
       "type": "match",
       "xpos": 50,
       "ypos": 207,
-      "width": 130,
-      "height": 38,
+      "width": 50,
+      "height": 22,
       "match": 92,
       "click_point": { "xpos": 35, "ypos": 25 }
     }
