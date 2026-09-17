@@ -1480,6 +1480,16 @@ sub menu_launch_type {
     send_key 'super';
     # srsly KDE y u so slo
     wait_still_screen 3;
+    if (get_var("DESKTOP") eq "kde") {
+        # Kickoff takes the keyboard a moment after it has finished
+        # drawing, and whatever is typed before that is dropped: "ark" has
+        # arrived as "rk", "kcalc" as "lc" and "krdc" as "rdc". Give it a
+        # second settle, and clear the field, before typing a character.
+        wait_still_screen(stilltime => 3, similarity_level => 45);
+        send_key 'ctrl-a';
+        send_key 'delete';
+        wait_still_screen 1;
+    }
     type_very_safely $app;
     if (get_var("DESKTOP") eq "kde") {
         # Kickoff keeps swallowing and mangling the first characters typed

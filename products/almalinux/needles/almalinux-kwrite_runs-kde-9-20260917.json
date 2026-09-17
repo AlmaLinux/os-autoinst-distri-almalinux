@@ -1,0 +1,8 @@
+{
+  "area": [
+    { "xpos": 486, "ypos": 96, "width": 52, "height": 20, "type": "match", "match": 92 },
+    { "xpos": 311, "ypos": 285, "width": 148, "height": 20, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "kwrite_runs", "DESKTOP-kde" ]
+}
