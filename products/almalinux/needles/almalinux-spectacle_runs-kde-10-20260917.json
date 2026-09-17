@@ -1,0 +1,7 @@
+{
+  "area": [
+    { "xpos": 360, "ypos": 368, "width": 304, "height": 30, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "spectacle_runs", "DESKTOP-kde" ]
+}

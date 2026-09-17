@@ -1481,6 +1481,22 @@ sub menu_launch_type {
     # srsly KDE y u so slo
     wait_still_screen 3;
     type_very_safely $app;
+    if (get_var("DESKTOP") eq "kde") {
+        # Kickoff keeps swallowing and mangling the first characters typed
+        # into its search field while it is still settling: "ark" has
+        # arrived as "rk" and "kcalc" as "lc", and it then matches nothing
+        # and return launches nothing, so the test looks for a window that
+        # was never opened. Whenever it reports no matches, clear the field
+        # and type again rather than pressing return on an empty result.
+        for (1 .. 3) {
+            last unless check_screen("kde_launcher_no_matches", 3);
+            diag("Kickoff found no matches for $app, retyping");
+            send_key 'ctrl-a';
+            send_key 'delete';
+            wait_still_screen 2;
+            type_very_safely $app;
+        }
+    }
     # Wait for KDE to place focus correctly.
     sleep 2;
     send_key 'ret';
