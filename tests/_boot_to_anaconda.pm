@@ -152,6 +152,12 @@ sub run {
                 while ($count > 0) {
                     $count -= 1;
                     $live_sleep->(30);
+                    # The live session blanks the display during these
+                    # waits - seen on MATE on aarch64, where boot is slow
+                    # enough to reach the idle timeout - and every check
+                    # below then runs against a black screen. A bare
+                    # modifier resets the timer and cannot reach anything.
+                    send_key "shift" if (get_var("LIVE"));
                     if ((get_var("DESKTOP") eq 'gnome') && (check_screen "live_initial_gnome_tour", 10)) {
                         # assert_and_click "live_initial_gnome_tour";
                         click_lastmatch;
@@ -188,6 +194,7 @@ sub run {
                     }
                 }
                 $live_sleep->(15);
+                send_key "shift" if (get_var("LIVE"));
                 # for KDE we need to double-click
                 # my $dclick = 0;
                 # $dclick = 1 if (get_var("DESKTOP") eq "kde");
