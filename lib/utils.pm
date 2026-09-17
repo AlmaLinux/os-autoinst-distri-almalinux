@@ -1762,8 +1762,13 @@ sub solidify_wallpaper {
         }
     }
     elsif ($desktop eq "gnome") {
-        # Start the terminal to set up backgrounds.
-        menu_launch_type "gnome-terminal";
+        # Start the terminal to set up backgrounds. Search for it by the
+        # generic name: AlmaLinux 9 ships GNOME Terminal and AlmaLinux 10
+        # ships Ptyxis, and both are called Terminal in the overview, while
+        # searching for "gnome-terminal" finds nothing at all on 10 - and
+        # the commands below then go into the search box instead of a
+        # shell.
+        menu_launch_type "terminal";
         # wait to be sure it's fully open
         wait_still_screen(stilltime => 5, similarity_level => 38);
         # When the application opens, run command in it to set the background to black
