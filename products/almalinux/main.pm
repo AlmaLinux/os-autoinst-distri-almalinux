@@ -454,11 +454,51 @@ if (get_var("STARTSTOP")) {
         autotest::loadtest "tests/apps_gnome_preset.pm";
     }
 
+    # Applications these tests came from Fedora expecting, which the
+    # AlmaLinux live media do not ship. The launcher has nothing to launch,
+    # so loading them would only produce failures that tell us nothing.
+    #
+    # Taken from the .desktop inventory of the live images themselves
+    # (9.8 and 10.2, x86_64, 2026-09-17), not from guesswork: mount
+    # LiveOS/squashfs.img and list /usr/share/applications to refresh it.
+    # 'all' applies to every release, a major number only to that one.
+    # AlmaLinux 10 replaced much of the GNOME stack (evince -> Papers,
+    # eog -> Loupe, gnome-terminal -> Ptyxis, no Totem or Logs) and ships
+    # no LibreOffice, and AlmaLinux 10 KDE drops the whole kdepim suite.
+    #
+    # aasetting (KDE) and apps_gnome_preset are setup, not app tests, and
+    # are never skipped.
+    my %app_not_shipped = (
+        gnome => {
+            all => [qw(abrt boxes calendar photos rhythmbox scan)],
+            10 => [qw(cheese dviewer imageviewer logs lcalc limpress lwriter
+                    terminal videos)],
+        },
+        kde => {
+            all => [qw(abrt dbusviewer vault)],
+            10 => [qw(akregator cpteditor cteditor kaddressbook kgpg kimport
+                    kmag kmail kmail_header kmousetool kontakt konversation
+                    korganizer ktnef lcalc limpress lwriter pimexporter)],
+        },
+    );
+    my ($major) = split(/\./, get_var('VERSION', ''));
+    $major //= '';
+    my %skip_app;
+    for my $key ('all', $major) {
+        my $list = $app_not_shipped{$desktop}{$key} or next;
+        $skip_app{$_} = 1 for @{$list};
+    }
+
     # Find all tests from a directory defined by the DESKTOP variable
     my @apptests = glob "${casedir}/tests/apps_startstop/${desktop}/*.pm";
     # Now load them
     foreach my $filepath (@apptests) {
         my $file = basename($filepath);
+        (my $app = $file) =~ s/\.pm$//;
+        if ($skip_app{$app}) {
+            diag("apps_startstop: skipping ${desktop}/${app}, not shipped on this medium");
+            next;
+        }
         autotest::loadtest "tests/apps_startstop/${desktop}/${file}";
     }
     if ($desktop eq 'gnome') {
