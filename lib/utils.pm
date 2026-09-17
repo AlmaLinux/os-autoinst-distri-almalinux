@@ -133,23 +133,39 @@ sub boot_to_login_screen {
         }
         # The Plasma greeter sometimes never paints its UI and leaves the
         # bare wallpaper on screen, so login_screen has nothing to match.
-        # A pointer nudge, escalating to a click, wakes it. Only done when
-        # the greeter has not already shown up, so this is a no-op for every
-        # suite that is working today.
+        # A pointer nudge, escalating to a click, wakes it.
+        #
+        # The nudging has to continue for the whole wait rather than happen
+        # once at the start: the greeter can become ready well after boot and
+        # then sit unpainted until it sees input, so a burst of clicks in the
+        # first minute is over before there is anything to wake. We stop as
+        # soon as the greeter shows up, so a greeter that is already up is
+        # never clicked and every suite passing today is unaffected.
         if (get_var("DESKTOP", "") eq "kde" && !check_screen("login_screen", 15)) {
-            for (1 .. 6) {
+            my $waited = 15;
+            while ($waited < $args{timeout}) {
                 mouse_set(512, 300);
                 mouse_set(520, 320);
                 last if check_screen("login_screen", 5);
                 mouse_click;
-                last if check_screen("login_screen", 5);
+                last if check_screen("login_screen", 10);
+                $waited += 15;
             }
             mouse_hide;
         }
         assert_screen "login_screen", $args{timeout};
         if (match_has_tag "graphical_login") {
-           # click_lastmatch;
-            assert_and_click "graphical_login";
+            # The Plasma greeter can idle back to a bare wallpaper between the
+            # assert above and this click, and then there is nothing left for
+            # assert_and_click to match. Our KDE greeter needles carry
+            # login_screen, graphical_login and graphical_login_input
+            # together, so the match we already have is the area to click.
+            if (get_var("DESKTOP", "") eq "kde") {
+                click_lastmatch;
+            }
+            else {
+                assert_and_click "graphical_login";
+            }
             wait_still_screen 3;
            # wait_still_screen 10, 30;
            # assert_screen "login_screen";
