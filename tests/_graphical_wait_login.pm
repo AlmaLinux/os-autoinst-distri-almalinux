@@ -149,14 +149,20 @@ sub run {
             # activity, while any printable key would land in the password
             # field the moment it appears and corrupt the password we are
             # about to type.
-            for (1 .. 6) {
+            # Keep at it for the whole wait rather than giving up after a
+            # fixed burst: the greeter can be slow to come up and then sits
+            # unpainted until it sees input, so a handful of clicks in the
+            # first minute can all land before there is anything to wake.
+            # Same treatment as boot_to_login_screen. We stop the moment the
+            # form appears, so a healthy greeter is never clicked.
+            for (1 .. 20) {
                 mouse_set(512, 300);
                 mouse_set(520, 320);
                 last if check_screen("graphical_login_input", 5);
                 # some versions want a real click before revealing the form;
                 # the middle of the screen is clear of the session buttons
                 mouse_click;
-                last if check_screen("graphical_login_input", 5);
+                last if check_screen("graphical_login_input", 10);
             }
             mouse_hide;
         }

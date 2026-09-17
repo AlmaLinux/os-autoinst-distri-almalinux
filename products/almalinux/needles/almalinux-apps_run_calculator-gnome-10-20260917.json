@@ -1,0 +1,8 @@
+{
+  "area": [
+    { "xpos": 345, "ypos": 405, "width": 336, "height": 86, "type": "match", "match": 92 },
+    { "xpos": 480, "ypos": 160, "width": 66, "height": 20, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "apps_run_calculator", "DESKTOP-gnome" ]
+}
