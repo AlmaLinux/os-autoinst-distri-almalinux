@@ -1,0 +1,7 @@
+{
+  "area": [
+    { "xpos": 998, "ypos": 44, "width": 24, "height": 22, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "apps_stop", "DESKTOP-gnome" ]
+}
