@@ -1,0 +1,8 @@
+{
+  "area": [
+    { "xpos": 138, "ypos": 4, "width": 78, "height": 24, "type": "match", "match": 92 },
+    { "xpos": 472, "ypos": 44, "width": 90, "height": 22, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "desktop_package_tool_update", "DESKTOP-gnome" ]
+}
