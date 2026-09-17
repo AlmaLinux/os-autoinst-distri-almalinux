@@ -98,7 +98,12 @@ sub run {
         # also click, if we're a VNC client, seems just moving mouse
         # isn't enough to defeat blanking
         mouse_click if (get_var("VNC_CLIENT"));
-        mouse_hide;
+        # mouse_hide parks the pointer in the bottom right corner, which on
+        # MATE is the panel's workspace switcher. Its "Click to switch to
+        # Workspace 4" tooltip then pops up over anaconda's Finish
+        # Installation button and there is nothing left to match or click.
+        # See mate_move_mouse in utils.pm, which avoids the same corner.
+        mouse_hide unless (get_var("DESKTOP", "") eq "mate");
         # The XFCE live session blanks the display part way through the
         # install and the pointer moves above do not reset its idle timer,
         # so every check below then runs against a dead display and the
