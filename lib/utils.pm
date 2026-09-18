@@ -1498,7 +1498,9 @@ sub desktop_launch_terminal {
     }
     else {
         # GNOME, where menu_launch_type works today on both 9 and 10.
-        menu_launch_type "terminal";
+        # Parenthesised because menu_launch_type is defined below this
+        # point, so the bareword form does not parse here.
+        menu_launch_type("terminal");
     }
 }
 
