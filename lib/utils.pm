@@ -144,8 +144,16 @@ sub boot_to_login_screen {
         if (get_var("DESKTOP", "") eq "kde" && !check_screen("login_screen", 15)) {
             my $waited = 15;
             while ($waited < $args{timeout}) {
-                mouse_set(512, 300);
-                mouse_set(520, 320);
+                # Keep clear of the greeter's own widgets: the
+                # graphical_login_input needles match on the avatar and the
+                # password field, spanning roughly x 369-642, y 279-472, and
+                # the session buttons sit along the bottom. Waking the
+                # greeter at 512,300 put the pointer on the avatar, so every
+                # check below was evaluated with the cursor drawn over the
+                # very thing it was trying to match and the loop could never
+                # succeed early. Left of and above everything is empty.
+                mouse_set(150, 600);
+                mouse_set(160, 610);
                 last if check_screen("login_screen", 5);
                 mouse_click;
                 last if check_screen("login_screen", 10);
