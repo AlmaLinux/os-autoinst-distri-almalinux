@@ -1,0 +1,18 @@
+{
+  "area": [
+    {
+      "xpos": 450,
+      "ypos": 420,
+      "width": 300,
+      "height": 200,
+      "type": "match",
+      "match": 94
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "9.8_background",
+    "DESKTOP-mate"
+  ]
+}

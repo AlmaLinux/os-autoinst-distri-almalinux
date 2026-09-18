@@ -1,0 +1,26 @@
+{
+  "area": [
+    {
+      "xpos": 6,
+      "ypos": 83,
+      "width": 195,
+      "height": 20,
+      "type": "match",
+      "match": 92
+    },
+    {
+      "xpos": 285,
+      "ypos": 34,
+      "width": 195,
+      "height": 20,
+      "type": "match",
+      "match": 92
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "apps_run_terminal",
+    "DESKTOP-xfce"
+  ]
+}

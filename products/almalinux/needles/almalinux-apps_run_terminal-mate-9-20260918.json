@@ -1,0 +1,26 @@
+{
+  "area": [
+    {
+      "xpos": 182,
+      "ypos": 172,
+      "width": 158,
+      "height": 20,
+      "type": "match",
+      "match": 92
+    },
+    {
+      "xpos": 455,
+      "ypos": 122,
+      "width": 115,
+      "height": 20,
+      "type": "match",
+      "match": 92
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "apps_run_terminal",
+    "DESKTOP-mate"
+  ]
+}
