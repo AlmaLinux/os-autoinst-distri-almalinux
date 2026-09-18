@@ -7,7 +7,9 @@ use utils;
 
 sub run {
     my $self = shift;
-    menu_launch_type 'printthemeeditor';
+    # Kickoff searches the name shown in the menu, not the binary:
+    # this application is listed as "Contact Print Theme Editor".
+    menu_launch_type 'Contact Print Theme';
     # Check that it is started
     assert_screen 'cpteditor_runs', timeout => 60;
     # Close the application

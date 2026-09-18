@@ -8,7 +8,9 @@ use utils;
 sub run {
     my $self = shift;
 
-    menu_launch_type 'contactthemeeditor';
+    # Kickoff searches the name shown in the menu, not the binary:
+    # this application is listed as "Contact Theme Editor".
+    menu_launch_type 'Contact Theme Editor';
     # Check that it is started
     assert_screen 'cteditor_runs';
     # Close the application

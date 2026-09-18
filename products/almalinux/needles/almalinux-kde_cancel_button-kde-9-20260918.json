@@ -1,0 +1,7 @@
+{
+  "area": [
+    { "xpos": 654, "ypos": 637, "width": 90, "height": 32, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "kde_cancel_button", "DESKTOP-kde" ]
+}
