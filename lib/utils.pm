@@ -1481,16 +1481,24 @@ sub menu_launch_type {
     # srsly KDE y u so slo
     wait_still_screen 3;
     if (get_var("DESKTOP") eq "kde") {
-        # Kickoff loses the first character of every burst typed into it:
-        # "ark" arrives as "rk", "krdc" as "rdc", "kcalc" as "lc". It is
-        # per burst, not once per opening - typing a throwaway character
-        # first and clearing it just moved the loss onto the name that
-        # followed. So the sacrificial character has to travel in the same
-        # keystroke run as the name, and a leading space serves: eaten, we
-        # have typed the name exactly; delivered, Kickoff ignores leading
-        # whitespace when searching. Either way the search is right.
+        # Kickoff loses the first character of some bursts typed into it:
+        # "ark" has arrived as "rk", "krdc" as "rdc", "kcalc" as "lc". It
+        # is timing dependent rather than reliable, which makes it awkward
+        # to compensate for, and two attempts to do so were both worse than
+        # this:
+        #   - a throwaway character typed and cleared beforehand was itself
+        #     eaten, and the name that followed still lost its first
+        #     character (37 of 45 passing, against 38 without it);
+        #   - prefixing the name with a space in the same keystroke run
+        #     left the space in the field, and Kickoff does not ignore
+        #     leading whitespace, so almost nothing matched (2 of 45).
+        # So: settle, clear the field, and let the retype below catch the
+        # cases that do come out mangled. Do not "improve" this without
+        # measuring it.
         wait_still_screen(stilltime => 3, similarity_level => 45);
-        $app = " " . $app;
+        send_key 'ctrl-a';
+        send_key 'delete';
+        wait_still_screen 1;
     }
     type_very_safely $app;
     if (get_var("DESKTOP") eq "kde") {
