@@ -1477,7 +1477,12 @@ sub menu_launch_type {
         diag("Moving the mouse away from the launcher.");
         mouse_set(1, 1);
     }
-    send_key 'super';
+    # Wait for the launcher to actually appear before going any further.
+    # A bare send_key followed by wait_still_screen can sail straight
+    # through, because the screen is already still while the launcher has
+    # not opened yet, and then the first characters are typed at nothing.
+    # Taken from Fedora, which does the same here.
+    wait_screen_change { send_key 'super'; };
     # srsly KDE y u so slo
     wait_still_screen 3;
     if (get_var("DESKTOP") eq "kde") {
