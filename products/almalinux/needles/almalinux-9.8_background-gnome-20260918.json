@@ -1,0 +1,8 @@
+{
+  "area": [
+    { "xpos": 58, "ypos": 650, "width": 174, "height": 44, "type": "match", "match": 92 },
+    { "xpos": 480, "ypos": 380, "width": 200, "height": 140, "type": "match", "match": 94 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "9.8_background", "DESKTOP-gnome" ]
+}
