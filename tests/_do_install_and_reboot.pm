@@ -83,8 +83,17 @@ sub run {
     # we're on a debug kernel, debug kernel installs are really slow.
     my $timeout = 1800;
     my $version = lc(get_var('VERSION'));
-    if ($version eq "rawhide" || lc(get_var('DISTRI')) eq "almalinux") {
+    if ($version eq "rawhide") {
         $timeout = 1800;
+    }
+    # Our live installs take 40-50 minutes wall clock when a build schedules
+    # every flavour at once, because they all contend for the same storage.
+    # The 30 minutes above then expires part way through "Generating
+    # initramfs" and the install is failed while it is still making progress
+    # - and which jobs survived that was luck rather than anything about the
+    # flavour. MAX_JOB_TIME (2h by default) is the real backstop for a hang.
+    if (lc(get_var('DISTRI')) eq "almalinux") {
+        $timeout = 3600;
     }
     if (get_var('ARCH') eq 's390x') {
         $timeout = 20000;
