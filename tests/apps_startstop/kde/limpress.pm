@@ -11,8 +11,11 @@ sub run {
     menu_launch_type 'libreoffice impress';
     # Check that it is started
     assert_screen 'limpress_runs', timeout => 60;
-    # Close the template chooser, then the application
-    send_key 'alt-f4';
+    # Close the template chooser, then the application. Escape, not
+    # alt-f4: the chooser is modal, and alt-f4 left both it and the main
+    # window standing, so quit_with_shortcut never got back to a bare
+    # desktop. Fedora does the same here.
+    send_key 'esc';
     quit_with_shortcut();
 }
 
