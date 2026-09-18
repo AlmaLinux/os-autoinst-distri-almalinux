@@ -1486,20 +1486,20 @@ sub menu_launch_type {
     # srsly KDE y u so slo
     wait_still_screen 3;
     if (get_var("DESKTOP") eq "kde") {
-        # Kickoff loses the first character of some bursts typed into it:
-        # "ark" has arrived as "rk", "krdc" as "rdc", "kcalc" as "lc". It
-        # is timing dependent rather than reliable, which makes it awkward
-        # to compensate for, and two attempts to do so were both worse than
-        # this:
-        #   - a throwaway character typed and cleared beforehand was itself
-        #     eaten, and the name that followed still lost its first
-        #     character (37 of 45 passing, against 38 without it);
-        #   - prefixing the name with a space in the same keystroke run
-        #     left the space in the field, and Kickoff does not ignore
-        #     leading whitespace, so almost nothing matched (2 of 45).
-        # So: settle, clear the field, and let the retype below catch the
-        # cases that do come out mangled. Do not "improve" this without
-        # measuring it.
+        # Kickoff used to lose the first character of some bursts typed
+        # into it - "ark" arriving as "rk", "krdc" as "rdc" - which was
+        # cured by waiting for the launcher to actually open above rather
+        # than by anything here. The settle and clear are kept as cheap
+        # insurance, along with the retype below.
+        #
+        # Worth knowing before trying to tidy this away: two attempts to
+        # compensate for the truncation from this end were both worse than
+        # leaving it alone. A throwaway character typed and cleared
+        # beforehand was itself eaten, and the name still lost its first
+        # character (37 of 45, against 38 without it). Prefixing the name
+        # with a space in the same keystroke run left the space in the
+        # field, and Kickoff does not ignore leading whitespace, so almost
+        # nothing matched (2 of 45). Measure any change here.
         wait_still_screen(stilltime => 3, similarity_level => 45);
         send_key 'ctrl-a';
         send_key 'delete';
