@@ -1481,11 +1481,15 @@ sub menu_launch_type {
     # srsly KDE y u so slo
     wait_still_screen 3;
     if (get_var("DESKTOP") eq "kde") {
-        # Kickoff takes the keyboard a moment after it has finished
-        # drawing, and whatever is typed before that is dropped: "ark" has
-        # arrived as "rk", "kcalc" as "lc" and "krdc" as "rdc". Give it a
-        # second settle, and clear the field, before typing a character.
+        # Kickoff eats the first keystroke sent to it: the search field
+        # takes focus on that keypress and consumes it, so "ark" arrives as
+        # "rk", "krdc" as "rdc" and "kcalc" as "lc". Settling longer does
+        # not help, and neither does clearing the field first, because the
+        # clear is what gets eaten instead. Send one throwaway character to
+        # absorb it, then clear whatever landed, then type for real.
         wait_still_screen(stilltime => 3, similarity_level => 45);
+        type_string "x";
+        wait_still_screen 1;
         send_key 'ctrl-a';
         send_key 'delete';
         wait_still_screen 1;
