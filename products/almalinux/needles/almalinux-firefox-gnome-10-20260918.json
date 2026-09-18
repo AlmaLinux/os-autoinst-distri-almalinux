@@ -1,0 +1,8 @@
+{
+  "area": [
+    { "xpos": 80, "ypos": 84, "width": 36, "height": 26, "type": "match", "match": 92 },
+    { "xpos": 984, "ypos": 84, "width": 34, "height": 26, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "firefox", "DESKTOP-gnome" ]
+}

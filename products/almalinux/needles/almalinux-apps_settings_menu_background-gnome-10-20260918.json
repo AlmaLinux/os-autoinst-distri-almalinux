@@ -1,0 +1,7 @@
+{
+  "area": [
+    { "xpos": 20, "ypos": 378, "width": 236, "height": 34, "type": "match", "match": 92 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "apps_settings_menu_background", "DESKTOP-gnome" ]
+}
