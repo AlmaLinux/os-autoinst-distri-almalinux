@@ -1481,18 +1481,16 @@ sub menu_launch_type {
     # srsly KDE y u so slo
     wait_still_screen 3;
     if (get_var("DESKTOP") eq "kde") {
-        # Kickoff eats the first keystroke sent to it: the search field
-        # takes focus on that keypress and consumes it, so "ark" arrives as
-        # "rk", "krdc" as "rdc" and "kcalc" as "lc". Settling longer does
-        # not help, and neither does clearing the field first, because the
-        # clear is what gets eaten instead. Send one throwaway character to
-        # absorb it, then clear whatever landed, then type for real.
+        # Kickoff loses the first character of every burst typed into it:
+        # "ark" arrives as "rk", "krdc" as "rdc", "kcalc" as "lc". It is
+        # per burst, not once per opening - typing a throwaway character
+        # first and clearing it just moved the loss onto the name that
+        # followed. So the sacrificial character has to travel in the same
+        # keystroke run as the name, and a leading space serves: eaten, we
+        # have typed the name exactly; delivered, Kickoff ignores leading
+        # whitespace when searching. Either way the search is right.
         wait_still_screen(stilltime => 3, similarity_level => 45);
-        type_string "x";
-        wait_still_screen 1;
-        send_key 'ctrl-a';
-        send_key 'delete';
-        wait_still_screen 1;
+        $app = " " . $app;
     }
     type_very_safely $app;
     if (get_var("DESKTOP") eq "kde") {
