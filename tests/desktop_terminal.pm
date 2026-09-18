@@ -7,7 +7,7 @@ sub run {
     my $self = shift;
     my $relnum = get_release_number;
     check_desktop;
-    menu_launch_type('terminal');
+    desktop_launch_terminal;
     assert_screen "apps_run_terminal";
     wait_still_screen(stilltime => 5, similarity_level => 42);
     # need to be root

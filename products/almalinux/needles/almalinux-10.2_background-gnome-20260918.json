@@ -1,0 +1,26 @@
+{
+  "area": [
+    {
+      "xpos": 52,
+      "ypos": 685,
+      "width": 150,
+      "height": 40,
+      "type": "match",
+      "match": 92
+    },
+    {
+      "xpos": 430,
+      "ypos": 380,
+      "width": 200,
+      "height": 140,
+      "type": "match",
+      "match": 94
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "10.2_background",
+    "DESKTOP-gnome"
+  ]
+}

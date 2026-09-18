@@ -7,7 +7,7 @@ use Exporter;
 
 use lockapi;
 use testapi;
-our @EXPORT = qw/run_with_error_check type_safely type_very_safely get_version_major get_code_name handle_welcome_screen_8 check_gnome_update_popup desktop_vt boot_to_login_screen console_login console_switch_layout desktop_switch_layout console_loadkeys_us do_bootloader boot_decrypt check_release menu_launch_type repo_setup setup_workaround_repo disable_updates_repos cleanup_workaround_repo console_initial_setup handle_welcome_screen gnome_initial_setup anaconda_create_user check_desktop download_modularity_tests quit_firefox advisory_get_installed_packages advisory_check_nonmatching_packages start_with_launcher quit_with_shortcut disable_firefox_studies select_rescue_mode copy_devcdrom_as_isofile get_release_number check_left_bar check_top_bar check_prerelease check_version spell_version_number _assert_and_click is_branched rec_log click_unwanted_notifications repos_mirrorlist register_application get_registered_applications solidify_wallpaper check_and_install_git check_and_install_software download_testdata make_serial_writable gdm_initial_setup mate_move_mouse/;
+our @EXPORT = qw/run_with_error_check type_safely type_very_safely get_version_major get_code_name handle_welcome_screen_8 check_gnome_update_popup desktop_vt boot_to_login_screen console_login console_switch_layout desktop_switch_layout console_loadkeys_us do_bootloader boot_decrypt check_release menu_launch_type desktop_launch_terminal repo_setup setup_workaround_repo disable_updates_repos cleanup_workaround_repo console_initial_setup handle_welcome_screen gnome_initial_setup anaconda_create_user check_desktop download_modularity_tests quit_firefox advisory_get_installed_packages advisory_check_nonmatching_packages start_with_launcher quit_with_shortcut disable_firefox_studies select_rescue_mode copy_devcdrom_as_isofile get_release_number check_left_bar check_top_bar check_prerelease check_version spell_version_number _assert_and_click is_branched rec_log click_unwanted_notifications repos_mirrorlist register_application get_registered_applications solidify_wallpaper check_and_install_git check_and_install_software download_testdata make_serial_writable gdm_initial_setup mate_move_mouse/;
 
 # We introduce this global variable to hold the list of applications that have
 # registered during the apps_startstop_test when they have sucessfully run.
@@ -1465,6 +1465,42 @@ EOF
     assert_script_run($_) foreach (split /\n/, $cmd);
 }
 
+
+sub desktop_launch_terminal {
+    # Open a terminal the way the running desktop makes most reliable.
+    # Adapted from Fedora, which routes KDE through its shortcut rather
+    # than the launcher because typing into Kickoff goes wrong often
+    # enough to matter - we have the same trouble, documented at length
+    # in menu_launch_type below. Extended here for the two desktops we
+    # ship that Fedora does not. Every binding below was read off the
+    # shipped image rather than assumed, because the defaults differ.
+    my $desktop = get_var("DESKTOP", "gnome");
+    if ($desktop eq "kde" || $desktop eq "xfce") {
+        # KDE: org.kde.konsole.desktop carries X-KDE-Shortcuts=Ctrl+Alt+T
+        # on both 9.8 and 10.2. XFCE: the shipped
+        # xfce4-keyboard-shortcuts.xml binds <Primary><Alt>t to
+        # "exo-open --launch TerminalEmulator". XFCE needs this rather
+        # than menu_launch_type regardless, because its Applications menu
+        # is a cascading menu with no search field, so there is nothing
+        # for type-and-enter to type into.
+        send_key "ctrl-alt-t";
+    }
+    elsif ($desktop eq "mate") {
+        # MATE ships run-command-terminal as 'disabled' in
+        # org.mate.SettingsDaemon.plugins.media-keys, so it has no
+        # terminal shortcut to press at all. Its run dialog is on alt-f2
+        # (panel-run-dialog in org.mate.marco), which does take typing.
+        send_key "alt-f2";
+        wait_still_screen 3;
+        type_very_safely "mate-terminal";
+        sleep 2;
+        send_key "ret";
+    }
+    else {
+        # GNOME, where menu_launch_type works today on both 9 and 10.
+        menu_launch_type "terminal";
+    }
+}
 
 sub menu_launch_type {
     # Launch an application in a graphical environment, by opening a
