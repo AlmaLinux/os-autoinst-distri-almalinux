@@ -1,0 +1,29 @@
+{
+  "area": [
+    {
+      "xpos": 278,
+      "ypos": 121,
+      "width": 315,
+      "height": 22,
+      "type": "match",
+      "match": 92
+    },
+    {
+      "xpos": 648,
+      "ypos": 577,
+      "width": 132,
+      "height": 30,
+      "type": "match",
+      "match": 92,
+      "click_point": {
+        "xpos": 66,
+        "ypos": 15
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "anaconda_prerelease_warning"
+  ]
+}
