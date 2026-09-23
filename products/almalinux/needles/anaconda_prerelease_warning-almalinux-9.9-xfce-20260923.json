@@ -1,0 +1,30 @@
+{
+  "area": [
+    {
+      "xpos": 280,
+      "ypos": 184,
+      "width": 285,
+      "height": 22,
+      "type": "match",
+      "match": 92
+    },
+    {
+      "xpos": 632,
+      "ypos": 585,
+      "width": 148,
+      "height": 32,
+      "type": "match",
+      "match": 92,
+      "click_point": {
+        "xpos": 74,
+        "ypos": 16
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "anaconda_prerelease_warning",
+    "DESKTOP-xfce"
+  ]
+}

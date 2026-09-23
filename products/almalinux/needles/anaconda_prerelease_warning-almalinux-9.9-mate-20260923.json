@@ -1,0 +1,30 @@
+{
+  "area": [
+    {
+      "xpos": 280,
+      "ypos": 162,
+      "width": 290,
+      "height": 22,
+      "type": "match",
+      "match": 92
+    },
+    {
+      "xpos": 645,
+      "ypos": 573,
+      "width": 124,
+      "height": 30,
+      "type": "match",
+      "match": 92,
+      "click_point": {
+        "xpos": 62,
+        "ypos": 15
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "anaconda_prerelease_warning",
+    "DESKTOP-mate"
+  ]
+}

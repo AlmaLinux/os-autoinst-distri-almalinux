@@ -1,0 +1,30 @@
+{
+  "area": [
+    {
+      "xpos": 280,
+      "ypos": 150,
+      "width": 285,
+      "height": 22,
+      "type": "match",
+      "match": 92
+    },
+    {
+      "xpos": 652,
+      "ypos": 550,
+      "width": 127,
+      "height": 30,
+      "type": "match",
+      "match": 92,
+      "click_point": {
+        "xpos": 63,
+        "ypos": 15
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "anaconda_prerelease_warning",
+    "DESKTOP-kde"
+  ]
+}
