@@ -480,12 +480,18 @@ if (get_var("STARTSTOP")) {
             # start_with_launcher to search the folders it can see.
             10 => [qw(cheese disks diskusage dviewer imageviewer logs lcalc
                     limpress lwriter monitor terminal videos)],
+            # The 9 aarch64 image ships no LibreOffice, Cheese, Totem or Eye
+            # of GNOME (9.9, 2026-09-30); 10 already skips all of them.
+            aarch64 => [qw(cheese imageviewer lcalc limpress lwriter videos)],
         },
         kde => {
             all => [qw(abrt dbusviewer vault)],
             10 => [qw(akregator cpteditor cteditor kaddressbook kgpg kimport
                     kmag kmail kmail_header kmousetool kontakt konversation
                     korganizer ktnef lcalc limpress lwriter pimexporter)],
+            # No Calc or Impress on 9 aarch64, and Writer cannot start there
+            # for want of a VCL backend - see the MATE/XFCE note below.
+            aarch64 => [qw(lcalc limpress lwriter)],
         },
         # The aarch64 MATE and XFCE images ship no LibreOffice Calc or
         # Impress, and MATE aarch64 has no HexChat (9.9, 2026-09-30).

@@ -1,0 +1,23 @@
+{
+  "area": [
+    {
+      "xpos": 530,
+      "ypos": 325,
+      "width": 64,
+      "height": 22,
+      "type": "match",
+      "match": 90,
+      "click_point": {
+        "xpos": 32,
+        "ypos": 11
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "apps_menu_utilities",
+    "DESKTOP-gnome",
+    "ENV-ARCH-aarch64"
+  ]
+}
