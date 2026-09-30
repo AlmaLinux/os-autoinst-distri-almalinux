@@ -1,0 +1,30 @@
+{
+  "area": [
+    {
+      "xpos": 270,
+      "ypos": 313,
+      "width": 262,
+      "height": 22,
+      "type": "match",
+      "match": 90
+    },
+    {
+      "xpos": 484,
+      "ypos": 420,
+      "width": 56,
+      "height": 20,
+      "type": "match",
+      "match": 90,
+      "click_point": {
+        "xpos": 28,
+        "ypos": 10
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "run_command_error",
+    "DESKTOP-mate"
+  ]
+}

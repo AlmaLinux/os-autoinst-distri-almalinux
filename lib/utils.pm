@@ -1484,13 +1484,25 @@ sub desktop_run_command {
     # the shipped xfce4-keyboard-shortcuts.xml). Pass the executable, not
     # the menu name - neither dialog is a search over menu names.
     my $cmd = shift;
-    # wait for the dialog to actually appear before typing, as
-    # menu_launch_type does, so the first characters are not lost
-    wait_screen_change { send_key 'alt-f2'; };
-    wait_still_screen 2;
-    type_very_safely $cmd;
-    sleep 2;
-    send_key 'ret';
+    for my $attempt (1 .. 2) {
+        # wait for the dialog to actually appear before typing, as
+        # menu_launch_type does, so the first characters are not lost
+        wait_screen_change { send_key 'alt-f2'; };
+        # ...and then for it to settle: the dialog is drawn before it takes
+        # the keyboard, and typing into it straight away has lost the first
+        # character - "simple-scan" arrived as "imple-scan".
+        wait_still_screen(stilltime => 3, similarity_level => 45);
+        type_very_safely $cmd;
+        sleep 2;
+        send_key 'ret';
+        # MATE reports a mangled command as a location it could not open.
+        # Close that and try once more. Only MATE is checked, so nothing
+        # else pays for the wait.
+        last unless (get_var("DESKTOP", "") eq "mate" && check_screen("run_command_error", 5));
+        record_info("retry", "run dialog could not start '$cmd', retrying");
+        click_lastmatch;
+        wait_still_screen 2;
+    }
 }
 
 sub desktop_launch_terminal {
