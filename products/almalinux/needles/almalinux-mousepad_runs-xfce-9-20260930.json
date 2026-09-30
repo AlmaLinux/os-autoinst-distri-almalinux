@@ -1,0 +1,26 @@
+{
+  "area": [
+    {
+      "xpos": 214,
+      "ypos": 31,
+      "width": 156,
+      "height": 22,
+      "type": "match",
+      "match": 92
+    },
+    {
+      "xpos": 8,
+      "ypos": 57,
+      "width": 310,
+      "height": 22,
+      "type": "match",
+      "match": 92
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "mousepad_runs",
+    "DESKTOP-xfce"
+  ]
+}

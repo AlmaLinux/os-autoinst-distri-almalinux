@@ -1,0 +1,18 @@
+{
+  "area": [
+    {
+      "xpos": 0,
+      "ypos": 746,
+      "width": 700,
+      "height": 22,
+      "type": "match",
+      "match": 95
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "workspace",
+    "DESKTOP-mate"
+  ]
+}

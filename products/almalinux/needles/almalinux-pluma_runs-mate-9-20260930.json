@@ -1,0 +1,26 @@
+{
+  "area": [
+    {
+      "xpos": 398,
+      "ypos": 91,
+      "width": 232,
+      "height": 22,
+      "type": "match",
+      "match": 92
+    },
+    {
+      "xpos": 190,
+      "ypos": 118,
+      "width": 340,
+      "height": 22,
+      "type": "match",
+      "match": 92
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "ENV-DISTRI-almalinux",
+    "pluma_runs",
+    "DESKTOP-mate"
+  ]
+}
