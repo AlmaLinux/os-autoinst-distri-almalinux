@@ -47,6 +47,7 @@
                 "QEMURAM": 4096,
                 "QEMUVGA": "std",
                 "QEMU_MAX_MIGRATION_TIME": "480",
+                "QEMU_VIRTIO_KEYBOARD": "1",
                 "QEMU_VIRTIO_RNG": "1",
                 "WORKER_CLASS": "qemu_ppc64le"
             }
