@@ -1,0 +1,9 @@
+{
+  "area": [
+    { "type": "match", "xpos": 333, "ypos": 528, "width": 360, "height": 20, "match": 90,
+      "click_point": { "xpos": 75, "ypos": 66 } },
+    { "type": "match", "xpos": 580, "ypos": 584, "width": 72, "height": 20, "match": 90 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "DESKTOP-gnome", "LANGUAGE-english", "getting_started" ]
+}

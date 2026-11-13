@@ -20,7 +20,7 @@
   "properties": [],
   "tags": [
     "ENV-DISTRI-almalinux",
-    "10.3_background",
+    "10.3_background", "10_background",
     "DESKTOP-kde"
   ]
 }

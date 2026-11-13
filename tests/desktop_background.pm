@@ -23,7 +23,12 @@ sub run {
     # don't have any requirement for what background Rawhide uses.
     my $version = get_var('VERSION');
     my $rawrel = get_var('RAWREL');
-    assert_screen "${version}_background" if ($version ne "Rawhide" && $version ne $rawrel);
+    # AlmaLinux keeps one wallpaper for a whole major release, so a new minor
+    # should not need its own needle: fall back to the major-version tag
+    # (10_background for 10.4, ...). The exact-version tag still wins where
+    # a needle carries it.
+    (my $major = $version) =~ s/\..*//;
+    assert_screen ["${version}_background", "${major}_background"] if ($version ne "Rawhide" && $version ne $rawrel);
 }
 
 sub test_flags {

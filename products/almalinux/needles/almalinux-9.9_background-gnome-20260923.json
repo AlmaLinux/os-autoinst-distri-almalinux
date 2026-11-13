@@ -20,7 +20,7 @@
   "properties": [],
   "tags": [
     "ENV-DISTRI-almalinux",
-    "9.9_background",
+    "9.9_background", "9_background",
     "DESKTOP-gnome"
   ]
 }
