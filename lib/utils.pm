@@ -1492,6 +1492,17 @@ sub desktop_run_command {
         # the keyboard, and typing into it straight away has lost the first
         # character - "simple-scan" arrived as "imple-scan".
         wait_still_screen(stilltime => 3, similarity_level => 45);
+        # XFCE draws the Application Finder well before the window manager
+        # gives it the keyboard, and a still screen does not tell the two
+        # apart: on a busy worker the first one or two characters went to
+        # the desktop instead ("firefox" arrived as "refox", and the "f"
+        # selected the File System icon). Clicking in the entry makes xfwm
+        # focus the window, so nothing typed afterwards can go elsewhere.
+        if (get_var("DESKTOP", "") eq "xfce" && check_screen("xfce_appfinder_dialog", 10)) {
+            click_lastmatch;
+            mouse_hide;
+            wait_still_screen(stilltime => 1, similarity_level => 45);
+        }
         type_very_safely $cmd;
         sleep 2;
         send_key 'ret';
@@ -1586,9 +1597,26 @@ sub menu_launch_type {
         # and return launches nothing, so the test looks for a window that
         # was never opened. Whenever it reports no matches, clear the field
         # and type again rather than pressing return on an empty result.
+        #
+        # The other way this goes wrong: Kickoff is not open at all when the
+        # typing starts. Plasma then starts KRunner on the first key typed at
+        # the desktop and drops the next few while it opens - "dolphin"
+        # arrived as "dhin". KRunner never says "no matches", it offers a web
+        # search, so return opened Firefox on a DuckDuckGo search instead.
+        # If KRunner is what we ended up typing into, close it and start
+        # over with Kickoff.
         for (1 .. 3) {
-            last unless check_screen("kde_launcher_no_matches", 3);
-            diag("Kickoff found no matches for $app, retyping");
+            last unless check_screen(["kde_launcher_no_matches", "kde_krunner_open"], 3);
+            if (match_has_tag("kde_krunner_open")) {
+                record_info("launcher retry", "typed '$app' into KRunner instead of Kickoff, reopening Kickoff");
+                send_key 'esc';
+                wait_still_screen 2;
+                wait_screen_change { send_key 'super'; };
+                wait_still_screen(stilltime => 3, similarity_level => 45);
+            }
+            else {
+                diag("Kickoff found no matches for $app, retyping");
+            }
             send_key 'ctrl-a';
             send_key 'delete';
             wait_still_screen 2;

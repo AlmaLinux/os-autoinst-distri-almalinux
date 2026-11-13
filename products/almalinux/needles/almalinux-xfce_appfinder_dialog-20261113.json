@@ -1,0 +1,8 @@
+{
+  "area": [
+    { "xpos": 418, "ypos": 353, "width": 132, "height": 20, "type": "match", "match": 90,
+      "click_point": { "xpos": 182, "ypos": 55 } }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "xfce_appfinder_dialog", "DESKTOP-xfce" ]
+}
