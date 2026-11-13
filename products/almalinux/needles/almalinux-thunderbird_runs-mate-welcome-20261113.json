@@ -1,0 +1,7 @@
+{
+  "area": [
+    { "xpos": 316, "ypos": 122, "width": 392, "height": 72, "type": "match", "match": 90 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "thunderbird_runs", "DESKTOP-mate" ]
+}

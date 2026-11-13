@@ -1,0 +1,7 @@
+{
+  "area": [
+    { "xpos": 438, "ypos": 96, "width": 148, "height": 21, "type": "match", "match": 90 }
+  ],
+  "properties": [],
+  "tags": [ "ENV-DISTRI-almalinux", "kparted_runs", "DESKTOP-kde" ]
+}
