@@ -87,6 +87,15 @@ sub cleanup_needles() {
     if (get_var('DESKTOP')) {
         unregister_prefix_tags('DESKTOP', [get_var('DESKTOP')]);
     }
+    else {
+        # No DESKTOP means a boot, minimal or dvd install running the stock
+        # anaconda, which never has the KDE, MATE or XFCE theme. Left loaded,
+        # those desktops' needles false-match here: the KDE "Done" needle
+        # matches a dimmed manual-partitioning screen at 95% and
+        # disk_custom_resize_lvm then clicks empty space instead of Done.
+        # Keep untagged and GNOME needles, drop the other desktops'.
+        unregister_prefix_tags('DESKTOP', ['gnome']);
+    }
 
     # Unregister non-language-appropriate needles. See unregister_except_
     # tags for details; basically all needles with at least one LANGUAGE-

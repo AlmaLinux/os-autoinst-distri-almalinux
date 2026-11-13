@@ -86,8 +86,10 @@ sub run {
     send_key "tab";
     assert_and_click "anaconda_part_add_mountpoint";
 
-    # Close the spoke
-    assert_and_click "anaconda_spoke_done";
+    # Close the spoke. The "add mount point" dialog can stay up, dimming
+    # everything behind it, for well over ten seconds on a busy worker while
+    # anaconda creates the volume, so give Done time to become clickable.
+    assert_and_click "anaconda_spoke_done", timeout => 120;
 
     # Close the spoke again to bypass warning
     assert_and_click "anaconda_spoke_done";
