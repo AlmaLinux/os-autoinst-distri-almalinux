@@ -32,6 +32,18 @@ sub select_disks {
     # Damn animation delay can cause bad clicks here too - wait for it
     sleep 1;
     assert_and_click "anaconda_main_hub_install_destination";
+    # On AlmaLinux 10.3 (gnome-kiosk on mutter 49) this click is sometimes
+    # swallowed: os-autoinst sends it, anaconda never logs "Entered spoke"
+    # and the hub just stays up. It is usually the first click after
+    # _software_selection comes back from the text console, and it gets much
+    # more frequent when the worker host is busy (11 jobs of the 20261113
+    # builds, on x86_64, x86_64_v2, s390x and ppc64le alike). If the hub is
+    # still showing once the screen has settled, click again.
+    wait_still_screen 2;
+    if (check_screen "anaconda_main_hub_install_destination", 0) {
+        record_info("hub click retry", "Installation Destination did not open on the first click, clicking again");
+        click_lastmatch;
+    }
 
     if (get_var('NUMDISKS') > 1) {
         # Multi-disk case. Select however many disks the test needs. If
